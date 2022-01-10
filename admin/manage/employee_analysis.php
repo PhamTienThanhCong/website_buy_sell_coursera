@@ -35,7 +35,7 @@ if (isset($_SESSION['lever']) == false) {
     text-align: center;
   }
 
-  #employee-manager {
+  #employee-analysis {
     background: #081D45;
   }
 </style>
@@ -51,14 +51,8 @@ if (isset($_SESSION['lever']) == false) {
     <div class="home-content">
       <div class="sales-boxes">
         <div class="recent-sales box">
-          <div class="title">Quản lý nhân sự</div>
+          <div class="title">Phân tích tình hình tài chính của nhân sự</div>
           <br>
-          <!-- <select name="" id="">
-              <option value="">-----Tất cả-----</option>
-              <option value="">Chờ xác nhận</option>
-              <option value="">Đã xác nhận</option>
-              <option value="">Đã Chặn </option>
-            </select> -->
           <br>
           <div class="sales-details">
             <?php
@@ -69,23 +63,15 @@ if (isset($_SESSION['lever']) == false) {
 
             <table>
               <tr>
-                <th>ảnh</th>
                 <th>Tên</th>
                 <th>email</th>
                 <th>Số điện thoại</th>
-                <th>địa chỉ</th>
-                <th>Trạng thái</th>
-                <th>Chức năng</th>
+                <th>Địa chỉ</th>
+                <th>Thu nhập</th>
+                <th>Xem chi tiết</th>
               </tr>
               <?php foreach ($nhan_vien as $nv) { ?>
                 <tr>
-                  <th>
-                    <?php if ($nv['image'] == "none") { ?>
-                      <img width="100" src="../../public/images/default/avata.png" alt="">
-                    <?php } else { ?>
-                      <img width="100" src="../../public/images/upload/<?php echo $nv['image'] ?>" alt="">
-                    <?php } ?>
-                  </th>
                   <th>
                     <?php echo $nv['name_admin'] ?>
                   </th>
@@ -109,15 +95,7 @@ if (isset($_SESSION['lever']) == false) {
                     ?>
                   </th>
                   <th>
-                    <?php if ($nv['status_admin'] == 0) { ?>
-                      <a href="./processing/employee_comfirm.php?id=<?php echo $nv['id_admin'] ?>&type=1">Xác nhận</a>
-                      <br>
-                      <a href="./processing/employee_comfirm.php?id=<?php echo $nv['id_admin'] ?>&type=0">Từ chối</a>
-                    <?php } elseif ($nv['status_admin'] == 1) { ?>
-                      <a href="./processing/employee_comfirm.php?id=<?php echo $nv['id_admin'] ?>&type=-1">CẤM !</a>
-                    <?php } else { ?>
-                      <a href="./processing/employee_comfirm.php?id=<?php echo $nv['id_admin'] ?>&type=2">Gỡ cấm !</a>
-                    <?php } ?>
+                    <a href="">Xem</a>
                   </th>
                 </tr>
               <?php } ?>
