@@ -25,7 +25,7 @@ if ($emailCheck['number'] != 0){
     exit();
 }
 
-$fileImageName = null;
+$fileImageName = 'none';
 
 if (basename($image["name"]) != ""){
     // thư mục lưu file
@@ -48,7 +48,7 @@ VALUES ('$name_admin', '$email_admin', '$phone_number_admin', '$address_admin', 
 mysqli_query($connection,$sql);
 mysqli_close($connection);
 echo "Tạo Tài Khoản thành công!<br>Chúng tôi sẽ thông báo với bạn qua email sau khi xác nhận hoàn tất";
-echo "<br><a href=''>Quay lại trang chủ<a>";
+echo "<br><a href='../login.php'>Quay lại trang chủ<a>";
 
 // email: congj2school@gmail.com
 // pass:  Ph@mCongJ2School

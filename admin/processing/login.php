@@ -20,6 +20,8 @@ if (isset($admin['id_admin'])){
         $_SESSION['user'] = $admin['name_admin'];
         $_SESSION['id'] = $admin['id_admin'];
         $_SESSION['lever'] = $admin['lever'];
+    }elseif($admin['status_admin'] == -1){
+        $_SESSION['alert'] = "Tài khoản của bạn đang bị cấm";
     }else{
         $_SESSION['alert'] = "Tài khoản của bạn đang đợi xác nhận";
     }
