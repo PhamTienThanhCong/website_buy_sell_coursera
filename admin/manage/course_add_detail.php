@@ -14,7 +14,7 @@ if (isset($_SESSION['lever']) == false) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <style>
-    #course-add{
+    #course-manager{
         background: #081D45;
     }
     .content{
@@ -103,9 +103,54 @@ if (isset($_SESSION['lever']) == false) {
         <div class="home-content">
             <div class="sales-boxes">
                 <div class="recent-sales box">
-                    <div class="title">Thêm khóa học chi tiết</div>
+                    <div class="title">Chỉnh sửa khóa học</div>
                     <br><br>
+                    <div class="content">
+                        <form class = new-couse method="post" action="./processing/course_add.php" enctype="multipart/form-data">
+                            <label for="">Tên</label>
+                            <input name="name_course" type="text" placeholder="Nhập tên của khóa học" onchange="changeTitle(event)">
+                            <br>
+                            <label for="" >Giá</label>
+                            <input name="price" type="number" placeholder="Nhập giá của khóa học" onchange="ChangePrice(event)">
+                            <br>
+                            <label for="">Ảnh</label>
+                            <input name="image_course" style="border: none;" type="file" onchange="loadFile(event)">
+                            <br>
+                            <label for="">Mô tả</label>
+                            <br>
+                            <textarea name="description_course" id=""></textarea>
+                            <br>
+                            <button id="btn">Tạo khóa học mới</button>
+                        </form>
+                        <div class = preview-couse>
+                            <div class="title">Xem trước khóa học</div>
+                            <br><br>
+                            <div class = "cart-pre">
+                                <div class = "img-pre">
+                                    <img id="img-preview" src="../../public/images/default/preview_course.jpg" alt="">
+                                </div>
+                                <br>
+                                <div class="cart-details">
+                                    <h2 id="title-course" >Tên khóa học: </h2>
+                                    <p id = "number-course">
+                                        <i class='bx bxs-videos'></i>
+                                        Số lượng bài học: 10 Bài
+                                    </p>
 
+                                    <p id = "author-course">
+                                        <i class='bx bxs-user'></i>
+                                        Diễn giả: 
+                                        <?php echo $_SESSION['user']?>
+                                    </p>
+
+                                    <p id="price-course">
+                                        <i class='bx bxs-credit-card'></i>
+                                        Giá thành: 000 VND
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>                       
             </div>
         </div>
@@ -120,6 +165,24 @@ if (isset($_SESSION['lever']) == false) {
                 sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
             } else
                 sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+        }
+        var loadFile = function(event) {
+            var output = document.getElementById('img-preview');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function() {
+                URL.revokeObjectURL(output.src) // free memory
+            }
+        };
+        var changeTitle = function(event) {
+            var output = document.getElementById('title-course');
+            output.innerText = event.target.value;
+        }
+        var ChangePrice = function(event) {
+            var output = document.getElementById('price-course');
+            var x = parseInt(event.target.value);
+            x = x.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
+            console.log(x);
+            output.innerHTML = "<i class='bx bxs-credit-card'></i> Giá thành:" + x;
         }
     </script>
 

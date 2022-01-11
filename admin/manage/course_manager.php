@@ -33,7 +33,7 @@ if (isset($_SESSION['lever']) == false) {
         text-align: center;
     }
 
-    #course-add {
+    #course-manager{
         background: #081D45;
     }
 </style>
@@ -64,24 +64,36 @@ if (isset($_SESSION['lever']) == false) {
 
                         require "../../public/connect_sql.php";
                         $id = $_SESSION['id'];
-                        $sql = "SELECT * FROM `course` WHERE (`id_admin` = '$id')";
+                        $sql = "SELECT course.*, COUNT(lesson.id_course) as number_course FROM `course` 
+                                LEFT OUTER JOIN lesson ON course.id_course = lesson.id_course
+                                WHERE course.id_admin = '$id' 
+                                GROUP BY course.id_course";
                         $courses = mysqli_query($connection, $sql);
                         ?>
 
                         <table>
                             <tr>
-                                <th>Tên</th>
+                                <th>STT</th>
+                                <th>Tên khóa học</th>
                                 <th>Giá</th>
-                                <th>trạng thái</th>
+                                <th>Số lượng bài giảng</th>
+                                <th>Trạng thái</th>
+                                <th>Chỉnh sửa</th>
                                 <th>Xem chi tiết</th>
                             </tr>
-                            <?php foreach ($courses as $course) { ?>
+                            <?php foreach ($courses as $index=>$course) { ?>
                                 <tr>
+                                    <th>
+                                        <?php echo $index+1; ?>
+                                    </th>
                                     <th>
                                         <?php echo $course['name_course'] ?>
                                     </th>
                                     <th>
                                         <?php echo currency_format($course['price'])?>
+                                    </th>
+                                    <th>
+                                        <?php echo $course['number_course']?>
                                     </th>
                                     <th>
                                         <?php 
@@ -93,7 +105,10 @@ if (isset($_SESSION['lever']) == false) {
                                         ?>
                                     </th>
                                     <th>
-
+                                        <a href="./course_add_detail.php?id=<?php echo $course['id_course']?>">Chỉnh Sửa</a>
+                                    </th>
+                                    <th>
+                                        <a href="">Xem</a>
                                     </th>
                                 </tr>
                             <?php } ?>
