@@ -42,7 +42,7 @@ if (isset($employee['id_admin'])){
         }
         if ($send == true){
             echo "Đang gửi mail, vui lòng đợi";
-            mail_send_by_cong($employee['email_admin'],$user,$title,$content);
+            // mail_send_by_cong($employee['email_admin'],$user,$title,$content);
         }
     }else{
         $_SESSION['alert'] = "Điều này bị cấm";

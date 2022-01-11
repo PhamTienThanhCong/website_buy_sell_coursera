@@ -17,8 +17,8 @@
           </a>
         </li>
         <li>
-          <a href="#">
-            <i class='bx bx-book-alt' ></i>
+          <a href="./course_manager.php" id="course-manager">
+            <i class='bx bx-book-alt'></i>
             <span class="links_name">Quản lý khóa học</span>
           </a>
         </li>

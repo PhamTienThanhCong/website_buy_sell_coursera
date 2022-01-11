@@ -106,19 +106,19 @@ if (isset($_SESSION['lever']) == false) {
                     <div class="title">Thêm khóa học mới +</div>
                     <br><br>
                     <div class="content">
-                        <form class = new-couse enctype="multipart/form-data">
+                        <form class = new-couse method="post" action="./processing/course_add.php" enctype="multipart/form-data">
                             <label for="">Tên</label>
-                            <input type="text" placeholder="Nhập tên của khóa học" onchange="changeTitle(event)">
+                            <input name="name_course" type="text" placeholder="Nhập tên của khóa học" onchange="changeTitle(event)">
                             <br>
                             <label for="" >Giá</label>
-                            <input type="number" placeholder="Nhập giá của khóa học" onchange="ChangePrice(event)">
+                            <input name="price" type="number" placeholder="Nhập giá của khóa học" onchange="ChangePrice(event)">
                             <br>
                             <label for="">Ảnh</label>
-                            <input style="border: none;" type="file" onchange="loadFile(event)">
+                            <input name="image_course" style="border: none;" type="file" onchange="loadFile(event)">
                             <br>
                             <label for="">Mô tả</label>
                             <br>
-                            <textarea name="" id=""></textarea>
+                            <textarea name="description_course" id=""></textarea>
                             <br>
                             <button id="btn">Tạo khóa học mới</button>
                         </form>
@@ -138,11 +138,15 @@ if (isset($_SESSION['lever']) == false) {
                                     </p>
 
                                     <p id = "author-course">
+                                        <i class='bx bxs-user'></i>
                                         Diễn giả: 
                                         <?php echo $_SESSION['user']?>
                                     </p>
 
-                                    <p id="price-course">Giá thành: 000 VND</p>
+                                    <p id="price-course">
+                                        <i class='bx bxs-credit-card'></i>
+                                        Giá thành: 000 VND
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -178,7 +182,7 @@ if (isset($_SESSION['lever']) == false) {
             var x = parseInt(event.target.value);
             x = x.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
             console.log(x);
-            output.innerText = "Giá thành: " + x;
+            output.innerHTML = "<i class='bx bxs-credit-card'></i> Giá thành:" + x;
         }
     </script>
 
