@@ -139,6 +139,8 @@ if (isset($_SESSION['lever']) == false) {
                     </div>
                 </div>
             </div>
+            <?php require "../default/footer.php" ?>
+        </div>
     </section>
 
     <script>
