@@ -29,6 +29,14 @@ function edit_lesson(id, name_lesson, ytb, id_course) {
 
 }
 
+var loadFile = function(event) {
+    var output = document.getElementById('img-preview');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+        URL.revokeObjectURL(output.src) // free memory
+    }
+};
+
 var changeTitle = function(event) {
     var output = document.getElementById('title-course');
     output.innerText = event.target.value;

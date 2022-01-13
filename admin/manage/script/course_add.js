@@ -1,4 +1,12 @@
 
+var loadFile = function(event) {
+    var output = document.getElementById('img-preview');
+    console.log(event.target.files[0])
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+        URL.revokeObjectURL(output.src) // free memory
+    }
+};
         var changeTitle = function(event) {
             var output = document.getElementById('title-course');
             output.innerText = event.target.value;

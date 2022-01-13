@@ -47,8 +47,8 @@ if (isset($_SESSION['lever']) == false) {
                         <div class="title">Chỉnh sửa khóa học</div>
                         <br><br>
                         <div class="content">
-                            <form id="form-course" class=new-couse method="post" action="./processing/course_add.php" enctype="multipart/form-data">
-                                <input type="hidden" value="<?php echo $id_course ?>" readonly>
+                            <form id="form-course" class=new-couse method="post" action="./processing/course_edit.php" enctype="multipart/form-data">
+                                <input type="hidden" name="id_course" value="<?php echo $id_course ?>" readonly>
                                 <label for="">Tên</label>
                                 <input name="name_course" type="text" placeholder="Nhập tên của khóa học" onchange="changeTitle(event)" value="<?php echo $courses['name_course'] ?>" readonly>
                                 <br>
@@ -207,6 +207,7 @@ if (isset($_SESSION['lever']) == false) {
             </div>
     </section>
     
+    <script type="text/javascript" src="./script/js_chung.js"></script>
     <script type="text/javascript" src="./script/course_add_detail.js"></script>
 </body>
 

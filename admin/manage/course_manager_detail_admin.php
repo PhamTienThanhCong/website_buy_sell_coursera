@@ -78,7 +78,7 @@ if (isset($_SESSION['lever']) == false) {
                                 </div>
                             </div>
                         </div>
-                        <a href="./course_manager_admin.php">quay lại <<<</a>
+                        <a id="btnlesson" href="./course_manager_admin.php">quay lại <<<</a>
                     </div>
                 </div>
                 <!-- chỉnh sửa khóa học -->
@@ -142,9 +142,9 @@ if (isset($_SESSION['lever']) == false) {
                             <p>Trang <?php echo $trang ?></p>
                             <?php for ($i = 1; $i <= $so_luong_trang; $i++) { ?>
                                 <?php if ($i == $trang) { ?>
-                                    <a class="page" style="border: 1px solid #0a2558;" href="./course_manager_detail_admin.php?id=<?php echo $courses['id_course'] ?>&index=<?php echo $i ?>#btn-lesson"><?php echo $i ?></a>
+                                    <a class="page" style="border: 1px solid #0a2558;" href="./course_manager_detail_admin.php?id=<?php echo $courses['id_course'] ?>&index=<?php echo $i ?>#btnlesson"><?php echo $i ?></a>
                                 <?php } else { ?>
-                                    <a class="page" href="./course_manager_detail_admin.php?id=<?php echo $courses['id_course'] ?>&index=<?php echo $i ?>#btn-lesson"><?php echo $i ?></a>
+                                    <a class="page" href="./course_manager_detail_admin.php?id=<?php echo $courses['id_course'] ?>&index=<?php echo $i ?>#btnlesson"><?php echo $i ?></a>
                                 <?php } ?>
                             <?php } ?>
                         </div>
