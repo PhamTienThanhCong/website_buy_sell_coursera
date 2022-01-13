@@ -37,27 +37,27 @@ if (isset($_SESSION['lever']) == false) {
         background: #081D45;
     }
 
-    .user-detail{
+    .user-detail {
         width: 100%;
         display: flex;
     }
 
-    .avata{
+    .avata {
         width: 200px;
     }
 
-    #user-in4{
+    #user-in4 {
         width: 70%;
     }
 
-    label{
+    label {
         margin-left: 30px;
         margin-right: 10px;
         display: inline-block;
         width: 106px;
     }
 
-    input{
+    input {
         width: 70%;
         outline: none;
         border: none;
@@ -66,7 +66,7 @@ if (isset($_SESSION['lever']) == false) {
         margin-bottom: 6px;
     }
 
-    #btn{
+    #btn {
         /* transform: translateY(7px); */
         margin-left: 30px;
         padding: 7px 20px;
@@ -78,10 +78,10 @@ if (isset($_SESSION['lever']) == false) {
         border-radius: 6px;
         transition: all 0.3s;
     }
-    #btn:hover{
+
+    #btn:hover {
         background-color: #004080;
     }
-
 </style>
 
 <body>
@@ -89,89 +89,62 @@ if (isset($_SESSION['lever']) == false) {
     require "../default/option.php"
     ?>
     <section class="home-section">
-        <?php
-        require "../default/user.php"
-        ?>
-        <div class="home-content">
-            <div class="sales-boxes">
-                <div class="recent-sales box">
-                    <div class="title">Tài khoản của tôi</div>
-                    <br>
-                    <br>
-                    <div class="sales-details">
-                        <?php
-                        require "../../public/connect_sql.php";
-                        $id = $_SESSION['id'];
-                        $sql = "SELECT * FROM `admin` WHERE (`id_admin` = '$id')";
-                        $admin = mysqli_query($connection, $sql);
-                        $admin = mysqli_fetch_array($admin);
-                        ?>
+            <?php
+            require "../default/user.php"
+            ?>
+            <div class="home-content">
+                <div class="sales-boxes">
+                    <div class="recent-sales box">
+                        <div class="title">Tài khoản của tôi</div>
+                        <br>
+                        <br>
+                        <div class="sales-details">
+                            <?php
+                            require "../../public/connect_sql.php";
+                            $id = $_SESSION['id'];
+                            $sql = "SELECT * FROM `admin` WHERE (`id_admin` = '$id')";
+                            $admin = mysqli_query($connection, $sql);
+                            $admin = mysqli_fetch_array($admin);
+                            ?>
 
-                        <div class="user-detail">
-                            <div class="avata">
-                                <?php if ($admin['image'] == "none") { ?>
-                                    <img id = "output" width="100%" src="../../public/images/default/avata.png" alt="">
-                                <?php } else { ?>
-                                    <img id = "output" width="100%" src="../../public/images/upload/<?php echo $admin['image'] ?>" alt="">
-                                <?php } ?>
+                            <div class="user-detail">
+                                <div class="avata">
+                                    <?php if ($admin['image'] == "none") { ?>
+                                        <img id="output" width="100%" src="../../public/images/default/avata.png" alt="">
+                                    <?php } else { ?>
+                                        <img id="output" width="100%" src="../../public/images/upload/<?php echo $admin['image'] ?>" alt="">
+                                    <?php } ?>
+                                </div>
+
+
+                                <form id="user-in4" method="post" action="./processing/employee_edit.php" enctype="multipart/form-data">
+                                    <label for="name">Tên: </label>
+                                    <input type="text" id="name" name="name_admin" value="<?php echo $admin['name_admin'] ?>" readonly>
+                                    <br>
+                                    <label for="email">Email: </label>
+                                    <input type="email" id="email" name="email_admin" value="<?php echo $admin['email_admin'] ?>" readonly>
+                                    <br>
+                                    <label for="phone_number">Số Điện Thoại: </label>
+                                    <input type="text" id="phone_number" name="phone_number_admin" value="<?php echo $admin['phone_number_admin'] ?>" readonly>
+                                    <br>
+                                    <label for="address">Địa chỉ: </label>
+                                    <input type="text" id="address" name="address_admin" value="<?php echo $admin['address_admin'] ?>" readonly>
+                                    <br>
+                                    <input type='hidden' id='img' name='image'>
+                                    <br>
+                                    <button id="btn" type="button" onclick="edit()">Sửa</button>
+                                </form>
                             </div>
-                            
 
-                            <form id="user-in4" method="post" action = "./processing/employee_edit.php" enctype="multipart/form-data">
-                                <label for="name">Tên: </label>
-                                <input type="text" id="name" name="name_admin" value="<?php echo $admin['name_admin'] ?>" readonly>
-                                <br>
-                                <label for="email">Email: </label>
-                                <input type="email" id="email" name="email_admin" value="<?php echo $admin['email_admin'] ?>" readonly>
-                                <br>
-                                <label for="phone_number">Số Điện Thoại: </label>
-                                <input type="text" id="phone_number" name="phone_number_admin" value="<?php echo $admin['phone_number_admin'] ?>" readonly>
-                                <br>
-                                <label for="address">Địa chỉ: </label>
-                                <input type="text" id="address" name="address_admin" value="<?php echo $admin['address_admin'] ?>" readonly>
-                                <br>
-                                <input type='hidden' id='img' name='image'>
-                                <br>
-                                <button id="btn" type="button" onclick="edit()">Sửa</button>
-                            </form>
                         </div>
-                        
                     </div>
                 </div>
+                <?php require "../default/footer.php" ?>
             </div>
-            <?php require "../default/footer.php" ?>
-        </div>
     </section>
 
-    <script>
-        let sidebar = document.querySelector(".sidebar");
-        let sidebarBtn = document.querySelector(".sidebarBtn");
-        sidebarBtn.onclick = function() {
-            sidebar.classList.toggle("active");
-            if (sidebar.classList.contains("active")) {
-                sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
-            } else
-                sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-        }
-        function edit(){
-            var a = document.getElementById("user-in4").innerHTML;
-            a = a.replaceAll("readonly=","");
-            a = a.replace('<input type="hidden" id="img" name="image">','<label for="img">Ảnh mới: </label><input type="file" id="img" name="image" onchange="loadFile(event)">')
-            a = a.replace('<button id="btn" type="button" onclick="edit()">Sửa</button>','<button id="btn">Lưu lại</button>')
-            document.getElementById("user-in4").innerHTML = a;
-            document.getElementById("btn").style.backgroundColor = "red";
-            for (let i = 1; i < 5; i++){
-                document.getElementsByTagName('input')[i].style.borderBottom = "1px solid #004080";
-            }
-        }
-        var loadFile = function(event) {
-            var output = document.getElementById('output');
-            output.src = URL.createObjectURL(event.target.files[0]);
-            output.onload = function() {
-                URL.revokeObjectURL(output.src) // free memory
-            }
-        };
-    </script>
+    <script type="text/javascript" src="./script/js_chung.js"></script>
+    <script type="text/javascript" src="./script/my_account.js"></script>
 
 </body>
 

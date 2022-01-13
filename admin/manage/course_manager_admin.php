@@ -32,8 +32,21 @@ if (isset($_SESSION['lever']) == false) {
         font-weight: normal;
         text-align: center;
     }
+    .btn-comfirm{
+        text-decoration: none;
+        color: white;
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: blue;
+        border-radius: 10px;
+        transition: all 0.5s;
+    }
 
-    #course-manager {
+    .btn-comfirm:hover{
+        transform: scale(0.95);
+    }
+
+    #course-manager-admin {
         background: #081D45;
     }
 </style>
@@ -49,7 +62,7 @@ if (isset($_SESSION['lever']) == false) {
             <div class="home-content">
                 <div class="sales-boxes">
                     <div class="recent-sales box">
-                        <div class="title">Quản lý khóa học</div>
+                        <div class="title">Quản lý khóa học chung</div>
                         <br><br>
                         <div class="sales-details">
                             <?php
@@ -67,9 +80,17 @@ if (isset($_SESSION['lever']) == false) {
                             $id = $_SESSION['id'];
                             $sql = "SELECT course.*, COUNT(lesson.id_course) as number_course FROM `course` 
                                 LEFT OUTER JOIN lesson ON course.id_course = lesson.id_course
-                                WHERE course.id_admin = '$id' 
+                                WHERE `status_course` = '0'
                                 GROUP BY course.id_course";
-                            $courses = mysqli_query($connection, $sql);
+                            $courses1 = mysqli_query($connection, $sql);
+                            
+
+                            $sql = "SELECT course.*, COUNT(lesson.id_course) as number_course FROM `course` 
+                                LEFT OUTER JOIN lesson ON course.id_course = lesson.id_course
+                                WHERE `status_course` = '1'
+                                GROUP BY course.id_course";
+                            $courses2 = mysqli_query($connection, $sql);
+
                             ?>
 
                             <table>
@@ -79,10 +100,10 @@ if (isset($_SESSION['lever']) == false) {
                                     <th>Giá</th>
                                     <th>Số lượng bài giảng</th>
                                     <th>Trạng thái</th>
-                                    <th>Chỉnh sửa</th>
                                     <th>Xem chi tiết</th>
+                                    <th>Chỉnh sửa</th>
                                 </tr>
-                                <?php foreach ($courses as $index => $course) { ?>
+                                <?php foreach ($courses1 as $index => $course) { ?>
                                     <tr>
                                         <th>
                                             <?php echo $index + 1; ?>
@@ -106,15 +127,66 @@ if (isset($_SESSION['lever']) == false) {
                                             ?>
                                         </th>
                                         <th>
-                                            <a href="./course_add_detail.php?id=<?php echo $course['id_course'] ?>">Chỉnh Sửa</a>
+                                            <a href="./course_manager_detail_admin.php?id=<?php echo $course['id_course'] ?>">Xem</a>
                                         </th>
                                         <th>
-                                            <a href="">Xem</a>
+                                            <a class="btn-comfirm" href="./processing/course_admin_accept.php?id=<?php echo $course['id_course']?>&type=accept">Xác nhận</a>
+
+                                            <a class="btn-comfirm" style="background-color: #cc0000" href="">Xóa</a>
                                         </th>
                                     </tr>
                                 <?php } ?>
                             </table>
                         </div>
+                    </div>
+                </div>
+                <div class="sales-boxes" style="margin-top: 26px">
+                    <div class="recent-sales box">
+                        <div class="title">Khóa học đã xác nhận</div>
+                        <br><br>
+                        <table>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên khóa học</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng bài giảng</th>
+                                    <th>Trạng thái</th>
+                                    <th>Số lượng đã bán</th>
+                                    <th>Xem chi tiết</th>
+                                </tr>
+                                <?php foreach ($courses2 as $index => $course) { ?>
+                                    <tr>
+                                        <th>
+                                            <?php echo $index + 1; ?>
+                                        </th>
+                                        <th>
+                                            <?php echo $course['name_course'] ?>
+                                        </th>
+                                        <th>
+                                            <?php echo currency_format($course['price']) ?>
+                                        </th>
+                                        <th>
+                                            <?php echo $course['number_course'] ?>
+                                        </th>
+                                        <th>
+                                            <?php
+                                            if ($course['status_course'] == 0) {
+                                                echo "Chờ xác nhận";
+                                            } else {
+                                                echo "Đã xác nhận";
+                                            }
+                                            ?>
+                                        </th>
+                                        <th>
+                                            10 
+                                        </th>
+                                        <th>
+                                            <a href="./course_manager_detail_admin.php?id=<?php echo $course['id_course'] ?>">Xem</a>
+                                        </th>
+                                        
+                                    </tr>
+                                <?php } ?>
+                            </table>
                     </div>
                 </div>
                 <?php require "../default/footer.php" ?>

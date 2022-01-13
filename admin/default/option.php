@@ -13,17 +13,24 @@
         <li>
           <a href="./course_add.php" id="course-add">
             <i class='bx bx-book-add'></i>
-            <span class="links_name">Thêm khóa học</span>
+            <span class="links_name">Thêm khóa học mới</span>
           </a>
         </li>
         <li>
           <a href="./course_manager.php" id="course-manager">
             <i class='bx bx-book-alt'></i>
-            <span class="links_name">Quản lý khóa học</span>
+            <span class="links_name">Khóa học của tôi</span>
           </a>
         </li>
 
         <?php if ($_SESSION['lever'] == 2) { ?>
+
+        <li>
+          <a href="./course_manager_admin.php" id="course-manager-admin">
+            <i class='bx bx-book-bookmark'></i>  
+            <span class="links_name">Quản lý khóa học(admin)</span>
+          </a>
+        </li>
 
         <li>
           <a href="#">
@@ -39,8 +46,8 @@
         </li>
         <li>
           <a href="./employee_analysis.php" id='employee-analysis'>
-            <i class='bx bxs-user-detail'></i>
-            <span class="links_name">Phân tích nhân sự</span>
+            <i class='bx bx-id-card'></i>
+            <span class="links_name">Phân tích tài chính</span>
           </a>
         </li>
 

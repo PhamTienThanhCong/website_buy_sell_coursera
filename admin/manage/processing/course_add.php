@@ -8,6 +8,10 @@ $image_course = $_FILES['image_course'];
 $description_course =addslashes( $_POST['description_course']);
 $status_course = 0;
 
+if($_SESSION['lever'] = 2){
+    $status_course = 1;
+}
+
 // thư mục lưu file
 $target_dir = "../../../public/images/upload/";
 // lấy đặt tên file 

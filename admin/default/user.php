@@ -3,7 +3,7 @@
     <i class='bx bx-menu sidebarBtn'></i>
     <span class="dashboard">Thanh menu</span>
   </div>
-  <form class="search-box">
+  <form class="search-box" action="">
     <input type="text" name="search" placeholder="Search...">
     <button style="cursor: pointer"><i class='bx bx-search'></i></button>
   </form>

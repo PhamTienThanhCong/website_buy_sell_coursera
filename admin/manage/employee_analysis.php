@@ -45,80 +45,71 @@ if (isset($_SESSION['lever']) == false) {
   require "../default/option.php"
   ?>
   <section class="home-section">
-    <?php
-    require "../default/user.php"
-    ?>
-    <div class="home-content">
-      <div class="sales-boxes">
-        <div class="recent-sales box">
-          <div class="title">Phân tích tình hình tài chính của nhân sự</div>
-          <br>
-          <br>
-          <div class="sales-details">
-            <?php
-            require "../../public/connect_sql.php";
-            $sql = "SELECT * FROM `admin` WHERE (`lever` = '1')";
-            $nhan_vien = mysqli_query($connection, $sql);
-            ?>
-
-            <table>
-              <tr>
-                <th>Tên</th>
-                <th>email</th>
-                <th>Số điện thoại</th>
-                <th>Địa chỉ</th>
-                <th>Thu nhập</th>
-                <th>Xem chi tiết</th>
-              </tr>
-              <?php foreach ($nhan_vien as $nv) { ?>
-                <tr>
-                  <th>
-                    <?php echo $nv['name_admin'] ?>
-                  </th>
-                  <th>
-                    <?php echo $nv['email_admin'] ?>
-                  </th>
-                  <th>
-                    <?php echo $nv['phone_number_admin'] ?>
-                  </th>
-                  <th>
-                    <?php echo $nv['address_admin'] ?>
-                  </th>
-                  <th>
-                    <?php if ($nv['status_admin'] == 1) {
-                      echo "Đã xác nhận";
-                    } elseif ($nv['status_admin'] == -1) {
-                      echo "bị cấm";
-                    } elseif ($nv['status_admin'] == 0) {
-                      echo "Chờ xác nhận";
+      <?php
+      require "../default/user.php"
+      ?>
+      <div class="home-content">
+        <div class="sales-boxes">
+          <div class="recent-sales box">
+            <div class="title">Phân tích tình hình tài chính của nhân sự</div>
+            <br>
+            <br>
+            <div class="sales-details">
+              <?php
+              require "../../public/connect_sql.php";
+              $sql = "SELECT * FROM `admin` WHERE (`lever` = '1')";
+              $nhan_vien = mysqli_query($connection, $sql);
+              if (!function_exists('currency_format')) {
+                function currency_format($number, $suffix = ' VND')
+                {
+                    if (!empty($number)) {
+                        return number_format($number, 0, ',', '.') . "{$suffix}";
                     }
-                    ?>
-                  </th>
-                  <th>
-                    <a href="">Xem</a>
-                  </th>
-                </tr>
-              <?php } ?>
-            </table>
-          </div>
+                }
+              }
+              ?>
 
+              <table>
+                <tr>
+                  <th>Tên</th>
+                  <th>email</th>
+                  <th>Số điện thoại</th>
+                  <th>Địa chỉ</th>
+                  <th>Thu nhập</th>
+                  <th>Xem chi tiết</th>
+                </tr>
+                <?php foreach ($nhan_vien as $nv) { ?>
+                  <tr>
+                    <th>
+                      <?php echo $nv['name_admin'] ?>
+                    </th>
+                    <th>
+                      <?php echo $nv['email_admin'] ?>
+                    </th>
+                    <th>
+                      <?php echo $nv['phone_number_admin'] ?>
+                    </th>
+                    <th>
+                      <?php echo $nv['address_admin'] ?>
+                    </th>
+                    <th>
+                      <?php echo currency_format($nv['cash_admin'])?>
+                    </th>
+                    <th>
+                      <a href="">Xem</a>
+                    </th>
+                  </tr>
+                <?php } ?>
+              </table>
+            </div>
+
+          </div>
         </div>
+        <?php require "../default/footer.php" ?>
       </div>
-      <?php require "../default/footer.php" ?>
-    </div>  
   </section>
 
-  <script>
-    let sidebar = document.querySelector(".sidebar");
-    let sidebarBtn = document.querySelector(".sidebarBtn");
-    sidebarBtn.onclick = function() {
-      sidebar.classList.toggle("active");
-      if (sidebar.classList.contains("active")) {
-        sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
-      } else
-        sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-    }
-  </script>
+  <script type="text/javascript" src="./script/js_chung.js"></script>
 
 </body>
 

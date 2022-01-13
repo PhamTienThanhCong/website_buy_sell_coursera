@@ -11,7 +11,7 @@ if (isset($_SESSION['lever']) == false) {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../default/style.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="./css/course_add_detail.css">
+    <link rel="stylesheet" href="./css/course_manager_detail.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -35,7 +35,7 @@ if (isset($_SESSION['lever']) == false) {
             $id_course = $_GET['id'];
             $sql = "SELECT course.*, COUNT(lesson.id_course) as number_course FROM `course` 
                 LEFT OUTER JOIN lesson ON course.id_course = lesson.id_course
-                WHERE (course.id_admin = '$id') and (course.id_course = '$id_course')
+                WHERE (course.id_course = '$id_course')
                 GROUP BY course.id_course";
             $courses = mysqli_query($connection, $sql);
             $courses = mysqli_fetch_array($courses);
@@ -44,28 +44,9 @@ if (isset($_SESSION['lever']) == false) {
             <div class="home-content">
                 <div class="sales-boxes">
                     <div class="recent-sales box">
-                        <div class="title">Chỉnh sửa khóa học</div>
-                        <br><br>
-                        <div class="content">
-                            <form id="form-course" class=new-couse method="post" action="./processing/course_add.php" enctype="multipart/form-data">
-                                <input type="hidden" value="<?php echo $id_course ?>" readonly>
-                                <label for="">Tên</label>
-                                <input name="name_course" type="text" placeholder="Nhập tên của khóa học" onchange="changeTitle(event)" value="<?php echo $courses['name_course'] ?>" readonly>
-                                <br>
-                                <label for="">Giá</label>
-                                <input name="price" type="number" placeholder="Nhập giá của khóa học" onchange="ChangePrice(event)" value="<?php echo $courses['price'] ?>" readonly>
-                                <br>
-                                <label for="">Ảnh</label>
-                                <input name="image_course" type="file_demo" style="border:none" onchange="loadFile(event)" readonly>
-                                <br>
-                                <label for="">Mô tả</label>
-                                <br>
-                                <textarea name="description_course" id="" readonly><?php echo $courses['description_course'] ?>"</textarea>
-                                <br>
-                                <button id="btn" type="button" onclick="edit_course()">Chỉnh sửa khóa học</button>
-                            </form>
+                        <div class="title">Chi tiết khóa học</div>
+                        <div class="content"> 
                             <div class=preview-couse>
-                                <div class="title">Xem trước khóa học</div>
                                 <br><br>
                                 <div class="cart-pre">
                                     <div class="img-pre">
@@ -89,42 +70,18 @@ if (isset($_SESSION['lever']) == false) {
                                             <i class='bx bxs-credit-card'></i>
                                             Giá thành: <?php echo currency_format($courses['price']) ?>
                                         </p>
+                                        <?php if ($courses['status_course'] == 0) { ?>
+                                            <button id="btn-lesson">Xác nhận lưu hành khóa học</button>
+                                            <button id="btn">Xác nhận xóa</button>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <a href="./course_manager_admin.php">quay lại <<<</a>
                     </div>
                 </div>
                 <!-- chỉnh sửa khóa học -->
-
-                <!-- Thêm các bài học -->
-                <div class="sales-boxes" style="margin-top: 26px">
-                    <div class="recent-sales box">
-                        <div class="title" style="text-align: center">Thêm các bài học</div>
-                        <div class=add-course>
-                            <h3 style="font-weight: normal">
-                                <i class='bx bx-book-add'></i>
-                                Thêm bài học mới
-                            </h3>
-                            <br>
-                            <form method='post' action='./processing/course_add_lesson.php'>
-                                <input type="hidden" name="id_course" value="<?php echo $id_course ?>" required>
-                                <input type="hidden" name="type" value="add" required>
-                                <label class="lable-input" for="">Tên bài học:</label>
-                                <input type="text" name="name_lesson" required>
-                                <br>
-                                <label class="lable-input" for="">Link youtube bài học:</label>
-                                <input type="text" name="link_ytb_lesson" required>
-                                <br>
-                                <label class="lable-input" for="">Mô tả về bài học:</label>
-                                <textarea class="textarea-lesson" name="description_lesson"></textarea>
-                                <button id="btn-lesson">Thêm Bài học</button>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- Thêm các bài học -->
 
                 <!-- tất cả các bài học -->
                 <?php
@@ -136,7 +93,7 @@ if (isset($_SESSION['lever']) == false) {
                 }
                 $so_luong_trang_can_bo = ($trang - 1) * $so_luong_bai_1_trang;
 
-                $sql = "SELECT * FROM lesson WHERE id_course = '$id_course' ORDER BY id_lesson DESC
+                $sql = "SELECT * FROM lesson WHERE id_course = '$id_course' ORDER BY id_lesson 
                 limit $so_luong_bai_1_trang offset $so_luong_trang_can_bo";
                 $lesson = mysqli_query($connection, $sql);
                 ?>
@@ -153,13 +110,12 @@ if (isset($_SESSION['lever']) == false) {
                                 <th>Tên bài học</th>
                                 <th>Link bài học</th>
                                 <th>Mô tả</th>
-                                <th>Sửa</th>
-                                <th>Xóa</th>
+                                <th>priview</th>
                             </tr>
                             <?php foreach ($lesson as $index => $ls) { ?>
                                 <tr>
                                     <th>
-                                        <?php echo  $courses['number_course'] - $so_luong_trang_can_bo - $index ?>
+                                        <?php echo 1+$index ?>
                                     </th>
                                     <th>
                                         <?php echo $ls['name_lesson'] ?>
@@ -175,23 +131,20 @@ if (isset($_SESSION['lever']) == false) {
                                         </div>
                                     </th>
                                     <th>
-                                        <p id="lesson<?php echo $ls['id_lesson'] ?>" style="display:none;"><?php echo $ls['description_lesson'] ?></p>
-                                        <a href="#trang-trang" onclick="edit_lesson(<?php echo $ls['id_lesson'] ?>,'<?php echo $ls['name_lesson'] ?>','<?php echo $ls['link_ytb_lesson'] ?>','<?php echo $ls['id_course'] ?>')">Sửa</a>
-                                    </th>
-                                    <th>
-                                        <a href="./processing/course_delete_lesson.php?id=<?php echo $ls['id_lesson'] ?>&id_course=<?php echo $ls['id_course'] ?>">Xóa</a>
+                                        <p id="lesson<?php echo $ls['link_ytb_lesson'] ?>" style="display:none;"><?php echo nl2br($ls['description_lesson']) ?></p>
+                                        <a href="#trang-trang" onclick="edit_lesson('<?php echo $courses['name_course'] ?>','<?php echo $ls['name_lesson'] ?>','<?php echo $ls['link_ytb_lesson'] ?>')">Xem thử</a>
                                     </th>
                                 </tr>
                             <?php } ?>
                         </table>
                         <br>
                         <div>
-                            <p id="trang-trang">Trang <?php echo $trang ?></p>
+                            <p>Trang <?php echo $trang ?></p>
                             <?php for ($i = 1; $i <= $so_luong_trang; $i++) { ?>
                                 <?php if ($i == $trang) { ?>
-                                    <a class="page" style="border: 1px solid #0a2558;" href="./course_add_detail.php?id=<?php echo $courses['id_course'] ?>&index=<?php echo $i ?>#btn-lesson"><?php echo $i ?></a>
+                                    <a class="page" style="border: 1px solid #0a2558;" href="./course_manager_detail_admin.php?id=<?php echo $courses['id_course'] ?>&index=<?php echo $i ?>#btn-lesson"><?php echo $i ?></a>
                                 <?php } else { ?>
-                                    <a class="page" href="./course_add_detail.php?id=<?php echo $courses['id_course'] ?>&index=<?php echo $i ?>#btn-lesson"><?php echo $i ?></a>
+                                    <a class="page" href="./course_manager_detail_admin.php?id=<?php echo $courses['id_course'] ?>&index=<?php echo $i ?>#btn-lesson"><?php echo $i ?></a>
                                 <?php } ?>
                             <?php } ?>
                         </div>
@@ -200,14 +153,16 @@ if (isset($_SESSION['lever']) == false) {
                 <!-- tất cả các bài học -->
 
                 <!-- Sửa bài học -->
-                <div class="sales-boxes" id="edit-lesson"></div>
+                <div class="sales-boxes" id="edit-lesson">
+                    
+                </div>
                 <!-- Sửa bài học -->
 
                 <?php require "../default/footer.php" ?>
             </div>
     </section>
-    
-    <script type="text/javascript" src="./script/course_add_detail.js"></script>
+
+    <script type="text/javascript" src="./script/course_manager_detail_admin.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,171 @@
+
+    #course-manager {
+        background: #081D45;
+    }
+
+    .content {
+        width: 100%;
+        display: flex;
+    }
+
+    .new-couse {
+        width: 50%;
+        display: inline-block;
+    }
+
+    .preview-couse {
+        width: 45%;
+        display: inline-block;
+        margin-left: 4%;
+        transform: translateY(-64px)
+    }
+
+    label {
+        width: 50px;
+        display: inline-block;
+    }
+
+    input {
+        width: 80%;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        height: 30px;
+        font-size: 16px;
+        margin-bottom: 10px
+    }
+
+    textarea {
+        width: 92%;
+        height: 180px;
+        outline: none;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+    }
+
+    #btn,
+    #btn-lesson,
+    #btn-lesson2 {
+        margin-top: 20px;
+        padding: 7px 20px;
+        border: none;
+        background-color: #cc0000;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 6px;
+        transition: all 0.3s;
+    }
+
+    #btn:hover {
+        background-color: #990000;
+    }
+
+    .cart-pre {
+        width: 100%;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        overflow: hidden;
+    }
+
+    .img-pre {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    #img-preview {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        cursor: pointer;
+    }
+
+    .cart-details {
+        padding: 20px;
+        margin-top: -15px;
+    }
+
+    #number-course,
+    #author-course,
+    #price-course {
+        margin-top: 15px;
+    }
+
+    .lable-input {
+        width: 155px;
+    }
+
+    .textarea-lesson {
+        width: 95%;
+        height: 100px;
+    }
+
+    #btn-lesson {
+        background-color: #2697ff;
+    }
+
+    #btn-lesson:hover {
+        background-color: #0a2558;
+    }
+
+    table,
+    td,
+    th {
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th,
+    td {
+        padding: 15px;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    .page {
+        text-decoration: none;
+        width: 30px;
+        padding: 5px 0;
+        display: inline-block;
+        text-align: center;
+        border: 1px solid #ccc;
+        margin: 5px;
+    }
+
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black;
+        cursor: pointer;
+    }
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        background-color: white;
+        border: 1px solid #ccc;
+        color: black;
+        text-align: left;
+        border-radius: 6px;
+        padding: 5px 0;
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+    }
+
+    .tooltiptext {
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }

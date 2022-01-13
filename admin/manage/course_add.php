@@ -14,28 +14,33 @@ if (isset($_SESSION['lever']) == false) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <style>
-    #course-add{
+    #course-add {
         background: #081D45;
     }
-    .content{
+
+    .content {
         width: 100%;
         display: flex;
     }
-    .new-couse{
+
+    .new-couse {
         width: 50%;
         display: inline-block;
     }
-    .preview-couse{
+
+    .preview-couse {
         width: 45%;
         display: inline-block;
         margin-left: 4%;
         transform: translateY(-64px)
     }
-    label{
+
+    label {
         width: 50px;
         display: inline-block;
     }
-    input{
+
+    input {
         width: 80%;
         outline: none;
         border: none;
@@ -44,14 +49,16 @@ if (isset($_SESSION['lever']) == false) {
         font-size: 16px;
         margin-bottom: 10px
     }
-    textarea{
+
+    textarea {
         width: 92%;
         height: 180px;
         outline: none;
         padding: 10px;
         font-size: 16px;
     }
-    #btn{
+
+    #btn {
         margin-top: 20px;
         padding: 7px 20px;
         border: none;
@@ -62,32 +69,40 @@ if (isset($_SESSION['lever']) == false) {
         border-radius: 6px;
         transition: all 0.3s;
     }
-    #btn:hover{
+
+    #btn:hover {
         background-color: #004080;
     }
-    .cart-pre{
+
+    .cart-pre {
         width: 100%;
         border-radius: 10px;
         border: 1px solid #ccc;
         overflow: hidden;
     }
-    .img-pre{
+
+    .img-pre {
         width: 100%;
         height: 200px;
         overflow: hidden;
     }
-    #img-preview{
+
+    #img-preview {
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: center;
         cursor: pointer;
     }
-    .cart-details{
+
+    .cart-details {
         padding: 20px;
         margin-top: -15px;
     }
-    #number-course,#author-course,#price-course{
+
+    #number-course,
+    #author-course,
+    #price-course {
         margin-top: 15px;
     }
 </style>
@@ -97,95 +112,67 @@ if (isset($_SESSION['lever']) == false) {
     require "../default/option.php"
     ?>
     <section class="home-section">
-        <?php
-        require "../default/user.php"
-        ?>
-        <div class="home-content">
-            <div class="sales-boxes">
-                <div class="recent-sales box">
-                    <div class="title">Thêm khóa học mới +</div>
-                    <br><br>
-                    <div class="content">
-                        <form class = new-couse method="post" action="./processing/course_add.php" enctype="multipart/form-data">
-                            <label for="">Tên</label>
-                            <input name="name_course" type="text" placeholder="Nhập tên của khóa học" onchange="changeTitle(event)">
-                            <br>
-                            <label for="" >Giá</label>
-                            <input name="price" type="number" placeholder="Nhập giá của khóa học" onchange="ChangePrice(event)">
-                            <br>
-                            <label for="">Ảnh</label>
-                            <input name="image_course" style="border: none;" type="file" onchange="loadFile(event)">
-                            <br>
-                            <label for="">Mô tả</label>
-                            <br>
-                            <textarea name="description_course" id=""></textarea>
-                            <br>
-                            <button id="btn">Tạo khóa học mới</button>
-                        </form>
-                        <div class = preview-couse>
-                            <div class="title">Xem trước khóa học</div>
-                            <br><br>
-                            <div class = "cart-pre">
-                                <div class = "img-pre">
-                                    <img id="img-preview" src="../../public/images/default/preview_course.jpg" alt="">
-                                </div>
+            <?php
+            require "../default/user.php"
+            ?>
+            <div class="home-content">
+                <div class="sales-boxes">
+                    <div class="recent-sales box">
+                        <div class="title">Thêm khóa học mới +</div>
+                        <br><br>
+                        <div class="content">
+                            <form class=new-couse method="post" action="./processing/course_add.php" enctype="multipart/form-data">
+                                <label for="">Tên</label>
+                                <input name="name_course" type="text" placeholder="Nhập tên của khóa học" onchange="changeTitle(event)">
                                 <br>
-                                <div class="cart-details">
-                                    <h2 id="title-course" >Tên khóa học: </h2>
-                                    <p id = "number-course">
-                                        <i class='bx bxs-videos'></i>
-                                        Số lượng bài học: 10 Bài
-                                    </p>
+                                <label for="">Giá</label>
+                                <input name="price" type="number" placeholder="Nhập giá của khóa học" onchange="ChangePrice(event)">
+                                <br>
+                                <label for="">Ảnh</label>
+                                <input name="image_course" style="border: none;" type="file" onchange="loadFile(event)">
+                                <br>
+                                <label for="">Mô tả</label>
+                                <br>
+                                <textarea name="description_course" id=""></textarea>
+                                <br>
+                                <button id="btn">Tạo khóa học mới</button>
+                            </form>
+                            <div class=preview-couse>
+                                <div class="title">Xem trước khóa học</div>
+                                <br><br>
+                                <div class="cart-pre">
+                                    <div class="img-pre">
+                                        <img id="img-preview" src="../../public/images/default/preview_course.jpg" alt="">
+                                    </div>
+                                    <br>
+                                    <div class="cart-details">
+                                        <h2 id="title-course">Tên khóa học: </h2>
+                                        <p id="number-course">
+                                            <i class='bx bxs-videos'></i>
+                                            Số lượng bài học: 10 Bài
+                                        </p>
 
-                                    <p id = "author-course">
-                                        <i class='bx bxs-user'></i>
-                                        Diễn giả: 
-                                        <?php echo $_SESSION['user']?>
-                                    </p>
+                                        <p id="author-course">
+                                            <i class='bx bxs-user'></i>
+                                            Diễn giả:
+                                            <?php echo $_SESSION['user'] ?>
+                                        </p>
 
-                                    <p id="price-course">
-                                        <i class='bx bxs-credit-card'></i>
-                                        Giá thành: 000 VND
-                                    </p>
+                                        <p id="price-course">
+                                            <i class='bx bxs-credit-card'></i>
+                                            Giá thành: 000 VND
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>                       
+                </div>
+                <?php require "../default/footer.php" ?>
             </div>
-            <?php require "../default/footer.php" ?>
-        </div>
     </section>
 
-    <script>
-        let sidebar = document.querySelector(".sidebar");
-        let sidebarBtn = document.querySelector(".sidebarBtn");
-        sidebarBtn.onclick = function() {
-            sidebar.classList.toggle("active");
-            if (sidebar.classList.contains("active")) {
-                sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
-            } else
-                sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-        }
-        var loadFile = function(event) {
-            var output = document.getElementById('img-preview');
-            output.src = URL.createObjectURL(event.target.files[0]);
-            output.onload = function() {
-                URL.revokeObjectURL(output.src) // free memory
-            }
-        };
-        var changeTitle = function(event) {
-            var output = document.getElementById('title-course');
-            output.innerText = event.target.value;
-        }
-        var ChangePrice = function(event) {
-            var output = document.getElementById('price-course');
-            var x = parseInt(event.target.value);
-            x = x.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
-            console.log(x);
-            output.innerHTML = "<i class='bx bxs-credit-card'></i> Giá thành:" + x;
-        }
-    </script>
+    <script type="text/javascript" src="./script/course_add.js"></script>
 
 </body>
 

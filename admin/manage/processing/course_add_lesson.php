@@ -19,9 +19,9 @@ $check = mysqli_fetch_array($check);
 
 if ($check['check'] == 1 ){
     if($type == 'add'){
-        $sort_link_ytb = explode('watch?v=',$link_ytb_lesson);
-        if (strlen($sort_link_ytb[1])> 20){
-            $sort_link_ytb = explode('&list=',$sort_link_ytb[1])[0];
+        $sort_link_ytb = explode('watch?v=',$link_ytb_lesson)[1];
+        if (strlen($sort_link_ytb)> 20){
+            $sort_link_ytb = explode('&list=',$sort_link_ytb)[0];
         }
         $sql = "INSERT INTO `lesson`(`id_course`, `name_lesson`, `link_ytb_lesson`, `description_lesson`) 
         VALUES('$id_course','$name_lesson','$sort_link_ytb','$description_lesson')";

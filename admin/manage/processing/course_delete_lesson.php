@@ -18,4 +18,4 @@ if ($check['check'] == 1 ){
     mysqli_query($connection, $sql);
 }
 mysqli_close($connection);
-header("Location: ../course_add_detail.php?id=$id_course");
+header("Location: ../course_add_detail.php?id=$id_course#btn-lesson");
