@@ -30,7 +30,7 @@
       <div class="form-content">
         <div class="login-form">
           <div class="title">Đăng nhập</div>
-          <form action="#">
+          <form method="POST" action="./processing/login.php">
             <div class="input-boxes">
 
               <div class="input-box">
@@ -60,7 +60,7 @@
         <!-- Đăng kí -->
         <div class="signup-form">
           <div class="title">Đăng kí</div>
-          <form action="#">
+          <form method="POST" action="./processing/register.php">
             <div class="input-boxes">
 
               <div class="input-box">
