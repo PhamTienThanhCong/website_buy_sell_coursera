@@ -7,11 +7,12 @@
     <title>test</title>
 </head>
 <style>
-    .demo{
-        opacity: 0;
-    }
 </style>
 <body>
-    
+    <ul>
+        <li>
+            <a href="./login_and_register.php">Đăng nhập</a>
+        </li>
+    </ul>
 </body>
 </html>

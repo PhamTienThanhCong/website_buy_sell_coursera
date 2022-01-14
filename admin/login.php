@@ -50,5 +50,12 @@
         </p>
         <button>Đăng nhập</button>
     </form>
+    <div>
+        <ul>
+            <li>admin: congphamtienthanh@gmail.com</li>
+            <li>adminPro: congj2school@gmail.com</li>
+            <li>mk: cong</li>
+        </ul>
+    </div>
 </body>
 </html>
