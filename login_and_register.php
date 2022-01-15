@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Coding by CodingLab | www.codinglabweb.com-->
 <html lang="en" dir="ltr">
 
 <head>
@@ -7,6 +6,7 @@
   <link rel="stylesheet" href="./css/login_and_register.css">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập</title>
 </head>
 
 <body>
@@ -39,7 +39,7 @@
               </div>
 
               <div class="input-box">
-                <i class='bx bxs-lock'></i>
+                <i class='bx bx-lock'></i>
                 <input name="password_user" type="password" placeholder="Mật khẩu" required>
               </div>
 
@@ -64,7 +64,7 @@
             <div class="input-boxes">
 
               <div class="input-box">
-                <i class='bx bxs-user'></i>
+                <i class='bx bx-user'></i>
                 <input name="name_user" type="text" placeholder="Tên đăng nhập" required>
               </div>
 
@@ -74,12 +74,12 @@
               </div>
 
               <div class="input-box">
-                <i class='bx bxs-phone'></i>
+                <i class='bx bx-phone'></i>
                 <input name="phone_number_user" type="text" placeholder="Số điện thoại" required>
               </div>
 
               <div class="input-box">
-                <i class='bx bxs-lock'></i>
+                <i class='bx bx-lock'></i>
                 <input name="password-user" type="password" placeholder="Mật khẩu" required>
               </div>
 
