@@ -31,6 +31,7 @@ li{
     align-items: center;
     justify-content: center;
     font-size: 15px;
+    transition: all 0.3s;
 }
 ul li a{
     text-decoration: none;
@@ -41,5 +42,5 @@ ul li a i {
 }
 
 li:hover{
-
+    background-color: #f7f7f7
 }
