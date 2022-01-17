@@ -11,8 +11,6 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("https://kynguyenlamdep.com/wp-content/uploads/2020/04/ban-lam-viec.jpg");
-  padding: 30px;
 }
 .container{
   position: relative;
@@ -212,4 +210,9 @@ body{
   .container #flip:checked ~ .forms .login-form{
     display: none;
   }
+}
+
+#login-register{
+  width: 100%;
+  height: 100vh;
 }
