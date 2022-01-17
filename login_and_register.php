@@ -7,9 +7,22 @@
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Đăng nhập</title>
+  <link rel="stylesheet" href="./css/header.css">
 </head>
 
 <body>
+  <header>
+        <h2>Shop mua khóa học chẳng hạn</h2>
+        <form method="get" action="">
+            <div id="search">
+                <i class='search bx bx-search'></i>
+                <input type="text" name="search" placeholder= "Tìm kiếm khóa học mà bạn thích">
+            </div>
+        </form>
+        <div class=user>
+            <a href="./login_and_register.php">Đăng nhập</a>
+        </div>
+  </header>
   <div class="container">
     <input type="checkbox" id="flip">
     <div class="cover">
