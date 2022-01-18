@@ -1,46 +1,68 @@
-.container{
+#home{
+    background-color: #e8ebed;
+}
+/* slide */
+.slide{
     width: 100%;
+    height: 300px;
+    background-color: #99ff33;
+    border-radius: 20px;
+}
+.all-course{
+    margin-top: 50px;
+    width: 100%;
+    padding: 15px;
     display: flex;
     flex-wrap: wrap;
 }
-ul{
-    width: 100px;
-    height: 500px;
-    position: fixed;
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 374px;
+    border-radius: 5px;
+    margin: 10px;
+    padding-bottom: 20px;
 }
-.tab-left{
-    width: 100px;
-}
-.tab-right{
-    width: 20px;
-}
-.content{
-    flex-grow: 1;
-    height: 1220px;
-    background-color: greenyellow;
-}
-li{
-    width: 72px;
-    height: 72px;
-    margin: auto;
-    margin-top: 10px;
-    border-radius: 15px;
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-    transition: all 0.3s;
-}
-ul li a{
-    text-decoration: none;
-    color: black;
-}
-ul li a i {
-    font-size: 22px;
+.clear {
+    clear: left;
 }
 
-li:hover{
-    background-color: #f7f7f7
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.img-preview{
+    width: 100%;
+    height: 200px;
+}
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px 5px 0 0;
+}
+
+.container-card {
+    padding: 2px 16px;
+}
+.container-card h3{
+    height: 48px;
+    overflow: hidden;
+}
+p i {
+    transform: translateY(2px);
+}
+.btn{
+    background-color: #2697ff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-left: 10px;
+    transition: all 0.3s;
+}
+a{
+    text-decoration: none;
+    color: black;    
+}
+.btn:hover{
+    background-color: #80bfff;
 }

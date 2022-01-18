@@ -65,8 +65,55 @@ header form i{
     border-radius: 10px;
 }
 
-footer{
+ul{
+    width: 100px;
+    height: 500px;
+    position: fixed;
+}
+.tab-left{
+    width: 100px;
+}
+.tab-right{
+    width: 20px;
+}
+li{
+    width: 72px;
+    height: 72px;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 15px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    transition: all 0.3s;
+}
+ul li a{
+    text-decoration: none;
+    color: black;
+}
+ul li a i {
+    font-size: 22px;
+}
+
+li:hover{
+    background-color: #f7f7f7
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.content{
+    width: calc(100% - 100px);
+    float: left;
+}
+
+/* footer{
     width: 100%;
     height: 400px;
     background-color: #ccc;
-}
+} */
