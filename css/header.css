@@ -12,6 +12,7 @@ header{
     top: 0;
     left: 0;
     background-color: white;
+    z-index: 1;
 }
 .hinder{
     height: 80px;
