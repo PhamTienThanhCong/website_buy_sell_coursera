@@ -55,6 +55,9 @@ if (isset($_SESSION['lever']) == false) {
                                 <label for="">Giá</label>
                                 <input name="price" type="number" placeholder="Nhập giá của khóa học" onchange="ChangePrice(event)" value="<?php echo $courses['price'] ?>" readonly>
                                 <br>
+                                <label for="">Tác giả</label>
+                                <input name="author" type="text" placeholder="Nhập tên của tác giả " onchange="ChangeAuthor(event)" value="<?php echo $courses['author'] ?>" readonly>
+                                <br>
                                 <label for="">Ảnh</label>
                                 <input name="image_course" type="file_demo" style="border:none" onchange="loadFile(event)" readonly>
                                 <br>
@@ -81,8 +84,8 @@ if (isset($_SESSION['lever']) == false) {
 
                                         <p id="author-course">
                                             <i class='bx bxs-user'></i>
-                                            Diễn giả:
-                                            <?php echo $_SESSION['user'] ?>
+                                            Tác giả:
+                                            <?php echo $courses['author'] ?>
                                         </p>
 
                                         <p id="price-course">

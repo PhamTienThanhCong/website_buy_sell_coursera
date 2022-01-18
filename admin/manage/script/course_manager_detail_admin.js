@@ -24,4 +24,5 @@ function edit_lesson(name_course,name_lesson, ytb) {
         <br>
         <p>`+conten+`</p>
         </div>`
+    document.getElementById('edit-lesson').style.marginTop = '26px';
 }

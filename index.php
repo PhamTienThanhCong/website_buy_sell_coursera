@@ -22,9 +22,10 @@
         }
     }
     require "./public/connect_sql.php";
-    $sql = "SELECT course.*, COUNT(lesson.id_course) as number_course, admin.name_admin as author FROM `course` 
+    $sql = "SELECT course.*, COUNT(lesson.id_course) as number_course FROM `course` 
                 LEFT OUTER JOIN lesson ON course.id_course = lesson.id_course
                 LEFT OUTER JOIN admin ON course.id_admin = admin.id_admin
+                WHERE course.status_course = '1'
                 GROUP BY course.id_course";
     $all_courses = mysqli_query($connection, $sql);
 

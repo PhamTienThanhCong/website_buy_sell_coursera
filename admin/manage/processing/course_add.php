@@ -3,6 +3,7 @@ session_start();
 
 $id_admin = $_SESSION['id'];
 $name_course = addslashes($_POST['name_course']);
+$author = addslashes($_POST['author']);
 $price = addslashes($_POST['price']);
 $image_course = $_FILES['image_course'];
 $description_course =addslashes( $_POST['description_course']);
@@ -26,8 +27,8 @@ $target_file = $target_dir . $fileImageName;
 
 require "../../../public/connect_sql.php";
 
-$sql = "INSERT INTO `course`(`id_admin`, `name_course`, `description_course`, `image_course`, `status_course`, `price`) 
-VALUES ('$id_admin','$name_course','$description_course','$fileImageName','$status_course','$price')";
+$sql = "INSERT INTO `course`(`id_admin`, `name_course`,`author`, `description_course`, `image_course`, `status_course`, `price`) 
+VALUES ('$id_admin','$name_course','$author','$description_course','$fileImageName','$status_course','$price')";
 
 mysqli_query($connection, $sql);
 

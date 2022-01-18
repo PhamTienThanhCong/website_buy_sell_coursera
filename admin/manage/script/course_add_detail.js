@@ -59,3 +59,8 @@ function edit_course() {
     a = a.replace('type="button" onclick="edit_course()">Chỉnh sửa khóa học', '>Lưu lại');
     document.getElementById('form-course').innerHTML = a;
 }
+
+var ChangeAuthor = function(event) {
+    var output = document.getElementById('author-course');
+    output.innerHTML = "<i class='bx bxs-user'></i> Tác giả: "+event.target.value;
+}

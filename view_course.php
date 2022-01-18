@@ -9,7 +9,7 @@
     }
     $id = addslashes($_GET['id']);
     require "./public/connect_sql.php";
-    $sql = "SELECT course.*, lesson.*, admin.name_admin as author, admin.image FROM `course` 
+    $sql = "SELECT course.*, lesson.*, admin.name_admin as author_post, admin.image FROM `course` 
                 LEFT OUTER JOIN lesson ON course.id_course = lesson.id_course
                 LEFT OUTER JOIN admin ON course.id_admin = admin.id_admin
                 WHERE course.id_course = $id
@@ -61,6 +61,7 @@
         <br>
         <p class="title">* Chi Tiết khóa học: </p>
         <p>- Tác giả: <?php echo $one_course['author']?></p>
+        <p>- Người đăng: <?php echo $one_course['author_post']?></p>
         <p>- Giá thành: <?php echo currency_format($one_course['price'])?></p>
         <p>- Ngày xuất bản: 
             <?php

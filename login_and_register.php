@@ -23,7 +23,8 @@
             <a href="./login_and_register.php">Đăng nhập</a>
         </div>
   </header>
-  <div class="container">
+  <div style="width: 60px"></div>
+  <div style="margin-top: 60px" class="container">
     <input type="checkbox" id="flip">
     <div class="cover">
       <div class="front">

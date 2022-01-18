@@ -21,3 +21,7 @@ var loadFile = function(event) {
             console.log(x);
             output.innerHTML = "<i class='bx bxs-credit-card'></i> Giá thành:" + x;
         }
+        var ChangeAuthor = function(event) {
+            var output = document.getElementById('author-course');
+            output.innerHTML = "<i class='bx bxs-user'></i> Tác giả: "+event.target.value;
+        }

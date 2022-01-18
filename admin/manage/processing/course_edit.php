@@ -5,10 +5,11 @@ $id_admin = $_SESSION['id'];
 $id_course = $_POST['id_course'];
 $name_course = addslashes($_POST['name_course']);
 $price = addslashes($_POST['price']);
+$author = addslashes($_POST['author']);
 $image_course = $_FILES['image_course'];
 $description_course =addslashes( $_POST['description_course']);
 
-$sql = "UPDATE `course` SET `name_course`='$name_course',`description_course`='$description_course',`price`='$price' WHERE `id_course` = '$id_course' and `id_admin` = '$id_admin'";
+$sql = "UPDATE `course` SET `name_course`='$name_course',`author`='$author',`description_course`='$description_course',`price`='$price' WHERE `id_course` = '$id_course' and `id_admin` = '$id_admin'";
 
 if (basename($image_course["name"]) != ""){
     // thư mục lưu file
@@ -25,7 +26,7 @@ if (basename($image_course["name"]) != ""){
 
     move_uploaded_file($image_course["tmp_name"], $target_file);
 
-    $sql = "UPDATE `course` SET `name_course`='$name_course',`description_course`='$description_course',`image_course`='$fileImageName',`price`='$price' 
+    $sql = "UPDATE `course` SET `name_course`='$name_course',`author`='$author',`description_course`='$description_course',`image_course`='$fileImageName',`price`='$price' 
     WHERE `id_course` = '$id_course' and `id_admin` = '$id_admin'";
 }
 

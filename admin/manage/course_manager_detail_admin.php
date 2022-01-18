@@ -63,7 +63,7 @@ if (isset($_SESSION['lever']) == false) {
                                         <p id="author-course">
                                             <i class='bx bxs-user'></i>
                                             Diễn giả:
-                                            <?php echo $_SESSION['user'] ?>
+                                            <?php echo $courses['author'] ?>
                                         </p>
 
                                         <p id="price-course">
