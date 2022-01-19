@@ -27,7 +27,7 @@
                     Khóa học
                 </a>
             </li>
-            <li>
+            <li id="my-cart">
                 <a href="./my_cart.php">
                     <i class='bx bxs-cart'></i>
                     <br>

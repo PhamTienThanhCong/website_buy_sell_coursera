@@ -18,7 +18,6 @@ $course = mysqli_fetch_array($course);
 mysqli_close($connection);
 $_SESSION['cart'][$id]['name'] = $course['name_course'];
 $_SESSION['cart'][$id]['author'] = $course['author'];
-$_SESSION['cart'][$id]['image_course'] = $course['image_course'];
 $_SESSION['cart'][$id]['price'] = $course['price'];
 $_SESSION['cart'][$id]['lesson'] = $course['lesson'];
 

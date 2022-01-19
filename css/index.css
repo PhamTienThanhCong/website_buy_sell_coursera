@@ -3,7 +3,8 @@
 }
 /* slide */
 .slide{
-    width: 100%;
+    width: calc(100% - 80px);
+    margin-left: 17px;
     height: 300px;
     background-color: #99ff33;
     border-radius: 20px;
