@@ -28,7 +28,7 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="./my_cart.php">
                     <i class='bx bxs-cart'></i>
                     <br>
                     Giỏ hàng

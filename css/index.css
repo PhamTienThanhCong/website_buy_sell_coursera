@@ -58,6 +58,7 @@ p i {
     border-radius: 5px;
     margin-left: 10px;
     transition: all 0.3s;
+    cursor: pointer;
 }
 a{
     text-decoration: none;

@@ -1,4 +1,5 @@
 <?php
+    session_start();
     if (!function_exists('currency_format')) {
         function currency_format($number, $suffix = ' VND')
         {
@@ -46,11 +47,18 @@
     <!-- content -->
     <div class=content>
         <a href="./index.php"><<< Quay lại</a>
-        <div class="function">
-            <a class='btn' href="">
-                <i class='bx bxs-cart-add'></i>
-                Thêm vào giỏ hàng
-            </a>
+        <div class="function">             
+            <?php if(isset($_SESSION['cart'][$id]['name'])) { ?>
+                <a class='btn' href="./my_cart.php">  
+                    <i class='bx bxs-credit-card'></i>
+                    Thanh toán ngay
+                </a>
+            <?php } else { ?>
+                <a class='btn btn-add-to-cart' style = "cursor: pointer" data-id = '<?php echo $one_course['id_course']; ?>'>    
+                    <i class='bx bxs-cart-add'></i>
+                    Thêm vào giỏ hàng
+                </a>
+            <?php } ?>
         </div>
         <br>
         <div class="avatar">
@@ -92,5 +100,23 @@
     </div>
     <div class="tab-right"></div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+        $(".btn-add-to-cart").click(function() {
+            let id = $(this).data("id");
+            $.ajax({
+                type: "POST",
+                url: "./processing/my_cart.php",
+                data: {id},
+                // dataType: "dataType",
+                success: function (response) {
+                    
+                }
+            });
+            $(this).html("<i class='bx bxs-credit-card'></i> Thanh toán ngay");
+        })
+    })
+    </script>
 </body>
 </html>
