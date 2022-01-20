@@ -7,8 +7,13 @@
             </div>
         </form>
         <div class=user>
-            <a href="./login_and_register.php">Đăng nhập</a>
+            <?php if(isset($_SESSION['name'])){ ?>
+                <a id="btn-logout" style="cursor: pointer">Đăng xuất</a>
+            <?php } else { ?>
+                <a href="./login_and_register.php">Đăng nhập</a>
+            <?php } ?>    
         </div>
+        
     </header>
     <div class="hinder"></div>
     <div class="container">
