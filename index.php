@@ -86,7 +86,7 @@
                             Đã đặt
                         <?php } else { ?>
                             <i class='bx bxs-cart-add'></i>
-                            Mua sau
+                            Đặt hàng
                         <?php } ?>
                         </a>
                     </div>

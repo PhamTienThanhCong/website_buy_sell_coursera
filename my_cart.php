@@ -24,7 +24,7 @@ session_start();
     }
     .all-course{
         width: 100%;
-        height: 1000px;
+        min-height: 500px;
         border-radius: 20px;
         border: 1px solid #ccc;
         padding: 15px;
@@ -92,6 +92,12 @@ session_start();
         margin-top: 15px;
         font-size: 18px;
     }
+    .emty-cart{
+        width: 100%;
+        text-align: center;
+        margin-top: 25px;
+        font-size: 20px;
+    }
     
 </style>
 <body>
@@ -106,6 +112,7 @@ session_start();
         }
         require "./default/header.php";
         $all_cart = $_SESSION['cart'];
+        $number_cart = count($all_cart);
     ?>
     <div class=content> 
         <div class = "all-course">
@@ -121,6 +128,7 @@ session_start();
                         <th>Tương tác</th>
                         <th>Mua</th>
                     </tr>
+                    <?php if ($number_cart > 0) { ?>
                     <?php foreach($all_cart as $id => $cart) { ?>
                         <tr>
                             <th>
@@ -149,6 +157,13 @@ session_start();
                         </tr>
                     <?php } ?>
                 </table>
+                <?php }else{ ?>
+                    </table>
+                    <p class="emty-cart">
+                        Giỏ hàng trống, mua sắm ngay 
+                        <a href="./index.php">Tại đây</a> 
+                    </p>
+                <?php } ?>
                 <p class="total-price">
                     Tổng Tiền: 0 đ
                 </p>

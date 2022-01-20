@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if(isset($_SESSION['name'])){
+    header('Location: ./index.php');
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -10,6 +17,15 @@
   <link rel="stylesheet" href="./css/header.css">
 </head>
 
+<style>
+  .waning{
+    color: red;
+  } 
+  .hidden{
+    display: none;
+  }
+</style>
+
 <body>
   <header>
         <h2>Shop mua khóa học chẳng hạn</h2>
@@ -20,7 +36,7 @@
             </div>
         </form>
         <div class=user>
-            <a href="./login_and_register.php">Đăng nhập</a>
+            <a id="back-home" href="./index.php">Trang chủ</a>
         </div>
   </header>
   <div style="width: 60px"></div>
@@ -44,9 +60,9 @@
       <div class="form-content">
         <div class="login-form">
           <div class="title">Đăng nhập</div>
-          <form method="POST" action="./processing/login.php">
+          <form id = "login-form" method="POST" action="./processing/login.php">
             <div class="input-boxes">
-
+            <p class="waning hidden" id="alert-login">Email bạn nhập không hợp lệ</p>
               <div class="input-box">
                 <i class='bx bx-mail-send'></i>
                 <input name="email_user" type="email" placeholder="Email" required>
@@ -74,9 +90,9 @@
         <!-- Đăng kí -->
         <div class="signup-form">
           <div class="title">Đăng kí</div>
-          <form method="POST" action="./processing/register.php">
+          <form id="form-register" method="POST" action="./processing/register.php" >
             <div class="input-boxes">
-
+              <p class="waning hidden" id="alert-register">Email bạn nhập không hợp lệ</p>
               <div class="input-box">
                 <i class='bx bx-user'></i>
                 <input name="name_user" type="text" placeholder="Tên đăng nhập" required>
@@ -94,7 +110,7 @@
 
               <div class="input-box">
                 <i class='bx bx-lock'></i>
-                <input name="password-user" type="password" placeholder="Mật khẩu" required>
+                <input name="password_user" type="password" placeholder="Mật khẩu" required>
               </div>
 
               <div class="button input-box">
@@ -108,5 +124,6 @@
     </div>
   </div>
 </body>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./script/login_register.js"></script>
 </html>
