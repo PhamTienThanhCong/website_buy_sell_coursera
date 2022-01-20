@@ -22,6 +22,8 @@ $(document).ready(function() {
                 
             }
         });
-        $(this).parent().html("<a href='./login_and_register.php'>Đăng nhập</a>")
+        $('.user-login').html('<a class="user-a" href="./login_and_register.php">Đăng nhập</a>');
+        $('.user-login').addClass('user');
+        $('.user').removeClass('user-login');     
     })
 })
