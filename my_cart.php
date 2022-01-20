@@ -10,94 +10,10 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giỏ hàng</title>
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/my_cart.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<style>
-    #my-cart{
-        background-color: #e8ebed;
-    }
-    .content{
-        width: calc(100% - 470px);
-        margin-left: 20px;
-    }
-    .all-course{
-        width: 100%;
-        min-height: 500px;
-        border-radius: 20px;
-        border: 1px solid #ccc;
-        padding: 15px;
-    }
-    .tab-right{
-        width: 300px;
-        display: inline-block;
-        margin-left: 20px;
-        position: relative;
-    }
-    .in4{
-        width: 300px;
-        position: fixed;
-    }
-    .my-infor{
-        height: 350px;
-        width: 100%;
-        border-radius: 20px;
-        border: 1px solid #ccc;
-        padding: 10px
-    }
-    .course{
-        width: 100%;
-        height: 200px;
-    }
-    table,
-    td,
-    th {
-        border: 1px solid #ddd;
-        text-align: left;
-    }
 
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    th,
-    td {
-        padding: 10px;
-        font-weight: normal;
-        text-align: center;
-    }
-    tr th a{
-        text-decoration: none;
-        color: black;
-    }
-    tr th a i{
-        transform: translateY(2px);
-    }
-    .btn-delete{
-        cursor: pointer;
-        padding: 8px 12px;
-        border-radius: 8px;
-        background-color: #ff3333;
-        transition: all 0.5s;
-    }
-    .btn-delete:hover{
-        background-color: #ff6666;
-    }
-    .input-check{
-        cursor: pointer;
-    }
-    .total-price{
-        margin-top: 15px;
-        font-size: 18px;
-    }
-    .emty-cart{
-        width: 100%;
-        text-align: center;
-        margin-top: 25px;
-        font-size: 20px;
-    }
-    
-</style>
 <body>
     <?php 
         if (!function_exists('currency_format')) {
@@ -171,7 +87,18 @@ session_start();
     <div class="tab-right">
         <div class="in4">
             <div class="my-infor">
-                <h3>Thông tin thẻ</h3>
+                <h3>
+                    <i class='bx bx-credit-card'></i>
+                    Thông tin thanh toán
+                </h3>
+                <br>
+                <p>
+                    Số tiền đang có: 
+                    <?php echo currency_format($_SESSION['money'])?>
+                </p>
+                <p id="currency-pay">
+                    Số Tiền phải trả: 
+                </p>
             </div>
         </div>
     </div>

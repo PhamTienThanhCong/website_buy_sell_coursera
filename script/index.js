@@ -18,8 +18,7 @@ $(document).ready(function() {
             url: "./processing/logout.php",
             // data: {id},
             // dataType: "dataType",
-            success: function (response) {
-                
+            success: function (response) {    
             }
         });
         $('.user-login').html('<a class="user-a" href="./login_and_register.php">Đăng nhập</a>');
