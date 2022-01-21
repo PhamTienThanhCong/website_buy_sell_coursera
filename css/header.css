@@ -66,7 +66,7 @@ header form i{
     border-radius: 10px;
 }
 
-ul{
+.menu-select{
     width: 100px;
     height: 500px;
     position: fixed;

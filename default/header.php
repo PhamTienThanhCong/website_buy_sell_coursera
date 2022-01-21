@@ -14,7 +14,7 @@
                     <?php }else{ ?>
                         <img src="./public/images/upload/<?php echo $_SESSION['image']?>" alt="">
                     <?php } ?>
-                    <ul class = "sub-nav-user">
+                    <ul class = "sub-nav-user menu-select">
                         <li class = "sub-nav">
                             <a href="">Tài khoản của tôi</a>                   
                         </li>
@@ -40,9 +40,9 @@
     </header>
     <div class="hinder"></div>
     <div class="container">
-        <ul>
+        <ul class="menu-select">
             <li id="home">
-                <a href="./index.php">
+                <a id="click_home" href="./index.php">
                     <i class='bx bxs-home'></i>
                     <br>
                     Trang chủ

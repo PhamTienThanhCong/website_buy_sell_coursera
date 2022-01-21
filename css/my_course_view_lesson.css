@@ -1,0 +1,60 @@
+#my-sourse {
+    background-color: #e8ebed;
+}
+.content{
+    width: calc(100% - 400px);
+}
+.tab-lesson{
+    width: 280px;
+    height: auto;
+    margin-left: 10px;
+    overflow: hidden;
+    padding-right: 0;
+    
+}
+.name-lesson{
+    width: 250px;
+    height:auto;
+    padding: 5px 0;
+    text-align: left;
+    display: inline-block;
+    border-radius: 0;
+    margin: 0;
+    margin-top: 5px;
+    font-size: 16px;
+}
+.name-lesson a{
+    width: 100%;
+    height: 100%
+}
+.done{
+    background-color: #ccffcc;
+}
+.all-lessons-list{
+    width: 100%;
+    height: 455px;
+    overflow-x: hidden;
+    border: 1px solid #e8eb;
+    border-radius: 5px;
+    padding: 10px;
+}
+.ul{
+    position: unset;
+}
+.icon-lesson{
+    float: right;
+}
+#check-complete{
+    margin-bottom: 15px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 0px;
+    font-size: 16px;
+    background-color: #99ccff;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+#check-complete:hover{
+    background-color: #66b3ff;
+}

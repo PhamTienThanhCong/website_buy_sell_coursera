@@ -44,17 +44,17 @@
 
     require "./public/connect_sql.php";
     $sql = "SELECT
-                course.*,
-                COUNT(lesson.id_course) AS number_course
+                oder.all_lesson,
+                oder.history_lesson,
+                course.id_course,
+                course.name_course,
+                course.author,
+                course.image_course
             FROM
-                `course`
-            LEFT OUTER JOIN lesson ON course.id_course = lesson.id_course
-            LEFT OUTER JOIN admin ON course.id_admin = admin.id_admin
-            LEFT OUTER JOIN oder ON oder.id_course = course.id_course
+                course
+            INNER JOIN oder ON oder.id_course = course.id_course
             WHERE
-                course.status_course = '1' AND oder.id_user = '$id_user'
-            GROUP BY
-                course.id_course";
+                oder.id_user = '$id_user'";
     $all_courses = mysqli_query($connection, $sql);
 
     ?>
@@ -70,20 +70,20 @@
             </h2>
             <?php foreach ($all_courses as $course) { ?>
                 <div class="card">
-                    <a href="./my_course_view_lesson.php?idcourse=<?php echo $course['id_course'] ?>">
+                    <a href="./my_course_view_lesson.php?idcourse=<?php echo $course['id_course'] ?>&number_video=<?php echo $course['history_lesson'] ?>">
                         <div class="img-preview">
                             <img src="./public/images/upload/<?php echo $course['image_course'] ?>" alt="Avatar" style="width:100%">
                         </div>
                     </a>
                     <div class="container-card">
                         <br>
-                        <a href="./my_course_view_lesson.php?idcourse=<?php echo $course['id_course'] ?>">
+                        <a href="./my_course_view_lesson.php?idcourse=<?php echo $course['id_course'] ?>&number_video=<?php echo $course['history_lesson'] ?>">
                             <h3><b><?php echo $course['name_course'] ?></b></h3>
                         </a>
                         <p>
                             <i class='bx bxs-videos'></i>
                             Tổng số bài học:
-                            <?php echo $course['number_course'] ?>
+                            <?php echo $course['all_lesson'] ?>
                         </p>
                         <p>
                             <i class='bx bxs-user'></i>
@@ -112,9 +112,7 @@
             success: function (response) {    
             }
         });
-        $('.user-login').html('<a class="user-a" href="./login_and_register.php">Đăng nhập</a>');
-        $('.user-login').addClass('user');
-        $('.user').removeClass('user-login');     
+            document.getElementById("click_home").click()  
         })
     })
 </script>
