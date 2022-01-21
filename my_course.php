@@ -70,14 +70,14 @@
             </h2>
             <?php foreach ($all_courses as $course) { ?>
                 <div class="card">
-                    <a href="./view_course.php?id=<?php echo $course['id_course'] ?>">
+                    <a href="./my_course_view_lesson.php?idcourse=<?php echo $course['id_course'] ?>">
                         <div class="img-preview">
                             <img src="./public/images/upload/<?php echo $course['image_course'] ?>" alt="Avatar" style="width:100%">
                         </div>
                     </a>
                     <div class="container-card">
                         <br>
-                        <a href="./view_course.php?id=<?php echo $course['id_course'] ?>">
+                        <a href="./my_course_view_lesson.php?idcourse=<?php echo $course['id_course'] ?>">
                             <h3><b><?php echo $course['name_course'] ?></b></h3>
                         </a>
                         <p>
