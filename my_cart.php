@@ -92,14 +92,49 @@ session_start();
                     Thông tin thanh toán
                 </h3>
                 <br>
+                <?php if (isset($_SESSION['id']) == true) { ?>
                 <p>
+                    Tên : <?php echo $_SESSION['name'] ?>
+                </p>
+                <br>
+                <p id = "stk">
+                    Số tài khoản: 
+                </p>
+                <br>
+                <p>
+                    Ngân hàng Quân đội (MBBANK)
+                </p>
+                <br>
+                <p id="my-money" data-currency="<?php echo $_SESSION['money']?>">
                     Số tiền đang có: 
                     <?php echo currency_format($_SESSION['money'])?>
                 </p>
-                <p id="currency-pay">
-                    Số Tiền phải trả: 
-                </p>
+                <form method="post" action="./processing/my_cart_buy.php">
+                    <input name="course" id="mat-hang-se-mua" type="hidden">
+                    <button id="buy-course" style="display: none">btn an</button>
+                </form>
+            <?php } else { ?>
+                Chưa có thông tin 
+                <p id="my-money" data-currency="0"></p>
+            <?php } ?>
             </div>
+            <div class="my-infor">
+                <h3>
+                    <i class='bx bx-cart'></i>
+                    Thông tin về mặt hàng
+                </h3>
+                <br>
+                <p id="currency-pay">
+                    Số Tiền phải trả: 0
+                </p>
+                <p id="currency-money">
+                    Số tiền thừa thiếu: 
+                </p>
+                <p id="number-course">
+                    Số lượng bài học bạn mua: 0
+                </p>
+            </div>             
+            <lable id="listen-buy-course" class = "buy">Mua hàng ngay</lable>        
         </div>
     </div>
     </div>

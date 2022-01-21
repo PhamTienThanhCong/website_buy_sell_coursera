@@ -48,8 +48,8 @@
                     Trang chủ
                 </a>
             </li>
-            <li>
-                <a href="">
+            <li id="my-sourse">
+                <a href="./my_course.php">
                     <i class='bx bxs-book-content'></i>
                     <br>
                     Khóa học

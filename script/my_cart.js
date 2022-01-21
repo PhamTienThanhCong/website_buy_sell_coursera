@@ -1,12 +1,37 @@
 let total_price = 0;
 let course = [];
 
+function convetArrayToString(a){
+    var ArrayString = "";
+    for (var i=0; i<a.length; i++){
+        ArrayString = ArrayString + a[i]
+        if(i<a.length-1){
+            ArrayString = ArrayString + ","
+        }
+    }
+    return ArrayString;
+}
+
 const totalPrice = () =>{
     let x = total_price.toLocaleString('vi', {style : 'currency', currency : 'VND'});
+    var money = $('#my-money').data('currency');
+    money = money - total_price;
+
     $('.total-price').html("Tổng Tiền "+ x +"");
+    $('#currency-pay').html("Số Tiền phải trả: "+x+"");
+    
+    x = money.toLocaleString('vi', {style : 'currency', currency : 'VND'});  
+
+    $('#currency-money').html("Số tiền thừa thiếu: " + x + "");
+
+    $('#number-course').html("Số lượng bài học bạn mua: "+ course.length +"")
+
+    $('#mat-hang-se-mua').attr('value', convetArrayToString(course));
 }
 
 $(document).ready(function () {
+    $('#stk').html("Số tài khoản: " + Math.floor(Math.random() * 100000) + "" + Math.floor(Math.random() * 100000));
+
     $('.input-check').change(function(){
         if ($(this).attr('check') == 'false'){
             $(this).attr('check','true')
@@ -66,6 +91,10 @@ $(document).ready(function () {
         $('.user-login').html('<a class="user-a" href="./login_and_register.php">Đăng nhập</a>');
         $('.user-login').addClass('user');
         $('.user').removeClass('user-login');     
+    })
+
+    $('#listen-buy-course').click(function () {
+        document.getElementById('buy-course').click();
     })
 });
 
