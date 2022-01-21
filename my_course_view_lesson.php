@@ -24,11 +24,14 @@
     $check = mysqli_fetch_array($check);
 
     if(isset($check['history_lesson'])==false){
-        // header('Location: ./my_course.php');
+        header('Location: ./my_course.php');
     }
 
     if($check['history_lesson'] < $number_video+1){
         $number_video = $check['history_lesson']-1;
+    }
+    if($check['all_lesson'] < $number_video+1){
+        $number_video = 0;
     }
 
     $sql = "SELECT

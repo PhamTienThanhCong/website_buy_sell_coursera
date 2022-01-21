@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th1 21, 2022 lúc 09:08 AM
+-- Thời gian đã tạo: Th1 21, 2022 lúc 03:41 PM
 -- Phiên bản máy phục vụ: 5.7.33
 -- Phiên bản PHP: 7.4.19
 
@@ -195,6 +195,8 @@ CREATE TABLE `oder` (
   `id_order` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_course` int(11) NOT NULL,
+  `all_lesson` int(11) NOT NULL,
+  `history_lesson` int(11) NOT NULL DEFAULT '1',
   `creat_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -202,15 +204,10 @@ CREATE TABLE `oder` (
 -- Đang đổ dữ liệu cho bảng `oder`
 --
 
-INSERT INTO `oder` (`id_order`, `id_user`, `id_course`, `creat_at`) VALUES
-(5, 1, 17, '2022-01-21 03:19:41'),
-(6, 1, 3, '2022-01-21 03:19:41'),
-(7, 1, 14, '2022-01-21 03:19:41'),
-(8, 2, 15, '2022-01-21 03:25:07'),
-(9, 2, 14, '2022-01-21 03:25:07'),
-(10, 2, 3, '2022-01-21 03:25:07'),
-(11, 3, 17, '2022-01-21 08:16:22'),
-(12, 3, 15, '2022-01-21 08:16:22');
+INSERT INTO `oder` (`id_order`, `id_user`, `id_course`, `all_lesson`, `history_lesson`, `creat_at`) VALUES
+(13, 1, 15, 28, 12, '2022-01-21 13:09:02'),
+(14, 1, 14, 33, 1, '2022-01-21 13:09:02'),
+(15, 1, 3, 15, 1, '2022-01-21 13:09:02');
 
 -- --------------------------------------------------------
 
@@ -234,7 +231,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `name_user`, `email_user`, `phone_number_user`, `image_user`, `password`, `token_user`, `money`) VALUES
-(1, 'Cong Pham', 'congpham@gmail.com', '0936933214', 'null', 'cong', NULL, 7000000),
+(1, 'Cong Pham', 'congpham@gmail.com', '0936933214', 'null', 'cong', NULL, -3596000),
 (2, 'Thiên an', 'cong.pttc@gmail.com', '0936933214', 'null', 'cong', NULL, 9351000),
 (3, 'Cong Pham', 'congphamtienthanh@gmail.com', '0396369665', 'null', 'cong', NULL, 11151000);
 
@@ -302,7 +299,7 @@ ALTER TABLE `lesson`
 -- AUTO_INCREMENT cho bảng `oder`
 --
 ALTER TABLE `oder`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
