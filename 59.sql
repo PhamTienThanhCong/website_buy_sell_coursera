@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th1 18, 2022 lúc 02:28 PM
+-- Thời gian đã tạo: Th1 21, 2022 lúc 09:08 AM
 -- Phiên bản máy phục vụ: 5.7.33
 -- Phiên bản PHP: 7.4.19
 
@@ -76,7 +76,8 @@ INSERT INTO `course` (`id_course`, `id_admin`, `name_course`, `author`, `descrip
 (3, 4, 'Khóa học MYSQL từ cơ bản đến nâng cao', 'Nguyễn Nam Long', 'Đi song song với ngôn ngữ lập trình PHP là hệ quản trị CSDL MySQL, đây là một cặp đôi thường được dùng để xây dựng các ứng dụng website. MySQL có nhiệm vụ lưu trữ dữ liệu và PHP có nhiệm vụ lập trình phía Server, tiếp nhận và xử lý yêu cầu của người dùng, sau đó lấy dữ liệu tương ứng và trả kết quả về cho client.\r\n\r\nĐể học MySQL thì bạn sẽ phải có một chút kiến thức về phân tích hệ thống, phân tích CSDL. Nghĩa là từ các yêu cầu của người dùng sẽ phân tích thiết kế một mô hình dữ liệu để lưu trữ các yêu cầu đó. Ví dụ khi bạn làm một website bán hàng thì bạn phải phân tích những đối tượng cần được lưu trữ, sau đó thiết kế thành các table và các mối quan hệ giữa các table đó.\r\n\r\nVà trong chuyên mục này mình sẽ giới thiệu một số chuyên đề như học MySQL căn bản, cách sử dụng View, trigger, procedure trong MySQL để từ đó các bạn có thể vận dụng trong project của các bạn. Điểm quan trọng nhất trong quá trình học MySQL là bạn phải siêng năng, chịu khó làm theo các ví dụ, tự nghĩ ra các câu truy vấn đề thực hành hoặc tìm những bài tập tương tự để thực hành. Quan trọng hơn nữa là bạn phải đặt câu hỏi nếu gặp khó khăn trong quá trình học MySQL.\r\n\r\nHiện nay mình chưa quay được nhiều video về MySQL nhưng trong tương lai mình sẽ cố gắng hoàn thành các video để các bạn dễ theo dõi hơn. Vì blog mới thành lập và tác giả viết bài còn hạn chế nên đành phải lấy thời gian để hứa với các bạn vậy. Cuối cùng chúc các bạn học MySQL tốt và hy vọng đây sẽ là nơi học lý tưởng cho các bạn.', 'Khóa học MYSQL từ cơ bản đến nâng cao1642078344.jpg', 1, 1200000, '2022-01-11 09:01:54'),
 (14, 4, 'Khóa học html-css-javascript-php ', 'Nguyễn Nam Long', 'Khóa học cung cấp các kiến thức căn bản để học viên có thể đi làm được ở vị trí fullstack web developer. Học viên học được cách làm việc nhóm, giải quyết vấn đề, hiểu được quy trình, công cụ làm việc như trong thực tế.\r\n\r\nLưu ý: Hiện nay có một số kẻ xấu đang bán khóa học này dưới dạng video, đó là hành vi ăn cắp, mình đã làm việc với bên công an để có biện pháp xử lý. Các video họ bán đã quá cũ, không cập nhật các kiến thức mới như khóa học này. Một số trường hợp bị lừa đảo, gửi file không mở được. Không được cấp tài khoản và API để thực hành.\r\n\r\nĐể đăng ký khóa học hoặc bạn cần tư vấn, vui lòng kéo xuống dưới cùng.\r\n\r\nNếu học viên đã học sơ qua về lập trình web, khóa học này là cơ hội để hệ thống hóa kiến thức, học lại một cách bài bản, bù các kiến thức bị thiếu. Bởi vì chỉ cần “một cuốn sách, một người thầy” là đủ.\r\n\r\nKhóa học dành cho các học viên có kiến thức lập trình căn bản, có thời gian, sẵn sàng đeo bám khóa học đến cùng :) Học cho đến lúc nào đi làm được thì thôi.\r\n\r\nHọc viên có một người mentor bên cạnh, như một người bạn, sẵn sàng chia sẻ định hướng để phát triển bản thân trong ngành lập trình.\r\n\r\n', 'Khóa học html-css-javascript-php 1642081103.png', 1, 950000, '2022-01-13 13:38:23'),
 (15, 5, 'Khóa học lập trình Java đến OOP', 'HowKteam', 'Java là một trong các ngôn ngữ lập trình phổ biến, được ra đời vào năm 1995. Hiện nay, ông chủ của nó là Oracle. Và con số hơn 3 tỉ thiết bị trên toàn cầu sử dụng Java là một minh chứng rõ nhất cho sự phổ biến của ngôn ngữ này.\r\n\r\nJava có thể làm gì?\r\nỞ đây, tôi sẽ tóm tắt các ứng dụng của ngôn ngữ lập trình Java một cách ngắn gọn nhất. Nếu bạn muốn tự mình xây dựng một sản phẩm tương tự như vậy thì Java là lựa chọn tốt dành cho bạn. Dưới đây là các ứng dụng của Java trong thực tế:\r\n\r\nPhát triển ứng dụng mobile (điển hình là ứng dụng Android, cái này Việt Nam mình tuyển nhiều nè)\r\nXây dựng các ứng dụng trên máy tính (Windows, Ubuntu,…)\r\nViết website (JSP, Spring, … Cái này các công ty lớn ở Việt Nam cũng tuyển nhiều nè)\r\nViết web server/ ứng dụng server (Cái này cũng tuyển nhưng không nhiều bằng)\r\nViết trò chơi (game đó)\r\nCòn nhiều nữa nha…\r\nLý do nên học lập trình Java\r\n1. Java rất dễ học\r\n\r\nNhiều người sẽ ngạc nhiên khi thấy đây là một trong những lý do hàng đầu để học Java hoặc coi nó là ngôn ngữ lập trình tốt nhất, nhưng sự thật là vậy. Java là một ngôn ngữ lập trình bậc cao, các từ khóa là các từ tiếng anh (gần với ngôn ngữ tự nhiên) và theo nó là các quy tắc chặt chẽ.\r\n\r\n2. Java là ngôn ngữ hướng đối tượng (OOP)\r\n\r\nMột lý do khác, khiến Java trở nên phổ biến vì nó là ngôn ngữ lập trình hướng đối tượng. Điều này giúp phát triển các ứng dụng OOP dễ dàng hơn nhiều và nó cũng giúp giữ cho hệ thống được mô đun hóa, linh hoạt và có thể mở rộng.\r\n\r\n3. Java là một nền tảng độc lập\r\n\r\nĐây là lý do chính cho sự phổ biến của Java. Bạn chỉ cần viết code Java một lần duy nhất và có thể đem nó chạy bất cứ đâu (bao gồm Windows, Linux, MacOS,…). Điều này không có ở một số ngôn ngữ khác\r\n\r\n4. Java có ở mọi nơi\r\n\r\nỨng dụng Desktop: Java Swing, JavaFX\r\nMobile: J2ME hay một nền tảng phổ biến viết code cho Android hiện nay là Android Software Development Kit (SDK)\r\nLập trình Nhúng: Một số thiết bị, chẳng hạn như thẻ SIM, đầu đĩa, đồng hồ và TV, sử dụng các công nghệ Java nhúng\r\nLập trình Web: Hiện đang có nhu cầu tuyển dụng lớn tại Việt Nam. Một số framework phổ biến như Struts, Spring, Servlets,…\r\nỨng dụng doanh nghiệp: Java Enterprise Edition (Java EE) là một nền tảng phổ biến cung cấp API và môi trường thời gian chạy để viết kịch bản và chạy phần mềm doanh nghiệp, bao gồm các ứng dụng mạng và dịch vụ web\r\n4. Nhu cầu tuyển dụng lớn\r\n\r\nCác bạn hoàn toàn có thể kiểm chứng thông tin này bằng cách thử tìm kiếm công việc lập trình Java trên Google hoặc các trang tìm việc IT.\r\n\r\nVới mục đích giới thiệu đến mọi người về Ngôn ngữ Java - một ngôn ngữ lập trình khá mới mẻ so với C, C++, Java, PHP ở Việt Nam. Thông qua khóa học LẬP TRÌNH JAVA CƠ BẢN ĐẾN HƯỚNG ĐỐI TƯỢNG, Kteam sẽ hướng dẫn các bạn kiến thức cơ bản của Java. Để từ đó, có được nền tảng cho phép bạn tiếp tục tìm hiểu những kiến thức tuyệt vời khác của Java hoặc là một ngôn ngữ khác. Cụ thể trong khóa học này, Kteam sẽ giới thiệu với các bạn Java ở phiên bản Java 8 Đối tượng tham gia: Serial này dành cho các bạn muốn học, tìm hiểu về lập trình và xác định theo con đường lập trình viên lâu dài. Khóa học không khuyến khích những bạn tay ngang vào học lập trình vì bản chất Java là ngôn ngữ khó học và cần đi theo con đường học tập chuyên sâu. Khóa học này yêu cầu sinh viên phải có kiến thức vững chắc về lập trình cơ bản thường được học ở trường như nhập môn, kĩ thuật lập trình, cấu trúc dữ liệu,.. Thời lượng mỗi video từ 3 – 30 phút nhằm chia nhỏ quá trình thực hiện, giúp bạn dễ tiếp thu và ứng dụng source code hỗ trợ từ thư viện Howkteam.com Khoá học sẽ mang đến bạn kiến thức về: Cài đặt & sử dụng môi trường Java. Làm quen & hiểu cách sử dụng các khái niệm nền tảng trong Java. Kiến thức cơ bản như: ép kiểu, vòng lặp, mảng, …. Và tìm hiểu về Java Hướng Đối Tượng.\"\"\"', 'Khóa học lập trình Java đến OOP1642512072.jpg', 1, 499000, '2022-01-18 13:21:12'),
-(16, 8, 'Khóa học làm giàu', 'Khá Bảnh', 'FT 88 nhà cái uy tín chất lượng hàng đầu Việt Nam', 'Khóa học làm giàu1642515381.jpg', 0, 99999999, '2022-01-18 14:16:21');
+(16, 8, 'Khóa học làm giàu', 'Khá Bảnh', 'FT 88 nhà cái uy tín chất lượng hàng đầu Việt Nam', 'Khóa học làm giàu1642515381.jpg', 0, 99999999, '2022-01-18 14:16:21'),
+(17, 5, 'Luyện code html-css-javaScript 30 ngày', 'Nodemy', 'Sử dụng hashtag: #30dayschallengecode\r\nLink dự án: https://www.nodemy.vn/projects-html-c...\r\n• Luyện tập 30 Projects thực chiến: https://www.youtube.com/watch?v=3odtU...\r\n', 'Luyện code html-css-javaScript 30 ngày1642650724.png', 1, 350000, '2022-01-20 03:52:04');
 
 -- --------------------------------------------------------
 
@@ -172,7 +173,44 @@ INSERT INTO `lesson` (`id_lesson`, `id_course`, `name_lesson`, `link_ytb_lesson`
 (76, 15, 'Bài 25: Interface Java', 'BgNcBfqOLQk', 'Interface là gì? Tại sao phải sử dụng?\r\nInterface là một kiểu dữ liệu tham chiếu trong Java. Nó là tập hợp các phương thức abstract (trừu tượng). Khi một lớp kế thừa interface, thì nó sẽ kế thừa những phương thức abstract của interface đó.\r\n\r\nMột số đặc điểm của interface:\r\n\r\nKhông thể khởi tạo, nên không có phương thức khởi tạo.\r\nTất cả các phương thức trong interface luôn ở dạng public abstract mà không cần khai báo.\r\nCác thuộc tính trong interface luôn ở dạng public static final mà không cần khai báo, yêu cầu phải có giá trị.\r\nMục đích của interface là để thay thế đa kế thừa lớp của những ngôn ngữ khác (ví dụ như C++, Python…). Ngoài ra, interface sẽ giúp đồng bộ và thống nhất trong việc phát triển hệ thống trao đổi thông tin.'),
 (77, 15, 'Bài 26: Giải thích hàm main trong Java', 'nzurRJhbFl8', 'Để đọc hiểu bài này, tốt nhất các bạn nên có kiến thức cơ bản về các phần sau:\r\n\r\nCÁC BIẾN TRONG JAVA.\r\nCÁC KIỂU DỮ LIỆU TRONG JAVA.\r\nCÁC HẠNG TOÁN TỬ TRONG JAVA\r\nCẤU TRÚC RẼ NHÁNH TRONG JAVA\r\nVÒNG LẶP WHILE TRONG JAVA\r\nVÒNG LẶP FOR TRONG JAVA\r\nMẢNG TRONG JAVA\r\nVÒNG LẶP FOR-EACH TRONG JAVA\r\nVAI TRÒ BREAK, CONTINUE TRONG VÒNG LẶP JAVA\r\nSWITCH TRONG JAVA\r\nLẬP TRÌNH HƯỚNG ĐỐI TƯỢNG\r\nCLASS TRONG LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG\r\nCÁC LOẠI PHẠM VI TRUY CẬP TRONG LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG\r\nTỪ KHÓA STATIC TRONG LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG\r\nTỪ KHÓA THIS TRONG LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG\r\nTHỪA KẾ TRONG LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG\r\nSETTER & GETTER TRONG LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG\r\nOVERRIDING VÀ OVERLOADING TRONG LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG\r\nTÍNH TRỪU TƯỢNG TRONG LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG\r\nINTERFACE TRONG LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG'),
 (78, 15, 'Bài 27: Try catch trong Java', 'zI9uen-vRa4', 'Try Catch là gì?\r\nKhi chạy chương trình, có rất nhiều loại lỗi khác nhau có thể xảy ra như: lỗi do sai lầm người viết, lỗi do sai thông tin đầu vào hoặc những lỗi mà không thể lường trước được. Và khi có lỗi, Java sẽ dừng lại và hiện thị thông tin lỗi ra, kĩ thuật đó thường được gọi là ‘throw an exception/error’.\r\n\r\nVà có những lỗi xuất phát từ người dùng, thì lúc đó ta không thể cho họ xem thông tin lỗi như thế này được. Với những người không thành thạo về máy vi tính hoặc tiếng Anh thì họ nghĩ chương trình bạn viết bị lỗi mà không phải lỗi từ họ.\r\n\r\nVì vậy, Try Catch có nhiệm vụ bắt (Catch) các lỗi mà thực tế có thể xảy ra để xử lý sao cho chương trình thân thiện với người dùng hơn.'),
-(79, 15, 'Bài 28: 4 tính chất  của OOP', 'u-yPTK1pHQM', 'Dẫn nhập\r\nTrong các bài học Java vừa qua, chúng ta đã tích lũy được những kiến thức cơ bản và hướng đối tượng của ngôn ngữ Java. Thực tế, kiến thức của một ngôn ngữ lập trình là không thể học hết được, ta chỉ có thể biết được nó qua những vấn đề dự án khi cần. Đây là bài học cuối trong khóa học này, nhưng là tiền đề để các bạn nghiên cứu những kiến thức nâng cao hơn.\r\n\r\n4 tính chất trong hướng đối tượng là gì?\r\nĐây là 4 tính chất góp phần tạo nên khái niệm lập trình hướng đối tượng, chúng có thể tồn tại trong các ngôn ngữ tuân theo hướng đối tượng, đặc biệt đối với những ngôn ngữ thuần hướng đối tượng như C++, Java, C#, Ruby,… sẽ có đủ 4 tính chất này.\r\n\r\nNếu bạn đã chọn các ngôn ngữ thuần hướng đối tượng gắn liền với sự nghiệp lập trình, thì bắt buộc bạn phải nhớ và hiểu các tính chất này, khi bạn hiểu mới có thể đi lên cao trong phát triển phần mềm đồng thời hiểu sâu trong kĩ thuật.\r\n\r\n4 tính chất đó là:\r\n\r\nTính đóng gói (Encapsulation)\r\nTính trừu tượng (Abstraction)\r\nTính thừa kế (Inheritance)\r\nTính đa hình (Polymorphism)\r\n');
+(79, 15, 'Bài 28: 4 tính chất  của OOP', 'u-yPTK1pHQM', 'Dẫn nhập\r\nTrong các bài học Java vừa qua, chúng ta đã tích lũy được những kiến thức cơ bản và hướng đối tượng của ngôn ngữ Java. Thực tế, kiến thức của một ngôn ngữ lập trình là không thể học hết được, ta chỉ có thể biết được nó qua những vấn đề dự án khi cần. Đây là bài học cuối trong khóa học này, nhưng là tiền đề để các bạn nghiên cứu những kiến thức nâng cao hơn.\r\n\r\n4 tính chất trong hướng đối tượng là gì?\r\nĐây là 4 tính chất góp phần tạo nên khái niệm lập trình hướng đối tượng, chúng có thể tồn tại trong các ngôn ngữ tuân theo hướng đối tượng, đặc biệt đối với những ngôn ngữ thuần hướng đối tượng như C++, Java, C#, Ruby,… sẽ có đủ 4 tính chất này.\r\n\r\nNếu bạn đã chọn các ngôn ngữ thuần hướng đối tượng gắn liền với sự nghiệp lập trình, thì bắt buộc bạn phải nhớ và hiểu các tính chất này, khi bạn hiểu mới có thể đi lên cao trong phát triển phần mềm đồng thời hiểu sâu trong kĩ thuật.\r\n\r\n4 tính chất đó là:\r\n\r\nTính đóng gói (Encapsulation)\r\nTính trừu tượng (Abstraction)\r\nTính thừa kế (Inheritance)\r\nTính đa hình (Polymorphism)\r\n'),
+(80, 17, 'Day 1: Thiết kế Product Card bắt mắt chưa đầy 1 giờ', '3odtU8VL3Mc', ''),
+(81, 17, 'Day 2: Đứng hình mất 5s với Profile Card giới thiệu bản thân ', 'DkiLJzL6kv4', ''),
+(82, 17, 'Day 3: Bật mí cách tạo Modal Popup Material UI vừa đẹp vừa đơn giản', 'gyqMtCmHHUA', ''),
+(83, 17, 'Day 4: Hiệu ứng show ảnh Image Gallery chuyên nghiệp không phải ai cũng biết', '0Uhtzrsi-qE', ''),
+(84, 17, 'Day 5: Search Box đơn giản mà đẹp, không phải ai cũng biết', 'rpKjWpOiBSY', ''),
+(85, 17, 'Day 6: Những thông tin quan trọng khi bắt sự kiện keydown', 'p5ivn6UpjQk', ''),
+(86, 17, 'Day 7: Search Tags có gì hay ho ? ', 'Cad_2CvAoQ8', ''),
+(87, 17, 'Day 8: Validate form có tâm thế này mới đi làm được AE nhé', 'fRPCVBfD7hw', ''),
+(88, 17, 'Day 9: Đi làm thì phải biết dùng API vậy API là gì? Call API làm cực kỳ đơn giản trong Weather App', 'ZKhOuR1UWh4', ''),
+(89, 17, 'Day 10: Todo List bài tập kinh điển mà đi làm ai cũng phải biết. Kỹ thuật sử dụng \"This\" đơn giản', 'iO7kgGgHr6w', '');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `oder`
+--
+
+CREATE TABLE `oder` (
+  `id_order` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_course` int(11) NOT NULL,
+  `creat_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `oder`
+--
+
+INSERT INTO `oder` (`id_order`, `id_user`, `id_course`, `creat_at`) VALUES
+(5, 1, 17, '2022-01-21 03:19:41'),
+(6, 1, 3, '2022-01-21 03:19:41'),
+(7, 1, 14, '2022-01-21 03:19:41'),
+(8, 2, 15, '2022-01-21 03:25:07'),
+(9, 2, 14, '2022-01-21 03:25:07'),
+(10, 2, 3, '2022-01-21 03:25:07'),
+(11, 3, 17, '2022-01-21 08:16:22'),
+(12, 3, 15, '2022-01-21 08:16:22');
 
 -- --------------------------------------------------------
 
@@ -185,10 +223,20 @@ CREATE TABLE `user` (
   `name_user` varchar(35) NOT NULL,
   `email_user` varchar(150) NOT NULL,
   `phone_number_user` varchar(15) NOT NULL,
-  `image_user` varchar(150) DEFAULT NULL,
+  `image_user` varchar(150) DEFAULT 'null',
   `password` varchar(150) NOT NULL,
-  `token_user` text
+  `token_user` text,
+  `money` int(11) NOT NULL DEFAULT '10000000'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `user`
+--
+
+INSERT INTO `user` (`id_user`, `name_user`, `email_user`, `phone_number_user`, `image_user`, `password`, `token_user`, `money`) VALUES
+(1, 'Cong Pham', 'congpham@gmail.com', '0936933214', 'null', 'cong', NULL, 7000000),
+(2, 'Thiên an', 'cong.pttc@gmail.com', '0936933214', 'null', 'cong', NULL, 9351000),
+(3, 'Cong Pham', 'congphamtienthanh@gmail.com', '0396369665', 'null', 'cong', NULL, 11151000);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -215,6 +263,14 @@ ALTER TABLE `lesson`
   ADD KEY `id_course` (`id_course`);
 
 --
+-- Chỉ mục cho bảng `oder`
+--
+ALTER TABLE `oder`
+  ADD PRIMARY KEY (`id_order`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_course` (`id_course`);
+
+--
 -- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
@@ -234,19 +290,25 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT cho bảng `course`
 --
 ALTER TABLE `course`
-  MODIFY `id_course` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_course` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT cho bảng `lesson`
 --
 ALTER TABLE `lesson`
-  MODIFY `id_lesson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id_lesson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+
+--
+-- AUTO_INCREMENT cho bảng `oder`
+--
+ALTER TABLE `oder`
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -263,6 +325,13 @@ ALTER TABLE `course`
 --
 ALTER TABLE `lesson`
   ADD CONSTRAINT `lesson_ibfk_1` FOREIGN KEY (`id_course`) REFERENCES `course` (`id_course`);
+
+--
+-- Các ràng buộc cho bảng `oder`
+--
+ALTER TABLE `oder`
+  ADD CONSTRAINT `oder_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`),
+  ADD CONSTRAINT `oder_ibfk_2` FOREIGN KEY (`id_course`) REFERENCES `course` (`id_course`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
