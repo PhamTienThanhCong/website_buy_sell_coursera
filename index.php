@@ -29,7 +29,6 @@
     require "./public/connect_sql.php";
     $sql = "SELECT course.*, COUNT(lesson.id_course) as number_course FROM `course` 
             LEFT OUTER JOIN lesson ON course.id_course = lesson.id_course
-            LEFT OUTER JOIN admin ON course.id_admin = admin.id_admin
             WHERE course.status_course = '1' and (course.name_course like '%$search%' or  lesson.name_lesson like '%$search%')
             GROUP BY course.id_course";
     $all_courses = mysqli_query($connection, $sql);

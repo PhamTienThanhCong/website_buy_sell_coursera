@@ -4,6 +4,12 @@
         header('Location: ./login_and_register.php');
     }
     $id_user = $_SESSION['id'];
+    require "./public/connect_sql.php";
+
+    $sql = "SELECT * FROM `user` WHERE `id_user` = '$id_user'";
+
+    $user = mysqli_query($connection, $sql);
+    $user = mysqli_fetch_array($user);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,12 +25,98 @@
     #my-account{
         background-color: #e8ebed;
     }
-    
+    .content{
+        width: calc(100% - 150px);
+        margin-left: 20px;
+    }
+    .image-avatar{
+        width: 200px;
+        height: 200px;
+        background-color: #e8ebed;
+        position: absolute;
+        overflow: hidden;
+        transform: translateY(50px);
+        border: 4px solid #e8ebed;
+    }
+    .image-avatar img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    #my-in4{
+        margin-left: 220px;
+        display: inline-block;
+        margin-top: 50px;
+    }
+    label{
+        display: inline-block;
+        width: 130px;
+        font-size: 18px;
+    }
+    .input-in4{
+        width: 350px;
+        height: 35px;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        font-family:'Times New Roman', Times, serif;
+        margin-bottom: 5px;
+    }
+    .input-image{
+        font-size: 16px;
+        margin-bottom: 10px;
+        margin-top: 5px;
+    }
+    .input-replace{
+        border-bottom: 1px solid #d3d9de;
+    }
+    .btn{
+        outline: none;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        font-family:'Times New Roman', Times, serif;
+        border-radius: 10px;
+        transition: all 0.5s;
+        cursor: pointer;
+    }
+    .btn:hover{
+        transform: scale(0.95);
+    }
+    .btn-primary{
+        background-color: #2697ff;
+        margin-top: 20px;
+    }
+    .btn-danger{
+        background-color: #ff6666;
+    }
 </style>
 <body>
     <?php require "./default/header.php"; ?>
-    <div class=content></div>
+    <div class=content>
+        <h2 >Tài khoản của tôi </h2>
+        <div class="image-avatar">
+            <img id="avatar-preview" src="./public/images/default/avata.png" alt="">
+        </div>
+        <form id="my-in4" method="post" action="./processing/my_account_update.php" enctype="multipart/form-data">
+            <label for="">Tên tài khoản: </label>
+            <input name="name_user" class="input-in4" type="text" value="<?php echo $user['name_user']?>" readonly>
+            <br>
+            <label for="">Email đăng nhập: </label> 
+            <input name="email_user" class="input-in4" type="text" value="<?php echo $user['email_user']?>" readonly>
+            <br>
+            <label for="">Số điện thoại: </label>
+            <input name="phone_number_user" class="input-in4" type="text" value="<?php echo $user['phone_number_user']?>" readonly>
+            <br>
+            <input type="hidden">
+            <br>
+            <button class="btn btn-primary" type="button">Sửa đổi và bổ sung</button>            
+        </form>
+    </div>
     <div class="tab-right"></div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./script/my_account.js"></script>
 </body>
 </html>
