@@ -16,7 +16,7 @@
                     <?php } ?>
                     <ul class = "sub-nav-user menu-select">
                         <li class = "sub-nav">
-                            <a href="">Tài khoản của tôi</a>                   
+                            <a href="./my_account.php">Tài khoản của tôi</a>                   
                         </li>
                         <li class = "sub-nav">
                             <a href="./my_cart.php">Giỏ hàng của tôi</a>                        
@@ -62,8 +62,8 @@
                     Giỏ hàng
                 </a>
             </li>
-            <li>
-                <a href="">
+            <li id="my-account">
+                <a href="./my_account.php">
                     <i class='bx bxs-user'></i>
                     <br>
                     Tài khoản
