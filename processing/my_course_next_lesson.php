@@ -17,19 +17,34 @@ $sql = "SELECT
 $check = mysqli_query($connection, $sql);
 $check = mysqli_fetch_array($check);
 
-if(isset($check['history_lesson'])){
-    if ($check_lesson == $check['history_lesson']){
-        $history_lesson =  $check['history_lesson']+1;
+$sql = "SELECT
+            COUNT(*) as number_lesson
+        FROM
+            `lesson`
+        WHERE
+            `id_course` = '$id_course'";
 
-        $sql = "UPDATE
-                    `oder`
-                SET
-                    `history_lesson` = '$history_lesson'
-                WHERE
-                    (`id_user` = '$id_user') AND `id_course` = '$id_course'";
-        mysqli_query($connection, $sql);
+$number_lesson = mysqli_query($connection, $sql);
+$number_lesson = mysqli_fetch_array($number_lesson);
+
+
+if(isset($check['history_lesson'])){
+    if ($number_lesson['number_lesson'] > $check_lesson){
+        if ($check_lesson == $check['history_lesson']){
+            $history_lesson =  $check['history_lesson']+1;
+    
+            $sql = "UPDATE
+                        `oder`
+                    SET
+                        `history_lesson` = '$history_lesson'
+                    WHERE
+                        (`id_user` = '$id_user') AND `id_course` = '$id_course'";
+            mysqli_query($connection, $sql);
+        }else{
+            $history_lesson = $check_lesson+1;
+        }
     }else{
-        $history_lesson = $check_lesson+1;
+        $history_lesson = 1;
     }
 }
 

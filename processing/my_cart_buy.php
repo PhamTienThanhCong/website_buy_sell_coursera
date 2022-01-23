@@ -30,9 +30,10 @@ foreach ($id_course as $id){
     $pay += (int)$money['price'];
 
 
-    $sql = "INSERT INTO `oder` (`id_user`, `id_course`,`all_lesson`) VALUE ('$id_user','$id','$number_lesson')";
+    $sql = "INSERT INTO `oder` (`id_user`, `id_course`,`history_lesson`) VALUE ('$id_user','$id','1')";
     mysqli_query($connection, $sql);
     
+    unset($_SESSION['cart'][$id]);
 }
 
 $_SESSION['money'] -= $pay;

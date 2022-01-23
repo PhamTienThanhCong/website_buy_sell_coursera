@@ -25,8 +25,11 @@ session_start();
             }
         }
         require "./default/header.php";
-        $all_cart = $_SESSION['cart'];
-        $number_cart = count($all_cart);
+        $number_cart = 0;
+        if (isset($_SESSION['cart'])){
+            $all_cart = $_SESSION['cart'];
+            $number_cart = count($all_cart);
+        }
     ?>
     <div class=content> 
         <div class = "all-course">

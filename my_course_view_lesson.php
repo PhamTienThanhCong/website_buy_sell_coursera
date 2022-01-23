@@ -6,11 +6,7 @@
     $id_user = $_SESSION['id'];
 
     $id_course = addslashes($_GET['idcourse']);
-    $number_video = 1;
-    if (isset($_GET['number_video'])){
-        $number_video = addslashes($_GET['number_video']);
-    }  
-    $number_video = (int)$number_video - 1;
+
     require "./public/connect_sql.php";
 
     $sql = "SELECT
@@ -20,6 +16,7 @@
             WHERE
                 (id_user = '$id_user') AND (id_course = '$id_course')";
     
+    
     $check = mysqli_query($connection, $sql);
     $check = mysqli_fetch_array($check);
 
@@ -27,12 +24,20 @@
         header('Location: ./my_course.php');
     }
 
-    if($check['history_lesson'] < $number_video+1){
-        $number_video = $check['history_lesson']-1;
-    }
-    if($check['all_lesson'] < $number_video+1){
-        $number_video = 0;
-    }
+    $number_video = $check['history_lesson'] ;
+
+    if (isset($_GET['number_video'])){
+        $number_video = addslashes($_GET['number_video']);
+    } 
+
+    $number_video = (int)$number_video - 1; 
+
+    // if($check['history_lesson'] < $number_video+1){
+    //     $number_video = $check['history_lesson']-1;
+    // }
+    // if($check['all_lesson'] < $number_video+1){
+    //     $number_video = 0;
+    // }
 
     $sql = "SELECT
                 course.*,
@@ -45,7 +50,6 @@
             GROUP BY
                 lesson.id_lesson
             LIMIT 1 OFFSET $number_video";
-
     
     $course = mysqli_query($connection, $sql);
     $one_course = mysqli_fetch_array($course);
@@ -60,7 +64,6 @@
                 course.id_course = '$id_course'
             GROUP BY
                 lesson.id_lesson;";
-
     $all_lesson = mysqli_query($connection, $sql);
 ?>
 <!DOCTYPE html>
@@ -76,7 +79,8 @@
 </head>
 <body>
     <?php require "./default/header.php"; ?>
-        <div class=content>
+        <?php if (isset($one_course['name_lesson'])){ ?>
+            <div class=content>
             <iframe width="100%" height="508" src="https://www.youtube.com/embed/<?php echo $one_course['link_ytb_lesson']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <h2 style="margin-top: 20px">
                 <?php echo $one_course['name_lesson']?>
@@ -93,6 +97,9 @@
                 Bình luận
             </h4>
         </div>
+        <?php }else{ ?>
+            <h1>Khóa học hiện tại chưa có bài này vui lòng chọn bài khác</h1>
+        <?php } ?>
         <div class="tab-lesson">
             <form id="next-course" method="post" action="./processing/my_course_next_lesson.php">
                 <input name = "id_course" type="hidden" value = "<?php echo $id_course?>">

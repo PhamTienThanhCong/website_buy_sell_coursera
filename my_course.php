@@ -44,17 +44,19 @@
 
     require "./public/connect_sql.php";
     $sql = "SELECT
-                oder.all_lesson,
-                oder.history_lesson,
                 course.id_course,
                 course.name_course,
                 course.author,
-                course.image_course
+                course.image_course,
+                COUNT(course.id_course) AS number_course
             FROM
                 course
             INNER JOIN oder ON oder.id_course = course.id_course
+            LEFT OUTER JOIN lesson ON course.id_course = lesson.id_course
             WHERE
-                oder.id_user = '$id_user'";
+                oder.id_user = '$id_user'
+            GROUP BY
+                course.id_course";
     $all_courses = mysqli_query($connection, $sql);
 
     ?>
@@ -70,20 +72,20 @@
             </h2>
             <?php foreach ($all_courses as $course) { ?>
                 <div class="card">
-                    <a href="./my_course_view_lesson.php?idcourse=<?php echo $course['id_course'] ?>&number_video=<?php echo $course['history_lesson'] ?>">
+                    <a href="./my_course_view_lesson.php?idcourse=<?php echo $course['id_course'] ?>">
                         <div class="img-preview">
                             <img src="./public/images/upload/<?php echo $course['image_course'] ?>" alt="Avatar" style="width:100%">
                         </div>
                     </a>
                     <div class="container-card">
                         <br>
-                        <a href="./my_course_view_lesson.php?idcourse=<?php echo $course['id_course'] ?>&number_video=<?php echo $course['history_lesson'] ?>">
+                        <a href="./my_course_view_lesson.php?idcourse=<?php echo $course['id_course'] ?>">
                             <h3><b><?php echo $course['name_course'] ?></b></h3>
                         </a>
                         <p>
                             <i class='bx bxs-videos'></i>
                             Tổng số bài học:
-                            <?php echo $course['all_lesson'] ?>
+                            <?php echo $course['number_course'] ?>
                         </p>
                         <p>
                             <i class='bx bxs-user'></i>
