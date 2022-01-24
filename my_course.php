@@ -24,6 +24,10 @@
     #my-sourse {
         background-color: #e8ebed;
     }
+    .btn{
+        border: none;
+        margin-left: 0  ;
+    }
 </style>
 
 <body>
@@ -92,7 +96,8 @@
                             Tác giả:
                             <?php echo $course['author'] ?>
                         </p>
-
+                        <br>
+                        <a class='btn' href="./view_course.php?id=<?php echo $course['id_course'] ?>">Đánh giá ngay</a>
                     </div>
                 </div>
             <?php } ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th1 24, 2022 lúc 04:19 AM
+-- Thời gian đã tạo: Th1 24, 2022 lúc 03:10 PM
 -- Phiên bản máy phục vụ: 5.7.33
 -- Phiên bản PHP: 7.4.19
 
@@ -198,7 +198,7 @@ CREATE TABLE `oder` (
   `id_course` int(11) NOT NULL,
   `history_lesson` int(11) NOT NULL DEFAULT '1',
   `creat_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `rate` float DEFAULT NULL,
+  `rate` float DEFAULT '0',
   `comment` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -207,12 +207,13 @@ CREATE TABLE `oder` (
 --
 
 INSERT INTO `oder` (`id_order`, `id_user`, `id_course`, `history_lesson`, `creat_at`, `rate`, `comment`) VALUES
-(13, 1, 15, 12, '2022-01-21 13:09:02', NULL, NULL),
-(14, 1, 14, 32, '2022-01-21 13:09:02', NULL, NULL),
-(15, 1, 3, 16, '2022-01-21 13:09:02', NULL, NULL),
-(16, 1, 17, 1, '2022-01-22 07:58:04', NULL, NULL),
-(19, 2, 3, 15, '2022-01-23 02:56:17', NULL, NULL),
-(20, 2, 15, 2, '2022-01-23 06:51:50', NULL, NULL);
+(13, 1, 15, 12, '2022-01-21 13:09:02', 5, 'cái này xem hay lắm mọi người nên mua nha\r\n'),
+(14, 1, 14, 34, '2022-01-21 13:09:02', 1, 'cái này xem hay lắm mọi người nên mua nha Nhưng mình vẫn đánh giá 1 sao thôi hihi\r\nĐợi bao giờ ra hết thì đánh 5 sao sau nha <3\r\n'),
+(15, 1, 3, 15, '2022-01-21 13:09:02', 5, 'Bài này hay nhưng mà ít quá giá mà có bạn nào hộ mình nhập data :))\r\n\r\n'),
+(16, 1, 17, 1, '2022-01-22 07:58:04', 1, 'cái này xem hay lắm mọi người nên mua nha Nhưng mình vẫn đánh giá 1 sao thôi hihi'),
+(19, 2, 3, 15, '2022-01-23 02:56:17', 4, '                        Tình yêu thì muôn ngàn lối\r\nLàm sao để em tìm tới\r\nCứ bước qua một thời cảm thấy xa vời vợi\r\nNgười đâu có hay rằng em yêu người\r\nMà em không biết nói sao, quen biết bấy lâu\r\nTiếng ân tình em chưa dám trao\r\nNhiều khi em muốn nói ra nhưng khó biết bao\r\nVì em là con gái\r\nChưa từng ngỏ lời cùng ai\r\nTình này là tình vu vơ\r\nTình này là tình nhung nhớ\r\nĐêm đêm một mình em lặng lẽ với những giấc mơ\r\nEm mơ về anh rất nhiều từ khi vừa biết yêu\r\nTình này là tình xa xôi\r\nTình này là tình chưa tới\r\nChưa trao về anh nên chỉ mới biết ước mơ thôi\r\nƯớc mơ được có anh giờ đây để đừng tan theo khói mây\r\nTình yêu thì muôn ngàn lối\r\nLàm sao để em tìm tới\r\nCứ bước qua một thời\r\nCảm thấy xa vời vợi\r\nNgười đâu có hay rằng em yêu người\r\nMà em không biết nói sao, quen biết bấy lâu\r\nTiếng ân tình em chưa dám trao\r\nNhiều khi em muốn nói ra nhưng khó biết bao\r\nVì em là con gái\r\nChưa từng ngỏ lời cùng ai\r\nTình này là tình vu vơ\r\nTình này là tình nhung nhớ\r\nĐêm đêm một mình em lặng lẽ với những giấc mơ\r\nEm mơ về anh rất nhiều từ khi vừa biết yêu\r\nTình này là tình xa xôi\r\nTình này là tình chưa tới\r\nChưa trao về anh chỉ mới biết ước mơ thôi\r\nƯớc mơ được có anh giờ đây để đừng tan theo khói mây\r\nTình này là tình vu vơ\r\nTình này là tình nhung nhớ\r\nĐêm đêm một mình em lặng lẽ với những giấc mơ\r\nEm mơ về anh rất nhiều từ khi vừa biết yêu\r\nTình này là tình xa xôi\r\nTình này là tình chưa tới\r\nChưa trao về anh nên chỉ mới biết ước mơ thôi\r\nƯớc mơ được có anh giờ đây để đừng tan theo khói mây  \r\n\r\nYêu thầy nhiều <3\r\n                  '),
+(20, 2, 15, 2, '2022-01-23 06:51:50', 5, 'em đang bận lắm lắm không học được huhu mọi người ơiii'),
+(21, 2, 14, 1, '2022-01-24 15:07:20', 3, 'mới mua về chưa học nên chưa biết tạm thời cho 3 * vậy hihi');
 
 -- --------------------------------------------------------
 
@@ -237,7 +238,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `name_user`, `email_user`, `phone_number_user`, `image_user`, `password`, `token_user`, `money`) VALUES
 (1, 'Cong Pham nè', 'congpham@gmail.com', '0936933210', 'Cong Pham nè1642986810.jpg', 'cong', NULL, 1233246000),
-(2, 'Thiên an ', 'thienan@gmail.com', '0936933214', 'Thiên an 1642987204.jpg', 'cong', NULL, 12000000),
+(2, 'Thiên an ', 'thienan@gmail.com', '0936933214', 'Thiên an 1642987204.jpg', 'cong', NULL, 11050000),
 (3, 'Cong Pham', 'congphamtienthanh@gmail.com', '0396369665', 'null', 'cong', NULL, 11151000);
 
 --
@@ -304,7 +305,7 @@ ALTER TABLE `lesson`
 -- AUTO_INCREMENT cho bảng `oder`
 --
 ALTER TABLE `oder`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
