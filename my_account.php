@@ -10,6 +10,15 @@
 
     $user = mysqli_query($connection, $sql);
     $user = mysqli_fetch_array($user);
+
+    if (!function_exists('currency_format')) {
+        function currency_format($number, $suffix = ' VND')
+        {
+            if (!empty($number)) {
+                return number_format($number, 0, ',', '.') . "{$suffix}";
+            }
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +44,7 @@
         background-color: #e8ebed;
         position: absolute;
         overflow: hidden;
-        transform: translateY(50px);
+        transform: translateY(20px);
         border: 4px solid #e8ebed;
     }
     .image-avatar img{
@@ -47,7 +56,7 @@
     #my-in4{
         margin-left: 220px;
         display: inline-block;
-        margin-top: 50px;
+        margin-top: 20px;
     }
     label{
         display: inline-block;
@@ -91,13 +100,41 @@
     .btn-danger{
         background-color: #ff6666;
     }
+    #my-password{
+        /* transform: translateY(-170px); */
+        /* margin-left: 50px; */
+        width: 500px;
+        height: 200px;
+        display: inline-block;
+        display: none;
+    }
+    .money-style{
+        margin-top: 5px;
+        font-size: 18px;
+    }
+    .your-cart{
+        width: calc(100% - 150px);
+        margin-top: 40px;
+    }
 </style>
 <body>
     <?php require "./default/header.php"; ?>
     <div class=content>
         <h2 >Tài khoản của tôi </h2>
+        <p class="money-style">Ngân hàng Quân đội (MBBANK)</p>
+        <p class="money-style" id = "stk">
+            Số tài khoản: 
+        </p>
+        <p class="money-style" id="my-money">
+            Số tiền đang có: 
+            <?php echo currency_format($_SESSION['money'])?>
+        </p>
         <div class="image-avatar">
-            <img id="avatar-preview" src="./public/images/default/avata.png" alt="">
+            <?php if( $_SESSION['image'] == 'null') { ?>
+                <img id="avatar-preview" src="./public/images/default/avata.png" alt="">
+            <?php } else { ?>
+                <img id="avatar-preview" src="./public/images/upload/<?php echo $_SESSION['image']?>" alt="">
+            <?php } ?>
         </div>
         <form id="my-in4" method="post" action="./processing/my_account_update.php" enctype="multipart/form-data">
             <label for="">Tên tài khoản: </label>
@@ -111,8 +148,26 @@
             <br>
             <input type="hidden">
             <br>
-            <button class="btn btn-primary" type="button">Sửa đổi và bổ sung</button>            
+            <button class="btn btn-primary" type="button">Sửa đổi và bổ sung</button>    
+            <button id="change-danger" class="btn btn-danger" type="button">Chỉnh sửa nâng cao</button>    
         </form>
+        
+        <form id="my-password" method="post" action="./processing/my_account_change_password.php">
+            <h3 style="display: inline">Đổi mật khẩu và tài khoản ngân hàng</h3>
+            <br><br>
+            <label for="">Mật khẩu cũ:</label>
+            <input class="input-in4 input-replace" type="password" name="password">
+            <br>
+            <label for="">Mật khẩu mới</label>
+            <input class="input-in4 input-replace" type="password" name="new_password">
+            <br>
+            <label for="">Số tiền hiện tại</label>
+            <input class="input-in4 input-replace" type="number" name="money" value="<?php echo $_SESSION['money']?>">
+            <button class="btn btn-danger">Lưu Thông tin lại</button>
+        </form>
+        <div class = "your-cart">
+            <h2>Giỏ hàng đã mua</h2>
+        </div>
     </div>
     <div class="tab-right"></div>
     </div>

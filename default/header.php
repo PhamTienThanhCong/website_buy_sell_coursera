@@ -63,7 +63,7 @@
                 </a>
             </li>
             <li id="my-account">
-                <a href="./my_account.php">
+                <a id="my-account-click" href="./my_account.php">
                     <i class='bx bxs-user'></i>
                     <br>
                     Tài khoản
