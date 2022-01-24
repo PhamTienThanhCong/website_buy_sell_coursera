@@ -56,141 +56,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tài khoản của tôi</title>
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/my_account.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<style>
-    #my-account{
-        background-color: #e8ebed;
-    }
-    .content{
-        width: calc(100% - 150px);
-        margin-left: 20px;
-    }
-    .image-avatar{
-        width: 200px;
-        height: 200px;
-        background-color: #e8ebed;
-        position: absolute;
-        overflow: hidden;
-        transform: translateY(20px);
-        border: 4px solid #e8ebed;
-    }
-    .image-avatar img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
-    #my-in4{
-        margin-left: 220px;
-        display: inline-block;
-        margin-top: 20px;
-    }
-    label{
-        display: inline-block;
-        width: 130px;
-        font-size: 18px;
-    }
-    .input-in4{
-        width: 350px;
-        height: 35px;
-        font-size: 18px;
-        border: none;
-        outline: none;
-        font-family:'Times New Roman', Times, serif;
-        margin-bottom: 5px;
-    }
-    .input-image{
-        font-size: 16px;
-        margin-bottom: 10px;
-        margin-top: 5px;
-    }
-    .input-replace{
-        border-bottom: 1px solid #d3d9de;
-    }
-    .btn,.btn-rate{
-        outline: none;
-        border: none;
-        padding: 10px 20px;
-        font-size: 18px;
-        font-family:'Times New Roman', Times, serif;
-        border-radius: 10px;
-        transition: all 0.5s;
-        cursor: pointer;
-    }
-    a{
-        text-decoration: none;
-        color: black;
-    }
-    .btn-rate{
-        padding: 5px 10px;
-        background-color: #758bbc;
-    }
-    .btn-rate:hover{
-        background-color: #2697ff;
-    }
-    .btn:hover{
-        transform: scale(0.95);
-    }
-    .btn-primary{
-        background-color: #2697ff;
-        margin-top: 20px;
-    }
-    .btn-danger{
-        background-color: #ff6666;
-    }
-    #my-password{
-        /* transform: translateY(-170px); */
-        /* margin-left: 50px; */
-        width: 490px;
-        height: 200px;
-        display: inline-block;
-        display: none;
-    }
-    .money-style{
-        margin-top: 5px;
-        font-size: 18px;
-    }
-    .your-cart{
-        width: calc(100% - 150px);
-        margin-top: 40px;
-    }
-    .course{
-        margin-top: 20px;
-    }
-    .img-course{
-        display: inline-block;
-        width: 340px;
-        height: 190px;
-    }
-    .img-course img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
-    .in4-course{
-        display: inline-block;
-        width: 500px;
-        margin-left: 15px;
-    }
-    .in4-course p{
-        font-size: 18px;
-        margin-top: 4px;
-    }
-    .rate-vote{
-        margin-top: -5px;
-        transform: translateY(-8px)
-    }
-    p i {
-        transform: translateY(2px);
-        margin-right: 5px;
-    }
-    .your-cart p{
-        font-size: 18px;
-        margin-top: 4px;
-    }
-</style>
+
 <body>
     <?php require "./default/header.php"; ?>
     <div class=content>
@@ -198,11 +67,16 @@
             Tài khoản của tôi 
             <i class='bx bx-user'></i>
         </h2>
-        <p class="money-style">Ngân hàng Quân đội (MBBANK)</p>
+        <p class="money-style">
+            <i class='bx bxs-right-arrow-alt'></i>
+            Ngân hàng Quân đội (MBBANK)
+        </p>
         <p class="money-style" id = "stk">
+            <i class='bx bxs-right-arrow-alt'></i>
             Số tài khoản: 
         </p>
         <p class="money-style" id="my-money">
+            <i class='bx bxs-right-arrow-alt'></i>
             Số tiền đang có: 
             <?php echo currency_format($_SESSION['money'])?>
         </p>
@@ -260,17 +134,6 @@
                 <i class='bx bxs-right-arrow-alt'></i>
                 Số tiền còn lại: <?php echo currency_format($_SESSION['money'])?>
             </p>
-            <p>
-                <i class='bx bxs-right-arrow-alt'></i>
-                Số tiền đã nạp thêm: 
-                <?php 
-                    if($_SESSION['money'] > 12000000 - $total['total_price']){
-                        echo currency_format($_SESSION['money'] - (12000000 - $total['total_price']));
-                    }else{
-                        0;
-                    }
-                ?>
-            </p>
         </div>
         <div class = "your-cart">
             <h2>
@@ -307,6 +170,7 @@
                         <p>
                             <i class='bx bx-star'></i>
                             Xếp hạng: <?php echo $course['rate']?>
+                            <i class='bx bxs-star' style='color:#FFD700'></i>
                         </p>
                         <br>
                         <p class="rate-vote">

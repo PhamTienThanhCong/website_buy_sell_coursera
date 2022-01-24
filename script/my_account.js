@@ -7,7 +7,7 @@ var loadFile = function(event) {
 };
 
 $(document).ready(function() {
-    $('#stk').html("Số tài khoản: " + Math.floor(Math.random() * 100000) + "" + Math.floor(Math.random() * 100000));
+    $('#stk').html("<i class='bx bxs-right-arrow-alt'></i>Số tài khoản: " + Math.floor(Math.random() * 100000) + "" + Math.floor(Math.random() * 100000));
 
     $("#btn-logout").click(function() {
     $.ajax({
