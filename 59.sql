@@ -208,7 +208,7 @@ CREATE TABLE `oder` (
 
 INSERT INTO `oder` (`id_order`, `id_user`, `id_course`, `history_lesson`, `creat_at`, `rate`, `comment`) VALUES
 (13, 1, 15, 12, '2022-01-21 13:09:02', NULL, NULL),
-(14, 1, 14, 35, '2022-01-21 13:09:02', NULL, NULL),
+(14, 1, 14, 32, '2022-01-21 13:09:02', NULL, NULL),
 (15, 1, 3, 16, '2022-01-21 13:09:02', NULL, NULL),
 (16, 1, 17, 1, '2022-01-22 07:58:04', NULL, NULL),
 (19, 2, 3, 15, '2022-01-23 02:56:17', NULL, NULL),
