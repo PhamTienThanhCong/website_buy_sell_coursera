@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th1 24, 2022 lúc 03:10 PM
+-- Thời gian đã tạo: Th1 25, 2022 lúc 02:42 PM
 -- Phiên bản máy phục vụ: 5.7.33
 -- Phiên bản PHP: 7.4.19
 
@@ -184,7 +184,8 @@ INSERT INTO `lesson` (`id_lesson`, `id_course`, `name_lesson`, `link_ytb_lesson`
 (87, 17, 'Day 8: Validate form có tâm thế này mới đi làm được AE nhé', 'fRPCVBfD7hw', ''),
 (88, 17, 'Day 9: Đi làm thì phải biết dùng API vậy API là gì? Call API làm cực kỳ đơn giản trong Weather App', 'ZKhOuR1UWh4', ''),
 (89, 17, 'Day 10: Todo List bài tập kinh điển mà đi làm ai cũng phải biết. Kỹ thuật sử dụng \"This\" đơn giản', 'iO7kgGgHr6w', ''),
-(90, 14, 'Lập trình web cơ bản - buổi 32 - PHP & jQuery - Rating & Live search & JSON', '0M0AB3k4C4c', 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink tổng hợp câu hỏi từ livestream\r\nhttps://j2c.cc/j2school-qa\r\n\r\n#họclậptrình #php #mysql #đồán #javascript #jquery #json #rating #livesearch');
+(90, 14, 'Lập trình web cơ bản - buổi 32 - PHP & jQuery - Rating & Live search & JSON', '0M0AB3k4C4c', 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink tổng hợp câu hỏi từ livestream\r\nhttps://j2c.cc/j2school-qa\r\n\r\n#họclậptrình #php #mysql #đồán #javascript #jquery #json #rating #livesearch'),
+(91, 14, 'Lập trình web cơ bản - buổi 33 - PHP & jQuery - Tags & Notify', 'i5SpM6mvCt4', 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink tổng hợp câu hỏi từ livestream\r\nhttps://j2c.cc/j2school-qa\r\n\r\n#họclậptrình #php #mysql #đồán #javascript #jquery #json #tags #notify #ajax');
 
 -- --------------------------------------------------------
 
@@ -210,7 +211,7 @@ INSERT INTO `oder` (`id_order`, `id_user`, `id_course`, `history_lesson`, `creat
 (13, 1, 15, 12, '2022-01-21 13:09:02', 5, 'cái này xem hay lắm mọi người nên mua nha\r\n'),
 (14, 1, 14, 34, '2022-01-21 13:09:02', 1, 'cái này xem hay lắm mọi người nên mua nha Nhưng mình vẫn đánh giá 1 sao thôi hihi\r\nĐợi bao giờ ra hết thì đánh 5 sao sau nha <3\r\n'),
 (15, 1, 3, 15, '2022-01-21 13:09:02', 5, 'Bài này hay nhưng mà ít quá giá mà có bạn nào hộ mình nhập data :))\r\n\r\n'),
-(16, 1, 17, 1, '2022-01-22 07:58:04', 1, 'cái này xem hay lắm mọi người nên mua nha Nhưng mình vẫn đánh giá 1 sao thôi hihi'),
+(16, 1, 17, 2, '2022-01-22 07:58:04', 3, 'mới mua nên chưa biết thế nào đánh giá tạm 3 sao vây\r\n'),
 (19, 2, 3, 15, '2022-01-23 02:56:17', 4, '                        Tình yêu thì muôn ngàn lối\r\nLàm sao để em tìm tới\r\nCứ bước qua một thời cảm thấy xa vời vợi\r\nNgười đâu có hay rằng em yêu người\r\nMà em không biết nói sao, quen biết bấy lâu\r\nTiếng ân tình em chưa dám trao\r\nNhiều khi em muốn nói ra nhưng khó biết bao\r\nVì em là con gái\r\nChưa từng ngỏ lời cùng ai\r\nTình này là tình vu vơ\r\nTình này là tình nhung nhớ\r\nĐêm đêm một mình em lặng lẽ với những giấc mơ\r\nEm mơ về anh rất nhiều từ khi vừa biết yêu\r\nTình này là tình xa xôi\r\nTình này là tình chưa tới\r\nChưa trao về anh nên chỉ mới biết ước mơ thôi\r\nƯớc mơ được có anh giờ đây để đừng tan theo khói mây\r\nTình yêu thì muôn ngàn lối\r\nLàm sao để em tìm tới\r\nCứ bước qua một thời\r\nCảm thấy xa vời vợi\r\nNgười đâu có hay rằng em yêu người\r\nMà em không biết nói sao, quen biết bấy lâu\r\nTiếng ân tình em chưa dám trao\r\nNhiều khi em muốn nói ra nhưng khó biết bao\r\nVì em là con gái\r\nChưa từng ngỏ lời cùng ai\r\nTình này là tình vu vơ\r\nTình này là tình nhung nhớ\r\nĐêm đêm một mình em lặng lẽ với những giấc mơ\r\nEm mơ về anh rất nhiều từ khi vừa biết yêu\r\nTình này là tình xa xôi\r\nTình này là tình chưa tới\r\nChưa trao về anh chỉ mới biết ước mơ thôi\r\nƯớc mơ được có anh giờ đây để đừng tan theo khói mây\r\nTình này là tình vu vơ\r\nTình này là tình nhung nhớ\r\nĐêm đêm một mình em lặng lẽ với những giấc mơ\r\nEm mơ về anh rất nhiều từ khi vừa biết yêu\r\nTình này là tình xa xôi\r\nTình này là tình chưa tới\r\nChưa trao về anh nên chỉ mới biết ước mơ thôi\r\nƯớc mơ được có anh giờ đây để đừng tan theo khói mây  \r\n\r\nYêu thầy nhiều <3\r\n                  '),
 (20, 2, 15, 2, '2022-01-23 06:51:50', 5, 'em đang bận lắm lắm không học được huhu mọi người ơiii'),
 (21, 2, 14, 1, '2022-01-24 15:07:20', 3, 'mới mua về chưa học nên chưa biết tạm thời cho 3 * vậy hihi');
@@ -299,7 +300,7 @@ ALTER TABLE `course`
 -- AUTO_INCREMENT cho bảng `lesson`
 --
 ALTER TABLE `lesson`
-  MODIFY `id_lesson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id_lesson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT cho bảng `oder`
