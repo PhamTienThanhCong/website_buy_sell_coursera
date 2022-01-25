@@ -97,7 +97,10 @@
                             <?php echo $course['author'] ?>
                         </p>
                         <br>
-                        <a class='btn' href="./view_course.php?id=<?php echo $course['id_course'] ?>">Đánh giá ngay</a>
+                        <a class='btn' href="./view_course.php?id=<?php echo $course['id_course'] ?>">
+                            Đánh giá ngay
+                            <i class='bx bx-star'></i>
+                        </a>
                     </div>
                 </div>
             <?php } ?>

@@ -154,10 +154,6 @@ h1{font-size:1.5em;margin:10px;}
     transform: translateY(2px);
 }
 
-#rate-over{
-    /* transform: translateY(-15px) translateX(55px); */
-}
-
 .all-rate{
     width: 100%;
 }

@@ -55,9 +55,8 @@ p i {
 }
 .btn{
     background-color: #2697ff;
-    padding: 10px 15px;
+    padding: 10px 30px;
     border-radius: 5px;
-    margin-left: 10px;
     transition: all 0.3s;
     cursor: pointer;
 }

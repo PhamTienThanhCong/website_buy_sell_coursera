@@ -75,18 +75,9 @@
                             <?php echo currency_format($course['price']) ?>
                         </p>
                         <br>
-                        <a class='btn' href="./my_cart.php">
-                            <i class='bx bxs-credit-card'></i>
-                            Mua ngay
-                        </a>
-                        <a class='btn btn-add-to-cart' data-id='<?php echo $course['id_course']?>'style="margin-left: 100px">
-                        <?php if(isset($_SESSION['cart'][$course['id_course']]['name'])) { ?>
-                            <i class='bx bxs-cart-download'></i>
-                            Đã đặt
-                        <?php } else { ?>
-                            <i class='bx bxs-cart-add'></i>
-                            Đặt hàng
-                        <?php } ?>
+                        <a class='btn' href="./view_course.php?id=<?php echo $course['id_course'] ?>">
+                            <i class='bx bx-book-open'></i>
+                            Xem chi tiết
                         </a>
                     </div>
                 </div>

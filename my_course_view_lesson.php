@@ -143,7 +143,7 @@
                             </li>
                         <?php } else { ?>
                             <li class="name-lesson">
-                                <a href="">
+                                <a href="#">
                                     <?php echo $lesson['name_lesson']?>    
                                     <i class='icon-lesson bx bx-lock-alt'></i>
                                 </a>
