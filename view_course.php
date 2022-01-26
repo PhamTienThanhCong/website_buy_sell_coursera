@@ -47,7 +47,9 @@
                 `oder`
             LEFT OUTER JOIN user ON user.id_user = oder.id_user
             WHERE
-                (id_course = '$id') AND (oder.rate != '0')";
+                (id_course = '$id') AND (oder.rate != '0')
+            ORDER BY
+                id_order DESC";
 
     $all_comments = mysqli_query($connection, $sql);
 
@@ -110,7 +112,7 @@
         </p>
         <p id="rate-over" data-rate="4.5">
             - Đánh giá: 
-            <?php echo $rate['rate']?>
+            <?php echo number_format((float)$rate['rate'], 1, '.', '')?>
             <i class='start-icon bx bxs-star'></i> 
             trên 5
             <i class='start-icon bx bxs-star'></i>
@@ -235,7 +237,10 @@
                     
                 }
             });
-            $(this).html("<i class='bx bxs-credit-card'></i> Thanh toán ngay");
+            $(this).html(`<a class='btn' href="./my_cart.php">  
+                            <i class='bx bxs-credit-card'></i>
+                            Thanh toán ngay
+                        </a>`);
         })
         var rate = $('.rate-overview').data('rate');
         var id_rate = '#star'+rate+'';
