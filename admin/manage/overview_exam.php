@@ -71,5 +71,7 @@ if (isset($_SESSION['lever']) == false) {
     </section>
     <!-- hàm section chính -->
 </body>
+<!-- javaScript Chung :3 -->
 <script type="text/javascript" src="./script/js_chung.js"></script>
+<!-- javaScript Chung :3 -->
 </html>
