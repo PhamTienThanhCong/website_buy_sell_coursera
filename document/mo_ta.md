@@ -36,7 +36,7 @@
 
 ### a. khách hàng 
 - Phần header & footer:
-  - Gồm các thông tin của thang web (thông tin người dùng ,logo, bản quyền, …)
+  - Gồm các thông tin của trang web (thông tin người dùng ,logo, bản quyền, …)
 - Thanh chức năng ( Cố định bên trái ):
   - Trang chủ: chứa tất cả các khóa học.
   - Các khóa học đã mua (chỉ có khách hàng đăng nhập mới vào được)
@@ -92,8 +92,8 @@
   - Thông tin cá nhân:
     - bao gồm ảnh đại diện (nằm bên trái). Thông tin cá nhân Tên, Email, Số điện thoại và chỉ có thể đọc.
     - Có 2 nút ấn: Sửa đổi thông tin cá nhân, Thay đổi mật khẩu
-    - Sửa thông tin cá nhân: các ô về Tên, email, số điện thoại, ảnh, mật khẩu sẽ được hiện lên, sửa đổi thông tin cá nhân và đổi mật khẩu để đổi. 
-    - Thay đổi mật khẩu: các ô: mật khẩu cũ, mật khẩu mới và nhập lại mật khẩu sẽ hiện lên.
+    - Sửa thông tin cá nhân: các ô về Tên, email, số điện thoại, ảnh, mật khẩu sẽ được hiện lên, sửa đổi thông tin cá nhân và nhập mật khẩu để đổi. 
+    - Thay đổi mật khẩu: các ô về mật khẩu cũ, mật khẩu mới và nhập lại mật khẩu sẽ hiện lên.
     - nếu nhập mật khẩu sai sẽ thông báo, nhập đúng sẽ thực thi
   - Thông tin mua sắm của tài khoản:
     - Ở bên trên hiện tổng quan: số khóa học đã mua, số tiền đã chi trả
