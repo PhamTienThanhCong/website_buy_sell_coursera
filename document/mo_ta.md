@@ -163,5 +163,7 @@
 
 - Đăng xuất: tất nhiên là sẽ đăng xuất
 
-### c. Người quản lý, hay admin pro
+[Người bán hàng, hay admin]: https://github.com/PhamTienThanhCong/website_buy_sell_coursera/blob/main/document/mo_ta.md#b-ng%C6%B0%E1%BB%9Di-b%C3%A1n-h%C3%A0ng-hay-admin
 
+### c. Người quản lý, hay admin pro
+- giao diện giống: [Người bán hàng, hay admin]
