@@ -167,3 +167,50 @@
 
 ### c. Người quản lý, hay admin pro
 - giao diện giống: [Người bán hàng, hay admin]
+- ở phần thanh chức năng có thêm các phần: 
+  - Tổng quan chung
+  - quản lý khóa học
+  - quản lý nhân sự, hay quản lý người bán hàng
+  - quản lý người dùng
+
+- Tổng quan chung:
+  - Tổng số lượng khóa học được bán ra
+  - Tổng doanh thu của tất cả admin,
+  - 1 bảng top các khóa học bán chạy: 
+    - bao gồm: tên khóa học, tên người bán hàng, giá, số lượng đã bán
+    - Xắp xếp theo: số lượng đã bán
+  - 1 bảng top người bán hàng thu nhập tốt nhất: 
+    - Bao gồm: tên người bán hàng, doanh thu, số lượng khóa học được bán ra
+    - Xắp xếp theo: doanh thu
+  - ta có thể lựa chọn tổng quan theo: ngày, tháng, năm
+ 
+- quản lý khóa học:
+  - Chia thành 3 phần chính:
+    - khóa học mới
+    - khóa học đã xác nhận
+    - khóa học đã xóa
+  - ở đây ta có thể xem tất cả thông tin của khóa học, tuy nhiên ta không được phép thay đổi nội dung
+  - các khóa học được chia 5 bài 1 trang
+  - khóa học mới: 
+    - sau khi xem có thể ấn xác nhận nếu đủ yêu cầu hoặc xóa nếu không đủ yêu cầu
+  - khóa học đã xác nhận:
+  - khóa học đã xóa:
+    - là những khóa học mà người bán hàng đã xóa, ta có thể khôi phục nếu người bán hàng yêu cầu
+  
+- quản lý nhân sự: 
+  - chứa đủ các thông tin của người bán hàng
+  - chia thành 3 phần: người bán hàng đăng kí mới, người bán hàng đã xác nhận, người bán hàng đã bị cấm
+  - người bán hàng đăng kí mới:
+    - chứa đủ thông tin đăng kí,
+    - ta có thể xác nhận hoặc từ chối
+  - người bán hàng đã xác nhận: 
+    - ta có thể cấm người bán hàng nếu có sai phạm
+  - người bán hàng đã bị cấm:
+    - ta có thể gỡ cấm người bán hàng
+
+- quản lý người dùng:
+  - số người dùng mới tham gia trong tháng này hoặc năm này.
+  - có thể xem thông tin cơ bản của người dùng
+
+
+  
