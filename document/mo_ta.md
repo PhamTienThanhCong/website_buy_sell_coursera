@@ -99,7 +99,69 @@
     - Ở bên trên hiện tổng quan: số khóa học đã mua, số tiền đã chi trả
     - Hiện chi tiết từng khóa học ở bên dưới: tên, ảnh, giá, ...
 
+### b. Người bán hàng, hay admin
+- Phần header và footer chứa thẻ tìm kiếm, thông tin,...
+- Thanh chức năng (Cố định bên trái):
+  - Tổng quan,
+  - Thêm khóa học mới
+  - Khóa học của tôi
+  - Cài đặt tài khoản
+  - Đăng xuất
+  
+- Tổng quan:
+  - Tổng quan về khóa học mà mình đăng lên
+    - Số lượng khóa học đã được mua.
+    - doanh thu tháng này.
+    - Khóa học bán chạy nhất.
+  
+- Thêm khóa học mới:
+  - bao gồm 2 phần chính: Nhập thông tin và xem trước
+  - Nhập thông tin bao gồm: Tên, giá, tác giả, ảnh, mô tả
+  - ghi đến đâu thì phần xem trước sẽ hiện lên ở đó.
+  - sau khi ấn tạo khóa học xong ta chuyển sang phần chỉnh sửa khóa học chi tiết.
+  - Lưu ý khi tạo khóa học xong cần admin xác nhận
+ 
+- chỉnh sửa khóa học chi tiết:
+  - Bao gồm tất cả 4 phần: Chỉnh sủa khóa học, thêm bài học, tất cả bài học, sửa bài học, xem trước bài học.
+  - Chỉnh sửa khóa học:
+    - Giống ở phần thêm khóa học mới, chỉ có điều ở đây các thông tin cũ đã được nhập sẵn
+    - Có nút xóa khóa học, y/c nhập mật khẩu để xóa
+  - Thêm bài học:
+    - có các ô nhập các thông tin:
+    - Tên bài học
+    - link bài học !
+    - Thể loại link. chỉ được chọn các thể loại: youtobe, driver, link trực tiếp
+    - Mô tả về bài học
+  - Tất cả khóa học:
+    - Gồm 1 bảng chứa 7 thông tin chính: Số thứ tự, Tên bài học, link, Thể loại, xem trước bài học, sửa, xóa
+    - chứa tất cả khóa học được chia thành 5 bài 1 trang. 
+    - Xắp xếp them thứ tự được thêm gần nhất đến được thêm lâu nhất.
+  - Sửa bài học:
+    - luôn ẩn, chỉ hiện lên khi ấn vào sửa ở phần tất cả khóa học
+    - hiện tất cả các thông tin của bài học mà ta ấn vào phần sửa
+  - xem trước bài học
+    - luôn ẩn, chỉ hiện lên khi ấn vào xem trước bài học ở phần tất cả khóa học.
+    - hiện lên bài học, tên, mô tả,... để ta xem nó có lỗi hay không
 
+- Khóa học của tôi:
+  - Là một bảng gồm các thông tin: 
+  - Thông tin của khóa học mà ta đã tạo. 
+  - trạng thái bao gồm: đã xác nhận và chờ xác nhận.
+  - chỉnh sửa khóa học chi tiết
+  - Xem chi tiết: 
+    - Tạo ra một trang ảo giống giao diện khách hàng để xem khóa học
 
+- Cài đặt tài khoản:
+  - Bao gồm 1 ảnh đại diện bên trái và thông tin cá nhân nằm bên cạnh ảnh đại diện
+  - có 2 nút sửa thông tin và thay đổi mật khẩu
+  - sửa thông tin: 
+    - các thông tin cá nhân sẽ đổi thành các ô input để ta nhập
+    - có thêm 1 ô nhập mật khẩu và nút lưu
+  - thay đổi mật khẩu:
+    - sẽ hiện lên 3 ô bao gồm: mật khẩu, mật khẩu mới, nhập lại mật khẩu mới
+  - lưu ý nếu nhập sai mật khẩu sẽ bị lỗi
 
+- Đăng xuất: tất nhiên là sẽ đăng xuất
+
+### c. Người quản lý, hay admin pro
 
