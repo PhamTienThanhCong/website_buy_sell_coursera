@@ -3,8 +3,8 @@
     $id_user = $_SESSION['id'];
 
     $rate = $_POST['rating'];
-    $comment = addslashes($_POST['comment-rate']);
-    $id_course = addslashes($_POST['id_course']);
+    $comment = htmlspecialchars($_POST['comment-rate']);
+    $id_course = htmlspecialchars($_POST['id_course']);
 
     require "../public/connect_sql.php";
 

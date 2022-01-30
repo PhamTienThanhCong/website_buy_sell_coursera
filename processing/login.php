@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-$user = $_POST['email_user'];
-$password = $_POST['password_user'];
+$user = htmlspecialchars($_POST['email_user']);
+$password = htmlspecialchars($_POST['password_user']);
 
 require "../public/connect_sql.php";
 

@@ -5,7 +5,7 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a href="#" id="course-overview">
+          <a href="../manage/overview_exam.php" id="course-overview">
             <i class='bx bxs-bar-chart-alt-2'></i>
             <span class="links_name">Tổng quan</span>
           </a>

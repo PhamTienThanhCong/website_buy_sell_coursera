@@ -4,11 +4,11 @@ session_start();
 require "../../../public/connect_sql.php";
 
 $id_admin = $_SESSION['id'];
-$id_course = addslashes($_POST['id_course']);
-$name_lesson = addslashes($_POST['name_lesson']);
-$link_ytb_lesson = addslashes($_POST['link_ytb_lesson']);
-$description_lesson = addslashes($_POST['description_lesson']);
-$type = addslashes($_POST['type']);
+$id_course = htmlspecialchars($_POST['id_course']);
+$name_lesson = htmlspecialchars($_POST['name_lesson']);
+$link_ytb_lesson = htmlspecialchars($_POST['link_ytb_lesson']);
+$description_lesson = htmlspecialchars($_POST['description_lesson']);
+$type = htmlspecialchars($_POST['type']);
 
 $sql = "SELECT count(*) as `check` FROM course 
 WHERE (id_course = '$id_course') and (id_admin = '$id_admin')";

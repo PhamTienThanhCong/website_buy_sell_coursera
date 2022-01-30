@@ -3,8 +3,8 @@ session_start();
 require "../../../public/connect_sql.php";
 
 $id_admin = $_SESSION['id'];
-$id_course = $_GET['id_course'];
-$id_lesson = $_GET['id'];
+$id_course = htmlspecialchars($_GET['id_course']);
+$id_lesson = htmlspecialchars($_GET['id']);
 
 $sql = "SELECT count(*) as `check` FROM course 
 WHERE (id_course = '$id_course') and (id_admin = '$id_admin')";

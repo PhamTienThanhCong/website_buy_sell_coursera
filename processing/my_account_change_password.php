@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-$id_user = $_SESSION['id'];
-$password = $_POST['password'];
-$new_password = $_POST['new_password'];
-$money = $_POST['money'];
+$id_user = htmlspecialchars($_SESSION['id']);
+$password = htmlspecialchars($_POST['password']);
+$new_password = htmlspecialchars($_POST['new_password']);
+$money = htmlspecialchars($_POST['money']);
 
 require "../public/connect_sql.php";
 

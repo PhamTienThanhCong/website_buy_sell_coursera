@@ -2,8 +2,8 @@
 session_start();
 
 $id_user = $_SESSION['id'];
-$id_course = $_POST['id_course'];
-$check_lesson = $_POST['check_lesson'];
+$id_course = htmlspecialchars($_POST['id_course']);
+$check_lesson = htmlspecialchars($_POST['check_lesson']);
 
 require "../public/connect_sql.php";
 

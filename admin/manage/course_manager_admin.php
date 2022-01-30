@@ -32,7 +32,8 @@ if (isset($_SESSION['lever']) == false) {
         font-weight: normal;
         text-align: center;
     }
-    .btn-comfirm{
+
+    .btn-comfirm {
         text-decoration: none;
         color: white;
         display: inline-block;
@@ -42,7 +43,7 @@ if (isset($_SESSION['lever']) == false) {
         transition: all 0.5s;
     }
 
-    .btn-comfirm:hover{
+    .btn-comfirm:hover {
         transform: scale(0.95);
     }
 
@@ -52,150 +53,144 @@ if (isset($_SESSION['lever']) == false) {
 </style>
 
 <body>
+<?php
+require "../default/option.php"
+?>
+<section class="home-section">
     <?php
-    require "../default/option.php"
+    require "../default/user.php"
     ?>
-    <section class="home-section">
-            <?php
-            require "../default/user.php"
-            ?>
-            <div class="home-content">
-                <div class="sales-boxes">
-                    <div class="recent-sales box">
-                        <div class="title">Quản lý khóa học chung</div>
-                        <br><br>
-                        <div class="sales-details">
-                            <?php
+    <div class="home-content">
+        <div class="sales-boxes">
+            <div class="recent-sales box">
+                <div class="title">Quản lý khóa học chung</div>
+                <br><br>
+                <div class="sales-details">
+                    <?php
 
-                            if (!function_exists('currency_format')) {
-                                function currency_format($number, $suffix = ' VND')
-                                {
-                                    if (!empty($number)) {
-                                        return number_format($number, 0, ',', '.') . "{$suffix}";
-                                    }
-                                }
+                    if (!function_exists('currency_format')) {
+                        function currency_format($number, $suffix = ' VND')
+                        {
+                            if (!empty($number)) {
+                                return number_format($number, 0, ',', '.') . "{$suffix}";
                             }
+                        }
+                    }
 
-                            require "../../public/connect_sql.php";
-                            $id = $_SESSION['id'];
-                            $sql = "SELECT course.*, COUNT(lesson.id_course) as number_course FROM `course` 
+                    require "../../public/connect_sql.php";
+                    $id = $_SESSION['id'];
+                    $sql = "SELECT course.*, COUNT(lesson.id_course) as number_course FROM `course` 
                                 LEFT OUTER JOIN lesson ON course.id_course = lesson.id_course
                                 WHERE `status_course` = '0'
                                 GROUP BY course.id_course";
-                            $courses1 = mysqli_query($connection, $sql);
-                            
+                    $courses1 = mysqli_query($connection, $sql);
 
-                            $sql = "SELECT course.*, COUNT(lesson.id_course) as number_course FROM `course` 
+
+                    $sql = "SELECT course.*, COUNT(lesson.id_course) as number_course FROM `course` 
                                 LEFT OUTER JOIN lesson ON course.id_course = lesson.id_course
                                 WHERE `status_course` = '1'
                                 GROUP BY course.id_course";
-                            $courses2 = mysqli_query($connection, $sql);
+                    $courses2 = mysqli_query($connection, $sql);
 
-                            ?>
+                    ?>
 
-                            <table>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Tên khóa học</th>
-                                    <th>Giá</th>
-                                    <th>Số lượng bài giảng</th>
-                                    <th>Trạng thái</th>
-                                    <th>Xem chi tiết</th>
-                                    <th>Chỉnh sửa</th>
-                                </tr>
-                                <?php foreach ($courses1 as $index => $course) { ?>
-                                    <tr>
-                                        <th>
-                                            <?php echo $index + 1; ?>
-                                        </th>
-                                        <th>
-                                            <?php echo $course['name_course'] ?>
-                                        </th>
-                                        <th>
-                                            <?php echo currency_format($course['price']) ?>
-                                        </th>
-                                        <th>
-                                            <?php echo $course['number_course'] ?>
-                                        </th>
-                                        <th>
-                                            <?php
-                                            if ($course['status_course'] == 0) {
-                                                echo "Chờ xác nhận";
-                                            } else {
-                                                echo "Đã xác nhận";
-                                            }
-                                            ?>
-                                        </th>
-                                        <th>
-                                            <a href="./course_manager_detail_admin.php?id=<?php echo $course['id_course'] ?>">Xem</a>
-                                        </th>
-                                        <th>
-                                            <a class="btn-comfirm" href="./processing/course_admin_accept.php?id=<?php echo $course['id_course']?>&type=accept">Xác nhận</a>
+                    <table>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên khóa học</th>
+                            <th>Giá</th>
+                            <th>Số lượng bài giảng</th>
+                            <th>Trạng thái</th>
+                            <th>Xem chi tiết</th>
+                            <th>Chỉnh sửa</th>
+                        </tr>
+                        <?php foreach ($courses1 as $index => $course) { ?>
+                            <tr>
+                                <th>
+                                    <?php echo $index + 1; ?>
+                                </th>
+                                <th>
+                                    <?php echo $course['name_course'] ?>
+                                </th>
+                                <th>
+                                    <?php echo currency_format($course['price']) ?>
+                                </th>
+                                <th>
+                                    <?php echo $course['number_course'] ?>
+                                </th>
+                                <th>Chờ xác nhận</th>
+                                <th>
+                                    <a href="./course_manager_detail_admin.php?id=<?php echo $course['id_course'] ?>">Xem</a>
+                                </th>
+                                <th>
+                                    <a class="btn-comfirm"
+                                       href="./processing/course_admin_accept.php?id=<?php echo $course['id_course'] ?>&type=accept">Xác
+                                        nhận</a>
 
-                                            <a class="btn-comfirm" style="background-color: #cc0000" href="">Xóa</a>
-                                        </th>
-                                    </tr>
-                                <?php } ?>
-                            </table>
-                        </div>
-                    </div>
+                                    <a class="btn-comfirm"
+                                       href="./processing/course_admin_accept.php?id=<?php echo $course['id_course'] ?>&type=delete"
+                                       style="background-color: #cc0000">Xóa</a>
+                                </th>
+                            </tr>
+                        <?php } ?>
+                    </table>
                 </div>
-                <div class="sales-boxes" style="margin-top: 26px">
-                    <div class="recent-sales box">
-                        <div class="title">Khóa học đã xác nhận</div>
-                        <br><br>
-                        <table>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Tên khóa học</th>
-                                    <th>Giá</th>
-                                    <th>Số lượng bài giảng</th>
-                                    <th>Trạng thái</th>
-                                    <th>Số lượng đã bán</th>
-                                    <th>Xem chi tiết</th>
-                                </tr>
-                                <?php foreach ($courses2 as $index => $course) { ?>
-                                    <tr>
-                                        <th>
-                                            <?php echo $index + 1; ?>
-                                        </th>
-                                        <th>
-                                            <?php echo $course['name_course'] ?>
-                                        </th>
-                                        <th>
-                                            <?php echo currency_format($course['price']) ?>
-                                        </th>
-                                        <th>
-                                            <?php echo $course['number_course'] ?>
-                                        </th>
-                                        <th>
-                                            <?php
-                                            if ($course['status_course'] == 0) {
-                                                echo "Chờ xác nhận";
-                                            } else {
-                                                echo "Đã xác nhận";
-                                            }
-                                            ?>
-                                        </th>
-                                        <th>
-                                            10 
-                                        </th>
-                                        <th>
-                                            <a href="./course_manager_detail_admin.php?id=<?php echo $course['id_course'] ?>">Xem</a>
-                                        </th>
-                                        
-                                    </tr>
-                                <?php } ?>
-                            </table>
-                    </div>
-                </div>
-                <?php require "../default/footer.php" ?>
             </div>
+        </div>
+        <div class="sales-boxes" style="margin-top: 26px">
+            <div class="recent-sales box">
+                <div class="title">Khóa học đã xác nhận</div>
+                <br><br>
+                <table>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên khóa học</th>
+                        <th>Giá</th>
+                        <th>Số lượng bài giảng</th>
+                        <th>Trạng thái</th>
+                        <th>Số lượng đã bán</th>
+                        <th>Xem chi tiết</th>
+                    </tr>
+                    <?php foreach ($courses2 as $index => $course) { ?>
+                        <tr>
+                            <th>
+                                <?php echo $index + 1; ?>
+                            </th>
+                            <th>
+                                <?php echo $course['name_course'] ?>
+                            </th>
+                            <th>
+                                <?php echo currency_format($course['price']) ?>
+                            </th>
+                            <th>
+                                <?php echo $course['number_course'] ?>
+                            </th>
+                            <th>
 
-    </section>
-    
-    <script type="text/javascript" src="./script/js_chung.js"></script>
-    <script type="text/javascript" src="./script/course_manager.js"></script>
+                                <a class="btn-comfirm"
+                                   href="./processing/course_admin_accept.php?id=<?php echo $course['id_course'] ?>&type=unaccepted">Hủy
+                                    Xác nhận</a>
+
+                            </th>
+                            <th>
+                                10
+                            </th>
+                            <th>
+                                <a href="./course_manager_detail_admin.php?id=<?php echo $course['id_course'] ?>">Xem</a>
+                            </th>
+
+                        </tr>
+                    <?php } ?>
+                </table>
+            </div>
+        </div>
+        <?php require "../default/footer.php" ?>
+    </div>
+
+</section>
+
+<script type="text/javascript" src="./script/js_chung.js"></script>
+<script type="text/javascript" src="./script/course_manager.js"></script>
 
 </body>
 

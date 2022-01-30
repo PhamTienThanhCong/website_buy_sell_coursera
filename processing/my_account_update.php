@@ -2,10 +2,10 @@
 
 session_start();
 
-$id_user = addslashes($_SESSION['id']);
-$name_user = addslashes($_POST['name_user']);
-$email_user = addslashes($_POST['email_user']);
-$phone_number_user = addslashes($_POST['phone_number_user']);
+$id_user = htmlspecialchars($_SESSION['id']);
+$name_user = htmlspecialchars($_POST['name_user']);
+$email_user = htmlspecialchars($_POST['email_user']);
+$phone_number_user = htmlspecialchars($_POST['phone_number_user']);
 $image = $_FILES['image_user'];
 
 require "../public/connect_sql.php";

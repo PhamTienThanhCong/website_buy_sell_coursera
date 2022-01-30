@@ -1,6 +1,6 @@
 <?php
-$id_admin = $_GET['id'];
-$type = $_GET['type'];
+$id_admin = htmlspecialchars($_GET['id']);
+$type = htmlspecialchars($_GET['type']);
 
 require "../../../public/connect_sql.php";
 

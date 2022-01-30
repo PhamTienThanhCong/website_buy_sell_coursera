@@ -2,11 +2,11 @@
 session_start();
 
 $id_admin = $_SESSION['id'];
-$name_course = addslashes($_POST['name_course']);
-$author = addslashes($_POST['author']);
-$price = addslashes($_POST['price']);
+$name_course = htmlspecialchars($_POST['name_course']);
+$author = htmlspecialchars($_POST['author']);
+$price = htmlspecialchars($_POST['price']);
 $image_course = $_FILES['image_course'];
-$description_course =addslashes( $_POST['description_course']);
+$description_course =htmlspecialchars( $_POST['description_course']);
 $status_course = 0;
 
 if($_SESSION['lever'] == 2){

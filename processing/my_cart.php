@@ -2,7 +2,7 @@
 
 session_start();
 
-$id = $_POST['id'];
+$id = htmlspecialchars($_POST['id']);
 
 require "../public/connect_sql.php";
 

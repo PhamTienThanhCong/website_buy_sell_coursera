@@ -52,6 +52,7 @@
                 course.name_course,
                 course.author,
                 course.image_course,
+                course.status_course,
                 COUNT(course.id_course) AS number_course
             FROM
                 course
@@ -82,10 +83,14 @@
                         </div>
                     </a>
                     <div class="container-card">
-                        <br>
+                        <br><h3><b>
+                        <?php if($course['status_course']==0){
+                            echo "Khóa học chưa được chấp thuận";
+                        }else {?>
                         <a href="./my_course_view_lesson.php?idcourse=<?php echo $course['id_course'] ?>">
-                            <h3><b><?php echo $course['name_course'] ?></b></h3>
+                            <?php echo $course['name_course'] ?>
                         </a>
+                        <?php } ?></b></h3>
                         <p>
                             <i class='bx bxs-videos'></i>
                             Tổng số bài học:

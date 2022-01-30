@@ -5,7 +5,7 @@ require "../public/connect_sql.php";
 
 $id_user = $_SESSION['id'];
 
-$course = $_POST["course"];
+$course = htmlspecialchars($_POST["course"]);
 
 $id_course = explode(',', $course);
 

@@ -2,11 +2,11 @@
 
 session_start();
 
-$name_admin = addslashes($_POST['name_admin']);
-$email_admin = addslashes($_POST['email_admin']);
-$phone_number_admin = addslashes($_POST['phone_number_admin']);
-$address_admin = addslashes($_POST['address_admin']);
-$password = addslashes($_POST['password']);
+$name_admin = htmlspecialchars($_POST['name_admin']);
+$email_admin = htmlspecialchars($_POST['email_admin']);
+$phone_number_admin = htmlspecialchars($_POST['phone_number_admin']);
+$address_admin = htmlspecialchars($_POST['address_admin']);
+$password = htmlspecialchars($_POST['password']);
 $image = $_FILES['image'];
 $lever = 1;
 $status_admin = 0;

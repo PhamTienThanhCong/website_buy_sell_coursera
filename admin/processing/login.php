@@ -2,8 +2,8 @@
 
 session_start();
 
-$email = addslashes($_POST['email']);
-$password = addslashes($_POST['password']);
+$email = htmlspecialchars($_POST['email']);
+$password = htmlspecialchars($_POST['password']);
 
 require "../../public/connect_sql.php";
 

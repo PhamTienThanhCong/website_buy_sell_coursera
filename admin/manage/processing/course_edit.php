@@ -2,12 +2,12 @@
 session_start();
 
 $id_admin = $_SESSION['id'];
-$id_course = $_POST['id_course'];
-$name_course = addslashes($_POST['name_course']);
-$price = addslashes($_POST['price']);
-$author = addslashes($_POST['author']);
+$id_course = htmlspecialchars($_POST['id_course']);
+$name_course = htmlspecialchars($_POST['name_course']);
+$price = htmlspecialchars($_POST['price']);
+$author = htmlspecialchars($_POST['author']);
 $image_course = $_FILES['image_course'];
-$description_course =addslashes( $_POST['description_course']);
+$description_course =htmlspecialchars( $_POST['description_course']);
 
 $sql = "UPDATE `course` SET `name_course`='$name_course',`author`='$author',`description_course`='$description_course',`price`='$price' WHERE `id_course` = '$id_course' and `id_admin` = '$id_admin'";
 
