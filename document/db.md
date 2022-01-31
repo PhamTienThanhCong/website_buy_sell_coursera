@@ -85,6 +85,9 @@
 --- | --- | --- | --- |--- 
 | # | 1 | 2 | 3 | 4 -->
 
+## Sơ đồ thực thể:
+![alt text](https://raw.githubusercontent.com/PhamTienThanhCong/website_buy_sell_coursera/main/document/so_do.png)
+<!-- https://raw.githubusercontent.com/PhamTienThanhCong/website_buy_sell_coursera/main/document/so_do.png -->
 
 [bảng admin]: https://github.com/PhamTienThanhCong/website_buy_sell_coursera/blob/main/document/db.md#b%E1%BA%A3ng-admin
 [bảng user]: https://github.com/PhamTienThanhCong/website_buy_sell_coursera/blob/main/document/db.md#b%E1%BA%A3ng-user
