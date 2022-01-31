@@ -3,33 +3,35 @@
 
 ### Thiết kế 
 
-- #### Bảng admin
+- #### 1. Bảng admin
 
 | # | Tên | Kiểu dữ liệu | khóa | Chú Thích
 --- | --- | --- | --- |--- 
-| 1 | admin | int | Khóa chính | dữ liệu tự động tăng
+| 1 | id_admin | int | Khóa chính | dữ liệu tự động tăng
 | 2 | name_admin | varchar(35) | không | ghi tên của admin
-| 3 | phone_number_admin | varchar(15) | không | kiểu unique
-| 4 | address_admin | varchar(200) | không | ghi địa chỉ của admin
-| 5 | image | varchar(150) | không | ghi tên ảnh, mặc định là null
-| 6 | status_admin | int | không | ghi trạng thái admin <br> với 0 là chờ xác nhận, 1 đã xác nhận và -1 là đang chặn
-| 7 | lever | int | không | ghi lever admin <br> với 0 là nhân viên và 1 là quản lý
-| 8 | password | varchar(150) | không | là mật khẩu đăng nhập
+| 3 | email_admin | varchar(150) | không | kiểu unique
+| 4 | phone_number_admin | varchar(15) | không | kiểu unique
+| 5 | address_admin | varchar(200) | không | ghi địa chỉ của admin
+| 6 | image | varchar(150) | không | ghi tên ảnh, mặc định là null
+| 7 | status_admin | int | không | ghi trạng thái admin <br> với 0 là chờ xác nhận, 1 đã xác nhận và -1 là đang chặn
+| 8 | lever | int | không | ghi lever admin <br> với 0 là nhân viên và 1 là quản lý
+| 9 | password | varchar(150) | không | là mật khẩu đăng nhập
 
 
-- #### Bảng user
+- #### 2. Bảng user
 
 | # | Tên | Kiểu dữ liệu | khóa | Chú Thích
 --- | --- | --- | --- |--- 
 | 1 | id_user | int | khóa chính | dữ liệu tự động tăng
 | 2 | name_user | không | varchar(35) | ghi tên của user
-| 3 | phone_number_user | varchar(15) | không | kiểu unique
-| 4 | image_user | varchar(150) | không | ghi tên ảnh, mặc định là null
-| 5 | password | varchar(150) | không | là mật khẩu đăng nhập
-| 6 | token_user | text | không | là token đăng nhập tự động đăng nhập, <br> hoặc dùng để lấy lại mật khẩu
+| 3 | email_user | varchar(150) | không | kiểu unique
+| 4 | phone_number_user | varchar(15) | không | kiểu unique
+| 5 | image_user | varchar(150) | không | ghi tên ảnh, mặc định là null
+| 6 | password | varchar(150) | không | là mật khẩu đăng nhập
+| 7 | token_user | text | không | là token đăng nhập tự động đăng nhập, <br> hoặc dùng để lấy lại mật khẩu
 
 
-- #### Bảng course
+- #### 3. Bảng course
 
 | # | Tên | Kiểu dữ liệu | khóa | Chú Thích
 --- | --- | --- | --- |--- 
@@ -44,7 +46,7 @@
 | 9 | created_at | timestamp | không | ghi thời gian tạo của khóa học
 
 
-- #### Bảng lesson
+- #### 4. Bảng lesson
 
 | # | Tên | Kiểu dữ liệu | khóa | Chú Thích
 --- | --- | --- | --- |--- 
@@ -56,7 +58,7 @@
 | 6 | description_lesson | text | không | ghi mô tả về khóa học
 
 
-- #### Bảng order
+- #### 5. Bảng order
 
 | # | Tên | Kiểu dữ liệu | khóa | Chú Thích
 --- | --- | --- | --- |--- 
@@ -69,7 +71,7 @@
 | 7 | created_at | timestamp | không | thời gian khi mua hàng0
 
 
-- #### Bảng view_history
+- #### 6. Bảng view_history
 
 | # | Tên | Kiểu dữ liệu | khóa | Chú Thích
 --- | --- | --- | --- |--- 
@@ -77,7 +79,7 @@
 | 2 | id_course | int | khóa chính và khóa ngoại | khóa ngoại nối tới [bảng course]
 | 3 | view | int | không | lịch sử xem, mặc định là 1
 
-<!-- - #### Bảng thêm
+<!-- - #### 7. Bảng thêm
 
 | # | Tên | Kiểu dữ liệu | khóa | Chú Thích
 --- | --- | --- | --- |--- 
