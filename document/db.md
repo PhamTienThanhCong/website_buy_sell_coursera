@@ -89,7 +89,7 @@
 | 3 | link | varchar(50) | khum | là link để nhúng
 | 4 | type_link | int | không | thể loại link nhúng(3 loại) <br> 1 = link youtube, 2 = link driver, 3 = all link
 | 5 | description_lesson | text | không | ghi mô tả về khóa học
-| 6 | action | char(7) | không | Ghi hành động muốn thực hiện <br> "update": cập nhập, và "delete": xóa
+| 6 | action | varchar(7) | không | Ghi hành động muốn thực hiện <br> "update": cập nhập, và "delete": xóa
 
 ## Sơ đồ thực thể:
 ![alt text](https://raw.githubusercontent.com/PhamTienThanhCong/website_buy_sell_coursera/main/document/so_do.png)
