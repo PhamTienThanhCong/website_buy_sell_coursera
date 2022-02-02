@@ -1,4 +1,4 @@
-[mô tả]: https://github.com/PhamTienThanhCong/website_buy_sell_coursera/blob/main/document/mo_ta.md
+[mô tả]: https://github.com/PhamTienThanhCong/website_buy_sell_coursera/tree/main/document#khu-v%E1%BB%B1c-document
 # J2School
 
 ### Trang web mua bán khóa học online
