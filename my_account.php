@@ -25,24 +25,23 @@
                 course.name_course,
                 course.author,
                 course.image_course,
-                course.price,
-                oder.creat_at,
-                oder.rate,
-                oder.history_lesson
+                oder.price_buy,
+                oder.created_at as time_buy,
+                oder.rate
             FROM
                 course
             INNER JOIN oder ON oder.id_course = course.id_course
             WHERE
                 oder.id_user = '$id_user'";
 
+    // die($sql);
     $all_courses = mysqli_query($connection, $sql);
 
     $sql = "SELECT
                 COUNT(*) as total_buy,
-                SUM(course.price) as total_price
+                SUM(oder.price_buy) as total_price
             FROM
                 oder
-            INNER JOIN course ON course.id_course = oder.id_course
             WHERE
                 id_user = '$id_user'";
     $total = mysqli_query($connection, $sql);
@@ -67,19 +66,6 @@
             Tài khoản của tôi 
             <i class='bx bx-user'></i>
         </h2>
-        <p class="money-style">
-            <i class='bx bxs-right-arrow-alt'></i>
-            Ngân hàng Quân đội (MBBANK)
-        </p>
-        <p class="money-style" id = "stk">
-            <i class='bx bxs-right-arrow-alt'></i>
-            Số tài khoản: 
-        </p>
-        <p class="money-style" id="my-money">
-            <i class='bx bxs-right-arrow-alt'></i>
-            Số tiền đang có: 
-            <?php echo currency_format($_SESSION['money'])?>
-        </p>
         <div class="image-avatar">
             <?php if( $_SESSION['image'] == 'null') { ?>
                 <img id="avatar-preview" src="./public/images/default/avata.png" alt="">
@@ -100,7 +86,7 @@
             <input type="hidden">
             <br>
             <button class="btn btn-primary" type="button">Sửa đổi và bổ sung</button>    
-            <button id="change-danger" class="btn btn-danger" type="button">Chỉnh sửa nâng cao</button>    
+            <button id="change-danger" class="btn btn-danger" type="button">Thay đổi mất khẩu</button>    
         </form>
         
         <form id="my-password" method="post" action="./processing/my_account_change_password.php">
@@ -112,9 +98,10 @@
             <label for="">Mật khẩu mới</label>
             <input class="input-in4 input-replace" type="password" name="new_password">
             <br>
-            <label for="">Số tiền hiện tại</label>
-            <input class="input-in4 input-replace" type="number" name="money" value="<?php echo $_SESSION['money']?>">
-            <button class="btn btn-danger">Lưu Thông tin lại</button>
+            <label for="">Nhập lại mật khẩu:</label>
+            <input class="input-in4 input-replace" type="password" name="new_password">
+            <br>
+            <button class="btn btn-danger">Lưu mật khẩu mới</button>
         </form>
 
         <div class="your-cart">
@@ -155,18 +142,14 @@
                         </p>
                         <p>
                             <i class='bx bx-credit-card-front'></i>
-                            Giá Tiền: <?php echo currency_format($course['price'])?>
+                            Giá tiền: <?php echo currency_format($course['price_buy'])?>
                         </p>
                         <p>
                             <i class='bx bx-time-five'></i>
                             Thời gian mua: 
-                            <?php echo date("H:i:s - d/m/Y", strtotime($course['creat_at']))?>
+                            <?php echo date("H:i:s - d/m/Y", strtotime($course['time_buy']))?>
                         </p>
-                        <p>
-                            <i class='bx bx-book-content'></i>
-                            Đã học: <?php echo $course['history_lesson']?> 
-                            Bài 
-                        </p>
+                        
                         <p>
                             <i class='bx bx-star'></i>
                             Xếp hạng: <?php echo $course['rate']?>

@@ -96,11 +96,12 @@ a{
 }
 .course{
     margin-top: 20px;
+    margin-bottom: 30px;
 }
 .img-course{
     display: inline-block;
-    width: 340px;
-    height: 190px;
+    width: 330px;
+    height: 170px;
 }
 .img-course img{
     width: 100%;

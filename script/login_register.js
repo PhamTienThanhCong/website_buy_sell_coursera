@@ -32,7 +32,7 @@ $(document).ready(function() {
                 $('#alert-login').html('Email hoặc mật khẩu không đúng');
                 $('#alert-login').removeClass('hidden');
             }else if(response == 1){
-                document.getElementById('back-home').click();
+                document.getElementById('click_home').click();
             }
         })
     })

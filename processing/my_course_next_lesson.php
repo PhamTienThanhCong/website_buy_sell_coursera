@@ -10,7 +10,7 @@ require "../public/connect_sql.php";
 $sql = "SELECT
             *
         FROM
-            `oder`
+            `view_history`
         WHERE
             (id_user = '$id_user') AND (id_course = '$id_course')";
 
@@ -28,15 +28,15 @@ $number_lesson = mysqli_query($connection, $sql);
 $number_lesson = mysqli_fetch_array($number_lesson);
 
 
-if(isset($check['history_lesson'])){
+if(isset($check['view'])){
     if ($number_lesson['number_lesson'] > $check_lesson){
-        if ($check_lesson == $check['history_lesson']){
-            $history_lesson =  $check['history_lesson']+1;
+        if ($check_lesson == $check['view']){
+            $history_lesson =  $check['view']+1;
     
             $sql = "UPDATE
-                        `oder`
+                        `view_history`
                     SET
-                        `history_lesson` = '$history_lesson'
+                        `view` = '$history_lesson'
                     WHERE
                         (`id_user` = '$id_user') AND `id_course` = '$id_course'";
             mysqli_query($connection, $sql);

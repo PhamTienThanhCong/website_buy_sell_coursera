@@ -12,32 +12,27 @@
     $sql = "SELECT
                 *
             FROM
-                `oder`
+                `view_history`
             WHERE
                 (id_user = '$id_user') AND (id_course = '$id_course')";
-    
     
     $check = mysqli_query($connection, $sql);
     $check = mysqli_fetch_array($check);
 
-    if(isset($check['history_lesson'])==false){
+    if(isset($check['view'])==false){
         header('Location: ./my_course.php');
     }
 
-    $number_video = $check['history_lesson'] ;
+    $number_video = $check['view'];
 
     if (isset($_GET['number_video'])){
-        $number_video = addslashes($_GET['number_video']);
+        $number_video_request = addslashes($_GET['number_video']);
+        if ((int)$number_video_request < $number_video){
+            $number_video = (int)$number_video_request; 
+        }
     } 
 
-    $number_video = (int)$number_video - 1; 
-
-    // if($check['history_lesson'] < $number_video+1){
-    //     $number_video = $check['history_lesson']-1;
-    // }
-    // if($check['all_lesson'] < $number_video+1){
-    //     $number_video = 0;
-    // }
+    $number_video -= 1;
 
     $sql = "SELECT
                 course.*,
@@ -50,7 +45,7 @@
             GROUP BY
                 lesson.id_lesson
             LIMIT 1 OFFSET $number_video";
-    
+
     $course = mysqli_query($connection, $sql);
     $one_course = mysqli_fetch_array($course);
 
@@ -64,6 +59,7 @@
                 course.id_course = '$id_course'
             GROUP BY
                 lesson.id_lesson;";
+
     $all_lesson = mysqli_query($connection, $sql);
 ?>
 <!DOCTYPE html>
@@ -89,7 +85,7 @@
     <?php require "./default/header.php"; ?>
         <?php if (isset($one_course['name_lesson'])){ ?>
             <div class=content>
-            <iframe width="100%" height="508" src="https://www.youtube.com/embed/<?php echo $one_course['link_ytb_lesson']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="100%" height="508" src="https://www.youtube.com/embed/<?php echo $one_course['link']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <h2 style="margin-top: 20px">
                 <?php echo $one_course['name_lesson']?>
             </h2>
@@ -120,14 +116,14 @@
             <div class="all-lessons-list">
                 <ul>
                     <?php foreach ($all_lesson as $index => $lesson) { ?>
-                        <?php if (($index+1 < $check['history_lesson']) && ($index+ 1 != $number_video+1)) { ?>
+                        <?php if (($index+1 < $check['view']) && ($index+ 1 != $number_video+1)) { ?>
                             <li class="name-lesson done">
                                 <a href="./my_course_view_lesson.php?idcourse=<?php echo $lesson['id_course'] ?>&number_video=<?php echo $index+1 ?>">
                                     <?php echo $lesson['name_lesson']?>    
                                     <i style="color: blue" class='icon-lesson bx bx-check'></i>
                                 </a>
                             </li>
-                        <?php }else if (($index+1 == $check['history_lesson']) && ($index+ 1 != $number_video+1)) { ?>
+                        <?php }else if (($index+1 == $check['view']) && ($index+ 1 != $number_video+1)) { ?>
                             <li class="name-lesson" style="background-color: #e6e6e6">
                                 <a href="./my_course_view_lesson.php?idcourse=<?php echo $lesson['id_course'] ?>&number_video=<?php echo $index+1 ?>">
                                     <?php echo $lesson['name_lesson']?>    
