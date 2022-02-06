@@ -176,12 +176,8 @@
 - Tổng quan chung:
   - Tổng số lượng khóa học được bán ra
   - Tổng doanh thu của tất cả admin,
-  - 1 bảng top các khóa học bán chạy: 
-    - bao gồm: tên khóa học, tên người bán hàng, giá, số lượng đã bán
-    - Xắp xếp theo: số lượng đã bán
-  - 1 bảng top người bán hàng thu nhập tốt nhất: 
-    - Bao gồm: tên người bán hàng, doanh thu, số lượng khóa học được bán ra
-    - Xắp xếp theo: doanh thu
+  - 1 bảng tổng quan ghi: tên khóa học, tác giả, người đăng, ngày tạo, số lượng người học:
+    - xắp xếp theo số lượng người học
   - ta có thể lựa chọn tổng quan theo: ngày, tháng, năm
  
 - quản lý khóa học:
