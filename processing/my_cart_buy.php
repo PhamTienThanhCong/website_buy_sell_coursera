@@ -30,18 +30,11 @@ foreach ($id_course as $id){
     $pay += (int)$money['price'];
 
 
-    $sql = "INSERT INTO `oder` (`id_user`, `id_course`,`history_lesson`) VALUE ('$id_user','$id','1')";
+    $sql = "INSERT INTO `oder` (`id_user`, `id_course`) VALUE ('$id_user','$id')";
+
     mysqli_query($connection, $sql);
     
     unset($_SESSION['cart'][$id]);
 }
-
-$_SESSION['money'] -= $pay;
-
-$pay = $_SESSION['money'];
-
-$sql = "UPDATE `user` SET `money` = '$pay' WHERE `id_user` = '$id_user'";
-mysqli_query($connection, $sql);
-
 
 header("Location: ../my_course.php");
