@@ -1,6 +1,8 @@
 <?php
   session_start();
-  if(isset($_SESSION['name'])){
+  if(isset($_SESSION['lever'])){
+    session_destroy();
+  }if(isset($_SESSION['id'])){
     header('Location: ./index.php');
   }
 ?>

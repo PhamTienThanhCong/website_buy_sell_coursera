@@ -14,6 +14,7 @@
 <body>
     <?php
     session_start();
+    if (isset($_SESSION['lever'])){session_destroy();}
     $search = "";
     if (isset($_GET["search"])){
         $search = $_GET["search"];

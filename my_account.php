@@ -3,6 +3,7 @@
     if (isset($_SESSION['id']) == false){
         header('Location: ./login_and_register.php');
     }
+    if (isset($_SESSION['lever'])){session_destroy();}
     $id_user = $_SESSION['id'];
     require "./public/connect_sql.php";
 
