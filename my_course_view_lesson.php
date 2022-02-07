@@ -134,7 +134,7 @@
             <div class="all-lessons-list">
                 <ul>
                     <?php foreach ($all_lesson as $index => $lesson) { ?>
-                        <?php if (($index+1 < $check['view']) && ($index+ 1 != $number_video+1)) { ?>
+                        <?php if (($index+1 < $current_lesson['view']) && ($index+ 1 != $number_video+1)) { ?>
                             <li class="name-lesson done">
                                 <a href="./my_course_view_lesson.php?idcourse=<?php echo $lesson['id_course'] ?>&number_video=<?php echo $index+1 ?>">
                                     <?php echo $lesson['name_lesson']?>    
