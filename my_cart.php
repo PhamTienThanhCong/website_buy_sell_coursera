@@ -108,10 +108,6 @@ session_start();
                     Ngân hàng Quân đội (MBBANK)
                 </p>
                 <br>
-                <p id="my-money" data-currency="<?php echo $_SESSION['money']?>">
-                    Số tiền đang có: 
-                    <?php echo currency_format($_SESSION['money'])?>
-                </p>
                 <form method="post" action="./processing/my_cart_buy.php">
                     <input name="course" id="mat-hang-se-mua" type="hidden">
                     <button id="buy-course" style="display: none">btn an</button>
@@ -129,9 +125,6 @@ session_start();
                 <br>
                 <p id="currency-pay">
                     Số Tiền phải trả: 0
-                </p>
-                <p id="currency-money">
-                    Số tiền thừa thiếu: 
                 </p>
                 <p id="number-course">
                     Số lượng bài học bạn mua: 0

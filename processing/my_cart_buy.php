@@ -14,27 +14,25 @@ $pay = 0;
 foreach ($id_course as $id){
     // Tiền bạc
     $sql = "SELECT
-                course.*,
-                COUNT(lesson.id_course) AS number
+                course.*
             FROM
                 course
-            LEFT OUTER JOIN lesson ON course.id_course = lesson.id_course
             WHERE
                 course.id_course = '$id'";
     
     $money = mysqli_query($connection, $sql);
     $money = mysqli_fetch_array($money);
 
-    $number_lesson = $money['number'];
+    if(isset($money['price'])){
+        $money_course = $money['price'];   
+        $sql = "INSERT INTO `oder` (`id_user`, `id_course`, `price_buy`) VALUE ('$id_user','$id','$money_course')";
+        mysqli_query($connection, $sql);
+        unset($_SESSION['cart'][$id]);
 
-    $pay += (int)$money['price'];
+        $sql = "INSERT INTO `view_history` (`id_user`, `id_course`, `view`) VALUE ('$id_user','$id','1')";
+        mysqli_query($connection, $sql);
 
-
-    $sql = "INSERT INTO `oder` (`id_user`, `id_course`) VALUE ('$id_user','$id')";
-
-    mysqli_query($connection, $sql);
-    
-    unset($_SESSION['cart'][$id]);
+    }  
 }
 
 header("Location: ../my_course.php");
