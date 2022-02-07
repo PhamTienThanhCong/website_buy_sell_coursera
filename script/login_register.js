@@ -28,10 +28,10 @@ $(document).ready(function() {
             data: $(this).serializeArray(),
         })
         .done(function(response){
-            if(response == 0){
+            if(response == "0"){
                 $('#alert-login').html('Email hoặc mật khẩu không đúng');
                 $('#alert-login').removeClass('hidden');
-            }else if(response == 1){
+            }else if(response == "1"){
                 document.getElementById('back-home').click();
             }
         })
