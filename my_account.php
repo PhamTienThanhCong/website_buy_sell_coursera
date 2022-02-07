@@ -85,6 +85,9 @@
             <br>
             <input type="hidden">
             <br>
+            <input name="passworld" type="hidden">
+            <!-- <label for="">Mật khẩu: </label> <input class="input-in4" type="password" name="password"><br> -->
+
             <button class="btn btn-primary" type="button">Sửa đổi và bổ sung</button>    
             <button id="change-danger" class="btn btn-danger" type="button">Thay đổi mất khẩu</button>    
         </form>
@@ -96,10 +99,10 @@
             <input class="input-in4 input-replace" type="password" name="password">
             <br>
             <label for="">Mật khẩu mới</label>
-            <input class="input-in4 input-replace" type="password" name="new_password">
+            <input id="new-password" class="input-in4 input-replace" type="password" name="new_password">
             <br>
             <label for="">Nhập lại mật khẩu:</label>
-            <input class="input-in4 input-replace" type="password" name="new_password">
+            <input id="confirm-password" class="input-in4 input-replace" type="password" name="new_password">
             <br>
             <button class="btn btn-danger">Lưu mật khẩu mới</button>
         </form>
