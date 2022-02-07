@@ -12,6 +12,20 @@
     $sql = "SELECT
                 *
             FROM
+                `oder`
+            WHERE
+                (id_user = '$id_user') AND (id_course = '$id_course')";
+
+    $check = mysqli_query($connection, $sql);
+    $check = mysqli_fetch_array($check);
+
+    if(isset($check['view'])==false){
+        header("./view_course.php?id=".$id_course);
+    }
+
+    $sql = "SELECT
+                *
+            FROM
                 `view_history`
             WHERE
                 (id_user = '$id_user') AND (id_course = '$id_course')";
@@ -44,7 +58,7 @@
                 course.id_course = '$id_course'
             GROUP BY
                 lesson.id_lesson
-            LIMIT 1 OFFSET $number_video";
+            #LIMIT 1 OFFSET $number_video";
 
     $course = mysqli_query($connection, $sql);
     $one_course = mysqli_fetch_array($course);
@@ -123,7 +137,7 @@
                                     <i style="color: blue" class='icon-lesson bx bx-check'></i>
                                 </a>
                             </li>
-                        <?php }else if (($index+1 == $check['view']) && ($index+ 1 != $number_video+1)) { ?>
+                        <?php }else if (($index+1 == $current_lesson['view']) && ($index+ 1 != $number_video+1)) { ?>
                             <li class="name-lesson" style="background-color: #e6e6e6">
                                 <a href="./my_course_view_lesson.php?idcourse=<?php echo $lesson['id_course'] ?>&number_video=<?php echo $index+1 ?>">
                                     <?php echo $lesson['name_lesson']?>    
