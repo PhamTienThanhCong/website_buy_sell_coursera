@@ -1,5 +1,6 @@
 <?php
 session_start();
+if (isset($_SESSION['lever'])){session_destroy();}
 require "./public/connect_sql.php";
 if (!function_exists('currency_format')) {
     function currency_format($number, $suffix = ' VND')

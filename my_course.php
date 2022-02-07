@@ -1,5 +1,6 @@
 <?php
     session_start();
+    if (isset($_SESSION['lever'])){session_destroy();}
     if (isset($_SESSION['id']) == false){
         header('Location: ./login_and_register.php');
     }
