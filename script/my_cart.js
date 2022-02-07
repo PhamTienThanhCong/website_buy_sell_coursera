@@ -65,7 +65,7 @@ $(document).ready(function () {
                 
             }
         });
-        if ($(this).parent().parent().find(".input-check").attr('check')=="true"){
+        if ($(this).parent().parent().find(".input-check").attr('check')=="fasle"){
             let price = $(this).parent().parent().find(".input-check").data('price');
             let id = $(this).parent().parent().find(".input-check").data('id')
             total_price -= parseInt(price);
