@@ -17,7 +17,6 @@ if (isset($user['name_user'])) {
     $_SESSION['name'] = $user['name_user'];
     $_SESSION['id'] = $user['id_user'];
     $_SESSION['image'] = $user['image_user'];
-    $_SESSION['money'] = $user['money'];
     echo "1";
 }else{
     echo "0";
