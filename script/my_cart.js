@@ -14,15 +14,11 @@ function convetArrayToString(a){
 
 const totalPrice = () =>{
     let x = total_price.toLocaleString('vi', {style : 'currency', currency : 'VND'});
-    var money = $('#my-money').data('currency');
-    money = money - total_price;
 
     $('.total-price').html("Tổng Tiền "+ x +"");
     $('#currency-pay').html("Số Tiền phải trả: "+x+"");
     
-    x = money.toLocaleString('vi', {style : 'currency', currency : 'VND'});  
-
-    $('#currency-money').html("Số tiền thừa thiếu: " + x + "");
+    // x = money.toLocaleString('vi', {style : 'currency', currency : 'VND'});  
 
     $('#number-course').html("Số lượng bài học bạn mua: "+ course.length +"")
 
@@ -65,7 +61,9 @@ $(document).ready(function () {
                 
             }
         });
-        if ($(this).parent().parent().find(".input-check").attr('check')=="fasle"){
+
+        // Khi xóa mặt hàng đã chọn cần giảm tiền mua của sản phẩm xóa
+        if ($(this).parent().parent().find(".input-check").attr('check')=="true"){
             let price = $(this).parent().parent().find(".input-check").data('price');
             let id = $(this).parent().parent().find(".input-check").data('id')
             total_price -= parseInt(price);
