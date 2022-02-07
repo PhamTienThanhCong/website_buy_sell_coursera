@@ -30,21 +30,25 @@
             WHERE
                 (id_user = '$id_user') AND (id_course = '$id_course')";
     
-    $check = mysqli_query($connection, $sql);
-    $check = mysqli_fetch_array($check);
+    $current_lesson = mysqli_query($connection, $sql);
+    $current_lesson = mysqli_fetch_array($current_lesson);
 
-    if(isset($check['view'])==false){
-        header('Location: ./my_course.php');
+
+    if(isset($current_lesson['view'])==false){
+        $current_lesson['view']=1;
+        $sql="insert into view_history (id_user, id_course) values ('$id_user','$id_course')";
+        mysqli_query($connection,$sql);
     }
 
-    $number_video = $check['view'];
+    $number_video = $current_lesson['view'];
 
     if (isset($_GET['number_video'])){
         $number_video_request = addslashes($_GET['number_video']);
         if ((int)$number_video_request < $number_video){
             $number_video = (int)$number_video_request; 
         }
-    } 
+    }
+    else $_GET['number_video'] = 1;
 
     $number_video -= 1;
 
@@ -58,7 +62,7 @@
                 course.id_course = '$id_course'
             GROUP BY
                 lesson.id_lesson
-            #LIMIT 1 OFFSET $number_video";
+            LIMIT 1 OFFSET $number_video";
 
     $course = mysqli_query($connection, $sql);
     $one_course = mysqli_fetch_array($course);
