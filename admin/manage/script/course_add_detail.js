@@ -1,3 +1,6 @@
+var typeLink = 1;
+var sortLink = "1j9xOVoV1JqMSmsIJ6ivRkKVNrv4mEw01";
+
 function edit_lesson(id, name_lesson, ytb, id_course) {
     var description = document.getElementById('lesson' + id + '').innerHTML;
     document.getElementById('edit-lesson').style.marginTop = '26px';
@@ -63,4 +66,24 @@ function edit_course() {
 var ChangeAuthor = function(event) {
     var output = document.getElementById('author-course');
     output.innerHTML = "<i class='bx bxs-user'></i> Tác giả: "+event.target.value;
+}
+
+function changeTypeLink() {
+    var e = document.getElementById("type-link");
+    typeLink = e.value;
+    changeLinkIframe()
+}
+
+function changeLinkIframe(){
+    var link = "";
+
+    if (typeLink == 1){
+        link = "https://www.youtube.com/embed/" + sortLink;
+    }else if (typeLink == 2){
+        link = "https://drive.google.com/file/d/" + sortLink + "/preview";
+    }else{
+        link = sortLink;
+    }
+
+    document.getElementById("preview-video").innerHTML = `<iframe width="100%" height="250" src="`+link+`" title="YouTube video player" frameborder="0"></iframe>`;
 }

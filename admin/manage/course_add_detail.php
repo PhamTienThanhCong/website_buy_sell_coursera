@@ -104,25 +104,35 @@ if (isset($_SESSION['lever']) == false) {
                 <div class="sales-boxes" style="margin-top: 26px">
                     <div class="recent-sales box">
                         <div class="title" style="text-align: center">Thêm các bài học</div>
-                        <div class=add-course>
+                        <div class="add-course">
                             <h3 style="font-weight: normal">
                                 <i class='bx bx-book-add'></i>
                                 Thêm bài học mới
                             </h3>
                             <br>
-                            <form method='post' action='./processing/course_add_lesson.php'>
+                            <form id="form-add-lesson" method='post' action='./processing/course_add_lesson.php'>
                                 <input type="hidden" name="id_course" value="<?php echo $id_course ?>" required>
                                 <input type="hidden" name="type" value="add" required>
                                 <label class="lable-input" for="">Tên bài học:</label>
                                 <input type="text" name="name_lesson" required>
                                 <br>
-                                <label class="lable-input" for="">Link youtube bài học:</label>
+                                <label class="lable-input" for="">Link bài học:</label>
                                 <input type="text" name="link_ytb_lesson" required>
+                                <label class="lable-input" for="">Thể loại:</label>
+                                <select id="type-link" name="type_link" onchange="changeTypeLink()">
+                                    <option value="1">Link video youtube</option>
+                                    <option value="2">link video drive</option>
+                                    <option value="3">link video khác</option>
+                                </select>
                                 <br>
                                 <label class="lable-input" for="">Mô tả về bài học:</label>
                                 <textarea class="textarea-lesson" name="description_lesson"></textarea>
                                 <button id="btn-lesson">Thêm Bài học</button>
                             </form>
+                            
+                            <div id="preview-video">
+                                <iframe width="100%" height="250" src="https://www.youtube.com/embed/aXjiSwhDxYU" title="YouTube video player" frameborder="0"></iframe>
+                            </div>
 
                         </div>
                     </div>
