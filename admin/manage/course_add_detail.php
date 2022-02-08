@@ -131,7 +131,8 @@ if (isset($_SESSION['lever']) == false) {
                             </form>
                             
                             <div id="preview-video">
-                                <iframe width="100%" height="250" src="https://www.youtube.com/embed/aXjiSwhDxYU" title="YouTube video player" frameborder="0"></iframe>
+                            <!-- <iframe width="853" height="480" src="https://www.youtube.com/embed/Mf6I68db-R8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                                <iframe width="100%" height="250" src="https://www.youtube.com/embed/aXjiSwhDxYU" frameborder="0" allowfullscreen></iframe>
                             </div>
 
                         </div>

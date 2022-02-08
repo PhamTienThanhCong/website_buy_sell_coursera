@@ -85,5 +85,5 @@ function changeLinkIframe(){
         link = sortLink;
     }
 
-    document.getElementById("preview-video").innerHTML = `<iframe width="100%" height="250" src="`+link+`" title="YouTube video player" frameborder="0"></iframe>`;
+    document.getElementById("preview-video").innerHTML = `<iframe width="100%" height="250" src="`+link+`" title="YouTube video player" frameborder="0" allowfullscreen></iframe>`;
 }
