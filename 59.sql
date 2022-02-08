@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th2 06, 2022 lúc 06:53 AM
+-- Thời gian đã tạo: Th2 08, 2022 lúc 01:02 PM
 -- Phiên bản máy phục vụ: 5.7.33
 -- Phiên bản PHP: 7.4.19
 
@@ -77,7 +77,8 @@ INSERT INTO `course` (`id_course`, `id_admin`, `name_course`, `description_cours
 (14, 4, 'Khóa học html-css-javascript-php ', 'Khóa học cung cấp các kiến thức căn bản để học viên có thể đi làm được ở vị trí fullstack web developer. Học viên học được cách làm việc nhóm, giải quyết vấn đề, hiểu được quy trình, công cụ làm việc như trong thực tế.\r\n\r\nLưu ý: Hiện nay có một số kẻ xấu đang bán khóa học này dưới dạng video, đó là hành vi ăn cắp, mình đã làm việc với bên công an để có biện pháp xử lý. Các video họ bán đã quá cũ, không cập nhật các kiến thức mới như khóa học này. Một số trường hợp bị lừa đảo, gửi file không mở được. Không được cấp tài khoản và API để thực hành.\r\n\r\nĐể đăng ký khóa học hoặc bạn cần tư vấn, vui lòng kéo xuống dưới cùng.\r\n\r\nNếu học viên đã học sơ qua về lập trình web, khóa học này là cơ hội để hệ thống hóa kiến thức, học lại một cách bài bản, bù các kiến thức bị thiếu. Bởi vì chỉ cần “một cuốn sách, một người thầy” là đủ.\r\n\r\nKhóa học dành cho các học viên có kiến thức lập trình căn bản, có thời gian, sẵn sàng đeo bám khóa học đến cùng :) Học cho đến lúc nào đi làm được thì thôi.\r\n\r\nHọc viên có một người mentor bên cạnh, như một người bạn, sẵn sàng chia sẻ định hướng để phát triển bản thân trong ngành lập trình.\r\n\r\n', 'Nguyễn Nam Long', 'Khóa học html-css-javascript-php 1642081103.png', 1, 950000, '2022-01-13 06:38:23'),
 (15, 5, 'Khóa học lập trình Java đến OOP', 'Java là một trong các ngôn ngữ lập trình phổ biến, được ra đời vào năm 1995. Hiện nay, ông chủ của nó là Oracle. Và con số hơn 3 tỉ thiết bị trên toàn cầu sử dụng Java là một minh chứng rõ nhất cho sự phổ biến của ngôn ngữ này.\r\n\r\nJava có thể làm gì?\r\nỞ đây, tôi sẽ tóm tắt các ứng dụng của ngôn ngữ lập trình Java một cách ngắn gọn nhất. Nếu bạn muốn tự mình xây dựng một sản phẩm tương tự như vậy thì Java là lựa chọn tốt dành cho bạn. Dưới đây là các ứng dụng của Java trong thực tế:\r\n\r\nPhát triển ứng dụng mobile (điển hình là ứng dụng Android, cái này Việt Nam mình tuyển nhiều nè)\r\nXây dựng các ứng dụng trên máy tính (Windows, Ubuntu,…)\r\nViết website (JSP, Spring, … Cái này các công ty lớn ở Việt Nam cũng tuyển nhiều nè)\r\nViết web server/ ứng dụng server (Cái này cũng tuyển nhưng không nhiều bằng)\r\nViết trò chơi (game đó)\r\nCòn nhiều nữa nha…\r\nLý do nên học lập trình Java\r\n1. Java rất dễ học\r\n\r\nNhiều người sẽ ngạc nhiên khi thấy đây là một trong những lý do hàng đầu để học Java hoặc coi nó là ngôn ngữ lập trình tốt nhất, nhưng sự thật là vậy. Java là một ngôn ngữ lập trình bậc cao, các từ khóa là các từ tiếng anh (gần với ngôn ngữ tự nhiên) và theo nó là các quy tắc chặt chẽ.\r\n\r\n2. Java là ngôn ngữ hướng đối tượng (OOP)\r\n\r\nMột lý do khác, khiến Java trở nên phổ biến vì nó là ngôn ngữ lập trình hướng đối tượng. Điều này giúp phát triển các ứng dụng OOP dễ dàng hơn nhiều và nó cũng giúp giữ cho hệ thống được mô đun hóa, linh hoạt và có thể mở rộng.\r\n\r\n3. Java là một nền tảng độc lập\r\n\r\nĐây là lý do chính cho sự phổ biến của Java. Bạn chỉ cần viết code Java một lần duy nhất và có thể đem nó chạy bất cứ đâu (bao gồm Windows, Linux, MacOS,…). Điều này không có ở một số ngôn ngữ khác\r\n\r\n4. Java có ở mọi nơi\r\n\r\nỨng dụng Desktop: Java Swing, JavaFX\r\nMobile: J2ME hay một nền tảng phổ biến viết code cho Android hiện nay là Android Software Development Kit (SDK)\r\nLập trình Nhúng: Một số thiết bị, chẳng hạn như thẻ SIM, đầu đĩa, đồng hồ và TV, sử dụng các công nghệ Java nhúng\r\nLập trình Web: Hiện đang có nhu cầu tuyển dụng lớn tại Việt Nam. Một số framework phổ biến như Struts, Spring, Servlets,…\r\nỨng dụng doanh nghiệp: Java Enterprise Edition (Java EE) là một nền tảng phổ biến cung cấp API và môi trường thời gian chạy để viết kịch bản và chạy phần mềm doanh nghiệp, bao gồm các ứng dụng mạng và dịch vụ web\r\n4. Nhu cầu tuyển dụng lớn\r\n\r\nCác bạn hoàn toàn có thể kiểm chứng thông tin này bằng cách thử tìm kiếm công việc lập trình Java trên Google hoặc các trang tìm việc IT.\r\n\r\nVới mục đích giới thiệu đến mọi người về Ngôn ngữ Java - một ngôn ngữ lập trình khá mới mẻ so với C, C++, Java, PHP ở Việt Nam. Thông qua khóa học LẬP TRÌNH JAVA CƠ BẢN ĐẾN HƯỚNG ĐỐI TƯỢNG, Kteam sẽ hướng dẫn các bạn kiến thức cơ bản của Java. Để từ đó, có được nền tảng cho phép bạn tiếp tục tìm hiểu những kiến thức tuyệt vời khác của Java hoặc là một ngôn ngữ khác. Cụ thể trong khóa học này, Kteam sẽ giới thiệu với các bạn Java ở phiên bản Java 8 Đối tượng tham gia: Serial này dành cho các bạn muốn học, tìm hiểu về lập trình và xác định theo con đường lập trình viên lâu dài. Khóa học không khuyến khích những bạn tay ngang vào học lập trình vì bản chất Java là ngôn ngữ khó học và cần đi theo con đường học tập chuyên sâu. Khóa học này yêu cầu sinh viên phải có kiến thức vững chắc về lập trình cơ bản thường được học ở trường như nhập môn, kĩ thuật lập trình, cấu trúc dữ liệu,.. Thời lượng mỗi video từ 3 – 30 phút nhằm chia nhỏ quá trình thực hiện, giúp bạn dễ tiếp thu và ứng dụng source code hỗ trợ từ thư viện Howkteam.com Khoá học sẽ mang đến bạn kiến thức về: Cài đặt & sử dụng môi trường Java. Làm quen & hiểu cách sử dụng các khái niệm nền tảng trong Java. Kiến thức cơ bản như: ép kiểu, vòng lặp, mảng, …. Và tìm hiểu về Java Hướng Đối Tượng.\"\"\"', 'HowKteam', 'Khóa học lập trình Java đến OOP1642512072.jpg', 1, 499000, '2022-01-18 06:21:12'),
 (16, 8, 'Khóa học làm giàu', 'FT 88 nhà cái uy tín chất lượng hàng đầu Việt Nam', 'Khá Bảnh', 'Khóa học làm giàu1642515381.jpg', 0, 99999999, '2022-01-18 07:16:21'),
-(17, 5, 'Luyện code html-css-javaScript 30 ngày', 'Sử dụng hashtag: #30dayschallengecode\r\nLink dự án: https://www.nodemy.vn/projects-html-c...\r\n• Luyện tập 30 Projects thực chiến: https://www.youtube.com/watch?v=3odtU...\r\n', 'Nodemy', 'Luyện code html-css-javaScript 30 ngày1642650724.png', 1, 350000, '2022-01-19 20:52:04');
+(17, 5, 'Luyện code html-css-javaScript 30 ngày', 'Sử dụng hashtag: #30dayschallengecode\r\nLink dự án: https://www.nodemy.vn/projects-html-c...\r\n• Luyện tập 30 Projects thực chiến: https://www.youtube.com/watch?v=3odtU...\r\n', 'Nodemy', 'Luyện code html-css-javaScript 30 ngày1642650724.png', 1, 350000, '2022-01-19 20:52:04'),
+(18, 5, 'Khóa học tiếng anh', 'Tự học tiếng Anh online như thế nào?\r\n​Bước 1: Xác định trình độ hiện tại của bạn.\r\nTrước khi bắt đầu học tiếng Anh, đặc biệt là học bằng hình thức online, bạn cần biết rõ khả năng của bản thân ở mức nào. Việc này giúp xác định cơ sở để từ đó bạn có thể lựa chọn bài học tiếng anh phù hợp. Tránh các trường hợp bài học tiếng anh quá dễ khiến bạn cảm thấy nhàm hay quá khó dẫn đến chán nản.\r\n\r\nBước 2: Biết được đâu là cách học phù hợp nhất với bạn.\r\nĐể biết được đâu là cách học tiếng anh tốt nhất đối với bản thân, bạn cần tìm kiếm một trang web hay khóa học dạy học tiếng anh theo cách khiến bạn hứng thú. Chỉ có như vậy, bạn mới có thể truy cập vào trang web mỗi ngày để học tiếng Anh thường xuyên được.\r\n\r\nBước 3: Lên lịch học cố định mỗi ngày\r\nMuốn sử dụng tiếng Anh thành thạo để đi du học, xin việc,… thì bạn cũng phải sử dụng nó liên tục như thói quen hằng ngày vậy. Do đó, việc lên lịch học cố định tiếng Anh mỗi ngày là rất cần thiết. Hãy chọn cho mình một khoảng thời gian học tập thích hợp và thực hiện đều đặn theo lịch trình đó.\r\nNếu bạn thấy nhàm chán, hãy chọn các chủ đề mà mình quan tâm. Từ đó, việc học tiếng Anh sẽ trở nên thú vị hơn\r\n\r\nBước 4: Vận dụng những gì học được vào thực tế\r\nCách học hiệu quả nhất chính là thực hành. Đừng quên các hoạt động thực tế khi học tiếng Anh nhé. Vì dù bạn có học nhiều đến mức nào đi chăng nữa nhưng lại không giao tiếp, đọc hay viết tiếng Anh trong cuộc sống thường ngày thì rất khó để sử dụng tiếng Anh thành thạo được.\r\nMột phương pháp vận dụng thường thấy là nói chuyện với người Anh, khách du lịch. Đây sẽ là cách giúp bạn tiếp thu vô cùng nhanh chóng và hiệu quả.\r\nBí quyết du học Đức miễn phí\r\n\r\nTừ vựng được xem là cơ sở để giao tiếp tiếng Anh. Không những thế, chỉ khi nắm được vốn từ vựng nhất định, bạn mới có thể học tiếp các kỹ năng khác như nghe, nói, đọc, viết. Do đó, bên cạnh ngữ pháp thì từ vựng có vai trò vô cùng quan trọng.\r\nTuy nhiên, cách học từ vựng và ngữ pháp lại có sự khác biệt. Nếu như học ngữ pháp chỉ yêu cầu bạn nắm các cấu trúc, quy tắc theo mẫu sẵn có. Thì từ vựng lại có nhiều cách học sáng tạo và thú vị hơn nhiều. Một trong số đó là học từ vựng online qua các hệ thống, ứng dụng chuyên dùng.\r\nLà một trong những trang web học tiếng Anh trực tuyến được ưa thích nhất, Voca.vn của cộng đồng Anh ngữ English Me là trang web chuyên dành để học và luyện từ vựng.\r\nCác ưu điểm nổi bậc của website học từ vựng tiếng anh Voca.vn là:\r\n\r\nPhương pháp ghi nhớ từ vựng sinh động, thú vị và dễ nhớ.\r\nGiúp người học ôn tập từ vựng cũ thường xuyên với tính năng nhắc nhở.\r\nNgười học đánh giá sự tiến bộ của bản thân theo thời gian thông qua tính năng đo lường.\r\nGiao diện đẹp, thân thiện với người dùng và rất dễ sử dụng.\r\nThư viện từ vựng phong phú với nhiều chủ đề khác nhau.\r\nNgười học được trải nghiệm miễn phí một bộ từ vựng để hiểu cách học trước khi trả học phí chính thức để được học nhiều bộ từ vựng khác.\r\nHệ thống có thể sử dụng trên nhiều phương tiện khác nhau như máy tính bàn, laptop, smartphone.', 'Đặng Hồng Hạnh', 'Khóa học tiếng anh1644305833.jpg', 0, 99000, '2022-02-08 07:37:13');
 
 -- --------------------------------------------------------
 
@@ -89,7 +90,7 @@ CREATE TABLE `lesson` (
   `id_lesson` int(11) NOT NULL,
   `id_course` int(11) NOT NULL,
   `name_lesson` varchar(150) NOT NULL,
-  `link` varchar(50) NOT NULL,
+  `link` varchar(100) NOT NULL,
   `type_link` int(11) NOT NULL DEFAULT '1',
   `description_lesson` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -186,7 +187,10 @@ INSERT INTO `lesson` (`id_lesson`, `id_course`, `name_lesson`, `link`, `type_lin
 (88, 17, 'Day 9: Đi làm thì phải biết dùng API vậy API là gì? Call API làm cực kỳ đơn giản trong Weather App', 'ZKhOuR1UWh4', 1, ''),
 (89, 17, 'Day 10: Todo List bài tập kinh điển mà đi làm ai cũng phải biết. Kỹ thuật sử dụng \"This\" đơn giản', 'iO7kgGgHr6w', 1, ''),
 (90, 14, 'Lập trình web cơ bản - buổi 32 - PHP & jQuery - Rating & Live search & JSON', '0M0AB3k4C4c', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink tổng hợp câu hỏi từ livestream\r\nhttps://j2c.cc/j2school-qa\r\n\r\n#họclậptrình #php #mysql #đồán #javascript #jquery #json #rating #livesearch'),
-(91, 14, 'Lập trình web cơ bản - buổi 33 - PHP & jQuery - Tags & Notify', 'i5SpM6mvCt4', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink tổng hợp câu hỏi từ livestream\r\nhttps://j2c.cc/j2school-qa\r\n\r\n#họclậptrình #php #mysql #đồán #javascript #jquery #json #tags #notify #ajax');
+(91, 14, 'Lập trình web cơ bản - buổi 33 - PHP & jQuery - Tags & Notify', 'i5SpM6mvCt4', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink tổng hợp câu hỏi từ livestream\r\nhttps://j2c.cc/j2school-qa\r\n\r\n#họclậptrình #php #mysql #đồán #javascript #jquery #json #tags #notify #ajax'),
+(95, 16, 'Test sửa video save drive', '1e1q_TJMqKxbUfmPzUkS1-tf3iYHFrg8W', 2, 'test sửa link'),
+(96, 16, 'test link all', 'https://www.youtube.com/embed/41Xx_3-Wc7g', 3, 'test link loại khác'),
+(97, 16, 'test link ytb', 'SJDM8ETMmzE', 1, 'test link ytb thôi');
 
 -- --------------------------------------------------------
 
@@ -216,7 +220,8 @@ INSERT INTO `oder` (`id_order`, `id_user`, `id_course`, `price_buy`, `rate`, `co
 (19, 2, 3, 99000, 4, '                        Tình yêu thì muôn ngàn lối\r\nLàm sao để em tìm tới\r\nCứ bước qua một thời cảm thấy xa vời vợi\r\nNgười đâu có hay rằng em yêu người\r\nMà em không biết nói sao, quen biết bấy lâu\r\nTiếng ân tình em chưa dám trao\r\nNhiều khi em muốn nói ra nhưng khó biết bao\r\nVì em là con gái\r\nChưa từng ngỏ lời cùng ai\r\nTình này là tình vu vơ\r\nTình này là tình nhung nhớ\r\nĐêm đêm một mình em lặng lẽ với những giấc mơ\r\nEm mơ về anh rất nhiều từ khi vừa biết yêu\r\nTình này là tình xa xôi\r\nTình này là tình chưa tới\r\nChưa trao về anh nên chỉ mới biết ước mơ thôi\r\nƯớc mơ được có anh giờ đây để đừng tan theo khói mây\r\nTình yêu thì muôn ngàn lối\r\nLàm sao để em tìm tới\r\nCứ bước qua một thời\r\nCảm thấy xa vời vợi\r\nNgười đâu có hay rằng em yêu người\r\nMà em không biết nói sao, quen biết bấy lâu\r\nTiếng ân tình em chưa dám trao\r\nNhiều khi em muốn nói ra nhưng khó biết bao\r\nVì em là con gái\r\nChưa từng ngỏ lời cùng ai\r\nTình này là tình vu vơ\r\nTình này là tình nhung nhớ\r\nĐêm đêm một mình em lặng lẽ với những giấc mơ\r\nEm mơ về anh rất nhiều từ khi vừa biết yêu\r\nTình này là tình xa xôi\r\nTình này là tình chưa tới\r\nChưa trao về anh chỉ mới biết ước mơ thôi\r\nƯớc mơ được có anh giờ đây để đừng tan theo khói mây\r\nTình này là tình vu vơ\r\nTình này là tình nhung nhớ\r\nĐêm đêm một mình em lặng lẽ với những giấc mơ\r\nEm mơ về anh rất nhiều từ khi vừa biết yêu\r\nTình này là tình xa xôi\r\nTình này là tình chưa tới\r\nChưa trao về anh nên chỉ mới biết ước mơ thôi\r\nƯớc mơ được có anh giờ đây để đừng tan theo khói mây  \r\n\r\nYêu thầy nhiều <3\r\n                  ', '2022-01-22 19:56:17'),
 (20, 2, 15, 99000, 5, 'em đang bận lắm lắm không học được huhu mọi người ơiii', '2022-01-22 23:51:50'),
 (21, 2, 14, 99000, 3, 'mới mua về chưa học nên chưa biết tạm thời cho 3 * vậy hihi', '2022-01-24 08:07:20'),
-(22, 3, 14, 99000, 5, 'hay', '2022-01-25 18:16:36');
+(22, 3, 14, 99000, 5, 'hay', '2022-01-25 18:16:36'),
+(25, 4, 15, 499000, 5, 'tesst đánh giá', '2022-02-07 14:34:38');
 
 -- --------------------------------------------------------
 
@@ -241,7 +246,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id_user`, `name_user`, `email_user`, `phone_number_user`, `image_user`, `password`, `token_user`) VALUES
 (1, 'Cong Pham nè', 'congpham@gmail.com', '0936933210', 'Cong Pham nè1642986810.jpg', 'cong', NULL),
 (2, 'Thiên an ', 'thienan@gmail.com', '0936933214', 'Thiên an 1642987204.jpg', 'cong', NULL),
-(3, 'Cong Pham', 'congphamtienthanh@gmail.com', '0396369665', 'null', 'cong', NULL);
+(3, 'Cong Pham', 'congphamtienthanh@gmail.com', '0396369665', 'null', 'cong', NULL),
+(4, 'Test lại', 'test@gmail.com', '0936933214', 'Test chăng1644249252.jpg', 'cong', NULL);
 
 -- --------------------------------------------------------
 
@@ -267,7 +273,8 @@ INSERT INTO `view_history` (`id_user`, `id_course`, `view`) VALUES
 (2, 3, 1),
 (2, 14, 1),
 (2, 15, 1),
-(3, 14, 1);
+(3, 14, 1),
+(4, 15, 4);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -328,25 +335,25 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT cho bảng `course`
 --
 ALTER TABLE `course`
-  MODIFY `id_course` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_course` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `lesson`
 --
 ALTER TABLE `lesson`
-  MODIFY `id_lesson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id_lesson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT cho bảng `oder`
 --
 ALTER TABLE `oder`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
