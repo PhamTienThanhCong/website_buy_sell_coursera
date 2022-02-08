@@ -173,7 +173,7 @@
     .tooltip:hover .tooltiptext {
         visibility: visible;
     }
-    #form-add-lesson{
+    #form-add-lesson, #form-edit-lesson{
         width: 55%;
         display: inline-block;
     }
@@ -185,11 +185,11 @@
         width: 200px;
     }
 
-    #preview-video{
+    .preview-video{
         width: 44%;
         display: inline-block;
     }
 
-    #preview-video iframe{
+    .preview-video iframe{
         transform: translateY(-40px);
     }

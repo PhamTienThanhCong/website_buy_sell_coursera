@@ -104,7 +104,7 @@ if (isset($_SESSION['lever']) == false) {
                 <div class="sales-boxes" style="margin-top: 26px">
                     <div class="recent-sales box">
                         <div class="title" style="text-align: center">Thêm các bài học</div>
-                        <div class="add-course">
+                        <div id="test-get" class="add-course">
                             <h3 style="font-weight: normal">
                                 <i class='bx bx-book-add'></i>
                                 Thêm bài học mới
@@ -131,7 +131,7 @@ if (isset($_SESSION['lever']) == false) {
                                 <button id="btn-lesson" onclick="">Thêm Bài học</button>
                             </form>
                             
-                            <div id="preview-video">
+                            <div class="preview-video" id="preview-video-add">
                                 <iframe width="100%" height="250" src="https://www.youtube.com/embed/aXjiSwhDxYU" frameborder="0" allowfullscreen></iframe>
                             </div>
 
@@ -165,7 +165,7 @@ if (isset($_SESSION['lever']) == false) {
                             <tr>
                                 <th>#</th>
                                 <th>Tên bài học</th>
-                                <th>Link bài học</th>
+                                <th>Xem thử bài học</th>
                                 <th>Mô tả</th>
                                 <th>Sửa</th>
                                 <th>Xóa</th>
@@ -179,9 +179,15 @@ if (isset($_SESSION['lever']) == false) {
                                         <?php echo $ls['name_lesson'] ?>
                                     </th>
                                     <th>
-                                        <a href="youtube.com/watch?v=<?php echo $ls['link_ytb_lesson'] ?>">
-                                            youtube.com/watch?v=<?php echo $ls['link_ytb_lesson'] ?>
-                                        </a>
+                                        <iframe width="360" height="200" src="<?php 
+                                                if($ls['type_link'] == '1') {
+                                                    echo "https://www.youtube.com/embed/".$ls['link'];
+                                                }else if($ls['type_link'] == '2'){
+                                                    echo "https://drive.google.com/file/d/".$ls['link']."/preview";
+                                                }else{
+                                                    echo $ls['link'];
+                                                }
+                                            ?>" frameborder="0" allowfullscreen></iframe>
                                     </th>
                                     <th>
                                         <div class="tooltip">Xem
@@ -190,7 +196,7 @@ if (isset($_SESSION['lever']) == false) {
                                     </th>
                                     <th>
                                         <p id="lesson<?php echo $ls['id_lesson'] ?>" style="display:none;"><?php echo $ls['description_lesson'] ?></p>
-                                        <a href="#trang-trang" onclick="edit_lesson(<?php echo $ls['id_lesson'] ?>,'<?php echo $ls['name_lesson'] ?>','<?php echo $ls['link_ytb_lesson'] ?>','<?php echo $ls['id_course'] ?>')">Sửa</a>
+                                        <a href="#trang-trang" onclick="edit_lesson(<?php echo $ls['id_lesson'] ?>,'<?php echo $ls['name_lesson'] ?>','<?php echo $ls['link'] ?>','<?php echo $ls['type_link'] ?>','<?php echo $ls['id_course'] ?>')">Sửa</a>
                                     </th>
                                     <th>
                                         <a href="./processing/course_delete_lesson.php?id=<?php echo $ls['id_lesson'] ?>&id_course=<?php echo $ls['id_course'] ?>">Xóa</a>
