@@ -71,12 +71,26 @@ var ChangeAuthor = function(event) {
 function changeTypeLink() {
     var e = document.getElementById("type-link");
     typeLink = e.value;
+    changeSortLink()
+}
+
+function changeSortLink(){
+    var link = document.getElementById("link_video").value;
+    if (typeLink == 1){
+        link = link.split("watch?v=")[1];
+        sortLink = link.split("&list=")[0];  
+    }else if (typeLink == 2){
+        link = link.split("/file/d/")[1];
+        sortLink = link.split("/view?")[0];  
+    }else{
+        sortLink = document.getElementById("link_video").value;
+    }
+    document.getElementById('link_video_sort').value = sortLink;
     changeLinkIframe()
 }
 
 function changeLinkIframe(){
     var link = "";
-
     if (typeLink == 1){
         link = "https://www.youtube.com/embed/" + sortLink;
     }else if (typeLink == 2){
@@ -87,3 +101,9 @@ function changeLinkIframe(){
 
     document.getElementById("preview-video").innerHTML = `<iframe width="100%" height="250" src="`+link+`" title="YouTube video player" frameborder="0" allowfullscreen></iframe>`;
 }
+
+document.getElementById("form-add-lesson").addEventListener('submit', function(event) {
+    event.preventDefault();
+    changeSortLink();
+    document.getElementById("form-add-lesson").submit();
+})

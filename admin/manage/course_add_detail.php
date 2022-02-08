@@ -117,7 +117,8 @@ if (isset($_SESSION['lever']) == false) {
                                 <input type="text" name="name_lesson" required>
                                 <br>
                                 <label class="lable-input" for="">Link bài học:</label>
-                                <input type="text" name="link_ytb_lesson" required>
+                                <input type="text" id="link_video" required onchange="changeSortLink()">
+                                <input type="hidden" id="link_video_sort" name="link" required>
                                 <label class="lable-input" for="">Thể loại:</label>
                                 <select id="type-link" name="type_link" onchange="changeTypeLink()">
                                     <option value="1">Link video youtube</option>
@@ -127,11 +128,10 @@ if (isset($_SESSION['lever']) == false) {
                                 <br>
                                 <label class="lable-input" for="">Mô tả về bài học:</label>
                                 <textarea class="textarea-lesson" name="description_lesson"></textarea>
-                                <button id="btn-lesson">Thêm Bài học</button>
+                                <button id="btn-lesson" onclick="">Thêm Bài học</button>
                             </form>
                             
                             <div id="preview-video">
-                            <!-- <iframe width="853" height="480" src="https://www.youtube.com/embed/Mf6I68db-R8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
                                 <iframe width="100%" height="250" src="https://www.youtube.com/embed/aXjiSwhDxYU" frameborder="0" allowfullscreen></iframe>
                             </div>
 
