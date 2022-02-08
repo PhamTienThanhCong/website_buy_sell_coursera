@@ -121,7 +121,7 @@ if (isset($_SESSION['lever']) == false) {
             </div>
 
     </section>
-
+    <script type="text/javascript" src="./script/js_chung.js"></script>
     <script type="text/javascript" src="./script/course_manager.js"></script>
 
 </body>
