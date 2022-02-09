@@ -193,3 +193,11 @@
     .preview-video iframe{
         transform: translateY(-40px);
     }
+    .button-show-video{
+        cursor: pointer;
+        width: 115px;
+        display: inline-block;
+        background-color:#2697ff;
+        padding: 8px 0;
+        border-radius: 8px;
+    }

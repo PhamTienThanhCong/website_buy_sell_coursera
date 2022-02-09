@@ -178,16 +178,11 @@ if (isset($_SESSION['lever']) == false) {
                                     <th>
                                         <?php echo $ls['name_lesson'] ?>
                                     </th>
-                                    <th>
-                                        <iframe width="360" height="200" src="<?php 
-                                                if($ls['type_link'] == '1') {
-                                                    echo "https://www.youtube.com/embed/".$ls['link'];
-                                                }else if($ls['type_link'] == '2'){
-                                                    echo "https://drive.google.com/file/d/".$ls['link']."/preview";
-                                                }else{
-                                                    echo $ls['link'];
-                                                }
-                                            ?>" frameborder="0" allowfullscreen></iframe>
+                                    <th id="video<?php echo $index + 1?>">
+                                        <a class="button-show-video" onclick="showVideo('<?php echo $ls['link']?>','<?php echo $ls['type_link']?>','<?php echo $index + 1?>')">Xem ở đây</a>
+                                        <br>
+                                        <br>
+                                        <a class="button-show-video" onclick="showVideo('<?php echo $ls['link']?>','<?php echo $ls['type_link']?>','0')">Xem ở tab mới</a>
                                     </th>
                                     <th>
                                         <div class="tooltip">Xem

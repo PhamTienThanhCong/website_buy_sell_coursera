@@ -11,6 +11,34 @@ var loadFile = function(event) {
     }
 };
 
+function convertLink(sortLink,typeLink){
+    var link = "";
+    if (typeLink == 1){
+        link = "https://www.youtube.com/embed/" + sortLink;
+    }else if (typeLink == 2){
+        link = "https://drive.google.com/file/d/" + sortLink + "/preview";
+    }else{
+        link = sortLink;
+    }
+    return link;
+}
+
+function convertSortLink(typeLink,id){
+    var sortLink = ""
+    var link = document.getElementById(id).value;
+    if (typeLink == 1){
+        link = link.split("watch?v=")[1];
+        sortLink = link.split("&list=")[0];  
+    }else if (typeLink == 2){
+        link = link.split("/file/d/")[1];
+        sortLink = link.split("/view?")[0];  
+    }else{
+        sortLink = document.getElementById(id).value;
+    }
+
+    return sortLink;
+}
+
 var changeTitle = function(event) {
     var output = document.getElementById('title-course');
     output.innerText = event.target.value;
@@ -46,30 +74,14 @@ function changeTypeLink() {
 }
 
 function changeSortLink(){
-    var link = document.getElementById("link_video").value;
-    if (typeLink == 1){
-        link = link.split("watch?v=")[1];
-        sortLink = link.split("&list=")[0];  
-    }else if (typeLink == 2){
-        link = link.split("/file/d/")[1];
-        sortLink = link.split("/view?")[0];  
-    }else{
-        sortLink = document.getElementById("link_video").value;
-    }
+    sortLink = convertSortLink(typeLink,'link_video');
     document.getElementById('link_video_sort').value = sortLink;
     changeLinkIframe()
 }
 
-function changeLinkIframe(){
-    var link = "";
-    if (typeLink == 1){
-        link = "https://www.youtube.com/embed/" + sortLink;
-    }else if (typeLink == 2){
-        link = "https://drive.google.com/file/d/" + sortLink + "/preview";
-    }else{
-        link = sortLink;
-    }
 
+function changeLinkIframe(){
+    link = convertLink(sortLink,typeLink);
     document.getElementById("preview-video-add").innerHTML = `<iframe width="100%" height="250" src="`+link+`" title="YouTube video player" frameborder="0" allowfullscreen></iframe>`;
 }
 
@@ -80,14 +92,7 @@ document.getElementById("form-add-lesson").addEventListener('submit', function(e
 })
 
 function edit_lesson(id, name_lesson, link, type, id_course) {
-    var fullLink = "";
-    if (type == 1){
-        fullLink = "https://www.youtube.com/embed/" + link;
-    }else if (type == 2){
-        fullLink = "https://drive.google.com/file/d/" + link + "/preview";
-    }else{
-        fullLink = link;
-    }
+    var fullLink = convertLink(link,type);
 
     var description = document.getElementById('lesson' + id + '').innerHTML;
     document.getElementById('edit-lesson').style.marginTop = '26px';
@@ -140,29 +145,23 @@ function changeTypeLinkEdit() {
 }
 
 function changeSortLinkEdit(){
-    var link = document.getElementById("link_video_edit").value;
-    if (typeLinkEdit == 1){
-        link = link.split("watch?v=")[1];
-        sortLinkEdit = link.split("&list=")[0];  
-    }else if (typeLinkEdit == 2){
-        link = link.split("/file/d/")[1];
-        sortLinkEdit = link.split("/view?")[0];  
-    }else{
-        sortLinkEdit = document.getElementById("link_video_edit").value;
-    }
+    sortLinkEdit = convertSortLink(typeLinkEdit,'link_video_edit');
     document.getElementById('link_video_sort_edit').value = sortLinkEdit;
     changeLinkIframeEdit()
 }
 
 function changeLinkIframeEdit(){
-    var link = "";
-    if (typeLinkEdit == 1){
-        link = "https://www.youtube.com/embed/" + sortLinkEdit;
-    }else if (typeLinkEdit == 2){
-        link = "https://drive.google.com/file/d/" + sortLinkEdit + "/preview";
-    }else{
-        link = sortLinkEdit;
-    }
+    var link = convertLink(sortLinkEdit,typeLinkEdit);
 
     document.getElementById("preview-video-edit").innerHTML = `<iframe width="100%" height="250" src="`+link+`" title="YouTube video player" frameborder="0" allowfullscreen></iframe>`;
+}
+
+function showVideo(link,typeLink,number){
+    var fullLink = convertLink(link,typeLink);
+    if (number == "0"){
+        window.open(fullLink, '_blank').focus();
+    }else{
+        var idLink = "video"+number;
+        document.getElementById(idLink).innerHTML = `<iframe width="330" height="190" src="`+fullLink+`" title="YouTube video player" frameborder="0" allowfullscreen></iframe>`
+    }
 }
