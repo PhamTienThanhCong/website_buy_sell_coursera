@@ -39,13 +39,17 @@ if (isset($_SESSION['lever']) == false) {
                 GROUP BY course.id_course";
             $courses = mysqli_query($connection, $sql);
             $courses = mysqli_fetch_array($courses);
+
             ?>
             <!-- chỉnh sửa khóa học -->
             <div class="home-content">
                 <div class="sales-boxes">
                     <div class="recent-sales box">
                         <div class="title">Chỉnh sửa khóa học</div>
-                        <br><br>
+                        <br><?php if(!isset($courses['id_course'])){
+                        print "Khóa học này không tồn tại hoặc không phải của bạn";
+                        exit();?>
+                        <br><?php }?>
                         <div class="content">
                             <form id="form-course" class=new-couse method="post" action="./processing/course_edit.php" enctype="multipart/form-data">
                                 <input type="hidden" name="id_course" value="<?php echo $id_course ?>" readonly>
