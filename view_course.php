@@ -1,6 +1,8 @@
 <?php
 session_start();
-if (isset($_SESSION['lever'])){session_destroy();}
+if (isset($_SESSION['lever'])) {
+    session_destroy();
+}
 require "./public/connect_sql.php";
 if (!function_exists('currency_format')) {
     function currency_format($number, $suffix = ' VND')
@@ -182,9 +184,13 @@ $all_comments = mysqli_query($connection, $sql);
             <br>
             <br>
             <h3 style="text-align: center;">
-                Bạn phải đăng nhập và mua hàng để dánh giá
-                <br>
-                <a href="./login_and_register.php">Đăng nhập ngay</a>
+                <?php if (!isset($_SESSION['id'])) { ?>
+                    Bạn phải đăng nhập và mua hàng để dánh giá
+                    <br>
+                    <a href="./login_and_register.php">Đăng nhập ngay</a>
+                <?php } elseif (!isset($check_by['rate'])) { ?>
+                    Bạn phải mua hàng để đánh giá
+                <?php } ?>
             </h3>
         <?php } ?>
     </div>
