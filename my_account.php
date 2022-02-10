@@ -121,10 +121,6 @@
                 <i class='bx bxs-right-arrow-alt'></i>
                 Số tiền đã chi trả: <?php echo currency_format($total['total_price'])?>
             </p>
-            <p>
-                <i class='bx bxs-right-arrow-alt'></i>
-                Số tiền còn lại: <?php echo currency_format($_SESSION['money'])?>
-            </p>
         </div>
         <div class = "your-cart">
             <h2>

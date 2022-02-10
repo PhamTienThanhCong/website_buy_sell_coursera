@@ -9,8 +9,6 @@ $course = htmlspecialchars($_POST["course"]);
 
 $id_course = explode(',', $course);
 
-$pay = 0;
-
 foreach ($id_course as $id){
     // Tiền bạc
     $sql = "SELECT
