@@ -109,7 +109,7 @@ if (isset($_SESSION['lever']) == false) {
                                             <a href="./course_add_detail.php?id=<?php echo $course['id_course'] ?>">Chỉnh Sửa</a>
                                         </th>
                                         <th>
-                                            <a href="../../view_course.php?id=<?php echo $course['id_course'] ?>">Xem</a>
+                                            <a href="./view_course.php?id=<?php echo $course['id_course'] ?>">Xem</a>
                                         </th>
                                     </tr>
                                 <?php } ?>
