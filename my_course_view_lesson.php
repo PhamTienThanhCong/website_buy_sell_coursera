@@ -70,6 +70,7 @@
 
     $sql = "SELECT
                 course.id_course,
+                course.status_course,
                 lesson.name_lesson
             FROM
                 `course`
@@ -102,7 +103,13 @@
 </head>
 <body>
     <?php require "./default/header.php"; ?>
-        <?php if (isset($one_course['name_lesson'])){ ?>
+        <?php
+        if (!isset($one_course['status_course'])||$one_course['status_course']==0)
+        {
+            print("Khóa học không tồn tại");
+            exit;
+        }
+        if (isset($one_course['name_lesson'])){ ?>
             <div class=content>
             <iframe width="100%" height="508" src="https://www.youtube.com/embed/<?php echo $one_course['link']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <h2 style="margin-top: 20px">

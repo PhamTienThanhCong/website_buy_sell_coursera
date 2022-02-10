@@ -78,7 +78,10 @@
             </h2>
             <?php foreach ($all_courses as $course) { ?>
                 <div class="card">
-                    <a href="./my_course_view_lesson.php?idcourse=<?php echo $course['id_course'] ?>">
+                    <a href="<?php if($course['status_course']==0){
+                            echo "#";
+                    } else
+                    print("./my_course_view_lesson.php?idcourse=${course['id_course']}") ?>">
                         <div class="img-preview">
                             <img src="./public/images/upload/<?php echo $course['image_course'] ?>" alt="Avatar" style="width:100%">
                         </div>
