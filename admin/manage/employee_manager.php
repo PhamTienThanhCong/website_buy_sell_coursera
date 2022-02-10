@@ -80,7 +80,7 @@ if (isset($_SESSION['lever']) == false) {
                 <?php foreach ($nhan_vien as $nv) { ?>
                   <tr>
                     <th>
-                      <?php if ($nv['image'] == "none") { ?>
+                      <?php if ($nv['image'] == "null") { ?>
                         <img width="100" src="../../public/images/default/avata.png" alt="">
                       <?php } else { ?>
                         <img width="100" src="../../public/images/upload/<?php echo $nv['image'] ?>" alt="">
