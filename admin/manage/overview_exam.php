@@ -71,38 +71,38 @@ require "../../public/connect_sql.php";
 
                         <?php
                         if ($_SESSION["lever"] == 2) {
-                            print("Quản lý tổng quan admin<br>");
+                            print("Quản lý tổng quan admin<ul>");
                             $result = mysqli_query($connection, "select count(*) as count from course");
-                            print("Số khóa học hiện có: " . mysqli_fetch_array($result)["count"]);
-                            print("<br>");
+                            print("<li>Số khóa học hiện có: " . mysqli_fetch_array($result)["count"]."</li>");
+                            
                             $result = mysqli_query($connection, "select count(*) as count from course where status_course=0");
-                            print("Số khóa học đang chờ phê duyệt: " . mysqli_fetch_array($result)["count"]);
-                            print("<br>");
+                            print("<li>Số khóa học đang chờ phê duyệt: " . mysqli_fetch_array($result)["count"]."</li>");
+                            
                             $result = mysqli_query($connection, "select count(*) as count from user");
-                            print("Số học sinh: " . mysqli_fetch_array($result)["count"]);
-                            print("<br>");
+                            print("<li>Số học sinh: " . mysqli_fetch_array($result)["count"]."</li>");
+                            
                             $result = mysqli_query($connection, "select count(*) as count from admin");
-                            print("Số giáo viên hiện tại: " . mysqli_fetch_array($result)["count"]);
-                            print("<br>");
+                            print("<li>Số giáo viên hiện tại: " . mysqli_fetch_array($result)["count"]."</li>");
+                            
                             $result = mysqli_query($connection, "select count(*) as count from admin");
-                            print("Số giáo viên chờ phê duyệt: " . mysqli_fetch_array($result)["count"]);
-                            print("<br>");
+                            print("<li>Số giáo viên chờ phê duyệt: " . mysqli_fetch_array($result)["count"]."</li></ul>");
+                            
                         }
                         ?>
                     </p>
                     <p>
-                        Quản lý cho giáo viên<br>
+                        Quản lý cho giáo viên<ul>
                         <?php
                         $result = mysqli_query($connection, "select count(*) as count from course where id_admin = '{$_SESSION["id"]}'");
-                        print("Số khóa học đang sở hữu: " . mysqli_fetch_array($result)["count"]);
-                        print("<br>");
+                        print("<li>Số khóa học đang sở hữu: " . mysqli_fetch_array($result)["count"]."</li>");
+                        
                         $result = mysqli_query($connection, "select count(*) as count from course where status_course=1 and id_admin = '{$_SESSION["id"]}'");
-                        print("Số khóa học đã được phê duyệt của bạn: " . mysqli_fetch_array($result)["count"]);
-                        print("<br>");
+                        print("<li>Số khóa học đã được phê duyệt của bạn: " . mysqli_fetch_array($result)["count"]."</li>");
+                        
                         $sql = "select count(*) as count from oder where id_course in (select id_course from course where status_course=1 and id_admin = '{$_SESSION["id"]}')";
                         $result = mysqli_query($connection, $sql);
-                        print("Số lượt mua của bạn: " . mysqli_fetch_array($result)["count"]);
-                        print("<br>");
+                        print("<li>Số lượt mua của bạn: " . mysqli_fetch_array($result)["count"]."</li></ul>");
+                        
                         ?>
                     </p>
                 </div>
