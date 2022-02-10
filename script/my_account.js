@@ -50,6 +50,8 @@ $(document).ready(function() {
             .done(function(response){
                 if(response == 0){
                     alert('Mật khẩu không đúng');
+                }else if(response == 2){
+                    alert('Bạn vừa nhập mật khẩu cũ');
                 }else if(response == 1){
                     document.getElementById('my-account-click').click();
                 }

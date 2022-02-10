@@ -13,7 +13,10 @@ $check_user = mysqli_fetch_array($check_user);
 
 if ( isset($check_user['id_user']) == false){
     echo 0 ;
-}else{
+}elseif ($password==$new_password){
+    echo 2 ;
+}
+else{
     $sql = "UPDATE
                 `user`
             SET
