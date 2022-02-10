@@ -33,7 +33,7 @@
         </li>
 
         <li>
-          <a href="#">
+          <a href="./student_manager.php">
             <i class='bx bxs-user'></i>
             <span class="links_name">Quản lý người dùng</span>
           </a>
