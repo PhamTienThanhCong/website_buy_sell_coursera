@@ -149,6 +149,7 @@
         display: inline-block;
         border-bottom: 1px dotted black;
         cursor: pointer;
+
     }
 
     .tooltip .tooltiptext {
@@ -162,6 +163,9 @@
         /* Position the tooltip */
         position: absolute;
         z-index: 1;
+        height: 300px;
+        width: 500px;
+        overflow-y: scroll;
     }
 
     .tooltiptext {
