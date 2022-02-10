@@ -30,7 +30,7 @@
     <form method="post" action="./processing/login.php">
         <h2 style="text-align: center;">Đăng Nhập</h2>
         <?php
-            if (empty($_SESSION['alert'])==false){
+            if (isset($_SESSION['alert'])){
                 echo "<br>";
                 echo $_SESSION['alert'];
                 unset($_SESSION['alert']);
