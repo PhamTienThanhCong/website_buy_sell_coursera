@@ -122,7 +122,7 @@ function checkCourse(){
                 ThongBao += (i+1) + ": " + course_was_bought[i].name + "\n";
             }
             checkNullCart()
-            alert(ThongBao)
+            // alert(ThongBao)
         }
     })
     
