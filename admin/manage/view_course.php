@@ -82,7 +82,7 @@ $all_comments = mysqli_query($connection, $sql);
     </div>
     <br>
     <div class="avatar">
-        <img src="../../public/images/upload/<?php echo $one_course['image'] ?>" alt="">
+        <img src="../../public/images/<?php echo ($one_course['image']=="none")?"default/avata.png":"upload/".$one_course['image'] ?>" alt="">
     </div>
     <h2 class="title-course"><?php echo $one_course['name_course'] ?></h2>
     <br>
