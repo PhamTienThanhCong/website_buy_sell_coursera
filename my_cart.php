@@ -39,7 +39,7 @@ if (isset($_SESSION['cart'])) {
         <h2 style="text-align: center;">Thông tin giỏ hàng của bạn</h2>
         <br>
         <div class="course">
-            <table>
+            <table id = "course-table">
                 <tr>
                     <th>Tên</th>
                     <th>Tác giả</th>
@@ -50,7 +50,7 @@ if (isset($_SESSION['cart'])) {
                 </tr>
                 <?php if ($number_cart > 0) { ?>
                 <?php foreach ($all_cart as $id => $cart) { ?>
-                    <tr>
+                    <tr id="course<?php echo $id ?>">
                         <th>
                             <a href="./view_course.php?id=<?php echo $id ?>">
                                 <?php echo $cart['name']; ?>

@@ -1,5 +1,6 @@
 let total_price = 0;
 let course = [];
+var course_was_bought;
 
 function convetArrayToString(a) {
     var ArrayString = "";
@@ -75,6 +76,7 @@ $(document).ready(function () {
         }
         totalPrice()
         $(this).parent().parent().remove()
+        checkNullCart()
     })
 
     $("#btn-logout").click(function () {
@@ -99,5 +101,57 @@ $(document).ready(function () {
         }
 
     })
+
+    // kiểm tra khóa học đã mua
+    checkCourse()
 });
+
+// Hàm kiểm tra xem khóa học này đã mua hay chưa
+function checkCourse(){
+    $.ajax({
+        url: "./processing/my_cart_check_bought.php",
+        dataType: "json",
+    })
+    .done(function(response){
+        course_was_bought = response
+        var ThongBao = "Thông báo các khóa học đã được mua, không thể mua lại: \n";
+        if (course_was_bought.length > 0) {
+            for (var i = 0; i < course_was_bought.length; i++) {
+                var id = "#course"+course_was_bought[i].id
+                $(id).remove();
+                ThongBao += (i+1) + ": " + course_was_bought[i].name + "\n";
+            }
+            checkNullCart()
+            alert(ThongBao)
+        }
+    })
+    
+}
+// Hàm kiểm tra xem khóa học này đã mua hay chưa
+
+// hàm kiểm tra xem đã xáo hết khóa học hay chưa
+function checkNullCart(){
+    var size = document.getElementById('course-table').innerText.length;
+    if (size < 40){
+        $('.course').html(` <table id = "course-table">
+                                <tr>
+                                    <th>Tên</th>
+                                    <th>Tác giả</th>
+                                    <th>Số bài</th>
+                                    <th>Giá</th>
+                                    <th>Tương tác</th>
+                                    <th>Mua</th>
+                                </tr>
+                            </table>
+                            <p class="emty-cart">
+                                Giỏ hàng trống, mua sắm ngay
+                                <a href="./index.php">Tại đây</a>
+                            </p>
+                            <p class="total-price">
+                                Tổng Tiền: 0 đ
+                            </p>
+                            `)
+    }
+}
+// hàm kiểm tra xem đã xáo hết khóa học hay chưa
 
