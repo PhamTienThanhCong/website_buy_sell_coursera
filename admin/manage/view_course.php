@@ -70,7 +70,7 @@ $all_comments = mysqli_query($connection, $sql);
 
 <div class=content>
     Bấm chỗ bất kì để quay lại <br>
-    <?php if($one_course['id_admin']!=$_SESSION['id']){
+    <?php if($one_course['id_admin']!=$_SESSION['id'] && $_SESSION['lever']!=2){
         print "Khóa học này không tồn tại hoặc không phải của bạn";
         ?>
         <br><?php }else{?>
@@ -194,7 +194,7 @@ $all_comments = mysqli_query($connection, $sql);
         function handler(e) {
             e.stopPropagation();
             e.preventDefault();
-            window.location.href="course_manager.php"
+            window.history.go(-1);
         }
     })
 </script>

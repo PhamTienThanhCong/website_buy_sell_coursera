@@ -31,6 +31,7 @@ if (isset($_SESSION['lever']) == false) {
                 }
             }
             require "../../public/connect_sql.php";
+
             $id = $_SESSION['id'];
             $id_course = $_GET['id'];
             $sql = "SELECT course.*, COUNT(lesson.id_course) as number_course FROM `course` 
@@ -45,14 +46,22 @@ if (isset($_SESSION['lever']) == false) {
                 <div class="sales-boxes">
                     <div class="recent-sales box">
                         <div class="title">Chi tiết khóa học</div>
-                        <div class="content"> 
+                        <div class="content">
+                            <?php if ($_SESSION['lever'] != 2) {
+                            print"Bạn không có quyền xem trang này";
+                            } else { ?>
+                            Bấm vào ảnh để xem dưới dạng người dùng
                             <div class=preview-couse>
                                 <br><br>
                                 <div class="cart-pre">
                                     <div class="img-pre">
-                                        <img id="img-preview" src="../../public/images/upload/<?php echo $courses['image_course'] ?>" alt="">
+                                        <a href="view_course.php?id=<?php echo $courses['id_course']?>">
+                                        <img id="img-preview" src="../../public/images/upload/<?php echo $courses['image_course'] ?>" alt="" >
+                                        </a>
                                     </div>
+
                                     <br>
+
                                     <div class="cart-details">
                                         <h2 id="title-course"><?php echo $courses['name_course'] ?></h2>
                                         <p id="number-course">
@@ -157,7 +166,7 @@ if (isset($_SESSION['lever']) == false) {
                     
                 </div>
                 <!-- Sửa bài học -->
-
+                <?php } ?>
                 <?php require "../default/footer.php" ?>
             </div>
     </section>
