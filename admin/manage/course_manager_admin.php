@@ -76,7 +76,9 @@ require "../default/option.php"
                             }
                         }
                     }
-
+                    if ($_SESSION['lever'] != 2) {
+                        print"Bạn không có quyền xem trang này";
+                    } else {
                     require "../../public/connect_sql.php";
                     $id = $_SESSION['id'];
                     $sql = "SELECT course.*, COUNT(lesson.id_course) as number_course FROM `course` 
@@ -182,6 +184,7 @@ require "../default/option.php"
                         </tr>
                     <?php } ?>
                 </table>
+                <?php } ?>
             </div>
         </div>
         <?php require "../default/footer.php" ?>
