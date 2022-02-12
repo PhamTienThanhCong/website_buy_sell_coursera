@@ -35,7 +35,7 @@ if (isset($_SESSION['lever']) == false) {
         text-align: center;
     }
 
-    #employee-manager {
+    #student-manager {
         background: #081D45;
     }
 </style>
