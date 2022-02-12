@@ -44,12 +44,12 @@
             <span class="links_name">Quản lý nhân sự</span>
           </a>
         </li>
-        <li>
+        <!-- <li>
           <a href="./employee_analysis.php" id='employee-analysis'>
             <i class='bx bx-id-card'></i>
             <span class="links_name">Phân tích tài chính</span>
           </a>
-        </li>
+        </li> -->
 
         <?php } ?>
 
