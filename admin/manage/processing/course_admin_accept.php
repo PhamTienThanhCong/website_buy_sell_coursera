@@ -1,5 +1,5 @@
 <?php
-session_start();
+require "../../check_admin/check_admin_pro_2.php";
 $id_course = htmlspecialchars($_GET["id"]);
 $type = htmlspecialchars($_GET["type"]);
 require "../../../public/connect_sql.php";

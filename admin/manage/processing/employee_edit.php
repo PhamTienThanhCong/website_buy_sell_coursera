@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    require "../../check_admin/check_admin_2.php";
     $name_admin = htmlspecialchars($_POST['name_admin']);
     $email_admin = htmlspecialchars($_POST['email_admin']);
     $phone_number_admin = htmlspecialchars($_POST['phone_number_admin']);

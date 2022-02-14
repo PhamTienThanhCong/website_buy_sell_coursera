@@ -1,5 +1,5 @@
 <?php
-session_start();
+require "../../check_admin/check_admin_2.php";
 
 $id_admin = $_SESSION['id'];
 $id_course = htmlspecialchars($_POST['id_course']);

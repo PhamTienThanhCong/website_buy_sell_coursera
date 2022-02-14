@@ -1,4 +1,5 @@
 <?php
+require "../../check_admin/check_admin_pro_2.php";
 $id_admin = htmlspecialchars($_GET['id']);
 $type = htmlspecialchars($_GET['type']);
 

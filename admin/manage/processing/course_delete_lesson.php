@@ -1,5 +1,5 @@
 <?php
-session_start();
+require "../../check_admin/check_admin_2.php";
 require "../../../public/connect_sql.php";
 
 $id_admin = $_SESSION['id'];
