@@ -21,7 +21,7 @@ require "../../public/connect_sql.php";
 </head>
 <style>
     /* Phần in đậm của option */
-    #course-overview {
+    #overview_admin_pro {
         background: #081D45;
     }
 
@@ -41,6 +41,7 @@ require "../../public/connect_sql.php";
     ul {
         list-style-type: none;
     }
+
     .page{
         text-decoration: none;
         width: 34px;
@@ -83,31 +84,35 @@ require "../../public/connect_sql.php";
                     <div class="title">Tổng quan</div>
                     <!-- Thẻ tên title -->
 
-                    <p>
-                        Quản lý cho giáo viên<ul>
-                        <?php
-                        $result = mysqli_query($connection, "select count(*) as count from course where id_admin = '{$_SESSION["id"]}'");
-                        $tongKhoaHoc = mysqli_fetch_array($result)["count"];
-                        print("<li>Số khóa học đang sở hữu: " . $tongKhoaHoc ."</li>");
-                        
-                        $result = mysqli_query($connection, "select count(*) as count from course where status_course=1 and id_admin = '{$_SESSION["id"]}'");
-                        $tongPheDuyet = mysqli_fetch_array($result)["count"];
-                        print("<li>Số khóa học đã được phê duyệt của bạn: " . $tongPheDuyet."</li>");
-                        
-                        $tongDangCho = $tongKhoaHoc - $tongPheDuyet;
-                        print("<li>Số khóa học Đang chờ được phê duyệt của bạn: " . $tongDangCho ."</li>");
 
-                        $sql = "select count(*) as count from oder where id_course in (select id_course from course where status_course=1 and id_admin = '{$_SESSION["id"]}')";
-                        $result = mysqli_query($connection, $sql);
-                        print("<li>Số lượt mua của bạn: " . mysqli_fetch_array($result)["count"]."</li></ul>");
-                        
+                    <p>
+
+                        <?php
+                        if ($_SESSION["lever"] == 2) {
+                            print("Quản lý tổng quan admin<ul>");
+                            $result = mysqli_query($connection, "select count(*) as count from course");
+                            print("<li>Số khóa học hiện có: " . mysqli_fetch_array($result)["count"]."</li>");
+                            
+                            $result = mysqli_query($connection, "select count(*) as count from course where status_course=0");
+                            print("<li>Số khóa học đang chờ phê duyệt: " . mysqli_fetch_array($result)["count"]."</li>");
+                            
+                            $result = mysqli_query($connection, "select count(*) as count from user");
+                            print("<li>Số học sinh: " . mysqli_fetch_array($result)["count"]."</li>");
+                            
+                            $result = mysqli_query($connection, "select count(*) as count from admin");
+                            print("<li>Số giáo viên hiện tại: " . mysqli_fetch_array($result)["count"]."</li>");
+                            
+                            $result = mysqli_query($connection, "select count(*) as count from admin");
+                            print("<li>Số giáo viên chờ phê duyệt: " . mysqli_fetch_array($result)["count"]."</li></ul>");
+                            
+                        }
                         ?>
                     </p>
                 </div>
             </div>
 
 
-            <div class="sales-boxes"  style="margin-top: 26px">            
+            <div id="list" class="sales-boxes"  style="margin-top: 26px">            
                 <div class="recent-sales box">
                     <div class="title">List khóa học</div>
                     <?php
@@ -120,9 +125,8 @@ require "../../public/connect_sql.php";
                             }
                         }
                     }
-                    $id = $_SESSION['id'];
 
-                    $sql = "SELECT COUNT(*) as SoTrang FROM `course` WHERE `id_admin` = '$id'";
+                    $sql = "SELECT COUNT(*) as SoTrang FROM `course`";
 
                     $SoTrang = mysqli_query($connection, $sql);
                     $SoTrang = mysqli_fetch_array($SoTrang);
@@ -141,17 +145,18 @@ require "../../public/connect_sql.php";
                     }
 
                     $trangCanBo = $trang*$soLuongMotTrang;
-                    
+
+                    $id = $_SESSION['id'];
                     $sql = "SELECT course.*, COUNT(lesson.id_course) as number_course FROM `course` 
                                 LEFT OUTER JOIN lesson ON course.id_course = lesson.id_course
-                                WHERE course.id_admin = '$id' 
                                 GROUP BY course.id_course
-                                limit $soLuongMotTrang offset $trangCanBo;";
+                                limit $soLuongMotTrang offset $trangCanBo;
+                                ";
                     $courses = mysqli_query($connection, $sql);
 
                     ?>
-                    <div style="overflow-y: scroll;">
-                        <br>
+                    <div style="height: 100%;overflow-y: scroll;">
+                    <br>
                         <?php if($check == true) { ?>
                             <p>Số trang bạn yêu cầu không hợp lệ !</p>
                             <br>
@@ -210,6 +215,7 @@ require "../../public/connect_sql.php";
                                 <tr>
                         </table>
                         <br>
+                        
                         <?php for ($i = 0; $i < ceil($SoTrang['SoTrang']/$soLuongMotTrang); $i++ ){ ?>
                             <?php if ($i == $trang) { ?>
                                 <a class = "page page-choice" href="?page=<?php echo $i+1 ?>#list"><?php echo $i+1?></a>

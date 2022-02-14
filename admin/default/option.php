@@ -10,6 +10,14 @@
             <span class="links_name">Tổng quan</span>
           </a>
         </li>
+        <?php if ($_SESSION['lever'] == 2) { ?>
+          <li>
+            <a href="../manage/overview_admin_pro.php" id="overview_admin_pro">
+              <i class='bx bxs-bar-chart-alt-2'></i>
+              <span class="links_name">Tổng quan chung(admin)</span>
+            </a>
+          </li>
+        <?php } ?>
         <li>
           <a href="./course_add.php" id="course-add">
             <i class='bx bx-book-add'></i>
