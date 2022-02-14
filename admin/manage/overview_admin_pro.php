@@ -167,6 +167,7 @@ require "../../public/connect_sql.php";
                                     <th>STT</th>
                                     <th>Tên khóa học</th>
                                     <th>Giá</th>
+                                    <th>Người đăng</th>
                                     <th>Số bài giảng</th>
                                     <th>Trạng thái</th>
                                     <th>Lượt mua</th>
@@ -185,6 +186,13 @@ require "../../public/connect_sql.php";
                                     </td>
                                     <td>
                                         <?php echo currency_format($course['price']) ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                            $sql = "select name_admin from `admin` where `id_admin` = '{$course['id_admin']}'";
+                                            $result = mysqli_query($connection, $sql);
+                                            echo mysqli_fetch_array($result)['name_admin'];
+                                        ?>
                                     </td>
                                     <td>
                                         <?php echo $course['number_course'] ?>
