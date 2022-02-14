@@ -3,6 +3,12 @@
         background: #081D45;
     }
 
+    .btn-show-video{
+        text-decoration: underline;
+        color: rgb(0, 106, 177);
+        cursor: pointer;
+    }
+
     .preview-couse {
         width: 50%;
         display: inline-block;

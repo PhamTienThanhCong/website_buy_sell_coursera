@@ -116,7 +116,6 @@
                                 <th>Tên bài học</th>
                                 <th>Link bài học</th>
                                 <th>Mô tả</th>
-                                <th>priview</th>
                             </tr>
                             <?php foreach ($lesson as $index => $ls) { ?>
                                 <tr>
@@ -126,19 +125,23 @@
                                     <th>
                                         <?php echo $ls['name_lesson'] ?>
                                     </th>
-                                    <th>
-                                        <a href="youtube.com/watch?v=<?php echo $ls['link_ytb_lesson'] ?>">
-                                            youtube.com/watch?v=<?php echo $ls['link_ytb_lesson'] ?>
-                                        </a>
+                                    <th id="video<?php echo $index+1?>">
+                                        <a class="button-show-video btn-show-video" onclick="showVideo('<?php echo $ls['link']?>','<?php echo $ls['type_link']?>','<?php echo $index + 1?>')">Xem ở đây</a>
+                                        <br>
+                                        <br>
+                                        <a class="button-show-video btn-show-video" onclick="showVideo('<?php echo $ls['link']?>','<?php echo $ls['type_link']?>','0')">Xem ở tab mới</a>
                                     </th>
                                     <th>
-                                        <div class="tooltip">Xem
-                                            <span class="tooltiptext"><?php echo $ls['description_lesson'] ?></span>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <p id="lesson<?php echo $ls['link_ytb_lesson'] ?>" style="display:none;"><?php echo nl2br($ls['description_lesson']) ?></p>
-                                        <a href="#trang-trang" onclick="edit_lesson('<?php echo $courses['name_course'] ?>','<?php echo $ls['name_lesson'] ?>','<?php echo $ls['link_ytb_lesson'] ?>')">Xem thử</a>
+                                        <?php if($ls['description_lesson'] != ""){
+                                            if (strlen($ls['description_lesson']) > 100){
+                                                echo substr(nl2br($ls['description_lesson']), 0, 100) . '...';
+                                            }else{
+                                                echo nl2br($ls['description_lesson']);
+                                            }
+                                                
+                                        }else{
+                                            echo "không";
+                                        } ?>
                                     </th>
                                 </tr>
                             <?php } ?>

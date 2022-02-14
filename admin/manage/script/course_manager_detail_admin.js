@@ -26,3 +26,25 @@ function edit_lesson(name_course,name_lesson, ytb) {
         </div>`
     document.getElementById('edit-lesson').style.marginTop = '26px';
 }
+
+function convertLink(sortLink,typeLink){
+  var link = "";
+  if (typeLink == 1){
+      link = "https://www.youtube.com/embed/" + sortLink;
+  }else if (typeLink == 2){
+      link = "https://drive.google.com/file/d/" + sortLink + "/preview";
+  }else{
+      link = sortLink;
+  }
+  return link;
+}
+
+function showVideo(link,typeLink,number){
+  var fullLink = convertLink(link,typeLink);
+  if (number == "0"){
+      window.open(fullLink, '_blank').focus();
+  }else{
+      var idLink = "video"+number;
+      document.getElementById(idLink).innerHTML = `<iframe width="330" height="190" src="`+fullLink+`" title="YouTube video player" frameborder="0" allowfullscreen></iframe>`
+  }
+}

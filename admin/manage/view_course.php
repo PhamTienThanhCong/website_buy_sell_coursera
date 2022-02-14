@@ -148,7 +148,7 @@ $all_comments = mysqli_query($connection, $sql);
                     <br>
                     <div class="title-comment">Bình luận:</div>
                 </div>
-                <textarea name="comment-rate" id="comment"><?php echo $check_by['comment'] ?></textarea>
+                <textarea name="comment-rate" id="comment"></textarea>
                 <br>
                 <button type="button">Đánh giá</button>
                 <br>
@@ -165,7 +165,7 @@ $all_comments = mysqli_query($connection, $sql);
                     <?php if ($comment['image_user'] == 'null') { ?>
                         <img src="../../public/images/default/avata.png" alt="">
                     <?php } else { ?>
-                        <img src="./public/images/upload/<?php echo $comment['image_user'] ?>" alt="">
+                        <img src="../../public/images/upload/<?php echo $comment['image_user'] ?>" alt="">
                     <?php } ?>
                 </div>
                 <div class="in4-rate">
