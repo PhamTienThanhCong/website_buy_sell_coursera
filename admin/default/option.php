@@ -41,7 +41,7 @@
         </li>
 
         <li>
-          <a href="./student_manager.php" id="student-manager">
+          <a href="./student_manager_admin.php" id="student-manager">
             <i class='bx bxs-user'></i>
             <span class="links_name">Quản lý người dùng</span>
           </a>

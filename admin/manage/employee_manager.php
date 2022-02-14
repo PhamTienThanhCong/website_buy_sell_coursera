@@ -1,10 +1,5 @@
 <?php
-session_start();
-if (isset($_SESSION['lever']) == false) {
-  header('Location: ../login.php');
-} elseif ($_SESSION['lever'] != 2) {
-  header('Location: ../index.php');
-}
+  require "../check_admin/check_admin_1.php";
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

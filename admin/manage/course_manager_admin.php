@@ -1,8 +1,5 @@
 <?php
-session_start();
-if (isset($_SESSION['lever']) == false) {
-    header('Location: ../login.php');
-}
+    require "../check_admin/check_admin_pro_1.php";
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

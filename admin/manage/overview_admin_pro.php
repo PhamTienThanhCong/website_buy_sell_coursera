@@ -1,10 +1,6 @@
 <?php
-session_start();
-if (isset($_SESSION['lever']) == false) {
-    echo
-    header('Location: ../login.php');
-}
-require "../../public/connect_sql.php";
+    require "../check_admin/check_admin_pro_1.php";
+    require "../../public/connect_sql.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
