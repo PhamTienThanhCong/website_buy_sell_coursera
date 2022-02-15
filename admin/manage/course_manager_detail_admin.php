@@ -47,7 +47,8 @@
                             <?php if ($_SESSION['lever'] != 2) {
                             print"Bạn không có quyền xem trang này";
                             } else { ?>
-                            Bấm vào ảnh để xem dưới dạng người dùng
+                            <br>
+                            <h2 style="color:red">Bấm vào ảnh để xem dưới dạng người dùng</h2>
                             <div class=preview-couse>
                                 <br><br>
                                 <div class="cart-pre">
@@ -109,6 +110,10 @@
                         <div class="title" style="text-align: center">Tất cả các bài học</div>
                         <br>
                         <div class="title"><?php echo $courses['name_course'] ?>:</div>
+                        <br>
+                        <a href="view_course.php?id=<?php echo $courses['id_course']?>">
+                            <h3>Xem với tư cách người dùng </h3>
+                        </a>
                         <br>
                         <table>
                             <tr>

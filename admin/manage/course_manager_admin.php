@@ -147,7 +147,7 @@ require "../default/option.php"
                         <th>Giá</th>
                         <th>Số lượng bài giảng</th>
                         <th>Trạng thái</th>
-                        <th>Số lượng đã bán</th>
+                        <th>Xem bài học</th>
                         <th>Xem chi tiết</th>
                     </tr>
                     <?php foreach ($courses2 as $index => $course) { ?>
@@ -172,10 +172,10 @@ require "../default/option.php"
 
                             </th>
                             <th>
-                                10
+                            <a href="./view_course.php?id=<?php echo $course['id_course'] ?>">Xem</a>
                             </th>
                             <th>
-                                <a href="./course_manager_detail_admin.php?id=<?php echo $course['id_course'] ?>">Xem</a>
+                                <a href="./course_manager_detail_admin.php?id=<?php echo $course['id_course'] ?>">Xem </a>
                             </th>
 
                         </tr>

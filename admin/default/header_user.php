@@ -8,7 +8,7 @@
         </div>
         
         <div class=user>
-            <a class="user-a" href="#" onclick="handler()">Quay lại trước đó</a>
+            <a class="user-a" href="#" onclick="handler()">Quay lại Trang quản lý</a>
         </div>
         
         

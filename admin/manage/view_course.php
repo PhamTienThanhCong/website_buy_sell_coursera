@@ -1,8 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['lever'])) {
-    header('Location: ../login.php');
-}
+require "../check_admin/check_admin_1.php";
 require "../../public/connect_sql.php";
 if (!function_exists('currency_format')) {
     function currency_format($number, $suffix = ' VND')
@@ -13,13 +10,23 @@ if (!function_exists('currency_format')) {
     }
 }
 
+$id_admin = $_SESSION['id'];
 $id = addslashes($_GET['id']);
 
 $sql = "SELECT course.*, lesson.*, admin.name_admin as author_post, admin.image FROM `course` 
                 LEFT OUTER JOIN lesson ON course.id_course = lesson.id_course
                 LEFT OUTER JOIN admin ON course.id_admin = admin.id_admin
-                WHERE course.id_course = $id
+                WHERE course.id_course = $id AND course.id_admin = '$id_admin'
                 GROUP BY lesson.id_lesson";
+
+if ($_SESSION['lever'] == 2){
+    $sql = "SELECT course.*, lesson.*, admin.name_admin as author_post, admin.image FROM `course` 
+                LEFT OUTER JOIN lesson ON course.id_course = lesson.id_course
+                LEFT OUTER JOIN admin ON course.id_admin = admin.id_admin
+                WHERE course.id_course = '$id'
+                GROUP BY lesson.id_lesson";
+}
+        
 $course = mysqli_query($connection, $sql);
 $one_course = mysqli_fetch_array($course);
 
@@ -55,7 +62,11 @@ $all_comments = mysqli_query($connection, $sql);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $one_course['name_course'] ?></title>
+    <title><?php if(isset($one_course['name_course'])){
+        echo $one_course['name_course'];
+    }else{
+        echo "Lỗi không mong muôns";
+    }  ?></title>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
     <link rel="stylesheet" href="../../css/header.css">
@@ -95,9 +106,11 @@ $all_comments = mysqli_query($connection, $sql);
 <!-- content -->
 
 <div class=content>
-    Bấm chỗ bất kì để quay lại <br>
-    <?php if($one_course['id_admin']!=$_SESSION['id'] && $_SESSION['lever']!=2){
-        print "Khóa học này không tồn tại hoặc không phải của bạn";
+    <a href="#" onclick="handler()">
+        <h3>Bấm vào đây để quay lại</h3>
+    </a>
+    <?php if(!isset($one_course['id_admin'])){
+        print "<h2>Khóa học này không tồn tại hoặc không phải của bạn<h2>";
         ?>
         <br><?php }else{?>
     <div class="function">

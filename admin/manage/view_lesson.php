@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    require "../check_admin/check_admin_1.php";
     
     $id_user = $_SESSION['id'];
 
@@ -7,15 +7,7 @@
 
     require "../../public/connect_sql.php";
 
-    $sql = "SELECT
-                *
-            FROM
-                `oder`
-            WHERE
-                (id_course = '$id_course')";
-
-    $check = mysqli_query($connection, $sql);
-    $check = mysqli_fetch_array($check);
+    $lever = 1;
 
     $number_video = 1;
 
@@ -34,10 +26,26 @@
                 `course`
             LEFT OUTER JOIN lesson ON course.id_course = lesson.id_course
             WHERE
-                course.id_course = '$id_course'
+                (course.id_course = '$id_course') AND (course.id_admin = '$id_user')
             GROUP BY
                 lesson.id_lesson
             LIMIT 1 OFFSET $number_video";
+    
+    if ($_SESSION['lever'] == 2){
+        $sql = "SELECT
+                    course.*,
+                    lesson.*
+                FROM
+                    `course`
+                LEFT OUTER JOIN lesson ON course.id_course = lesson.id_course
+                WHERE
+                    course.id_course = '$id_course'
+                GROUP BY
+                    lesson.id_lesson
+                LIMIT 1 OFFSET $number_video";
+        $lever = 2;
+        
+    }
 
     $course = mysqli_query($connection, $sql);
     $one_course = mysqli_fetch_array($course);
@@ -99,11 +107,27 @@
     }
 </style>
 <body>
+    <input id="check-lever" type="hidden" value="<?php echo $lever?>">
+    <input id="check-id-course" type="hidden" value="<?php echo $id_course?>">
+    <script>
+                function handler(){
+                    var lever = document.getElementById('check-lever').value;
+                    var id_course = document.getElementById('check-id-course').value;
+                    var url = "";
+                    if (lever == '1' ){
+                        url = "./course_manager.php";
+                    }else if (lever == '2'){
+                        url = "./course_manager_detail_admin.php?id="+id_course;
+                    }
+                    window.location.href = url;
+                }
+    </script>
     <?php require "../default/header_user.php"; ?>
         <?php
         if (!isset($one_course['status_course']))
         {
-            print("Khóa học không tồn tại");
+            echo "<h2> khóa học không tồn tại hoặc bạn không được phép truy cập vào nó </h2><br>";
+            echo "<a href='./course_manager.php'> <<<< Quay lại trang chủ</a>";
             exit;
         }
         if (isset($one_course['name_lesson'])){ ?>
@@ -142,7 +166,6 @@
                     <i class='bx bx-check'></i>
                 </button>
         </div>
-        <?php echo $number_video?>
             <div class="all-lessons-list">
                 <ul>
                     <?php foreach ($all_lesson as $index => $lesson) { ?>
@@ -170,19 +193,4 @@
     </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $("#btn-logout").click(function() {
-        $.ajax({
-            type: "GET",
-            url: "./processing/logout.php",
-            // data: {id},
-            // dataType: "dataType",
-            success: function (response) {    
-            }
-        });
-            document.getElementById("click_home").click()
-        })
-    })
-</script>
 </html>
