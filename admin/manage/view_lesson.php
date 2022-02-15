@@ -1,53 +1,27 @@
 <?php
     session_start();
-    if (isset($_SESSION['lever'])){session_destroy();}
-    if (isset($_SESSION['id']) == false){
-        header('Location: ./login_and_register.php');
-    }
+    
     $id_user = $_SESSION['id'];
 
     $id_course = addslashes($_GET['idcourse']);
 
-    require "./public/connect_sql.php";
+    require "../../public/connect_sql.php";
 
     $sql = "SELECT
                 *
             FROM
                 `oder`
             WHERE
-                (id_user = '$id_user') AND (id_course = '$id_course')";
+                (id_course = '$id_course')";
 
     $check = mysqli_query($connection, $sql);
     $check = mysqli_fetch_array($check);
 
-    if(isset($check['view'])==false){
-        header("./view_course.php?id=".$id_course);
-    }
-
-    $sql = "SELECT
-                *
-            FROM
-                `view_history`
-            WHERE
-                (id_user = '$id_user') AND (id_course = '$id_course')";
-    
-    $current_lesson = mysqli_query($connection, $sql);
-    $current_lesson = mysqli_fetch_array($current_lesson);
-
-
-    if(isset($current_lesson['view'])==false){
-        $current_lesson['view']=1;
-        $sql="insert into view_history (id_user, id_course) values ('$id_user','$id_course')";
-        mysqli_query($connection,$sql);
-    }
-
-    $number_video = $current_lesson['view'];
+    $number_video = 1;
 
     if (isset($_GET['number_video'])){
         $number_video_request = addslashes($_GET['number_video']);
-        if ((int)$number_video_request < $number_video){
-            $number_video = (int)$number_video_request; 
-        }
+        $number_video = (int)$number_video_request; 
     }
     else $_GET['number_video'] = 1;
 
@@ -89,8 +63,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/my_course_view_lesson.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/my_course_view_lesson.css">
     <title>
         <?php 
             if (isset($one_course['name_course'])){
@@ -101,10 +75,33 @@
         ?>
     </title>
 </head>
+<style>
+    header .formSearch{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    header .formSearch div input{
+        border: none;
+        outline: none;
+        width: 365px;
+        height: 40px;
+        padding: 15px;
+        font-size: 15px;
+        margin-left: -13px;
+    }
+    header .formSearch i{
+        color: black;
+        font-size: 18px;
+        margin-left: 20px;
+        transform: translateY(3px);
+    }
+</style>
 <body>
-    <?php require "./default/header.php"; ?>
+    <?php require "../default/header_user.php"; ?>
         <?php
-        if (!isset($one_course['status_course'])||$one_course['status_course']==0)
+        if (!isset($one_course['status_course']))
         {
             print("Khóa học không tồn tại");
             exit;
@@ -139,43 +136,30 @@
             <h1>Khóa học hiện tại chưa có bài này vui lòng chọn bài khác</h1>
         <?php } ?>
         <div class="tab-lesson">
-            <form id="next-course" method="post" action="./processing/my_course_next_lesson.php">
-                <input name = "id_course" type="hidden" value = "<?php echo $id_course?>">
-                <input name = "check_lesson" type="hidden" value = "<?php echo $number_video+1 ?>">
+            <div id="next-course"> 
                 <button id = "check-complete">
                     hoàn thành và tiếp tục
                     <i class='bx bx-check'></i>
                 </button>
-            </form>
+        </div>
+        <?php echo $number_video?>
             <div class="all-lessons-list">
                 <ul>
                     <?php foreach ($all_lesson as $index => $lesson) { ?>
-                        <?php if (($index+1 < $current_lesson['view']) && ($index+ 1 != $number_video+1)) { ?>
+                        <?php if ($index != $number_video) { ?>
+
                             <li class="name-lesson done">
-                                <a href="./my_course_view_lesson.php?idcourse=<?php echo $lesson['id_course'] ?>&number_video=<?php echo $index+1 ?>">
+                                <a href="./view_lesson.php?idcourse=<?php echo $lesson['id_course'] ?>&number_video=<?php echo $index+1 ?>">
                                     <?php echo $lesson['name_lesson']?>    
                                     <i style="color: blue" class='icon-lesson bx bx-check'></i>
                                 </a>
                             </li>
-                        <?php }else if (($index+1 == $current_lesson['view']) && ($index+ 1 != $number_video+1)) { ?>
-                            <li class="name-lesson" style="background-color: #e6e6e6">
-                                <a href="./my_course_view_lesson.php?idcourse=<?php echo $lesson['id_course'] ?>&number_video=<?php echo $index+1 ?>">
-                                    <?php echo $lesson['name_lesson']?>    
-                                    <i class='icon-lesson bx bx-lock-open-alt'></i>
-                                </a>
-                            </li>
-                        <?php }else if ($index+ 1 == $number_video+1) { ?>
+
+                        <?php } else if ($index == $number_video) { ?>
                             <li class="name-lesson" style="background-color: #b3daff">
-                                <a href="./my_course_view_lesson.php?idcourse=<?php echo $lesson['id_course'] ?>&number_video=<?php echo $index+1 ?>">
+                                <a href="./view_lesson.php?idcourse=<?php echo $lesson['id_course'] ?>&number_video=<?php echo $index+1 ?>">
                                     <?php echo $lesson['name_lesson']?>    
                                     <i class='icon-lesson bx bx-album'></i>
-                                </a>
-                            </li>
-                        <?php } else { ?>
-                            <li class="name-lesson">
-                                <a href="#">
-                                    <?php echo $lesson['name_lesson']?>    
-                                    <i class='icon-lesson bx bx-lock-alt'></i>
                                 </a>
                             </li>
                         <?php } ?>

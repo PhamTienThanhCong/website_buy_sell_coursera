@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th2 08, 2022 lúc 01:02 PM
+-- Thời gian đã tạo: Th2 15, 2022 lúc 01:11 AM
 -- Phiên bản máy phục vụ: 5.7.33
 -- Phiên bản PHP: 7.4.19
 
@@ -47,7 +47,7 @@ INSERT INTO `admin` (`id_admin`, `name_admin`, `email_admin`, `phone_number_admi
 (4, 'Công phạm', 'congphamtienthanh@gmail.com', '0392524411', '30/4 hạ long, Quảng Ninh', 'Công phạm1641833277.jpg', 1, 1, 'cong'),
 (5, 'Mình là Công', 'congj2school@gmail.com', '396369332', 'Yên Nghĩa, Hà Đông, Hà Nội', 'Mình là Công1641832496.jpg', 1, 2, 'cong'),
 (8, 'cong j2sholl', 'cong.pttc@gmail.com', '936445789', '30/4 hạ long móng cái', 'none', 1, 1, 'cong'),
-(9, 'sinh vien pnk', '20010886@st.phenikaa-uni.edu.vn', '0396333541', 'yên nghĩa, hà đong', 'sinh vien pnk1641892120.png', 1, 1, 'cong'),
+(9, 'sinh vien pnk', '20010886@st.phenikaa-uni.edu.vn', '0396333541', 'yên nghĩa, hà đong', 'sinh vien pnk1641892120.png', -1, 1, 'cong'),
 (10, 'Cong Pham nhé', 'cong1234@gmail.com', '01354248302', 'yên nghĩa, hà đong', 'none', 0, 1, 'cong');
 
 -- --------------------------------------------------------
@@ -221,7 +221,121 @@ INSERT INTO `oder` (`id_order`, `id_user`, `id_course`, `price_buy`, `rate`, `co
 (20, 2, 15, 99000, 5, 'em đang bận lắm lắm không học được huhu mọi người ơiii', '2022-01-22 23:51:50'),
 (21, 2, 14, 99000, 3, 'mới mua về chưa học nên chưa biết tạm thời cho 3 * vậy hihi', '2022-01-24 08:07:20'),
 (22, 3, 14, 99000, 5, 'hay', '2022-01-25 18:16:36'),
-(25, 4, 15, 499000, 5, 'tesst đánh giá', '2022-02-07 14:34:38');
+(25, 4, 15, 499000, 5, 'tesst đánh giá', '2022-02-07 14:34:38'),
+(27, 4, 14, 950000, 0, NULL, '2022-02-11 04:13:07');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `update_course`
+--
+
+CREATE TABLE `update_course` (
+  `id_lesson` int(11) NOT NULL,
+  `id_course` int(11) NOT NULL,
+  `name_lesson` varchar(100) NOT NULL,
+  `link` varchar(100) NOT NULL,
+  `type_link` int(11) NOT NULL DEFAULT '1',
+  `description_lesson` text,
+  `status_lesson` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `update_course`
+--
+
+INSERT INTO `update_course` (`id_lesson`, `id_course`, `name_lesson`, `link`, `type_link`, `description_lesson`, `status_lesson`) VALUES
+(3, 3, 'SQL - Buổi 1 - Làm quen', '-OCOG15SD1w', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink chạy code online\r\nhttps://sqliteonline.com/\r\nLink tổng hợp kiến thức\r\nhttps://j2c.cc/learn_sql', 0),
+(4, 3, 'SQL - Buổi 2 - Những câu lệnh cơ bản', '8T0edb1AYUg', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink chạy code online\r\nhttps://sqliteonline.com/\r\nLink tổng hợp kiến thức\r\nhttps://j2c.cc/learn_sql\r\nLink tổng hợp câu hỏi từ livestream\r\nhttps://j2c.cc/j2school-qa', 0),
+(5, 3, 'SQL - Buổi 3 - Những ràng buộc', 'd8-KYLxMPpM', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink chạy code online\r\nhttps://sqliteonline.com/\r\nLink tổng hợp kiến thức\r\nhttps://j2c.cc/learn_sql\r\nLink tổng hợp câu hỏi từ livestream\r\nhttps://j2c.cc/j2school-qa\r\n\r\n#sql\r\n00:00 Tâm sự mỏng\r\n32:40 Bắt đầu buổi học', 0),
+(6, 3, 'SQL - Buổi 4 - Những hàm cơ bản', 'A0qfh0mEoLE', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink chạy code online\r\nhttps://sqliteonline.com/\r\nLink tổng hợp kiến thức\r\nhttps://j2c.cc/learn_sql\r\nLink tổng hợp câu hỏi từ livestream\r\nhttps://j2c.cc/j2school-qa\r\n\r\n#sql', 0),
+(7, 3, 'SQL - Buổi 5 - Những hàm nhóm và thống kê', '1koJCVv8Os4', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink chạy code online\r\nhttps://sqliteonline.com/\r\nLink tổng hợp kiến thức\r\nhttps://j2c.cc/learn_sql\r\nLink tổng hợp câu hỏi từ livestream\r\nhttps://j2c.cc/j2school-qa\r\n\r\n#sql', 0),
+(8, 3, 'SQL - Buổi 6 - Những ràng buộc khoá', 'a0ezTyvEhY8', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink chạy code online\r\nhttps://sqliteonline.com/\r\nLink tổng hợp kiến thức\r\nhttps://j2c.cc/learn_sql\r\nLink tổng hợp câu hỏi từ livestream\r\nhttps://j2c.cc/j2school-qa\r\n\r\n#sql\r\n\r\n00:00 Tâm sự thầm kín\r\n45:40 Bắt đầu buổi học\r\n01:44:00 Tâm sự công khai', 0),
+(9, 3, 'SQL - Buổi 7 - Nối bảng (P1)', '6OQhvSQ1ZEo', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink chạy code online\r\nhttps://sqliteonline.com/\r\nLink tổng hợp kiến thức\r\nhttps://j2c.cc/learn_sql\r\nLink tổng hợp câu hỏi từ livestream\r\nhttps://j2c.cc/j2school-qa\r\n\r\n#sql\r\n\r\n00:00 Tâm sự đầu buổi học \r\n28:01 Chữa bài và học bài mới \r\n01:22:30 Tâm sự chuyên mục ngoài lề', 0),
+(10, 3, 'SQL - Buổi 7 - Nối bảng (P2)', 'rwMLTX7vKrE', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink chạy code online\r\nhttps://sqliteonline.com/\r\nLink tổng hợp kiến thức\r\nhttps://j2c.cc/learn_sql\r\nLink tổng hợp câu hỏi từ livestream\r\nhttps://j2c.cc/j2school-qa\r\n\r\n#sql\r\n\r\n00:00 Tâm sự tuổi hồng và một ít mẹo nhỏ cũng như định hướng tương lai\r\n33:15 Bắt đầu bữa học \"cuối cùng\"\r\n01:40:40 Tâm sự cùng phím tắt', 0),
+(11, 3, 'SQL chuyên sâu - Buổi 1 - Index & View', 'uJn89Ua7D8M', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink chạy code online\r\nhttps://sqliteonline.com/\r\nLink tổng hợp kiến thức\r\nhttps://j2c.cc/learn_sql\r\n\r\n#sql #index #view\r\n\r\n00:00 Mở đầu và giải câu nâng cao buổi trước\r\n15:55 Index & View\r\n01:07:37 Cách mã hoá mật khẩu để tránh rủi ro khi bị lộ DB', 0),
+(12, 3, 'SQL chuyên sâu - Buổi 2 - Procedure', 'yCyHpZALCG0', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink chạy code online\r\nhttps://sqliteonline.com/\r\nLink tổng hợp kiến thức\r\nhttps://j2c.cc/learn_sql\r\n\r\n#sql #procedure\r\n\r\n00:00 Trò chuyện đầu buổi học \r\n14:57  Có hay không một DB chuẩn? Ví dụ \r\n27:09  Procedure, Function\r\n01:17:53 Chia sẻ về nghệ thuật xử lý background job', 0),
+(13, 3, 'SQL chuyên sâu - Buổi 3 - Function', 'AlOM-lbJ1t8', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink chạy code online\r\nhttps://sqliteonline.com/\r\nLink tổng hợp kiến thức\r\nhttps://j2c.cc/learn_sql\r\n\r\n#sql #function', 0),
+(14, 3, 'SQL chuyên sâu - Buổi 4 - Trigger (After)', 'Oc-IlA-1jxc', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink chạy code online\r\nhttps://sqliteonline.com/\r\nLink tổng hợp kiến thức\r\nhttps://j2c.cc/learn_sql\r\n\r\n#sql #trigger', 0),
+(15, 3, 'SQL chuyên sâu - Buổi 5 - Trigger (Instead of)', 'BRk36X7prK0', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink chạy code online\r\nhttps://sqliteonline.com/\r\nLink tổng hợp kiến thức\r\nhttps://j2c.cc/learn_sql\r\n\r\n#sql #trigger\r\n\r\n00:00 Tâm sự và trả lời câu hỏi\r\n28:00 Cơ bản\r\n59:00 Nâng cao + fix bug', 0),
+(16, 3, 'SQL chuyên sâu - Buổi 6 - Chữa bài tập & Transaction', 'xPllalzVL_4', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink chạy code online\r\nhttps://sqliteonline.com/\r\nLink tổng hợp kiến thức\r\nhttps://j2c.cc/learn_sql\r\n\r\n#sql #transaction', 0),
+(18, 3, 'SQL chuyên sâu - Buổi cuối - Thi vấn đáp', 'E6lizfokiWA', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink tổng hợp câu hỏi từ livestream\r\nhttps://j2c.cc/j2school-qa\r\n\r\n#sql', 0),
+(19, 14, 'Lập trình Web cơ bản - Buổi 1 - HTML', 'wiYWbm3r48A', 1, '', 0),
+(20, 14, 'Lập trình Web cơ bản - Buổi 2 - HTML - Bảng', 'Y0mgyEp8kFI', 1, '', 0),
+(21, 14, 'Lập trình Web cơ bản - Buổi 3 - HTML - Những thẻ thường gặp', 'cSgY3RWqqNc', 1, '', 0),
+(22, 14, 'Lập trình Web cơ bản - Buổi 4 - HTML - Form', '8t9qLdrlAvA', 1, '', 0),
+(23, 14, 'Lập trình Web cơ bản - Buổi 5 - CSS - Làm quen', 'iSdXPJg6G9k', 1, '', 0),
+(24, 14, 'Lập trình Web cơ bản - Buổi 6 - CSS - Layout', 'dJ2K_5VaUgc', 1, '', 0),
+(25, 14, 'Lập trình Web cơ bản - Buổi 7 - CSS - Pseudo & Selector', 'qJusq22MRvA', 1, '', 0),
+(26, 14, 'Lập trình Web cơ bản - Buổi 8 - JavaScript - Làm quen', 'h4wTJgQxnJg', 1, '', 0),
+(27, 14, 'Lập trình Web cơ bản - Buổi 9 - JavaScript - Loop & Input', '9HG9MmtpE7Y', 1, '', 0),
+(28, 14, 'Lập trình Web cơ bản - Buổi 10 - JavaScript - Array', 'KjHtFIR79XI', 1, '', 0),
+(29, 14, 'Lập trình Web cơ bản - Buổi 11 - JavaScript - Regex', 'nQcEK4HLoQs', 1, '', 0),
+(30, 14, 'Lập trình Web cơ bản - Buổi 12 - JavaScript - Validate Form', 'uBanTLR3YeE', 1, '', 0),
+(31, 14, 'Lập trình Web cơ bản - Buổi 14 - PHP - Giới thiệu', 'uEUa4qB97Kk', 1, '', 0),
+(32, 14, 'Lập trình Web cơ bản - Buổi 15 - PHP - Làm việc với Form', 'AH9STS4sJSo', 1, '', 0),
+(33, 14, 'Lập trình Web cơ bản - Buổi 16 - PHP - CRUD', '63H58_jGDco', 1, '', 0),
+(34, 14, 'Lập trình Web cơ bản - Buổi 17 - PHP - CRUD & Pagination & Searching & Hacking', 'xXmCzhU0BNY', 1, '', 0),
+(35, 14, ' Lập trình Web cơ bản - Buổi 18 - PHP - Ôn tập & layout', 'Wlo5aQw2UeI', 1, '', 0),
+(36, 14, 'Đồ án Web cơ bản - Phân nhóm & định hướng', 'pOzcjuEaXVI', 1, '', 0),
+(37, 14, 'Lập trình Web cơ bản - Buổi 19 - PHP - CRUD 2 bảng liên kết', 'MemEhFGO2X0', 1, '', 0),
+(38, 14, 'Lập trình Web cơ bản - Buổi 20 - PHP - Giao diện khách hàng', 'cEwux79AiKw', 1, '', 0),
+(39, 14, 'Đồ án Web cơ bản - Phân tích và thiết kế', '5o3BugEmhLk', 1, '', 0),
+(40, 14, 'Lập trình Web cơ bản - Buổi 21 - PHP - Signing & Hacking', '7pWAqw9XjVM', 1, '', 0),
+(41, 14, ' Lập trình Web cơ bản - Buổi 22 - PHP - Cookies', '27UPwj789E4', 1, '', 0),
+(42, 14, 'Lập trình Web cơ bản - Buổi 23 - PHP - Giỏ hàng', '1t9Hzq9_Rck', 1, '', 0),
+(43, 14, 'Lập trình Web cơ bản - Buổi 24 - PHP - Đặt hàng', 'yndPkfUMozI', 1, '', 0),
+(44, 14, 'Lập trình Web cơ bản - Buổi 25 - PHP - Admin', 'TdEOdeIOVEQ', 1, '', 0),
+(45, 14, 'Giao lưu và chia sẻ về Đồ án', '84JkzsD4-Sc', 1, '', 0),
+(46, 14, 'Lập trình web cơ bản - buổi 26 - PHP - Gửi email & Tâm sự cuối năm', 'fH9BVGeomMI', 1, '', 0),
+(47, 14, 'Đồ án Web cơ bản - Kiểm tra và đánh giá (L1)', 'YGc7zc0ZXvM', 1, '', 0),
+(48, 14, 'Lập trình web cơ bản - buổi 27 - PHP - Cấu hình CSDL và Quên mật khẩu', 'QG8Ai3oR8G4', 1, '', 0),
+(49, 14, 'Lập trình web cơ bản - buổi 28 - PHP - Thống kê', 'T1RCc4zALNc', 1, '', 0),
+(50, 14, 'Lập trình web cơ bản - buổi 29 - PHP & jQuery - Làm quen & Ajax', 'HszrnYMdfAU', 1, '', 0),
+(51, 14, 'Lập trình web cơ bản - buổi 30 - PHP & jQuery - Modal & Signin + Signup & Validate', 'x_XNnYk1aiw', 1, '', 0),
+(52, 15, 'Bài 1: Giới thiệu Java', '3gtOAlcovoQ', 1, 'Trong bài học này, chúng ta sẽ cùng tìm hiểu các vấn đề:\r\n\r\nSơ lược về ngôn ngữ Java\r\nNhững đặc trưng của ngôn ngữ Java', 0),
+(53, 15, 'Bài 2: Cài đặt môi trường Java', 'KjMRn1YQcLc', 1, 'Bài này sẽ giới thiệu bao gồm các nội dung sau:\r\n\r\nGiải thích về JVM, JRE và JDK\r\nCài đặt môi trường Java\r\nCấu hình Java\r\nlink download jdk:\r\nhttps://www.oracle.com/java/technologies/downloads/', 0),
+(54, 15, 'Bài 3: Chương trình Java đầu tiên', 'jIQmebw9VaA', 1, 'Để theo dõi bài này tốt nhất, bạn nên:\r\n\r\nCÀI ĐẶT MÔI TRƯỜNG JAVA\r\nBài này sẽ giới thiệu bao gồm các nội dung sau:\r\n\r\nGiải thích Compiler\r\nViết chương trình Java', 0),
+(55, 15, 'Bài 4: Biến trong Java', 'G2mCSTtBojM', 1, 'Để theo dõi tốt bài này, bạn nên:\r\n\r\nCÀI ĐẶT MÔI TRƯỜNG JAVA\r\nXem qua bài VIẾT CHƯƠNG TRÌNH JAVA ĐẦU TIÊN.\r\nBài này chúng ta sẽ tìm hiểu những vấn đề sau:\r\n\r\nBiến là gì? Lý do sử dụng biến.\r\nCách khai báo và sử dụng biến.\r\nQuy tắc đặt tên biến', 0),
+(56, 15, 'Bài 5: Kiểu dữ liệu trong Java', '4k_5vWY2wps', 1, 'Để đọc hiểu bài này, tốt nhất các bạn nên có kiến thức cơ bản về các phần sau:\r\n\r\nCÁC BIẾN TRONG JAVA\r\nBài này chúng ta sẽ tìm hiểu những vấn đề sau:\r\n\r\nKiểu dữ liệu là gì? Lý do phải có kiểu dữ liệu.\r\nPhân loại các kiểu dữ liệu.', 0),
+(57, 15, 'Bài 6: Toán tử trong Java', 'H9FmP010A_Q', 1, 'Để đọc hiểu bài này, tốt nhất các bạn nên có kiến thức cơ bản về các phần sau:\r\n\r\nCÁC BIẾN TRONG JAVA\r\nCÁC KIỂU DỮ LIỆU TRONG JAVA\r\nBài này chúng ta sẽ tìm hiểu những vấn đề sau:\r\n\r\nDanh sách các toán tử, ý nghĩa.\r\nĐộ ưu tiên các toán tử', 0),
+(58, 15, 'Bài 7: Hằng trong Java', 'dqybUkGCaVw', 1, 'Hằng là gì? Lý do sử dụng hằng\r\nHằng là một biến mà giá trị không đổi trong suốt chương trình, tất nhiên ta đã khởi tạo giá trị ngay từ đầu.\r\n\r\nLý do sử dụng hằng:\r\n\r\nTạo ra những giá trị vốn thực tế không cho thay đổi, làm chương trình an toàn hơn.\r\nGiúp người đọc biết ý nghĩa con số vô cảm trong khoa học như có thể áp dụng giá trị số PI, gia tốc trọng trường,...\r\nSẽ cảnh báo nếu người dùng cố tình thay đổi giá trị sau này. Đảm bảo tính toán vẹn của giá trị.', 0),
+(59, 15, 'Bài 8: Ép kiểu trong Java', 'kOMiIKLCK34', 1, 'Ép kiểu là gì? Ý nghĩa\r\nÉp kiểu là cách chuyển biến thuộc kiểu dữ liệu này thành biến thuộc kiểu dữ liệu khác.\r\n\r\nÝ nghĩa:\r\n\r\nViệc chuyển kiểu dữ liệu sẽ đến lúc phải cần trong quá trình xử lý chương trình\r\nCó thể định dạng đúng kiểu dữ liệu mình mong muốn (Như cách hiển thị kiểu ngày tháng năm trên thế giới khác với Việt Nam nên ta sẽ chuyển kiểu ngày theo phong cách địa phương).', 0),
+(60, 15, 'Bài 9: Cấu trúc rẽ nhánh trong Java', 'vradAZcby8I', 1, 'Trong lập trình, có những lúc ta cần phân chia các trường hợp và mỗi hoàn cảnh sẽ thực hiện những đoạn chương trình khác nhau. Như vậy dựa vào điều kiện ta sẽ rẽ nhánh cho chương trình chạy câu lệnh tương ứng.\r\n\r\nPhân loại: Có 2 loại cấu trúc rẽ nhánh là dạng thiếu và dạng đủ\r\n\r\nVí dụ:\r\n\r\nDạng thiếu: Nếu biến age trên 18 thì ta sẽ in ra ‘Bạn đã đủ tuổi để đăng kí’.\r\nDạng đủ: Nếu biến age trên 18 thì ta sẽ in ra ’Bạn đã đủ tuổi để đăng kí’, ngược lại thì in ra là ‘Bạn chưa đủ tuổi để đăng kí’ ', 0),
+(61, 15, 'Bài 10: Vòng lặp While trong Java', 'tDfQ33fmmvs', 1, 'Vòng lặp WHILE là gì? Tiến trình hoạt động như thế nào?\r\nBản chất của vòng lặp trong lập trình là ta muốn một vài dòng code được chạy đi chạy lại nhiều lần đến một điều kiện nào đó sẽ kết thúc.\r\n\r\nTrong vòng lặp WHILE, ta sẽ tạo một điều kiện cho vòng lặp, nếu điều kiện đúng thì khối lệnh lặp sẽ thực hiện cho đến khi điều kiện sai\r\n\r\nVí dụ: Ta tạo một biến chạy là index với lúc đầu giá trị bằng 0, ta sẽ in ra giá trị index rồi tăng nó lên một đơn vị cho đến khi index lớn 10.', 0),
+(62, 15, 'Bài 11: Vòng lặp For trong Java', '1QVfZFOt7uI', 1, 'Vòng lặp For là gì?\r\nNhư bài trước Kteam có nói về VÒNG LẶP WHILE TRONG JAVA  thì phải cần một điều kiện để thực hiện hoặc kết thúc vòng lặp. Mà có khi ta chỉ muốn khối lệnh đó lặp n lần nhất định, thì việc đơn giản là tạo một cái biến đếm và thay đổi n lần.\r\n\r\nVì vậy, Vòng lặp For chính giúp chúng ta tạo những vòng lặp n lần nhất định bằng một biến chạy. Vòng lặp For có thể giúp ta giải phóng bộ nhớ biến chạy.', 0),
+(63, 15, 'Bài 12: Mảng trong Java', '0LX_B3-0XuU', 1, 'Mảng là gì? Ưu nhược của mảng\r\nMảng là gì?\r\nMảng là tập hợp các đối tượng có cùng kiểu dữ liệu và được lưu trữ gần nhau trong bộ nhớ. Mỗi đối tượng hay được gọi là phần tử, các phần từ được phân biệt bằng vị trí (hay chỉ số phần tử), được bắt đầu từ vị trí 0.\r\nƯu nhược của mảng\r\nƯu điểm:\r\n\r\nTối ưu code: Gom các phần tử liên quan vào chung một với nhau giúp code gọn gàng hơn.\r\nCó thể truy cập ngấu nhiên: Do các vị trí ô lưu trữ liên tiếp ta có thể truy cập ngấu nhiên bằng chỉ số phần tử dễ dàng và nhanh chóng.\r\nDễ thao tác, quản lý và nâng cấp: Như muốn thay đổi các giá trị theo 1 quy luật thì ta sẽ tận dụng sử dụng những vòng lặp lập trình.\r\nNhược điểm:\r\n\r\nGiới hạn kích thước: Khi sử dụng mảng ta phải khai báo kích thước lưu trữ của mảng và không thể thay đổi kích thước trong lúc chạy.\r\nVùng lưu trữ phải liên tiếp: Đây cũng là vừa ưu vừa nhược điểm. Vì yêu cầu các ô nhớ liên tiếp nên phải tốn không gian bộ nhớ, hoặc đủ ô nhớ nhớ nhưng các ô nhớ không tiếp nên không thể khai báo được.', 0),
+(64, 15, 'Bài 13:Foreach trong Java', 'SVnPYiHS68U', 1, 'FOR-EACH là gì?\r\nFOR-EACH là một kỹ thuật duyệt mảng khác như các vòng lặp trước. Nhưng thay vì khai báo hay khởi tạo biến lặp vị trí, chúng ta sẽ khai báo một biến chung kiểu dữ liệu của mảng, sử dụng biến đó duyệt các phần tử các mảng mà không cần lấy vị trí (index) của mỗi phần tử.\r\n\r\nNếu các bạn đã tìm hiểu cấu trúc dữ liệu và giải thuật ở trường, có những loại tập hợp đặc biệt mà không sắp xếp các phần tử bằng index như danh sách liên kết, map, vector,… Thì FOR-EACH sẽ giúp ta duyệt các phần tử các danh sách đó vì không cần vị trí (index) các phần tử đó.', 0),
+(65, 15, 'Bài 14: Break và Continue trong Java', 'DrFwmhHqiA8', 1, 'Câu lệnh break\r\nÝ nghĩa:\r\n\r\nCâu lệnh break sẽ dừng vòng lặp chứa nó đang chạy. Thường hay sử dụng khi đạt được mục đích và không muốn tốn thời gian.\r\n\r\nCâu lệnh continue\r\nÝ nghĩa:\r\n\r\nCâu lệnh continue sẽ bỏ qua một vòng lặp và thực hiện vòng lặp tiếp theo. Continue thường được dùng trong trường hợp có những giá trị lặp ta muốn bỏ qua xử lý.\r\n\r\nVí dụ: Tính tổng các giá trị trong mảng. Nếu có phần tử bằng 13 thì bỏ qua', 0),
+(66, 15, 'Bài 15:Switch trong Java', 'P90f0KWQtv0', 1, 'Switch là gì?\r\nSwitch thuộc dạng câu lệnh rẽ nhánh, switch sẽ kiểm tra so sánh biến với những giá trị khác nhau. Với mỗi trường hợp các giá trị, chúng ta sẽ viết những khối lệnh thực thi. Ngoài ra, có thể xử lý trường hợp không đúng với những giá trị mà ta đã liệt kê.', 0),
+(67, 15, 'Bài 16: OOP trong Java', '8vOnoUZNtCA', 1, 'Những khái niệm cơ bản của lập trình hướng đối tượng\r\nĐối tượng (Object)\r\nĐối tượng ở đây ta thể hiểu như khái niệm bên ngoài: Con người, Xe máy, Nhà cửa…\r\n\r\nTrong một đối tượng sẽ bao gồm 2 thông tin: thuộc tính và phương thức.\r\n\r\nThuộc tính: là những thông tin của đối tượng. Ví dụ: con người có họ tên, chiều cao, độ tuổi,…\r\nPhương thức: là những thao tác, hành động mà đối tượng đó có thể thực hiện. Ví dụ: con người có những hành động ăn, ngủ, đi lại,…\r\nLớp (Class)\r\nLớp chính là định nghĩa của đối tượng, ta sẽ xây dựng lớp để tạo ra những đối tượng khác nhau. Ví dụ như: Bạn Nguyễn Văn A và Lê Văn B đều là con người, mà con người thì đều có tên, tuổi, chiều cao,.. tuy nhiên thông tin lại khác nhau như ngoài tên, bạn A 20 tuổi còn bạn B 22 tuổi. Như vậy con người chính là lớp, Nguyễn Văn A và Lê Văn B là đối tượng.\r\n\r\nHướng đối tượng trong Java\r\nBản chất Java là ngôn ngữ thuần hướng đối tượng, vì vậy đây là ngôn ngữ bậc cao nên việc học lập trình ngay từ đầu bạn sẽ thấy khó hiểu với những từ khóa class, new,... Đó là lý do Kteam không khuyến khích những bạn mới bắt đầu học lập trình lựa chọn Java.', 0),
+(68, 15, 'Bài 17: Class trong Java', 'j_zeaTrH0cU', 1, 'Class là gì?\r\nClass (Lớp) là người dùng định nghĩa thiết kế cho hướng đối tượng. Nó đại diện cho những tập thuộc tính và phương thức chung cho tất cả các đối tượng của lớp này.\r\n\r\nNếu trong những ngôn ngữ thuần hướng đối tượng như Java, C#,.. thì Class chính là kiểu dữ liệu mà lập tình viên tự tạo ra.\r\n\r\nThuộc tính và phương thức trong hướng đối tượng\r\nThuộc tính\r\nThuộc tính là những thông tin riêng của mỗi đối tượng, ta có thể thấy nó như là những biến liên quan đến đối tượng đó.\r\n\r\nChúng ta cần phải thống nhất nhóm đối tượng cần có những thông tin cơ bản gì? Không thể có chuyện đối tượng bạn A có tên, tuổi, chiều cao; bạn B chỉ có tên, cân nặng, quê quán; Việc thông tin không thống nhất gây ra quản lý khó đảm bảo.\r\n\r\nĐó là lý do ta phải khai báo các thuộc tính trong lớp để các đối tượng của lớp đó bắt buộc phải có thông tin lưu trữ các thuộc tính trên.\r\n\r\nPhương thức\r\nĐây là kiến thức khá mới mẻ trong loạt bài viết này. Phương thức trong hướng đối tượng là cách xử lý hành vi của đối tượng. Bản chất, trong phương thức sẽ chứa loạt code, khi ta gọi phương thức của đối tượng, những dòng code trong phương thức đó sẽ thực hiện.\r\n\r\nNếu các bạn đã từng học các ngôn ngữ lập trình hướng thủ tục, thì phương thức nó khá giống hàm. Tuy nhiên, phương thức khác hàm là phương thức phải khai báo trong lớp, còn hàm thì khai báo độc lập.', 0),
+(69, 15, 'Bài 18: Phạm vi truy cập trong Java', 's6-UDkzggDk', 1, 'Phạm vi truy cập là gì? Package là gì?\r\nPhạm vi truy cập (access modifiers) là xác định độ truy cập phạm vi vào dữ liệu của các thuộc tính, phương thức hoặc class.\r\n\r\nPackage (gói) là nhóm các class, interface hoặc các package con liên quan lại với nhau. Việc dùng package dùng để nhóm các class liên quan với nhau thành thư viện như thư viện swing, awt,…Ngoài ra, mục đích của package ngăn cản xung đột đặt tên, điều kiện truy cập, thuận tiện tìm kiếm và lưu trữ.\r\n\r\nCác loại phạm vi truy cập\r\nCó 4 loại phạm vi truy cập:\r\nPrivate\r\n(Default)\r\nProtected\r\nPublic\r\n\r\nPrivate\r\nPrivate chỉ cho phép truy cập nội bổ của một class.\r\n\r\nVí dụ: cho thuộc tính age của class Person ở dạng private, thì chỉ có thể truy cập age trong class Person.\r\n\r\n(Default)\r\nĐây là phạm vị mặc định, khi bạn không ghi gì hết thì nó để phạm vị truy cập dạng này: Ở mặc định, phạm vi truy cập chỉ nằm trong nội bộ package.\r\n\r\nVí dụ: ta xóa tất cả phạm vị truy cập ở class Person như sau\r\n\r\nProtected\r\nProtected là phạm vi truy cập có thể từ trong và ngoài package, nhưng phải thông qua tính kế thừa. Tính kế thừa sẽ được Kteam giải thích rõ hơn trong bài TÍNH KẾ THỪA TRONG LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG. Protected chỉ có thể áp dụng bên trong class như thuộc tính, phương thức hay lớp con. Không thể áp dụng cho lớp ngoài hay interface.\r\n\r\nPublic\r\nĐây phạm vi truy cập rộng, có thể truy cập bất cứ đâu trong project Java. Tất nhiên khi khác package để cần phải khai báo import để xác định ví trí của class như phần giải thích trên trên.', 0),
+(70, 15, 'Bài 19: Static trong Java', 'I3tlj977x08', 1, 'Từ khóa static làm gì?\r\nKhi ta khai báo các thuộc tính, phương thức thì nó chỉ được sử dụng khi khởi tạo đối tượng, thông tin cũng thuộc đối tượng đó.\r\n\r\nCó những lúc, ta cần những thông tin chung cho tất cả các đối tượng. Có nghĩa những thông tin đó lưu ở một vùng nhớ duy nhất. Từ khóa static sử dụng để quản lý bộ nhớ, khi những thành viên bên trong một lớp có từ khóa static thì nó thuộc về lớp, không phải thuộc về riêng một đối tượng nào đó.\r\n\r\nCách sử dụng static\r\nTạo biến tĩnh\r\nKhi khai báo một biến tĩnh, biến đó có thể lưu thông tin chung cho tất cả các đối tượng.\r\n\r\nVí dụ: tạo một class Student của một trường ‘Kteam Education’, như vậy chỉ cần một bộ nhớ chung lưu thông tin tên trường, như vậy tiết kiệm bộ nhớ hơn. Ngoài ra, ta có thể tạo một biến đếm có bao nhiêu đối tượng Student đã được tạo ra:\r\n\r\nTạo phương thức tĩnh\r\nPhương thức tĩnh cũng giống như biến tĩnh, có thể gọi mà không cần khởi tạo đối tượng. Phương thức tĩnh rất thích hợp cho những class thư viện viết sẵn, không cần khởi tạo mà chỉ cần gọi ra để chạy chương trình.\r\n\r\nKhối static\r\nKhối static được sử dụng cho mục đích khởi tạo giá trị các biến static. Khối sẽ được thực hiện khi lớp chứa nó được load vào trong bộ nhớ.\r\nTrong một lớp có thể nhiều khối tùy ý. Các khối này sẽ chạy cùng nhau, và chạy trước cả chương trình main của lớp đó.', 0),
+(71, 15, 'Bài 20: This trong Java', 'gIWwValOk0w', 1, 'Từ khóa this làm gì?\r\nTừ khóa this dùng để ánh xạ đối tượng hiện tại. Giống như trong lớp Student có rất nhiều đối tượng như bạn Châu, Long, Thanh,… thì khi xử lý các thuộc tính và phương thức ta sẽ dùng từ ‘bạn ấy’ để ám chỉ đối tượng hiện tại cần thực hiện.\r\n\r\n', 0),
+(72, 15, 'Bài 21: Kế thừa trong Java', 'FscxYO3s6Go', 1, 'Khái niệm kế thừa\r\nKế thừa có nghĩa là thừa hưởng lại, ví dụ như tài sản của ba mẹ sẽ được giao lại cho con cái.\r\nKế thừa trong lập trình (Inheritance) có nghĩa là một lớp sẽ thừa hưởng lại những thuộc tính, phương thức từ lớp khác.\r\nViệc sử dụng kế thừa nhằm tái sử dụng code đã viết trước đó, thuận tiện trong việc bảo trì và nâng cấp chương trình.\r\n\r\n', 0),
+(73, 15, 'Bài 22: Setter và Getter trong Java', 'POoxuSKIP4I', 1, 'Setter và Getter là gì? Lý do sử dụng\r\nSetter và Getter là 2 phương thức sử dụng để cập nhật hoặc lấy ra giá trị thuộc tính, đặc biệt dành cho các thuộc tính ở phạm vi private.\r\n\r\nViệc sử dụng Setter và Getter cần thiết trong việc kiểm soát những thuộc tính quan trọng mà ta thường được sử dụng và yêu cầu giá trị chính xác. Ví dụ thuộc tính age lưu tuổi con người, thực tế thì phạm vi tuổi là từ 0 đến 100, thì ta không thể cho chương trình lưu giá trị age âm hoặc quá 100 được.\r\n\r\nChú ý\r\nKhi đã dùng setter và getter thì thuộc tính nên để private\r\nVì setter và getter nhằm quản lý truy cập của thuộc tính, thì ta không nên để thuộc tính có thể truy cập dễ dàng, không nên để ở dạng public.', 0),
+(74, 15, 'Bài 23: Overriding và Overloading trong Java', 'HIz83AG7lYE', 1, 'Overriding là gì? Cách sử dụng\r\nOverriding (ghi đè) có nghĩa là có 2 phương thức giống nhau về tên và tham số truyền vào. Một phương thức ở lớp cha, còn cái kia ở lớp con. Overriding  cho phép lớp con có thể thực hiện riêng biệt cho phương thức mà lớp cha đã cung cấp.\r\n\r\nCách chống Overriding\r\nNếu không muốn lớp con có thể Overriding lại phương thức nào đó, ta sẽ sử dụng từ khóa final\r\nLớp con sẽ không thể Overriding được phương thức getInfo()', 0),
+(75, 15, 'Bài 24: Trừu tượng trong Java', '9jlUoO3e2GY', 1, 'Tính trừu tượng là gì?\r\nMặc dù đây là bài viết lập trình, nhưng Kteam sẽ nói qua về ngôn ngữ học, rất nhiều người lập trình lâu năm đôi khi họ không thể hiểu bản chất từ trừu tượng\r\n\r\nTrừu tượng là một từ Hán Việt: ‘trừu’ nghĩa là rút ra, ‘tượng’ có nghĩa là hình tượng, tượng trưng. Vậy theo nghĩa bóng, trừu tượng có nghĩa là rút ra một khái niệm từ những hình tượng cụ thể, tạo ra một ý niệm trong suy nghĩ con người.\r\n\r\nTính trừu tượng trong lập trình hướng đối tượng là gì?\r\nTính trừu tượng trong lập trình hướng đối tượng là chỉ nêu ra vấn đề mà không hiển thị cụ thể, chỉ hiện thị tính năng thiết yếu đối với đối tượng người dùng mà không nói quy trình hoạt động. Ví dụ: như tạo ra tính năng gửi tin nhắn, ta chỉ cần hiểu là người dùng viết tin rồi nhấn gửi đi. Còn quy trình xử lý tin nhắn gửi như thế nào thì ta chưa đề cập đến.\r\n\r\nNhư vậy, tính trừu tượng là che giấu thông tin thực hiện từ người dùng, họ chỉ biết tính năng được cung cấp: Chỉ biết thông tin đối tượng thay vì cách nó sử dụng như thế nào. Nó có những ưu điểm sau:\r\n\r\nCho phép lập trình viên bỏ qua những phức tạp trong đối tượng mà chỉ đưa ra những khái niệm phương thức và thuộc tính cần thiết. Ta sẽ dựa những khái niệm đó để viết ra, nâng cấp và bảo trì.\r\nNó giúp ta tập trung cái cốt lõi đối tượng. Giúp người dùng không quên bản chất đối tượng đó làm gì.\r\n\r\nTính trừu tượng trong Java\r\nLớp trừu tượng\r\nLớp trừu tượng là lớp được khai báo mà không thể tạo ra đối tượng từ lớp đó. Ta sẽ tạo những lớp con kế thừa lớp trừu tượng.\r\n\r\nMục đích lớp trừu tượng là tạo ra lớp chung cho những lớp có liên quan với nhau kế thừa. Ví dụ khi xây dựng phần mềm quản lý nhà trường:  Những lớp sinh viên, giảng viên, cán bộ,… có những thuộc tính và phương thức chung như tên, năm sinh, quê quán,… thì ta sẽ tạo một lớp con người là lớp trừu tượng và những đặc điểm chung được để trong lớp con người. Khi phát triển chương trình, ta chỉ có thể tạo các đối tượng từ lớp con kế thừa lớp con người; không thể cho tạo đối tượng từ lớp con người được.\r\n\r\nPhương thức trừu tượng\r\nCác phương thức trừu tượng là là chỉ định nghĩa mà không có chương trình bên trong, lớp con kế thừa phải bắt buộc override nó lại để sử dụng. Phương thức trừu tượng có ý nghĩa định nghĩa phương thức bắt buộc phải có trong lớp con kế thừa.', 0),
+(76, 15, 'Bài 25: Interface Java', 'BgNcBfqOLQk', 1, 'Interface là gì? Tại sao phải sử dụng?\r\nInterface là một kiểu dữ liệu tham chiếu trong Java. Nó là tập hợp các phương thức abstract (trừu tượng). Khi một lớp kế thừa interface, thì nó sẽ kế thừa những phương thức abstract của interface đó.\r\n\r\nMột số đặc điểm của interface:\r\n\r\nKhông thể khởi tạo, nên không có phương thức khởi tạo.\r\nTất cả các phương thức trong interface luôn ở dạng public abstract mà không cần khai báo.\r\nCác thuộc tính trong interface luôn ở dạng public static final mà không cần khai báo, yêu cầu phải có giá trị.\r\nMục đích của interface là để thay thế đa kế thừa lớp của những ngôn ngữ khác (ví dụ như C++, Python…). Ngoài ra, interface sẽ giúp đồng bộ và thống nhất trong việc phát triển hệ thống trao đổi thông tin.', 0),
+(77, 15, 'Bài 26: Giải thích hàm main trong Java', 'nzurRJhbFl8', 1, 'Để đọc hiểu bài này, tốt nhất các bạn nên có kiến thức cơ bản về các phần sau:\r\n\r\nCÁC BIẾN TRONG JAVA.\r\nCÁC KIỂU DỮ LIỆU TRONG JAVA.\r\nCÁC HẠNG TOÁN TỬ TRONG JAVA\r\nCẤU TRÚC RẼ NHÁNH TRONG JAVA\r\nVÒNG LẶP WHILE TRONG JAVA\r\nVÒNG LẶP FOR TRONG JAVA\r\nMẢNG TRONG JAVA\r\nVÒNG LẶP FOR-EACH TRONG JAVA\r\nVAI TRÒ BREAK, CONTINUE TRONG VÒNG LẶP JAVA\r\nSWITCH TRONG JAVA\r\nLẬP TRÌNH HƯỚNG ĐỐI TƯỢNG\r\nCLASS TRONG LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG\r\nCÁC LOẠI PHẠM VI TRUY CẬP TRONG LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG\r\nTỪ KHÓA STATIC TRONG LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG\r\nTỪ KHÓA THIS TRONG LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG\r\nTHỪA KẾ TRONG LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG\r\nSETTER & GETTER TRONG LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG\r\nOVERRIDING VÀ OVERLOADING TRONG LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG\r\nTÍNH TRỪU TƯỢNG TRONG LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG\r\nINTERFACE TRONG LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG', 0),
+(78, 15, 'Bài 27: Try catch trong Java', 'zI9uen-vRa4', 1, 'Try Catch là gì?\r\nKhi chạy chương trình, có rất nhiều loại lỗi khác nhau có thể xảy ra như: lỗi do sai lầm người viết, lỗi do sai thông tin đầu vào hoặc những lỗi mà không thể lường trước được. Và khi có lỗi, Java sẽ dừng lại và hiện thị thông tin lỗi ra, kĩ thuật đó thường được gọi là ‘throw an exception/error’.\r\n\r\nVà có những lỗi xuất phát từ người dùng, thì lúc đó ta không thể cho họ xem thông tin lỗi như thế này được. Với những người không thành thạo về máy vi tính hoặc tiếng Anh thì họ nghĩ chương trình bạn viết bị lỗi mà không phải lỗi từ họ.\r\n\r\nVì vậy, Try Catch có nhiệm vụ bắt (Catch) các lỗi mà thực tế có thể xảy ra để xử lý sao cho chương trình thân thiện với người dùng hơn.', 0),
+(79, 15, 'Bài 28: 4 tính chất  của OOP', 'u-yPTK1pHQM', 1, 'Dẫn nhập\r\nTrong các bài học Java vừa qua, chúng ta đã tích lũy được những kiến thức cơ bản và hướng đối tượng của ngôn ngữ Java. Thực tế, kiến thức của một ngôn ngữ lập trình là không thể học hết được, ta chỉ có thể biết được nó qua những vấn đề dự án khi cần. Đây là bài học cuối trong khóa học này, nhưng là tiền đề để các bạn nghiên cứu những kiến thức nâng cao hơn.\r\n\r\n4 tính chất trong hướng đối tượng là gì?\r\nĐây là 4 tính chất góp phần tạo nên khái niệm lập trình hướng đối tượng, chúng có thể tồn tại trong các ngôn ngữ tuân theo hướng đối tượng, đặc biệt đối với những ngôn ngữ thuần hướng đối tượng như C++, Java, C#, Ruby,… sẽ có đủ 4 tính chất này.\r\n\r\nNếu bạn đã chọn các ngôn ngữ thuần hướng đối tượng gắn liền với sự nghiệp lập trình, thì bắt buộc bạn phải nhớ và hiểu các tính chất này, khi bạn hiểu mới có thể đi lên cao trong phát triển phần mềm đồng thời hiểu sâu trong kĩ thuật.\r\n\r\n4 tính chất đó là:\r\n\r\nTính đóng gói (Encapsulation)\r\nTính trừu tượng (Abstraction)\r\nTính thừa kế (Inheritance)\r\nTính đa hình (Polymorphism)\r\n', 0),
+(80, 17, 'Day 1: Thiết kế Product Card bắt mắt chưa đầy 1 giờ', '3odtU8VL3Mc', 1, '', 0),
+(81, 17, 'Day 2: Đứng hình mất 5s với Profile Card giới thiệu bản thân ', 'DkiLJzL6kv4', 1, '', 0),
+(82, 17, 'Day 3: Bật mí cách tạo Modal Popup Material UI vừa đẹp vừa đơn giản', 'gyqMtCmHHUA', 1, '', 0),
+(83, 17, 'Day 4: Hiệu ứng show ảnh Image Gallery chuyên nghiệp không phải ai cũng biết', '0Uhtzrsi-qE', 1, '', 0),
+(84, 17, 'Day 5: Search Box đơn giản mà đẹp, không phải ai cũng biết', 'rpKjWpOiBSY', 1, '', 0),
+(85, 17, 'Day 6: Những thông tin quan trọng khi bắt sự kiện keydown', 'p5ivn6UpjQk', 1, '', 0),
+(86, 17, 'Day 7: Search Tags có gì hay ho ? ', 'Cad_2CvAoQ8', 1, '', 0),
+(87, 17, 'Day 8: Validate form có tâm thế này mới đi làm được AE nhé', 'fRPCVBfD7hw', 1, '', 0),
+(88, 17, 'Day 9: Đi làm thì phải biết dùng API vậy API là gì? Call API làm cực kỳ đơn giản trong Weather App', 'ZKhOuR1UWh4', 1, '', 0),
+(89, 17, 'Day 10: Todo List bài tập kinh điển mà đi làm ai cũng phải biết. Kỹ thuật sử dụng \"This\" đơn giản', 'iO7kgGgHr6w', 1, '', 0),
+(90, 14, 'Lập trình web cơ bản - buổi 32 - PHP & jQuery - Rating & Live search & JSON', '0M0AB3k4C4c', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink tổng hợp câu hỏi từ livestream\r\nhttps://j2c.cc/j2school-qa\r\n\r\n#họclậptrình #php #mysql #đồán #javascript #jquery #json #rating #livesearch', 0),
+(91, 14, 'Lập trình web cơ bản - buổi 33 - PHP & jQuery - Tags & Notify', 'i5SpM6mvCt4', 1, 'Link khoá học miễn phí\r\nhttps://j2teamnnl.teachable.com/courses\r\nLink tổng hợp câu hỏi từ livestream\r\nhttps://j2c.cc/j2school-qa\r\n\r\n#họclậptrình #php #mysql #đồán #javascript #jquery #json #tags #notify #ajax', 0),
+(95, 16, 'Test sửa video save drive', '1e1q_TJMqKxbUfmPzUkS1-tf3iYHFrg8W', 2, 'test sửa link', 0),
+(96, 16, 'test link all', 'https://www.youtube.com/embed/41Xx_3-Wc7g', 3, 'test link loại khác', 0),
+(97, 16, 'test link ytb', 'SJDM8ETMmzE', 1, 'test link ytb thôi', 0);
 
 -- --------------------------------------------------------
 
@@ -274,6 +388,7 @@ INSERT INTO `view_history` (`id_user`, `id_course`, `view`) VALUES
 (2, 14, 1),
 (2, 15, 1),
 (3, 14, 1),
+(4, 14, 1),
 (4, 15, 4);
 
 --
@@ -309,6 +424,12 @@ ALTER TABLE `oder`
   ADD KEY `id_course` (`id_course`);
 
 --
+-- Chỉ mục cho bảng `update_course`
+--
+ALTER TABLE `update_course`
+  ADD PRIMARY KEY (`id_lesson`,`id_course`);
+
+--
 -- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
@@ -341,13 +462,13 @@ ALTER TABLE `course`
 -- AUTO_INCREMENT cho bảng `lesson`
 --
 ALTER TABLE `lesson`
-  MODIFY `id_lesson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `id_lesson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT cho bảng `oder`
 --
 ALTER TABLE `oder`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT cho bảng `user`

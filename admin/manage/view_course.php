@@ -62,10 +62,36 @@ $all_comments = mysqli_query($connection, $sql);
     <link rel="stylesheet" href="../../css/view_course.css">
 </head>
 <style>
-
+    header .formSearch{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    header .formSearch div input{
+        border: none;
+        outline: none;
+        width: 365px;
+        height: 40px;
+        padding: 15px;
+        font-size: 15px;
+        margin-left: -13px;
+    }
+    header .formSearch i{
+        color: black;
+        font-size: 18px;
+        margin-left: 20px;
+        transform: translateY(3px);
+    }
 </style>
 <body>
-<?php require "../../default/header.php" ?>
+
+
+
+<div id="body-click">
+
+<?php require "../default/header_user.php" ?>
+
 <!-- content -->
 
 <div class=content>
@@ -75,7 +101,7 @@ $all_comments = mysqli_query($connection, $sql);
         ?>
         <br><?php }else{?>
     <div class="function">
-            <a class='btn' href="#">
+            <a class='btn' href="./view_lesson.php?idcourse=<?php echo $id?>">
                 Vào học ngay
                 <i class='bx bx-log-in-circle'></i>
             </a>
@@ -187,17 +213,17 @@ $all_comments = mysqli_query($connection, $sql);
 </div>
 <div class="tab-right"></div>
 </div><?php } ?>
+
+</div>
+</body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        document.addEventListener("click", handler, true);
-        function handler(e) {
-            e.stopPropagation();
-            e.preventDefault();
+        // document.getElementById('body-click').addEventListener("click", handler, true);
+
+    })
+    function handler() {
             window.history.go(-1);
         }
-    })
 </script>
-</body>
-
 </html>
