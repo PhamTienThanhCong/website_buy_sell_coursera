@@ -57,6 +57,7 @@
     <title>Tài khoản của tôi</title>
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/my_account.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
@@ -97,7 +98,7 @@
             <h3 style="display: inline">Đổi mật khẩu và tài khoản ngân hàng</h3>
             <br><br>
             <label for="">Mật khẩu cũ:</label>
-            <input class="input-in4 input-replace" type="password" name="password">
+            <input id="old-password" class="input-in4 input-replace" type="password" name="password">
             <br>
             <label for="">Mật khẩu mới</label>
             <input id="new-password" class="input-in4 input-replace" type="password" name="new_password">
@@ -170,6 +171,7 @@
     <div class="tab-right"></div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script type="text/javascript" src="./script/my_account.js"></script>
 </body>
 </html>

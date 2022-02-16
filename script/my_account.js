@@ -8,6 +8,24 @@ var loadFile = function(event) {
 
 $(document).ready(function() {
 
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": true,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+
     $("#btn-logout").click(function() {
     $.ajax({
         type: "GET",
@@ -35,7 +53,7 @@ $(document).ready(function() {
 
     $('#change-danger').click(function(){
         document.getElementById('my-password').style.display = 'inline-block';
-        $('#change-danger').remove();
+        $('#change-danger').css('display', 'none');
     })
     $('#my-password').submit(function(){
         event.preventDefault();
@@ -49,15 +67,21 @@ $(document).ready(function() {
             })
             .done(function(response){
                 if(response == 0){
-                    alert('Mật khẩu không đúng');
+                    // alert('Mật khẩu không đúng');
+                    toastr["error"]("Mật khẩu không đúng", "Lỗi");
                 }else if(response == 2){
-                    alert('Bạn vừa nhập mật khẩu cũ');
+                    toastr["error"]("Bạn vừa nhập mật khẩu cũ", "Lỗi");
                 }else if(response == 1){
-                    document.getElementById('my-account-click').click();
+                    toastr["success"]("Thay đổi mật khẩu thành công", "Thành công");
+                    $('#old-password').val('');
+                    $('#new-password').val('');
+                    $('#confirm-password').val('');
+                    document.getElementById('my-password').style.display = 'none';
+                    $('#change-danger').css('display', 'inline-block');
                 }
             })
         }else{
-            alert('Mật khẩu xác nhận ko khớp');
+            toastr["error"]("Mật khẩu xác nhận ko khớp", "Lỗi");
         }
    
     })
