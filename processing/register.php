@@ -1,5 +1,10 @@
 <?php
 
+// validate phone number
+function isDigits(string $s, int $minDigits = 9, int $maxDigits = 10): bool {
+    return preg_match('/^[0-9]{'.$minDigits.','.$maxDigits.'}\z/', $s);
+}
+
 require "../public/connect_sql.php";
 
 $name_user = htmlspecialchars($_POST['name_user']);
@@ -7,17 +12,31 @@ $email_user = htmlspecialchars($_POST['email_user']);
 $phone_number_user = htmlspecialchars($_POST['phone_number_user']);
 $password_user = htmlspecialchars($_POST['password_user']);
 
-$sql = "SELECT * FROM `user` WHERE `email_user` = '$email_user'";
+$requested = true;
 
-$check_email = mysqli_query($connection, $sql);
-$check_email = mysqli_fetch_array($check_email);
+if (($name_user == "") || ($email_user == "") || ($phone_number_user == "") || ($password_user == "")) {
+    echo "2";
+    $requested = false;
+}else if (!filter_var($email_user, FILTER_VALIDATE_EMAIL)) {
+    echo "0";
+    $requested = false;
+}else if(isDigits($phone_number_user)) {
+    echo "1";
+    $requested = false;
+}else  {
+    $sql = "SELECT * FROM `user` WHERE `email_user` = '$email_user'";
+    $check_email = mysqli_query($connection, $sql);
+    $check_email = mysqli_fetch_array($check_email);
+    if (isset($check_email['id_user'])){
+        echo "0";
+        $requested = false;
+    }
+}
 
-if (isset($check_email['id_user'])) {
-    echo "0" ;
-}else{
+if ($requested == true) {
     $sql = "INSERT INTO `user` (name_user,email_user,phone_number_user,password)
             VALUES ('$name_user','$email_user','$phone_number_user','$password_user')";
     mysqli_query($connection, $sql);
     mysqli_close($connection);
-    echo "1" ;
+    echo "3" ;
 }

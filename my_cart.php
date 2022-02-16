@@ -15,6 +15,7 @@ if (isset($_SESSION['lever'])) {
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/my_cart.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 </head>
 
 <body>
@@ -139,6 +140,7 @@ if (isset($_SESSION['cart'])) {
 </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script type="text/javascript" src="./script/my_cart.js"></script>
 </body>
 </html>

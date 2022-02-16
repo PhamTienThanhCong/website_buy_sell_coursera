@@ -16,8 +16,13 @@ $course = mysqli_query($connection, $sql);
 $course = mysqli_fetch_array($course);
 
 mysqli_close($connection);
-$_SESSION['cart'][$id]['name'] = $course['name_course'];
-$_SESSION['cart'][$id]['author'] = $course['author'];
-$_SESSION['cart'][$id]['price'] = $course['price'];
-$_SESSION['cart'][$id]['lesson'] = $course['lesson'];
 
+if (isset($course['name_course'])){
+        $_SESSION['cart'][$id]['name'] = $course['name_course'];
+        $_SESSION['cart'][$id]['author'] = $course['author'];
+        $_SESSION['cart'][$id]['price'] = $course['price'];
+        $_SESSION['cart'][$id]['lesson'] = $course['lesson'];
+        echo 1;
+}else{
+        echo 0;
+}

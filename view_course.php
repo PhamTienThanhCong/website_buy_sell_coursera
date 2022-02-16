@@ -68,6 +68,7 @@ $all_comments = mysqli_query($connection, $sql);
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/view_course.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 </head>
 <style>
 
@@ -226,8 +227,26 @@ $all_comments = mysqli_query($connection, $sql);
 <div class="tab-right"></div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
         $("#btn-logout").click(function () {
             $.ajax({
                 type: "GET",
@@ -247,13 +266,18 @@ $all_comments = mysqli_query($connection, $sql);
                 data: {id},
                 // dataType: "dataType",
                 success: function (response) {
-
-                }
-            });
-            $(this).html(`<a class='btn' href="./my_cart.php">  
+                    if (response == '1'){
+                        $('.btn-add-to-cart').html(`<a class='btn' href="./my_cart.php">  
                             <i class='bx bxs-credit-card'></i>
                             Thanh toán ngay
                         </a>`);
+                        toastr["success"]("Đặt hàng thành công");
+                    }else{
+                        toastr["error"]("Đặt hàng thất bại", "Lỗi")
+                    }
+                }
+            });
+            
         })
         var rate = $('.rate-overview').data('rate');
         var id_rate = '#star' + rate + '';

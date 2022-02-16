@@ -27,6 +27,24 @@ const totalPrice = () => {
 }
 
 $(document).ready(function () {
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": true,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    
     $('#stk').html("Số tài khoản: " + Math.floor(Math.random() * 100000) + "" + Math.floor(Math.random() * 100000));
 
     $('.input-check').change(function () {
@@ -59,7 +77,7 @@ $(document).ready(function () {
             data: {id},
             // dataType: "dataType",
             success: function (response) {
-
+                toastr["info"]("Xóa sản phẩm thành công", "Thông báo");
             }
         });
 
@@ -123,6 +141,7 @@ function checkCourse(){
             }
             checkNullCart()
             // alert(ThongBao)
+            toastr["warning"](ThongBao,"Cảnh báo");
         }
     })
     

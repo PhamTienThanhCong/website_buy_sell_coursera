@@ -17,6 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Đăng nhập</title>
   <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 </head>
 
 <style>
@@ -72,7 +73,7 @@
             <p class="waning hidden" id="alert-login">Email bạn nhập không hợp lệ</p>
               <div class="input-box">
                 <i class='bx bx-mail-send'></i>
-                <input name="email_user" type="email" placeholder="Email" required>
+                <input id="email-login" name="email_user" type="email" placeholder="Email" required>
               </div>
 
               <div class="input-box">
@@ -107,12 +108,12 @@
 
               <div class="input-box">
                 <i class='bx bx-mail-send'></i>
-                <input name="email_user" type="email" placeholder="Email" required>
+                <input id="email-register" name="email_user" type="email" placeholder="Email" required>
               </div>
 
               <div class="input-box">
                 <i class='bx bx-phone'></i>
-                <input name="phone_number_user" type="text" placeholder="Số điện thoại" required>
+                <input id="phone-number-register" name="phone_number_user" type="text" placeholder="Số điện thoại" required>
               </div>
 
               <div class="input-box">
@@ -132,5 +133,6 @@
   </div>
 </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
   <script type="text/javascript" src="./script/login_register.js"></script>
 </html>
