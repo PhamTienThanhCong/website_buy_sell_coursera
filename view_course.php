@@ -74,6 +74,14 @@ $all_comments = mysqli_query($connection, $sql);
 
 </style>
 <body>
+<input id="alert-rate" type="hidden" value="<?php 
+    if (isset($_SESSION['alert'])){ 
+        echo $_SESSION['alert']; 
+        unset($_SESSION['alert']);
+    } else {
+        echo 2;
+    }
+    ?>">
 <?php require "./default/header.php" ?>
 <!-- content -->
 
@@ -258,6 +266,11 @@ $all_comments = mysqli_query($connection, $sql);
             });
             document.getElementById("click_home").click()
         })
+        if ($("#alert-rate").val() == "1"){
+            toastr["success"]("Đánh giá thành công");
+        }else if($("#alert-rate").val() == "0"){
+            toastr["error"]("Không thể đánh giá ngoài 1-5", "Cảnh cáo");
+        }
         $(".btn-add-to-cart").click(function () {
             let id = $(this).data("id");
             $.ajax({

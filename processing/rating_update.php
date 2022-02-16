@@ -8,16 +8,21 @@
 
     require "../public/connect_sql.php";
 
-    $sql = "UPDATE
+    if ($rate > 0 && $rate <= 5){
+        $sql = "UPDATE
                 `oder`
             SET
                 `rate` = '$rate',
                 `comment` = '$comment'
             WHERE 
                 (`id_user` = '$id_user') AND (`id_course` = '$id_course')";
+        mysqli_query($connection, $sql);
 
-    mysqli_query($connection, $sql);
-
-    mysqli_close($connection);
+        mysqli_close($connection);
+        $_SESSION['alert'] = "1";
+    }else{
+        $_SESSION['alert'] = "0";
+    }
+    echo $comment;
 
     header("Location: ../view_course.php?id=$id_course#rate-form");
