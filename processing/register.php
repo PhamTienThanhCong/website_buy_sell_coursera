@@ -20,7 +20,7 @@ if (($name_user == "") || ($email_user == "") || ($phone_number_user == "") || (
 }else if (!filter_var($email_user, FILTER_VALIDATE_EMAIL)) {
     echo "0";
     $requested = false;
-}else if(isDigits($phone_number_user)) {
+}else if(!isDigits($phone_number_user)) {
     echo "1";
     $requested = false;
 }else  {

@@ -62,6 +62,10 @@
 </head>
 
 <body>
+    <?php if (isset($_SESSION['alert'])){
+        echo "<input id='alert-account' type='hidden' value='{$_SESSION['alert']}'>";
+        unset($_SESSION['alert']);
+    } ?>
     <?php require "./default/header.php"; ?>
     <div class=content>
         <h2 >
@@ -77,13 +81,13 @@
         </div>
         <form id="my-in4" method="post" action="./processing/my_account_update.php" enctype="multipart/form-data">
             <label for="">Tên tài khoản: </label>
-            <input name="name_user" class="input-in4" type="text" value="<?php echo $user['name_user']?>" readonly>
+            <input name="name_user" class="input-in4" type="text" value="<?php echo $user['name_user']?>" readonly required>
             <br>
             <label for="">Email đăng nhập: </label> 
-            <input name="email_user" class="input-in4" type="text" value="<?php echo $user['email_user']?>" readonly>
+            <input name="email_user" class="input-in4" type="text" value="<?php echo $user['email_user']?>" readonly required>
             <br>
             <label for="">Số điện thoại: </label>
-            <input name="phone_number_user" class="input-in4" type="text" value="<?php echo $user['phone_number_user']?>" readonly>
+            <input id="phone_number_check" name="phone_number_user" class="input-in4" type="text" value="<?php echo $user['phone_number_user']?>" readonly required>
             <br>
             <input type="hidden">
             <br>

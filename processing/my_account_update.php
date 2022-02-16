@@ -9,6 +9,11 @@ $phone_number_user = htmlspecialchars($_POST['phone_number_user']);
 $image = $_FILES['image_user'];
 $password = $_POST['password'];
 
+// validate phone number
+function isDigits(string $s, int $minDigits = 9, int $maxDigits = 10): bool {
+    return preg_match('/^[0-9]{'.$minDigits.','.$maxDigits.'}\z/', $s);
+}
+
 require "../public/connect_sql.php";
 
 $sql = "SELECT
@@ -21,7 +26,9 @@ $sql = "SELECT
 $check_password = mysqli_query($connection, $sql);
 $check_password = mysqli_fetch_array($check_password);
 
-if (isset($check_password['id_user'])){
+if (!isDigits($phone_number_user)){
+    $_SESSION['alert'] = '2';
+}elseif (isset($check_password['id_user'])){
     $fileImageName = $_SESSION['image'];
     if (basename($image["name"]) != ""){
     // thư mục lưu file
@@ -51,9 +58,9 @@ if (isset($check_password['id_user'])){
                 `id_user` = '$id_user' AND `password` = '$password'";
     mysqli_query($connection, $sql);
     $_SESSION['name'] = $name_user;
-    echo 1;
+    $_SESSION['alert'] = '1';
 }else{
-    echo 0;
+    $_SESSION['alert'] = '0';
 }
 
 header("Location: ../my_account.php");

@@ -6,6 +6,11 @@ var loadFile = function(event) {
     }
 };
 
+function validatePhoneNumber(input_str) {
+    var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+    return re.test(input_str);
+}
+
 $(document).ready(function() {
 
     toastr.options = {
@@ -33,9 +38,9 @@ $(document).ready(function() {
         // data: {id},
         // dataType: "dataType",
         success: function (response) {    
+            document.getElementById("click_home").click();
         }
     });
-        document.getElementById("click_home").click()
     })
 
     $('.btn-primary').click(function() {
@@ -43,13 +48,20 @@ $(document).ready(function() {
         content_submit = content_submit.replaceAll('readonly=', '');
         content_submit = content_submit.replaceAll('input-in4', 'input-in4 input-replace');
         content_submit = content_submit.replaceAll('<input type="hidden">','<label for="">Ảnh mới: </label><input type="file" id="file" name="image_user" class="input-image" onchange="loadFile(event)">')
-        content_submit = content_submit.replaceAll('<input name="passworld" type="hidden">',`<label for="">Mật khẩu: </label> <input class="input-in4 input-replace" type="password" name="password"> <br>`)
+        content_submit = content_submit.replaceAll('<input name="passworld" type="hidden">',`<label for="">Mật khẩu: </label> <input class="input-in4 input-replace" type="password" name="password" required> <br>`)
         content_submit = content_submit.replaceAll('class="btn btn-primary" type="button"', 'class="btn btn-danger" type="submit" ')
         content_submit = content_submit.replaceAll('Sửa đổi và bổ sung','Xác nhận và lưu lại')
         content_submit = content_submit.replaceAll('<button id="change-danger" class="btn btn-danger" type="button">Chỉnh sửa nâng cao</button>',' ')
-
         $('#my-in4').html(content_submit);
     })
+
+    if($('#alert-account').val() == '1'){
+        toastr["success"]("Thay đổi thôn tin cá nhân thành công", "Thành công");
+    }else if($('#alert-account').val() == '0'){
+        toastr["error"]("Thay đổi thôn tin thất bại", "Lỗi");
+    }else if($('#alert-account').val() == '2'){
+        toastr["error"]("Thay đổi thôn tin thất bại :)", "Lỗi Số điện thoại");
+    }
 
     $('#change-danger').click(function(){
         document.getElementById('my-password').style.display = 'inline-block';
@@ -86,25 +98,20 @@ $(document).ready(function() {
    
     })
 
-    // $('#my-in4').submit(function(event){
-        // event.preventDefault();
+    $('#my-in4').submit(function(event){
+        event.preventDefault();
 
-        // var file_data = $('#file').prop('files')[0];
+        var check = true;
 
-        // $.ajax({
-        //     type: "POST",
-        //     url: "./processing/my_account_update.php",
-        //     dataType: "html",
-        //     data: $(this).serializeArray(),
-        // })
-        
-        // .done(function(response){
-        //     if(response == '0'){
-        //         alert('Mật khẩu không đúng');
-        //     }else if(response == '1'){
-        //         document.getElementById('my-account-click').click();
-        //         $('#my-in4').submit();
-        //     }
-        // })
-    // })
+        if (validatePhoneNumber(document.getElementById("phone_number_check").value) == false){
+            console.log("sai")
+            toastr["error"]("Số điện thoại của bạn không đúng định dạng", "Lỗi Số Điện Thoại");
+            check = false;
+        }
+
+        if (check){
+            $('#my-in4').submit();
+        }
+       
+    })
 })
