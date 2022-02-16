@@ -5,11 +5,20 @@
   box-sizing: border-box;
 }
 body{
+  height: 100vh;
+  overflow: hidden;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+.content{
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
+
 .container{
   position: relative;
   max-width: 850px;

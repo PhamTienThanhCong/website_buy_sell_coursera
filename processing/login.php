@@ -9,7 +9,7 @@ require "../public/connect_sql.php";
 if (($user == "") || ($password == "")){
     echo "0";
 }else{
-    if (!filter_var($email_user, FILTER_VALIDATE_EMAIL)){
+    if (!filter_var($user, FILTER_VALIDATE_EMAIL)){
         echo "0";
     }else{
         $sql = "SELECT * FROM `user` WHERE `email_user` = '$user' and `password` = '$password'";
