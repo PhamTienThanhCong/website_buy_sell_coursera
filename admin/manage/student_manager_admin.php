@@ -1,5 +1,5 @@
 <?php
-    require "../check_admin/check_admin_1.php";
+require "../check_admin/check_admin_1.php";
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -74,7 +74,8 @@ require "../default/option.php"
                                     <?php if ($st['image_user'] == "null") { ?>
                                         <img width="100" src="../../public/images/default/avata.png" alt="">
                                     <?php } else { ?>
-                                        <img width="100" src="../../public/images/upload/<?php echo $st['image_user'] ?>"
+                                        <img width="100"
+                                             src="../../public/images/upload/<?php echo $st['image_user'] ?>"
                                              alt="">
                                     <?php } ?>
                                 </th>
@@ -91,7 +92,11 @@ require "../default/option.php"
                                     <?php echo $st['count(*)'] ?>
                                 </th>
                                 <th>
-                                    Random string ra password mới gửi mail cho người dùng
+                                    <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+                                    <form method="post" action="../../processing/password_forgot.php" target="dummyframe">
+                                        <input type="hidden" name="email" value="<?php echo $st['email_user'] ?>">
+                                        <button id="resetpass<?php echo $st['id_user'] ?>" type="submit" onclick="reset(<?php echo $st['id_user'] ?>)">Reset password</button>
+                                    </form>
                                 </th>
                             </tr>
                         <?php } ?>
@@ -105,6 +110,12 @@ require "../default/option.php"
 </section>
 
 <script type="text/javascript" src="./script/js_chung.js"></script>
+<script>
+    function reset(id){
+        Document.getElementById("resetpass"+id).innerHTML = "Reseted password";
+        Document.getElementById("resetpass"+id).getAttribute("type") = "none";
+    }
+</script>
 
 </body>
 
