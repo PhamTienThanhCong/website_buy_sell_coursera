@@ -60,53 +60,7 @@
 </style>
 
 <body>
-    <header>
-        <h2>Shop mua khóa học chẳng hạn</h2>
-        <form method="get" action="./index.php">
-            <div id="search">
-                <i class='search bx bx-search'></i>
-                <input type="text" name="search" placeholder="Tìm kiếm khóa học mà bạn thích">
-            </div>
-        </form>
-        <div class=user>
-            <a class="user-a" id="back-home" href="./index.php">Trang chủ</a>
-        </div>
-    </header>
-
-    <div class="hinder"></div>
-
-    <div class="container-main">
-        <ul class="menu-select">
-            <li id="home">
-                <a id="click_home" href="./index.php">
-                    <i class='bx bxs-home'></i>
-                    <br>
-                    Trang chủ
-                </a>
-            </li>
-            <li id="my-sourse">
-                <a href="./my_course.php">
-                    <i class='bx bxs-book-content'></i>
-                    <br>
-                    Khóa học
-                </a>
-            </li>
-            <li id="my-cart">
-                <a href="./my_cart.php">
-                    <i class='bx bxs-cart'></i>
-                    <br>
-                    Giỏ hàng
-                </a>
-            </li>
-            <li id="my-account">
-                <a id="my-account-click" href="./my_account.php">
-                    <i class='bx bxs-user'></i>
-                    <br>
-                    Tài khoản
-                </a>
-            </li>
-        </ul>
-        <div class="tab-left"></div>
+    <?php require "./default/header.php" ?>
         <div class=content>
             <div class="tab-content">
                 <h2>Lấy lại tài khoản của bạn</h2>
