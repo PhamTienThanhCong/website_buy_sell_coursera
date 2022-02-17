@@ -98,20 +98,20 @@ $(document).ready(function() {
    
     })
 
-    $('#my-in4').submit(function(event){
-        event.preventDefault();
+    // $('#my-in4').submit(function(event){
+    //     event.preventDefault();
 
-        var check = true;
+    //     var check = true;
 
-        if (validatePhoneNumber(document.getElementById("phone_number_check").value) == false){
-            console.log("sai")
-            toastr["error"]("Số điện thoại của bạn không đúng định dạng", "Lỗi Số Điện Thoại");
-            check = false;
-        }
+    //     if (validatePhoneNumber(document.getElementById("phone_number_check").value) == false){
+    //         console.log("sai")
+    //         toastr["error"]("Số điện thoại của bạn không đúng định dạng", "Lỗi Số Điện Thoại");
+    //         check = false;
+    //     }
 
-        if (check){
-            $('#my-in4').submit();
-        }
+    //     if (check){
+    //         $('#my-in4').submit();
+    //     }
        
-    })
+    // })
 })

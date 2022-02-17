@@ -124,7 +124,7 @@ if (isset($_SESSION['id'])) {
                     <label for="remeber">Ghi nhớ đăng nhập</label>
                   </div>
                   <br>
-                  <div class="text"><a href="#">Quên mật khẩu?</a></div>
+                  <div class="text"><a href="./forgot_password.php">Quên mật khẩu?</a></div>
                   <div class="button input-box" style="margin-top: 28px;">
                     <input type="submit" value="Đăng nhập">
                   </div>
