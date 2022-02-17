@@ -29,8 +29,8 @@ function mail_send_by_cong($email,$name,$title,$content){
         $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = 'congj2school@gmail.com';                     //SMTP username
-        $mail->Password   = 'Ph@mCongJ2School';                               //SMTP password
+        $mail->Username   = 'grup59j2school@gmail.com';                     //SMTP username
+        $mail->Password   = 'Ph@mtienthanhcong1234';                          //SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
         $mail->SMTPSecure = "tls";
