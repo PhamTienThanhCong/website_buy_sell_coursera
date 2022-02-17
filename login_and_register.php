@@ -107,9 +107,9 @@ if (isset($_SESSION['id'])) {
             <div class="login-form">
               <div class="title">Đăng nhập</div>
               <form id="login-form" method="POST" action="./processing/login.php">
-                <div class="input-boxes">
-                  <p class="waning hidden" id="alert-login">Email bạn nhập không hợp lệ</p>
-                  <div class="input-box">
+                  <div class="input-boxes">
+                      <p class="waning hidden" id="alert-login">Email bạn nhập không hợp lệ</p>
+                      <div class="input-box">
                     <i class='bx bx-mail-send'></i>
                     <input id="email-login" name="email_user" type="email" placeholder="Email" required>
                   </div>

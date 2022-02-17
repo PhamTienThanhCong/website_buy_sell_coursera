@@ -115,6 +115,14 @@
 
 
                                 <form id="user-in4" method="post" action="./processing/employee_edit.php" enctype="multipart/form-data">
+                                    <?php
+                                    if (empty($_SESSION['alert']) == false) {
+
+                                        echo $_SESSION['alert'];
+                                        unset($_SESSION['alert']);
+                                        echo "<br>";
+                                    }
+                                    ?>
                                     <label for="name">Tên: </label>
                                     <input type="text" id="name" name="name_admin" value="<?php echo $admin['name_admin'] ?>" readonly>
                                     <br>

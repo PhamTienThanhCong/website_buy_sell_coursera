@@ -3,8 +3,18 @@
 session_start();
 
 $name_admin = htmlspecialchars($_POST['name_admin']);
-$email_admin = htmlspecialchars($_POST['email_admin']);
-$phone_number_admin = htmlspecialchars($_POST['phone_number_admin']);
+$email_admin = $_POST['email_admin'];
+if (!filter_var($email_admin, FILTER_VALIDATE_EMAIL)){
+    $_SESSION['alert'] = "Email không hợp lệ";
+    header("Location: ../register.php");
+    exit();
+}
+$phone_number_admin = $_POST['phone_number_admin'];
+if (preg_match("/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/",$phone_number_admin)!=1){
+    $_SESSION['alert'] = "Số điện thoại không hợp lệ";
+    header("Location: ../register.php");
+    exit();
+}
 $address_admin = htmlspecialchars($_POST['address_admin']);
 $password = htmlspecialchars($_POST['password']);
 $image = $_FILES['image'];

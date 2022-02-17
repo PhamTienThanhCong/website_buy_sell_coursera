@@ -3,6 +3,10 @@
 session_start();
 
 $email = htmlspecialchars($_POST['email']);
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+    $_SESSION['alert'] = "Email không hợp lệ";
+    header("Location: ../login.php");
+}
 $password = htmlspecialchars($_POST['password']);
 
 require "../../public/connect_sql.php";
