@@ -1,10 +1,25 @@
 <?php
 
 session_start();
-
+require "../public/connect_sql.php";
 $id_user = htmlspecialchars($_SESSION['id']);
 $name_user = htmlspecialchars($_POST['name_user']);
-$email_user = htmlspecialchars($_POST['email_user']);
+$email_user = $_POST['email_user'];
+if (!filter_var($email_user, FILTER_VALIDATE_EMAIL)){
+    $_SESSION['alert'] = "3";
+    header("Location: ../my_account.php");
+}
+$sql = "SELECT
+            *
+        FROM
+            `user`
+        WHERE
+            `email_user` = '$email_user'";
+$check_email = mysqli_query($connection, $sql);
+if(mysqli_num_rows($check_email)!=0){
+    $_SESSION['alert'] = "3";
+    header("Location: ../my_account.php");
+}
 $phone_number_user = htmlspecialchars($_POST['phone_number_user']);
 $image = $_FILES['image_user'];
 $password = $_POST['password'];
@@ -14,7 +29,7 @@ function isDigits(string $s,): bool {
     return preg_match("/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/", $s);
 }
 
-require "../public/connect_sql.php";
+
 
 $sql = "SELECT
             *
@@ -28,6 +43,7 @@ $check_password = mysqli_fetch_array($check_password);
 
 if (!isDigits($phone_number_user)){
     $_SESSION['alert'] = '2';
+    header("Location: ../my_account.php");
 }elseif (isset($check_password['id_user'])){
     $fileImageName = $_SESSION['image'];
     if (basename($image["name"]) != ""){
@@ -59,8 +75,10 @@ if (!isDigits($phone_number_user)){
     mysqli_query($connection, $sql);
     $_SESSION['name'] = $name_user;
     $_SESSION['alert'] = '1';
+    header("Location: ../my_account.php");
 }else{
     $_SESSION['alert'] = '0';
+    header("Location: ../my_account.php");
 }
 
 header("Location: ../my_account.php");

@@ -61,6 +61,9 @@ $(document).ready(function() {
         toastr["error"]("Thay đổi thôn tin thất bại", "Lỗi");
     }else if($('#alert-account').val() == '2'){
         toastr["error"]("Thay đổi thôn tin thất bại :)", "Lỗi Số điện thoại");
+    else
+        if ($('#alert-account').val() == '3') {
+            toastr["error"]("Thay đổi thôn tin thất bại :)", "Lỗi email");
     }
 
     $('#change-danger').click(function(){
