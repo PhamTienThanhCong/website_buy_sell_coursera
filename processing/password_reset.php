@@ -3,13 +3,26 @@
         header("Location: ./index.php");
     }
     $token = $_GET['token'];
+    $type = $_GET['type'];
     require "../public/connect_sql.php";
     
     $sql = "SELECT * FROM `user` WHERE `token_user`='$token'";
     $check = mysqli_query($connection, $sql);
     $check = mysqli_fetch_array($check);
+
     if(!isset($check['token_user'])){
         header("Location: ./index.php");
+    }
+
+    if ($type == '0'){
+        $sql = "UPDATE
+                `user`
+            SET
+                `token_user` = ''
+            WHERE
+                `id_user` = '{$check['id_user']}'";
+
+        mysqli_query($connection, $sql);
     }
 
 ?>
@@ -82,6 +95,19 @@
 
     </header>
     <div class="new-password">
+        <?php if($type == '0'){ ?>
+            <div id="cart-reset-password">
+                <h2>
+                    Đặt lại mật khẩu của Bạn 
+                </h2>
+                <br>
+                <p>
+                    cảm ơn bạn đã báo cáo! <br>bạn nên đổi lại mật khẩu và email của mình.
+                </p>
+                <br>
+                <a class="btn-reset" href="../login_and_register.php">Quay lại đăng nhập</a>
+            </div>
+        <?php } else { ?>
         <form id="cart-reset-password" method="post" action="">
             <h2>
                 Đặt lại mật khẩu của Bạn 
@@ -98,6 +124,7 @@
                 <button class="btn">Đặt mật khẩu mới</button>
             </div>
         </form>
+        <?php } ?>
     </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
