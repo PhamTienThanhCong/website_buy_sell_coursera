@@ -1,8 +1,8 @@
 <?php
 
 // validate phone number
-function isDigits(string $s, int $minDigits = 9, int $maxDigits = 10): bool {
-    return preg_match('/^[0-9]{'.$minDigits.','.$maxDigits.'}\z/', $s);
+function isDigits(string $s): bool {
+    return preg_match("/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/", $s);
 }
 
 require "../public/connect_sql.php";
