@@ -28,6 +28,7 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $user = $check['name_user'];
             $title = "Lấy lại tài khoản của bạn";
             $content = "Chào $user !<br> Chúng tôi gửi cho bạn link để lấy lại mật khẩu của bạn <a href='$CurPageURL?token=$token&type=1'>tại đây</a>.<br>Trong trường hợp bạn không yêu cầu reset password bạn sẽ ấn <a href='$CurPageURL?token=$token&type=0'>vào đây</a><br>Lưu ý link sẽ tự động hết hạn sau 24h <br>Cảm ơn";
+            mail_send_by_cong($email,$user,$title,$content);
         }
     }
 }
