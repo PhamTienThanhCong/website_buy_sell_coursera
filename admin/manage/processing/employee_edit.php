@@ -1,9 +1,22 @@
 <?php
 require "../../check_admin/check_admin_2.php";
+require "../../../public/connect_sql.php";
 $name_admin = htmlspecialchars($_POST['name_admin']);
 $email_admin = $_POST['email_admin'];
 if (!filter_var($email_admin, FILTER_VALIDATE_EMAIL)) {
     $_SESSION['alert'] = "Email không hợp lệ";
+    header("Location: ../my_account.php");
+    exit();
+}
+$sql = "SELECT
+            *
+        FROM
+            `admin`
+        WHERE
+            `admin_user` = '$email_admin'";
+$check_email = mysqli_query($connection, $sql);
+if(mysqli_num_rows($check_email)!=0){
+    $_SESSION['alert'] = "Email đã được sử dụng";
     header("Location: ../my_account.php");
     exit();
 }
@@ -16,7 +29,7 @@ if (preg_match("/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/",$ph
 $address_admin = htmlspecialchars($_POST['address_admin']);
 $image = $_FILES['image'];
 
-require "../../../public/connect_sql.php";
+
 
 $fileImageName = $_SESSION['image'];
 
