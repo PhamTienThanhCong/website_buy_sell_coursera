@@ -21,7 +21,7 @@ $sql = "SELECT
         FROM
             `user`
         WHERE
-            `id_user` = '4' AND `password` = '$password'";
+            `id_user` = '$id_user' AND `password` = '$password'";
 
 $check_password = mysqli_query($connection, $sql);
 $check_password = mysqli_fetch_array($check_password);
