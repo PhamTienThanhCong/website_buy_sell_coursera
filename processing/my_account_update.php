@@ -8,6 +8,7 @@ $email_user = $_POST['email_user'];
 if (!filter_var($email_user, FILTER_VALIDATE_EMAIL)){
     $_SESSION['alert'] = "3";
     header("Location: ../my_account.php");
+    exit();
 }
 $sql = "SELECT
             *
@@ -19,6 +20,7 @@ $check_email = mysqli_query($connection, $sql);
 if(mysqli_num_rows($check_email)!=0){
     $_SESSION['alert'] = "3";
     header("Location: ../my_account.php");
+    exit();
 }
 $phone_number_user = htmlspecialchars($_POST['phone_number_user']);
 $image = $_FILES['image_user'];
