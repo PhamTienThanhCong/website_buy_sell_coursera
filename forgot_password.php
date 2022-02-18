@@ -123,4 +123,5 @@
             // })
         })
     </script>
+<?php include "footer.php" ?>
 </html>

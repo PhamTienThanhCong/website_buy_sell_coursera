@@ -142,5 +142,6 @@ if (isset($_SESSION['cart'])) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script type="text/javascript" src="./script/my_cart.js"></script>
+<?php include "footer.php" ?>
 </body>
 </html>

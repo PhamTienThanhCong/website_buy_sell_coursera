@@ -1,11 +1,14 @@
 <header>
     <h2>Shop mua khóa học chẳng hạn</h2>
-    <form method="get" action="">
         <div id="search">
             <i class='search bx bx-search'></i>
-            <input type="text" name="search" placeholder="Tìm kiếm khóa học mà bạn thích">
+            <input type="text" name="search" id="project" placeholder="Tìm kiếm khóa học mà bạn thích" onkeyup="showResult(this.value)">
+            <input type="hidden" id="project-id">
         </div>
-    </form>
+        <div id="project-label"></div>
+        <img id="project-icon" src="" class="ui-state-default" alt>
+
+        <p id="project-description"></p>
     <?php if (isset($_SESSION['name'])) { ?>
         <div class='user-login'>
             <div class='user-avatar'>
