@@ -16,7 +16,7 @@
                     document.getElementById("live-search").innerHTML = "";
                     for (let i = 0; i < demo.length ; i++) {
                         document.getElementById("live-search").innerHTML += `
-                        <a href="`+ url +`/view_course.php?id=`+ demo[i].id +`" class="live-search-name">
+                        <a href="`+ url +`website/view_course.php?id=`+ demo[i].id +`" class="live-search-name">
                             <h3>
                                 ` + demo[i].name + `
                             </h3>
