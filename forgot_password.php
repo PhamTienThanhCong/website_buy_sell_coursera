@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forgot password</title>
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="css/fonts/ionicons.min.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 </head>
@@ -79,6 +80,7 @@
             </div>
         </div>
     </div>
+    <?php include "footer.php" ?>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
@@ -123,5 +125,5 @@
             // })
         })
     </script>
-<?php include "footer.php" ?>
+
 </html>

@@ -1,9 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-header{
+
+header {
     width: 100%;
     height: 60px;
     box-shadow: rgb(0 0 0 / 7%) 0px 2px 10px;
@@ -14,15 +15,18 @@ header{
     background-color: white;
     z-index: 1;
 }
-.hinder{
+
+.hinder {
     height: 80px;
     width: 100%;
 }
-header h2{
+
+header h2 {
     display: inline-block;
     margin-left: 20px;
 }
-#search{
+
+#search {
     width: 400px;
     height: 43px;
     border-radius: 20px;
@@ -33,7 +37,7 @@ header h2{
     margin-top: -33px;
 }
 
-#live-search{
+#live-search {
     width: 400px;
     max-height: 350px;
     background-color: #f2f2f2;
@@ -44,7 +48,7 @@ header h2{
     display: none;
 }
 
-.live-search-name{
+.live-search-name {
     width: 100%;
     padding: 5px;
     border: 1px solid #ccc;
@@ -53,7 +57,7 @@ header h2{
     display: inline-block;
 }
 
-#project{
+#project {
     width: 100%;
     height: 100%;
     display: inline-block;
@@ -65,7 +69,7 @@ header h2{
     font-family: 'Times New Roman', Times, serif;
 }
 
-#search i{
+#search i {
     display: inline-block;
     position: absolute;
     top: 12px;
@@ -73,31 +77,35 @@ header h2{
     font-size: 18px;
 }
 
-.user,.user-login{
+.user, .user-login {
     display: inline-block;
     position: absolute;
     right: 50px;
     top: 20px;
 }
-.user-a{
+
+.user-a {
     text-decoration: none;
     padding: 10px 15px;
     background-color: #ccc;
     border-radius: 10px;
 }
 
-.menu-select{
+.menu-select {
     width: 100px;
     height: 500px;
     position: fixed;
 }
-.tab-left{
+
+.tab-left {
     width: 100px;
 }
-.tab-right{
+
+.tab-right {
     width: 20px;
 }
-li{
+
+li {
     width: 72px;
     height: 72px;
     margin: auto;
@@ -111,29 +119,32 @@ li{
     font-size: 15px;
     transition: all 0.3s;
 }
-ul li a{
+
+ul li a {
     text-decoration: none;
     color: black;
 }
+
 ul li a i {
     font-size: 22px;
 }
 
-li:hover{
+li:hover {
     background-color: #f7f7f7
 }
 
-.container{
+.container {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
 }
-.content{
+
+.content {
     width: calc(100% - 100px);
     float: left;
 }
 
-.user-login{
+.user-login {
     background-color: #f2f2f2;
     height: 35px;
     transform: translateY(-14px);
@@ -144,30 +155,34 @@ li:hover{
     border: 1.5px solid #ccc;
     cursor: pointer;
 }
-.user-avatar{
+
+.user-avatar {
     width: 40px;
     height: 40px;
     border-radius: 9px;
     overflow: hidden;
     display: inline-block;
 }
-.user-avatar img{
+
+.user-avatar img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;  
+    object-position: center;
 }
-.user-name{
+
+.user-name {
     display: inline-block;
     font-size: 18px;
     transform: translateY(-14px);
     margin-left: 3px;
 }
-.user-login:hover .sub-nav-user{
+
+.user-login:hover .sub-nav-user {
     display: block;
 }
 
-.sub-nav-user{
+.sub-nav-user {
     width: 160px;
     height: auto;
     background-color: white;
@@ -179,19 +194,107 @@ li:hover{
     transition: all 0.5s;
     display: none;
 }
-.sub-nav{
+
+.sub-nav {
     width: 160px;
     padding: 0;
     height: 40px;
     border-radius: 0;
     margin: 0;
 }
-.sub-nav a{
+
+.sub-nav a {
     padding: 0
 }
 
-/* footer{
+.container2 {
     width: 100%;
-    height: 400px;
-    background-color: #ccc;
-} */
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+}
+
+.col{
+    width: 50%;
+    float: left;
+}
+.row{
+    width: 100%;
+    margin:auto;
+    padding-left: 1em;
+    padding-right: 1em;
+    display: block;
+}
+
+.footer-clean {
+    padding: 50px 0;
+    background-color: #fff;
+    color: #4b4c4d;
+}
+
+.footer-clean h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.footer-clean ul {
+    padding: 0;
+    list-style: none;
+    line-height: 1.6;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.footer-clean ul a {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.footer-clean ul a:hover {
+    opacity: 1;
+}
+
+.footer-clean .item.social {
+    text-align: right;
+}
+
+
+.footer-clean .item.social {
+    text-align: center;
+}
+
+
+.footer-clean .item.social > a {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+    margin-top: 22px;
+    color: inherit;
+    opacity: 0.75;
+}
+
+.footer-clean .item.social > a:hover {
+    opacity: 0.9;
+}
+
+
+.footer-clean .item.social > a {
+    margin-top: 40px;
+}
+
+.footer-clean .copyright {
+    margin-top: 14px;
+    margin-bottom: 0;
+    font-size: 13px;
+    opacity: 0.6;
+}

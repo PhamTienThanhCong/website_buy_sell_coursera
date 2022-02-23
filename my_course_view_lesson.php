@@ -90,6 +90,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="css/fonts/ionicons.min.css">
     <link rel="stylesheet" href="./css/my_course_view_lesson.css">
     <title>
         <?php 

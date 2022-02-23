@@ -16,6 +16,7 @@
     <title>Khóa học của tôi</title>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="css/fonts/ionicons.min.css">
     <link rel="stylesheet" href="./css/index.css">
 </head>
 <style>

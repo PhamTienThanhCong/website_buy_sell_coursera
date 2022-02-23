@@ -8,6 +8,7 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="css/fonts/ionicons.min.css">
     <title>Trang chủ</title>
 </head>
 
@@ -88,13 +89,11 @@
     </div>
     <div class="tab-right"></div>
     </div>
-    <footer>
-
-    </footer>
+    <?php include "footer.php" ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="./script/index.js"></script>
     <script type="text/javascript" src="./script/all.js" ></script>
-    <?php include "footer.php" ?>
+
 </body>
 
 </html>

@@ -56,6 +56,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tài khoản của tôi</title>
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="css/fonts/ionicons.min.css">
     <link rel="stylesheet" href="./css/my_account.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
