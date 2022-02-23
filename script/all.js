@@ -1,8 +1,7 @@
 // $(document).ready(function(){
     var demo;
     function showResult(){
-        url = document.URL;
-        url = url.split('website')[0]
+
         let result_search = document.getElementById("project").value;
         if (result_search.length > 0) {
             document.getElementById("live-search").style.display="block";
@@ -16,7 +15,7 @@
                     document.getElementById("live-search").innerHTML = "";
                     for (let i = 0; i < demo.length ; i++) {
                         document.getElementById("live-search").innerHTML += `
-                        <a href="`+ url +`website/view_course.php?id=`+ demo[i].id +`" class="live-search-name">
+                        <a href="./view_course.php?id=`+ demo[i].id +`" class="live-search-name">
                             <h3>
                                 ` + demo[i].name + `
                             </h3>
