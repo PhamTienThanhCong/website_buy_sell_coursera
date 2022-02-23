@@ -1,14 +1,15 @@
 <header>
     <h2>Shop mua khóa học chẳng hạn</h2>
-        <div id="search">
+        <form autocomplete="off" id="search" method="get">
             <i class='search bx bx-search'></i>
-            <input type="text" name="search" id="project" placeholder="Tìm kiếm khóa học mà bạn thích" onkeyup="showResult(this.value)">
-            <input type="hidden" id="project-id">
-        </div>
-        <div id="project-label"></div>
-        <img id="project-icon" src="" class="ui-state-default" alt>
+            <input type="text" name="search" id="project" placeholder="Tìm kiếm khóa học mà bạn thích" onkeyup="showResult()">
+            <!-- <input type="hidden" id="project-id"> -->
+        </form>
+        <div id="live-search" class = "hidden-search">
 
-        <p id="project-description"></p>
+            
+
+        </div>
     <?php if (isset($_SESSION['name'])) { ?>
         <div class='user-login'>
             <div class='user-avatar'>

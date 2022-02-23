@@ -1,24 +1,44 @@
-
-$( "#project" ).autocomplete({
-    minLength: 1,
-    source: "../processing/livesearch.php",
-    focus: function( event, ui ) {
-        $( "#project" ).val( ui.item.label );
-        return false;
-    },
-    select: function( event, ui ) {
-        $( "#project" ).val( ui.item.label );
-        $( "#project-id" ).val( ui.item.value );
-        $( "#project-description" ).html( ui.item.desc );
-        $( "#project-icon" ).attr( "src", "public/images/upload" + ui.item.icon );
-
-        return false;
+// $(document).ready(function(){
+    var demo;
+    function showResult(){
+        url = document.URL;
+        url = url.split('website')[0]
+        let result_search = document.getElementById("project").value;
+        if (result_search.length > 0) {
+            document.getElementById("live-search").style.display="block";
+            $.ajax({
+                type: "POST",
+                url: "./processing/live_search_result.php",
+                data: {result_search},
+                dataType: "json",
+                success: function (response) {
+                    demo = response
+                    document.getElementById("live-search").innerHTML = "";
+                    for (let i = 0; i < demo.length ; i++) {
+                        document.getElementById("live-search").innerHTML += `
+                        <a href="`+ url +`/view_course.php?id=`+ demo[i].id +`" class="live-search-name">
+                            <h3>
+                                ` + demo[i].name + `
+                            </h3>
+                            <p>
+                                Tác giả: `+ demo[i].author +`
+                            </p>
+                            <p>
+                                Giá: `+ demo[i].price + `
+                            </p>
+                        </a>
+                        `
+                    }
+                    if (demo.length == 0){
+                        document.getElementById("live-search").innerHTML = "";
+                        document.getElementById("live-search").style.display="none";
+                    }
+                }
+            });
+        }else{
+            document.getElementById("live-search").style.display="none";
+        }
+        
+        // console.log(result_search)
     }
-})
-    .autocomplete( "instance" )._renderItem = function( ul, item ) {
-    return $( "<li>" )
-        .append( "<div>" + item.label + "<br>" + item.desc + "</div>" )
-        .appendTo( ul );
-};
-} );
-</script>
+// })

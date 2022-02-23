@@ -93,6 +93,7 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="./script/index.js"></script>
+    <script type="text/javascript" src="./script/all.js" ></script>
     <?php include "footer.php" ?>
 </body>
 
