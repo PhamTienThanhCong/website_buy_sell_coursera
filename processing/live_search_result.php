@@ -16,7 +16,7 @@ $sql = "SELECT
         FROM
             `course`
         WHERE
-            name_course LIKE '%$str%'";
+            name_course LIKE '%$str%' and status_course = 1";
 
 require "../public/connect_sql.php";
 

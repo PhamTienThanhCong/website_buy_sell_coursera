@@ -66,7 +66,7 @@ require "../default/option.php"
                             <th>Tên</th>
                             <th>email</th>
                             <th>Số điện thoại</th>
-                            <th>Số kóa học đã đăng kí</th>
+                            <th>Số khóa học đã đăng kí</th>
                             <th>Reset Password</th>
                         </tr>
                         <?php foreach ($user as $st) { ?>
