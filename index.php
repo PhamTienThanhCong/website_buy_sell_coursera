@@ -15,9 +15,11 @@
 <body>
     <?php
     session_start();
-    if (isset($_SESSION['lever'])){session_destroy();}
+    if (isset($_SESSION['lever'])) {
+        session_destroy();
+    }
     $search = "";
-    if (isset($_GET["search"])){
+    if (isset($_GET["search"])) {
         $search = $_GET["search"];
     }
     if (!function_exists('currency_format')) {
@@ -42,7 +44,7 @@
 
         <div class="all-course">
             <h2 style="width: 100%">
-                <?php if($search != ""){
+                <?php if ($search != "") {
                     echo "Tìm kiếm kết quả cho $search";
                 } else {
                     echo "Tất cả khóa học";
@@ -90,17 +92,9 @@
     <?php require "./default/footer.php" ?>
     <div class="tab-right"></div>
     </div>
-<<<<<<< HEAD
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="./script/index.js"></script>
-    <script type="text/javascript" src="./script/all.js" ></script>
-=======
-    <?php include "footer.php" ?>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="./script/index.js"></script>
-    <script type="text/javascript" src="./script/all.js" ></script>
-
->>>>>>> b262a903b27cadd0f7b6796e4471e63e49c83929
+    <script type="text/javascript" src="./script/all.js"></script>
 </body>
 
 </html>
