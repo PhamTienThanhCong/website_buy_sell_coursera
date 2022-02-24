@@ -298,3 +298,9 @@ li:hover {
     font-size: 13px;
     opacity: 0.6;
 }
+.row > * {
+  width: 100%;
+  max-width: 100%;
+}
+
+
