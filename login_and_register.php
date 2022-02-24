@@ -34,13 +34,13 @@ if (isset($_SESSION['id'])) {
 
 <body>
   <header>
-    <h2>Shop mua khóa học chẳng hạn</h2>
-    <form method="get" action="">
+    <h2>Shop Group 59</h2>
+    <div method="get" action="">
       <div id="search">
         <i class='search bx bx-search'></i>
-        <input type="text" name="search" placeholder="Tìm kiếm khóa học mà bạn thích">
+        <input id="project" type="text" name="search" placeholder="Tìm kiếm khóa học mà bạn thích">
       </div>
-    </form>
+    </div>
     <div class=user>
       <a class="user-a" id="back-home" href="./index.php">Trang chủ</a>
     </div>
@@ -48,28 +48,28 @@ if (isset($_SESSION['id'])) {
   <div class="hinder"></div>
   <div class="container-main">
     <ul class="menu-select">
-      <li id="home">
+      <li class="li-header" id="home">
         <a id="click_home" href="./index.php">
           <i class='bx bxs-home'></i>
           <br>
           Trang chủ
         </a>
       </li>
-      <li id="my-sourse">
+      <li class="li-header" id="my-sourse">
         <a href="./my_course.php">
           <i class='bx bxs-book-content'></i>
           <br>
           Khóa học
         </a>
       </li>
-      <li id="my-cart">
+      <li class="li-header" id="my-cart">
         <a href="./my_cart.php">
           <i class='bx bxs-cart'></i>
           <br>
           Giỏ hàng
         </a>
       </li>
-      <li id="my-account">
+      <li class="li-header" id="my-account">
         <a id="my-account-click" href="./my_account.php">
           <i class='bx bxs-user'></i>
           <br>
@@ -86,7 +86,7 @@ if (isset($_SESSION['id'])) {
         <p>mk: cong</p>
       </div>
       <div style="width: 60px"></div>
-      <div style="margin-top: -130px" class="container">
+      <div style="margin-top: -130px" class="container-login">
         <input type="checkbox" id="flip">
         <div class="cover">
           <div class="front">
@@ -171,9 +171,9 @@ if (isset($_SESSION['id'])) {
       </div>
     </div>
   </div>
+  <?php require "./default/footer.php" ?>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script type="text/javascript" src="./script/login_register.js"></script>
-<?php include "footer.php" ?>
 </html>

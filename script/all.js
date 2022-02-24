@@ -3,6 +3,8 @@
     function showResult(){
 
         let result_search = document.getElementById("project").value;
+        result_search = result_search.trim();
+        console.log(result_search.length);
         if (result_search.length > 0) {
             document.getElementById("live-search").style.display="block";
             $.ajax({
@@ -40,4 +42,8 @@
         
         // console.log(result_search)
     }
+    document.addEventListener("click", function(){
+        document.getElementById("live-search").innerHTML = "";
+        document.getElementById("live-search").style.display="none";
+    })
 // })

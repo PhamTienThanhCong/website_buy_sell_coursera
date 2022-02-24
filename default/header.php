@@ -1,6 +1,6 @@
 <header>
-    <h2>Shop mua khóa học chẳng hạn</h2>
-        <form autocomplete="off" id="search" method="get">
+    <h2>Shop Group 59 </h2>
+        <form autocomplete="off" id="search" method="get" action="./index.php">
             <i class='search bx bx-search'></i>
             <input type="text" name="search" id="project" placeholder="Tìm kiếm khóa học mà bạn thích" onkeyup="showResult()">
             <!-- <input type="hidden" id="project-id"> -->
@@ -45,28 +45,28 @@
 <div class="hinder"></div>
 <div class="container">
     <ul class="menu-select">
-        <li id="home">
+        <li class="li-header" id="home">
             <a id="click_home" href="./index.php">
                 <i class='bx bxs-home'></i>
                 <br>
                 Trang chủ
             </a>
         </li>
-        <li id="my-sourse">
+        <li class="li-header" id="my-sourse">
             <a href="./my_course.php">
                 <i class='bx bxs-book-content'></i>
                 <br>
                 Khóa học
             </a>
         </li>
-        <li id="my-cart">
+        <li class="li-header" id="my-cart">
             <a href="./my_cart.php">
                 <i class='bx bxs-cart'></i>
                 <br>
                 Giỏ hàng
             </a>
         </li>
-        <li id="my-account">
+        <li class="li-header" id="my-account">
             <a id="my-account-click" href="./my_account.php">
                 <i class='bx bxs-user'></i>
                 <br>

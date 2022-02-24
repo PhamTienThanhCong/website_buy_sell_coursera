@@ -116,6 +116,7 @@
             <div class="clear"></div>
         </div>
     </div>
+    <?php require "./default/footer.php" ?>
     <div class="tab-right"></div>
     </div>
 </body>
@@ -135,5 +136,5 @@
         })
     })
 </script>
-<?php include "footer.php" ?>
+<script type="text/javascript" src="./script/all.js" ></script>
 </html>

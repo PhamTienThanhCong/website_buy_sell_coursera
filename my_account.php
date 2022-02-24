@@ -172,11 +172,12 @@
         </div>
         
     </div>
+    <?php require "./default/footer.php" ?>
     <div class="tab-right"></div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script type="text/javascript" src="./script/my_account.js"></script>
-    <?php include "footer.php" ?>
+    <script type="text/javascript" src="./script/all.js" ></script>
 </body>
 </html>
