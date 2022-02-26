@@ -50,7 +50,7 @@
 
 | # | Tên | Kiểu dữ liệu | khóa | Chú Thích
 --- | --- | --- | --- |--- 
-| 1 | id_course | int | khóa chính | khiểu dữ liệu tự động tăng
+| 1 | id_lesson | int | khóa chính | khiểu dữ liệu tự động tăng
 | 2 | id_course | int | khóa ngoại | là khóa ngoại nối đến [bảng course]
 | 3 | name_lesson | varchar(100) | không | tên của bài học
 | 4 | link | varchar(50) | khum | là link để nhúng
@@ -85,11 +85,12 @@
 | # | Tên | Kiểu dữ liệu | khóa | Chú Thích
 --- | --- | --- | --- |--- 
 | 1 | id_lesson | int | khóa chính và khóa ngoại | khóa ngoại nối đến [bảng lesson] 
-| 2 | name_lesson | varchar(100) | không | tên của bài học
-| 3 | link | varchar(50) | khum | là link để nhúng
-| 4 | type_link | int | không | thể loại link nhúng(3 loại) <br> 1 = link youtube, 2 = link driver, 3 = all link
-| 5 | description_lesson | text | không | ghi mô tả về khóa học
-| 6 | action | varchar(7) | không | Ghi hành động muốn thực hiện <br> "update": cập nhập, và "delete": xóa
+| 2 | id_course | int | khóa ngoại | là khóa ngoại nối đến [bảng course]
+| 3 | name_lesson | varchar(100) | không | tên của bài học
+| 4 | link | varchar(50) | khum | là link để nhúng
+| 5 | type_link | int | không | thể loại link nhúng(3 loại) <br> 1 = link youtube, 2 = link driver, 3 = all link
+| 6 | description_lesson | text | không | ghi mô tả về khóa học
+| 7 | action | int | không | Ghi hành động muốn thực hiện <br> 0: mặc định,1: cập nhập, và -1: xóa
 
 ## Sơ đồ thực thể:
 ![alt text](https://raw.githubusercontent.com/PhamTienThanhCong/website_buy_sell_coursera/main/document/so_do.png)
