@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th2 15, 2022 lúc 01:11 AM
+-- Thời gian đã tạo: Th2 26, 2022 lúc 12:45 AM
 -- Phiên bản máy phục vụ: 5.7.33
 -- Phiên bản PHP: 7.4.19
 
@@ -45,7 +45,7 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id_admin`, `name_admin`, `email_admin`, `phone_number_admin`, `address_admin`, `image`, `status_admin`, `lever`, `password`) VALUES
 (4, 'Công phạm', 'congphamtienthanh@gmail.com', '0392524411', '30/4 hạ long, Quảng Ninh', 'Công phạm1641833277.jpg', 1, 1, 'cong'),
-(5, 'Mình là Công', 'congj2school@gmail.com', '396369332', 'Yên Nghĩa, Hà Đông, Hà Nội', 'Mình là Công1641832496.jpg', 1, 2, 'cong'),
+(5, 'Admin pro vip', 'congj2school@gmail.com', '396369332', 'Yên Nghĩa, Hà Đông, Hà Nội', 'Mình là Công1641832496.jpg', 1, 2, 'cong'),
 (8, 'cong j2sholl', 'cong.pttc@gmail.com', '936445789', '30/4 hạ long móng cái', 'none', 1, 1, 'cong'),
 (9, 'sinh vien pnk', '20010886@st.phenikaa-uni.edu.vn', '0396333541', 'yên nghĩa, hà đong', 'sinh vien pnk1641892120.png', -1, 1, 'cong'),
 (10, 'Cong Pham nhé', 'cong1234@gmail.com', '01354248302', 'yên nghĩa, hà đong', 'none', 0, 1, 'cong');
@@ -214,7 +214,7 @@ CREATE TABLE `oder` (
 
 INSERT INTO `oder` (`id_order`, `id_user`, `id_course`, `price_buy`, `rate`, `comment`, `created_at`) VALUES
 (13, 1, 15, 99000, 5, 'cái này xem hay lắm mọi người nên mua nha\r\n', '2022-01-21 06:09:02'),
-(14, 1, 14, 99000, 5, 'cái này xem hay lắm mọi người nên mua nha Nhưng mình vẫn đánh giá 1 sao thôi hihi\r\nĐợi bao giờ ra hết thì đánh 5 sao sau nha <3\r\n', '2022-01-21 06:09:02'),
+(14, 1, 14, 99000, 4, 'cái này hay\r\n', '2022-01-21 06:09:02'),
 (15, 1, 3, 99000, 5, 'Bài này hay nhưng mà ít quá giá mà có bạn nào hộ mình nhập data :))\r\n\r\n', '2022-01-21 06:09:02'),
 (16, 1, 17, 99000, 3, 'mới mua nên chưa biết thế nào đánh giá tạm 3 sao vây\r\n', '2022-01-22 00:58:04'),
 (19, 2, 3, 99000, 4, '                        Tình yêu thì muôn ngàn lối\r\nLàm sao để em tìm tới\r\nCứ bước qua một thời cảm thấy xa vời vợi\r\nNgười đâu có hay rằng em yêu người\r\nMà em không biết nói sao, quen biết bấy lâu\r\nTiếng ân tình em chưa dám trao\r\nNhiều khi em muốn nói ra nhưng khó biết bao\r\nVì em là con gái\r\nChưa từng ngỏ lời cùng ai\r\nTình này là tình vu vơ\r\nTình này là tình nhung nhớ\r\nĐêm đêm một mình em lặng lẽ với những giấc mơ\r\nEm mơ về anh rất nhiều từ khi vừa biết yêu\r\nTình này là tình xa xôi\r\nTình này là tình chưa tới\r\nChưa trao về anh nên chỉ mới biết ước mơ thôi\r\nƯớc mơ được có anh giờ đây để đừng tan theo khói mây\r\nTình yêu thì muôn ngàn lối\r\nLàm sao để em tìm tới\r\nCứ bước qua một thời\r\nCảm thấy xa vời vợi\r\nNgười đâu có hay rằng em yêu người\r\nMà em không biết nói sao, quen biết bấy lâu\r\nTiếng ân tình em chưa dám trao\r\nNhiều khi em muốn nói ra nhưng khó biết bao\r\nVì em là con gái\r\nChưa từng ngỏ lời cùng ai\r\nTình này là tình vu vơ\r\nTình này là tình nhung nhớ\r\nĐêm đêm một mình em lặng lẽ với những giấc mơ\r\nEm mơ về anh rất nhiều từ khi vừa biết yêu\r\nTình này là tình xa xôi\r\nTình này là tình chưa tới\r\nChưa trao về anh chỉ mới biết ước mơ thôi\r\nƯớc mơ được có anh giờ đây để đừng tan theo khói mây\r\nTình này là tình vu vơ\r\nTình này là tình nhung nhớ\r\nĐêm đêm một mình em lặng lẽ với những giấc mơ\r\nEm mơ về anh rất nhiều từ khi vừa biết yêu\r\nTình này là tình xa xôi\r\nTình này là tình chưa tới\r\nChưa trao về anh nên chỉ mới biết ước mơ thôi\r\nƯớc mơ được có anh giờ đây để đừng tan theo khói mây  \r\n\r\nYêu thầy nhiều <3\r\n                  ', '2022-01-22 19:56:17'),
@@ -358,10 +358,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `name_user`, `email_user`, `phone_number_user`, `image_user`, `password`, `token_user`) VALUES
-(1, 'Cong Pham nè', 'congpham@gmail.com', '0936933210', 'Cong Pham nè1642986810.jpg', 'cong', NULL),
-(2, 'Thiên an ', 'thienan@gmail.com', '0936933214', 'Thiên an 1642987204.jpg', 'cong', NULL),
-(3, 'Cong Pham', 'congphamtienthanh@gmail.com', '0396369665', 'null', 'cong', NULL),
-(4, 'Test lại', 'test@gmail.com', '0936933214', 'Test chăng1644249252.jpg', 'cong', NULL);
+(1, 'Công phạm nè', 'congpham@gmail.com', '0936933210', 'Cong Pham nè1642986810.jpg', 'cong', '68ab8e619170f7e26e71513c5e0a0019cf9a48f7'),
+(2, 'Thiên an ', 'thienan@gmail.com', '0936933214', 'Thiên an 1642987204.jpg', 'cong', ''),
+(3, 'Cong Pham', 'congphamtienthanh@gmail.com', '0396369665', 'null', 'cong', ''),
+(4, 'Test lại', 'cong.test@gmail.com', '0936933214', 'Test chăng1644249252.jpg', 'cong', '6dd54be6ed514e482b4bdd8294db799ac6fe7903');
 
 -- --------------------------------------------------------
 
@@ -381,7 +381,7 @@ CREATE TABLE `view_history` (
 
 INSERT INTO `view_history` (`id_user`, `id_course`, `view`) VALUES
 (1, 3, 1),
-(1, 14, 4),
+(1, 14, 35),
 (1, 15, 1),
 (1, 17, 1),
 (2, 3, 1),
