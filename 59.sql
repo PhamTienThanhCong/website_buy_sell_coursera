@@ -505,6 +505,8 @@ ALTER TABLE `oder`
 ALTER TABLE `view_history`
   ADD CONSTRAINT `view_history_ibfk_1` FOREIGN KEY (`id_course`) REFERENCES `course` (`id_course`),
   ADD CONSTRAINT `view_history_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
+ALTER TABLE `update_course`
+    ADD CONSTRAINT `update_course` foreign key (`id_course`) REFERENCES course (`id_course`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
