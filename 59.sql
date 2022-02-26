@@ -458,6 +458,8 @@ ALTER TABLE `admin`
 ALTER TABLE `course`
   MODIFY `id_course` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
+ALTER TABLE `update_course`
+    MODIFY `id_lesson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 --
 -- AUTO_INCREMENT cho bảng `lesson`
 --
