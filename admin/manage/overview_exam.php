@@ -91,7 +91,11 @@
                         print("<li>Số khóa học đã được phê duyệt của bạn: " . $tongPheDuyet."</li>");
                         
                         $tongDangCho = $tongKhoaHoc - $tongPheDuyet;
-                        print("<li>Số khóa học Đang chờ được phê duyệt của bạn: " . $tongDangCho ."</li>");
+                        print("<li>Số khóa học đang chờ được phê duyệt của bạn: " . $tongDangCho ."</li>");
+
+                        $result = mysqli_query($connection, "select count(*) as count from update_course where status_lesson!=0 and id_admin = '{$_SESSION["id"]}'");
+                        $choPheDuyet = mysqli_fetch_array($result)["count"];
+                        print("<li>Số tiết học đang chờ được phê duyệt của bạn: " . $choPheDuyet ."</li>");
 
                         $sql = "select count(*) as count from oder where id_course in (select id_course from course where status_course=1 and id_admin = '{$_SESSION["id"]}')";
                         $result = mysqli_query($connection, $sql);
