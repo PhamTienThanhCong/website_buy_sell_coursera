@@ -125,7 +125,7 @@ function edit_lesson(id, name_lesson, link, type, id_course) {
             <br>
             <label class="lable-input" for="">Mô tả về bài học:</label>
             <textarea class="textarea-lesson" name="description_lesson">`+description+`</textarea>
-            <button id="btn-lesson" onclick="">Thêm Bài học</button>
+            <button id="btn-lesson" onclick="">Lưu bài học</button>
         </form>
 
         <div class="preview-video" id="preview-video-edit">
