@@ -84,6 +84,11 @@
     </title>
 </head>
 <style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
     header .formSearch{
         position: absolute;
         top: 0;
@@ -191,6 +196,7 @@
             </div>
         </div>
     </div>
+    <?php require "../default/footer_user.php" ?>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </html>

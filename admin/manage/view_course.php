@@ -73,6 +73,14 @@ $all_comments = mysqli_query($connection, $sql);
     <link rel="stylesheet" href="../../css/view_course.css">
 </head>
 <style>
+    .home{
+        padding: 10px;
+    }
+    body{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
     header .formSearch{
         position: absolute;
         top: 0;
@@ -97,8 +105,7 @@ $all_comments = mysqli_query($connection, $sql);
 </style>
 <body>
 
-
-
+<div class="home">
 <div id="body-click">
 
 <?php require "../default/header_user.php" ?>
@@ -228,6 +235,10 @@ $all_comments = mysqli_query($connection, $sql);
 </div><?php } ?>
 
 </div>
+</div>
+
+
+<?php require "../default/footer_user.php" ?>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
