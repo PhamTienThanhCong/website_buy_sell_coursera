@@ -106,8 +106,7 @@ function edit_lesson(id, name_lesson, link, type, id_course) {
         </h3>
         <br>
         <form id="form-edit-lesson" method="post" action="./processing/course_edit_lesson.php">
-            <label class="lable-input" for="">Lưu tạm:</label>
-            <input type="checkbox" name="type" checked>
+            
             <input type="hidden" name="id_course" value="`+id_course+`" required="">
             <input type="hidden" name="id_lesson" value="`+id+`" required="">
             <label class="lable-input" for="">Tên bài học:</label>

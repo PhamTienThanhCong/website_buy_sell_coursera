@@ -120,8 +120,8 @@ require "../default/option.php"
                     <br>
                     <form id="form-add-lesson" method='post' action='./processing/course_add_lesson.php'>
                         <input type="hidden" name="id_course" value="<?php echo $id_course ?>" required>
-                        <label class="lable-input" for="">Lưu tạm:</label>
-                        <input type="checkbox" name="type" checked>
+                        <!-- <label class="lable-input" for="">Lưu tạm:</label>
+                        <input type="checkbox" name="type" checked> -->
                         <label class="lable-input" for="">Tên bài học:</label>
                         <input type="text" name="name_lesson" required>
                         <br>
@@ -241,8 +241,8 @@ require "../default/option.php"
         }
         $so_luong_trang_can_bo = ($trang - 1) * $so_luong_bai_1_trang;
 
-        $sql = "SELECT * FROM update_course WHERE id_course = '$id_course' ORDER BY id_lesson DESC
-                limit $so_luong_bai_1_trang offset $so_luong_trang_can_bo";
+        $sql = "SELECT * FROM update_course WHERE id_course = '$id_course'";
+        
         $lesson = mysqli_query($connection, $sql);
         ?>
 
@@ -258,27 +258,28 @@ require "../default/option.php"
                         <th>Tên bài học</th>
                         <th>Xem thử bài học</th>
                         <th>Mô tả</th>
-                        <th>Sửa</th>
-                        <th>Trạng thái</th>
-                        <th>Xóa</th>
+                        <th>Thể loại</th>
+                        <th>Hủy</th>
                     </tr>
                     <?php foreach ($lesson as $index => $ls) { ?>
                         <tr>
                             <th>
-                                <?php echo $courses['number_course'] - $so_luong_trang_can_bo - $index ?>
+                                <?php echo $index+1 ?>
                             </th>
                             <th>
                                 <?php echo $ls['name_lesson'] ?>
                             </th>
-                            <th id="video<?php echo $index + 1 ?>">
+                            <th id="video<?php echo $index + 10 ?>">
                                 <a class="button-show-video"
-                                   onclick="showVideo('<?php echo $ls['link'] ?>','<?php echo $ls['type_link'] ?>','<?php echo $index + 1 ?>')">Xem
-                                    ở đây</a>
+                                    onclick="showVideo('<?php echo $ls['link'] ?>','<?php echo $ls['type_link'] ?>','<?php echo $index + 10 ?>')">Xem
+                                    ở đây
+                                </a>
                                 <br>
                                 <br>
                                 <a class="button-show-video"
-                                   onclick="showVideo('<?php echo $ls['link'] ?>','<?php echo $ls['type_link'] ?>','0')">Xem
-                                    ở tab mới</a>
+                                    onclick="showVideo('<?php echo $ls['link'] ?>','<?php echo $ls['type_link'] ?>','0')">Xem
+                                    ở tab mới
+                                </a>
                             </th>
                             <th>
                                 <div class="tooltip">Xem
@@ -286,30 +287,20 @@ require "../default/option.php"
                                 </div>
                             </th>
                             <th>
-                                <p id="lesson<?php echo $ls['id_lesson'] ?>"
-                                   style="display:none;"><?php echo $ls['description_lesson'] ?></p>
-                                <?php if ($ls['status_lesson'] != -1) {?>
-                                <a href="#trang-trang"
-                                   onclick="edit_lesson(<?php echo $ls['id_lesson'] ?>,'<?php echo $ls['name_lesson'] ?>','<?php echo $ls['link'] ?>','<?php echo $ls['type_link'] ?>','<?php echo $ls['id_course'] ?>')">Sửa</a>
-                                <?php } ?>
+                                <?php
+                                    if ($ls['action'] == 1){
+                                        echo "Cập nhập";
+                                    } elseif ($ls['action'] == 2){
+                                        echo "Thêm mới";
+                                    } elseif ($ls['action'] == -1){
+                                        echo "Xóa";
+                                    }
+                                ?>
                             </th>
-                            <th><?php switch ($ls['status_lesson']) {
-                                    case -1 :
-                                        echo "Chờ xóa";
-                                        break;
-                                    case 0 :
-                                        echo "Lưu tạm";
-                                        break;
-                                    case 2 :
-                                        echo "Chờ thêm";
-                                        break;
-                                    case 1 :
-                                        echo "Chờ sửa";
-                                        break;
-                                }
-                                ?></th>
                             <th>
-                                <a href="./processing/course_update_delete_lesson.php?id=<?php echo $ls['id_lesson'] ?>&id_course=<?php echo $ls['id_course'] ?>">Xóa</a>
+                                <a href="./processing/course_update_delete_lesson.php?id_lesson_update=<?php echo $ls['id_lesson_update']?>">
+                                    hủy
+                                </a>
                             </th>
                         </tr>
                     <?php } ?>
