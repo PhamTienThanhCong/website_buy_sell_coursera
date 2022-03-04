@@ -231,6 +231,11 @@ require "../default/option.php"
             </div>
         </div>
         <!-- các bài học đã được duyệt -->
+        
+        <!-- Sửa bài học -->
+        <div class="sales-boxes" id="edit-lesson"></div>
+        <!-- Sửa bài học -->
+
         <!-- các bài học chưa được duyệt-->
         <?php
         $so_luong_bai_1_trang = 5;
@@ -319,10 +324,6 @@ require "../default/option.php"
             </div>
         </div>
         <!-- tất cả các bài học -->
-
-        <!-- Sửa bài học -->
-        <div class="sales-boxes" id="edit-lesson"></div>
-        <!-- Sửa bài học -->
 
         <?php require "../default/footer.php" ?>
     </div>
