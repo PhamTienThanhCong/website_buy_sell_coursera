@@ -92,8 +92,8 @@
                             $result = mysqli_query($connection, "select count(*) as count from course where status_course=0");
                             print("<li>Số khóa học đang chờ phê duyệt: " . mysqli_fetch_array($result)["count"]."</li>");
 
-                            $result = mysqli_query($connection, "select count(*) as count from update_course where status_lesson != 0");
-                            print("<li>Số khóa học đang chờ phê duyệt: " . mysqli_fetch_array($result)["count"]."</li>");
+                            $result = mysqli_query($connection, "select count(*) as count from update_course group by id_course");
+                            print("<li>Số Khóa học đang chờ update: " . mysqli_fetch_array($result)["count"]."</li>");
 
                             $result = mysqli_query($connection, "select count(*) as count from user");
                             print("<li>Số học sinh: " . mysqli_fetch_array($result)["count"]."</li>");
