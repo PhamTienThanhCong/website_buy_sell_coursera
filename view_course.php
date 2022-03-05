@@ -297,6 +297,6 @@ $all_comments = mysqli_query($connection, $sql);
         $(id_rate).attr('checked', true);
     })
 </script>
-<?php include "./footer.php" ?>
+<?php include "./default/footer.php" ?>
 </body>
 </html>

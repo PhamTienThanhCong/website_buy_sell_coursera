@@ -202,5 +202,5 @@
         })
     })
 </script>
-<?php include "footer.php" ?>
+<?php include "./default/footer.php" ?>
 </html>
