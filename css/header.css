@@ -207,7 +207,11 @@ footer{
     width: 100%;
     height: 210px;
     padding: 30px 100px;
+<<<<<<< HEAD
     /*background: #ebebe0;*/
+=======
+    background: #ebebe0;
+>>>>>>> f660010e83f85373b5c37bf0075c3a6a50e0c50f
     justify-content: center;
     flex-wrap: wrap;
     bottom:0px;

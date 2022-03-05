@@ -71,7 +71,12 @@ $all_comments = mysqli_query($connection, $sql);
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 </head>
 <style>
-
+.content{
+    padding-right: 15px;
+}
+body{
+    margin: 0;
+}
 </style>
 <body>
 <input id="alert-rate" type="hidden" value="<?php 
@@ -234,6 +239,7 @@ $all_comments = mysqli_query($connection, $sql);
 </div>
 <div class="tab-right"></div>
 </div>
+<?php include "./default/footer.php" ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script type="text/javascript">
@@ -297,6 +303,5 @@ $all_comments = mysqli_query($connection, $sql);
         $(id_rate).attr('checked', true);
     })
 </script>
-<?php include "./default/footer.php" ?>
 </body>
 </html>

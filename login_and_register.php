@@ -46,7 +46,7 @@ if (isset($_SESSION['id'])) {
     </div>
   </header>
   <div class="hinder"></div>
-  <div class="container-main">
+  <div class="container">
     <ul class="menu-select">
       <li class="li-header" id="home">
         <a id="click_home" href="./index.php">
