@@ -57,12 +57,16 @@ $(document).ready(function () {
             })
                 .done(function (response) {
                     if (response == 0) {
-                        $('#alert-register').html('email này không hợp lệ hoặc đã được sử dụng');
-                        toastr["error"]("email này không hợp lệ hoặc đã đuược sử dụng", "Lỗi email");
+                        $('#alert-register').html('Email này không hợp lệ hoặc đã được sử dụng');
+                        toastr["error"]("Email này không hợp lệ hoặc đã đuược sử dụng", "Lỗi email");
                         $('#alert-register').removeClass('hidden');
                     } else if (response == 1) {
                         $('#alert-register').html('số điện thoại đăng kí không hợp lệ');
                         toastr["error"]("Số điện thoại không hợp lệ", "Lỗi phone number");
+                        $('#alert-register').removeClass('hidden');
+                    } else if (response == 4) {
+                        $('#alert-register').html('Password không đủ mạnh');
+                        toastr["error"]("Password không đủ mạnh", "Lỗi Password");
                         $('#alert-register').removeClass('hidden');
                     }else if (response == 3) {
                         document.getElementById('flip').click();

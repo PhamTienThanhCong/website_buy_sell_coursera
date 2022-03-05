@@ -23,7 +23,11 @@ if (($name_user == "") || ($email_user == "") || ($phone_number_user == "") || (
 }else if(!isDigits($phone_number_user)) {
     echo "1";
     $requested = false;
-}else  {
+} else if(!preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$#",$password_user)){
+    echo "4";
+    $requested = false;
+}
+else  {
     $sql = "SELECT * FROM `user` WHERE `email_user` = '$email_user'";
     $check_email = mysqli_query($connection, $sql);
     $check_email = mysqli_fetch_array($check_email);
