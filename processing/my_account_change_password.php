@@ -15,7 +15,8 @@ if ( isset($check_user['id_user']) == false){
     echo 0 ;
 }elseif ($password==$new_password){
     echo 2 ;
-}
+} else if(!preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$#",$new_password)){
+    echo "4";}
 else{
     $sql = "UPDATE
                 `user`

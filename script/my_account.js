@@ -85,6 +85,8 @@ $(document).ready(function () {
                         toastr["error"]("Mật khẩu không đúng", "Lỗi");
                     } else if (response == 2) {
                         toastr["error"]("Bạn vừa nhập mật khẩu cũ", "Lỗi");
+                    }else if (response == 4) {
+                        toastr["error"]("Mật khẩu không đủ mạnh", "Lỗi");
                     } else if (response == 1) {
                         toastr["success"]("Thay đổi mật khẩu thành công", "Thành công");
                         $('#old-password').val('');
