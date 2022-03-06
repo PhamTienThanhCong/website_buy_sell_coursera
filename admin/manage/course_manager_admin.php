@@ -159,7 +159,6 @@ require "../check_admin/check_admin_pro_1.php";
                             <th>Tác giả</th>
                             <th>Số lượng</th>
                             <th>Xem chi tiết</th>
-                            <th>Chỉnh sửa</th>
                         </tr>
                         <?php foreach ($courses3 as $index => $course) { ?>
                             <tr>
@@ -176,17 +175,8 @@ require "../check_admin/check_admin_pro_1.php";
                                     <?php echo $course['number_course'] ?>
                                 </th>
                                 <th>
-                                    <a href="">
+                                    <a href="./course_manager_detail_admin.php?id=<?php echo $course['id_course'] ?>">
                                         Xem
-                                    </a>
-                                </th>
-                                <th>
-                                    <a href="" class="btn-comfirm">
-                                        Cập nhập
-                                    </a>
-                                   
-                                    <a href="" class="btn-comfirm" style="background-color: #cc0000">
-                                        Xóa
                                     </a>
                                 </th>
                             </tr>
