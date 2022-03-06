@@ -17,6 +17,11 @@ if (preg_match("/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/",$ph
 }
 $address_admin = htmlspecialchars($_POST['address_admin']);
 $password = htmlspecialchars($_POST['password']);
+if(!preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$#",$password)){
+    $_SESSION['alert'] = "Mật khẩu quá yếu";
+    header("Location: ../register.php");
+    exit();
+}
 $image = $_FILES['image'];
 $lever = 1;
 $status_admin = 0;
