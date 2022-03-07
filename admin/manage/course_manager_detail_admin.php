@@ -243,7 +243,7 @@ require "../default/option.php"
                                     Cập nhập
                                 </a>
 
-                                <a href="" class="btn-comfirm" style="background-color: #cc0000">
+                                <a href="./processing/course_update_delete_lesson.php?id_lesson_update=<?php echo $ls['id_lesson_update']?>" class="btn-comfirm" style="background-color: #cc0000">
                                     Xóa
                                 </a>
                             </th>
