@@ -22,7 +22,7 @@ else{
             SET
                 `password` = '$new_password'
             WHERE 
-                (`id_admin` = '$id_user')";
+                (`id_admin` = '$id_admin')";
     mysqli_query($connection, $sql);
     echo 1;
 }
