@@ -47,7 +47,7 @@ require "../default/option.php"
     <div class="home-content">
         <div class="sales-boxes">
             <div class="recent-sales box">
-                <div class="title">Quản lý nhân sự</div>
+                <div class="title">Quản lý học viên</div>
                 <br>
 
                 <br>
