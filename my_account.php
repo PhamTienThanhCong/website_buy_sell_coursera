@@ -99,7 +99,7 @@
         </form>
         
         <form id="my-password" method="post" action="./processing/my_account_change_password.php">
-            <h3 style="display: inline">Đổi mật khẩu và tài khoản ngân hàng</h3>
+            <h3 style="display: inline">Đổi mật khẩu</h3>
             <br><br>
             <label for="">Mật khẩu cũ:</label>
             <input id="old-password" class="input-in4 input-replace" type="password" name="password">

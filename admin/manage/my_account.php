@@ -79,6 +79,17 @@
     #btn:hover {
         background-color: #004080;
     }
+    .btn-danger{
+        background-color: #ff6666;
+    }
+    #my-password{
+        /* transform: translateY(-170px); */
+        /* margin-left: 50px; */
+        width: 490px;
+        height: 200px;
+        display: inline-block;
+        display: none;
+    }
 </style>
 
 <body>
@@ -138,6 +149,21 @@
                                     <input type='hidden' id='img' name='image'>
                                     <br>
                                     <button id="btn" type="button" onclick="edit()">Sửa</button>
+                                    <button id="change-danger" class="btn btn-danger" type="button">Thay đổi mất khẩu</button>
+                                </form>
+                                <form id="my-password" method="post" action="./processing/my_account_change_password.php">
+                                    <h3 style="display: inline">Đổi mật khẩu</h3>
+                                    <br><br>
+                                    <label for="">Mật khẩu cũ:</label>
+                                    <input id="old-password" class="input-in4 input-replace" type="password" name="password">
+                                    <br>
+                                    <label for="">Mật khẩu mới</label>
+                                    <input id="new-password" class="input-in4 input-replace" type="password" name="new_password">
+                                    <br>
+                                    <label for="">Nhập lại mật khẩu:</label>
+                                    <input id="confirm-password" class="input-in4 input-replace" type="password" name="new_password">
+                                    <br>
+                                    <button class="btn btn-danger">Lưu mật khẩu mới</button>
                                 </form>
                             </div>
 
@@ -147,7 +173,8 @@
                 <?php require "../default/footer.php" ?>
             </div>
     </section>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script type="text/javascript" src="./script/js_chung.js"></script>
     <script type="text/javascript" src="./script/my_account.js"></script>
 
