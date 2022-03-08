@@ -249,14 +249,14 @@ require "../default/option.php"
                             </th>
                         </tr>
                     <?php } ?>
+                </table>
             </div>
         </div>
+        <?php require "../default/footer.php" ?>
     </div>
 </section>
     <!-- Sửa bài học -->
 <?php } ?>
-
-<?php require "../default/footer.php" ?>
 <script type="text/javascript" src="./script/course_manager_detail_admin.js"></script>
 </body>
 
