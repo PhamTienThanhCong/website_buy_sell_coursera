@@ -1,13 +1,12 @@
 <?php
-session_start();
 require "../../check_admin/check_admin_2.php";
-$id_user = htmlspecialchars($_SESSION['id']);
+$id_admin = htmlspecialchars($_SESSION['id']);
 $password = htmlspecialchars($_POST['password']);
 $new_password = htmlspecialchars($_POST['new_password']);
 
 require "../../../public/connect_sql.php";
 
-$sql = "SELECT * FROM `admin` WHERE (`id_admin` = '$id_user') AND (`password` = '$password')";
+$sql = "SELECT * FROM `admin` WHERE (`id_admin` = '$id_admin') AND (`password` = '$password')";
 $check_user = mysqli_query($connection, $sql);
 $check_user = mysqli_fetch_array($check_user);
 
@@ -23,7 +22,7 @@ else{
             SET
                 `password` = '$new_password'
             WHERE 
-                (`id_admin` = '$id_user')";
+                (`id_admin` = '$id_admin')";
     mysqli_query($connection, $sql);
     echo 1;
 }

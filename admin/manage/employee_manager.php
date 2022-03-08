@@ -122,13 +122,13 @@
                               <button type="submit" >Reset password</button>
                           </form>
                           <br>
-                          <?php if($st['token_user'] != "") { ?>
+                          <!-- <?php if($st['token_user'] != "") { ?>
                               <form class="form-reset-token" method="post" action="./processing/reset_password_admin.php">
                                   <input type="hidden" name="type" value="1">
                                   <input class="email" type="hidden" name="email" value="<?php echo $st['email_admin'] ?>">
                                   <button type="submit" >Clear token</button>
                               </form>
-                          <?php } ?>
+                          <?php } ?> -->
                       </th>
                   </tr>
                 <?php } ?>
