@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../default/style.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <style>
@@ -88,7 +89,7 @@
         width: 490px;
         height: 200px;
         display: inline-block;
-        display: none;
+        /* display: none; */
     }
 </style>
 
