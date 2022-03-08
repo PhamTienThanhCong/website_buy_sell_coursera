@@ -5,7 +5,7 @@ $id_user = htmlspecialchars($_SESSION['id']);
 $password = htmlspecialchars($_POST['password']);
 $new_password = htmlspecialchars($_POST['new_password']);
 
-require "../public/connect_sql.php";
+require "../../../public/connect_sql.php";
 
 $sql = "SELECT * FROM `admin` WHERE (`id_admin` = '$id_user') AND (`password` = '$password')";
 $check_user = mysqli_query($connection, $sql);
@@ -23,7 +23,7 @@ else{
             SET
                 `password` = '$new_password'
             WHERE 
-                (`id_user` = '$id_user')";
+                (`id_admin` = '$id_user')";
     mysqli_query($connection, $sql);
     echo 1;
 }
