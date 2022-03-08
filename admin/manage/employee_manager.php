@@ -71,6 +71,7 @@
                   <th>địa chỉ</th>
                   <th>Trạng thái</th>
                   <th>Chức năng</th>
+                    <th>Reset mật khẩu</th>
                 </tr>
                 <?php foreach ($nhan_vien as $nv) { ?>
                   <tr>
@@ -114,6 +115,21 @@
                         <a href="./processing/employee_comfirm.php?id=<?php echo $nv['id_admin'] ?>&type=2">Gỡ cấm !</a>
                       <?php } ?>
                     </th>
+                      <th>
+                          <form class="form-reset-password" method="post" action="./processing/reset_password_admin.php">
+                              <input type="hidden" name="type" value="0">
+                              <input class="email" type="hidden" name="email" value="<?php echo $st['email_admin'] ?>">
+                              <button type="submit" >Reset password</button>
+                          </form>
+                          <br>
+                          <?php if($st['token_user'] != "") { ?>
+                              <form class="form-reset-token" method="post" action="./processing/reset_password_admin.php">
+                                  <input type="hidden" name="type" value="1">
+                                  <input class="email" type="hidden" name="email" value="<?php echo $st['email_admin'] ?>">
+                                  <button type="submit" >Clear token</button>
+                              </form>
+                          <?php } ?>
+                      </th>
                   </tr>
                 <?php } ?>
               </table>
