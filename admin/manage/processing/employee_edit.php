@@ -3,26 +3,44 @@ require "../../check_admin/check_admin_2.php";
 require "../../../public/connect_sql.php";
 $name_admin = htmlspecialchars($_POST['name_admin']);
 $email_admin = $_POST['email_admin'];
+$password = $_POST['password'];
+$sql = "SELECT
+            COUNT(*) as `check`
+        FROM
+            `admin`
+        WHERE
+            `id_admin` = '{$_SESSION['id']}' AND `password` = '{$password}'";
+$check_password = mysqli_query($connection, $sql);
+$check_password = mysqli_fetch_array($check_password);
+if ($check_password['check'] == '0') {
+    $_SESSION['alert'] = "2";
+    header("Location: ../my_account.php");
+    exit();
+}
+
 if (!filter_var($email_admin, FILTER_VALIDATE_EMAIL)) {
-    $_SESSION['alert'] = "Email không hợp lệ";
+    $_SESSION['alert'] = "0";
     header("Location: ../my_account.php");
     exit();
 }
 $sql = "SELECT
-            *
+            COUNT(*) as `check`
         FROM
             `admin`
         WHERE
-            `admin_user` = '$email_admin'";
+            `email_admin` = '$email_admin'";
+
 $check_email = mysqli_query($connection, $sql);
-if(mysqli_num_rows($check_email)!=0){
-    $_SESSION['alert'] = "Email đã được sử dụng";
+$check_email = mysqli_fetch_array($check_email);
+
+if($check_email['check']!=0){
+    $_SESSION['alert'] = "-1";
     header("Location: ../my_account.php");
     exit();
 }
 $phone_number_admin = $_POST['phone_number_admin'];
 if (preg_match("/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/",$phone_number_admin)!=1) {
-    $_SESSION['alert'] = "Số điện thoại không hợp lệ";
+    $_SESSION['alert'] = "1";
     header("Location: ../my_account.php");
     exit();
 }
@@ -55,7 +73,7 @@ $sql = "UPDATE `admin` SET
     WHERE `id_admin` = $id";
 $_SESSION['user'] = $name_admin;
 $_SESSION['image'] = $fileImageName;
-
+$_SESSION['alert'] = '3';
 mysqli_query($connection, $sql);
 mysqli_close($connection);
 header('Location: ../my_account.php');

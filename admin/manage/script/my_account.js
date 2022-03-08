@@ -16,10 +16,23 @@ $(document).ready(function () {
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     }
+    var alert = document.getElementById('value-response').value;
+    if (alert == '-1'){
+        toastr["error"]("Email của bạn bị trùng", "Trùng email");
+    }else if (alert == '0'){
+        toastr["error"]("Email của bạn không hợp lệ", "Lỗi email");
+    }else if (alert == '1'){
+        toastr["error"]("Số điện thoại sai định dạng của Việt Nam", "Sai Số điện thoại");
+    }else if (alert == '2'){
+        toastr["error"]("Mật khẩu bạn nhập không đúng", "Sai mật khẩu");
+    }else if (alert == '3'){
+        toastr["success"]("Thay đổi thông tin thành công", "Thành Công");
+    }
 });
 function edit() {
     var a = document.getElementById("user-in4").innerHTML;
     a = a.replaceAll("readonly=", "");
+    a = a.replaceAll("hidden-lable", "");
     a = a.replace('<input type="hidden" id="img" name="image">', '<label for="img">Ảnh mới: </label><input type="file" id="img" name="image" onchange="loadFile(event)">')
     a = a.replace('<button id="btn" type="button" onclick="edit()">Sửa</button>', '<button id="btn">Lưu lại</button>')
     document.getElementById("user-in4").innerHTML = a;
@@ -57,7 +70,7 @@ $(document).ready(function () {
     }
     $('#change-danger').click(function () {
         document.getElementById('my-password').style.display = 'inline-block';
-        $('#change-danger').css('display', 'none');
+        document.getElementById('change-danger').style.display = 'none';
     })
     $('#my-password').submit(function () {
         event.preventDefault();
