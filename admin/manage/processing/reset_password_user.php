@@ -2,7 +2,11 @@
 $email = $_POST['email'];
 $type = $_POST['type'];
 require "../../../public/connect_sql.php";
-
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+    ?>
+    Email không hợp lệ
+    <button><a href="../student_manager_admin.php">Back</a></button>>
+    <?php
 if ($type == 1){
     $sql ="UPDATE
                 `user`
