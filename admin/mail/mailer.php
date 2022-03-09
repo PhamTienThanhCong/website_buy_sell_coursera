@@ -26,7 +26,7 @@ function mail_send_by_cong($email,$name,$title,$content){
         //Server settings
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Mailer = "smtp";
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+        // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
         $mail->Username   = 'grup59j2school@gmail.com';                     //SMTP username

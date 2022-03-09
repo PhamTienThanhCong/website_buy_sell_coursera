@@ -25,10 +25,11 @@ if ($check['check'] or $_SESSION['lever'] == 2) {
     $course = $in4['name_course'];
     $title = "Thông báo về việc hủy thay đổi bài học";
     $content = "Chào $user !<br> Chúng tôi đã hủy yêu cầu phê duyệt bài '$lesson' trong khoá học '$course' của bạn. Đề nghị liên hệ để giải quyết";
-    mail_send_by_cong($in4['email_admin'], $user, $title, $content);
+    // mail_send_by_cong($in4['email_admin'], $user, $title, $content);
     $sql = "DELETE FROM `update_course` WHERE `id_lesson_update` = '$id_lesson_update'";
     mysqli_query($connection, $sql);
-    header("Location: ../course_manager_detail_admin.php");
+    // header("Location: ../course_manager_detail_admin.php");
+    echo "0";
     exit();
 
 }

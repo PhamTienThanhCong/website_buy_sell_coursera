@@ -8,6 +8,7 @@ require "../check_admin/check_admin_pro_1.php";
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../default/style.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <link rel="stylesheet" href="./css/course_manager_detail.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -215,9 +216,9 @@ require "../default/option.php"
                             <th>
                                 <?php echo $ls['name_lesson'] ?>
                             </th>
-                            <th id="video<?php echo $index + 1 ?>">
+                            <th id="video<?php echo $index + 100 ?>">
                                 <a class="button-show-video btn-show-video"
-                                   onclick="showVideo('<?php echo $ls['link'] ?>','<?php echo $ls['type_link'] ?>','<?php echo $index + 1 ?>')">Xem
+                                   onclick="showVideo('<?php echo $ls['link'] ?>','<?php echo $ls['type_link'] ?>','<?php echo $index + 100 ?>')">Xem
                                     ở đây</a>
                                 <br>
                                 <br>
@@ -239,13 +240,11 @@ require "../default/option.php"
                                 ?>
                             </th>
                             <th>
-                                <a href="" class="btn-comfirm">
-                                    Cập nhập
-                                </a>
-
-                                <a href="./processing/course_update_delete_lesson.php?id_lesson_update=<?php echo $ls['id_lesson_update']?>" class="btn-comfirm" style="background-color: #cc0000">
-                                    Xóa
-                                </a>
+                                
+                                <button class="btn-comfirm btn-update" value="<?php echo $ls['id_lesson_update']?>">Cập nhập</button>
+                                <br>
+                                <button class="btn-comfirm btn-delete" value="<?php echo $ls['id_lesson_update']?>" style="background-color: #cc0000">Xóa</button>
+                            
                             </th>
                         </tr>
                     <?php } ?>
@@ -257,6 +256,8 @@ require "../default/option.php"
 </section>
     <!-- Sửa bài học -->
 <?php } ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script type="text/javascript" src="./script/course_manager_detail_admin.js"></script>
 </body>
 
