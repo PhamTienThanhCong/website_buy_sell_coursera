@@ -205,3 +205,13 @@
         padding: 8px 0;
         border-radius: 8px;
     }
+
+    .btn-delete{
+        padding: 7px 20px;
+        border: none;
+        background-color: #cc0000;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 6px;
+    }
