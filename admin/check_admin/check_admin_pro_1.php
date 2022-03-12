@@ -4,4 +4,4 @@
         if ($_SESSION['lever'] == 1){
             header('Location: ../index.php');
         }      
-    }
+    }require "./check_token.php";

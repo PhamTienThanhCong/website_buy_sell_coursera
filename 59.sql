@@ -36,7 +36,8 @@ CREATE TABLE `admin` (
   `image` varchar(150) DEFAULT NULL,
   `status_admin` int(11) NOT NULL,
   `lever` int(11) NOT NULL,
-  `password` varchar(150) NOT NULL
+  `password` varchar(150) NOT NULL,
+  `token_admin` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

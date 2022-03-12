@@ -6,17 +6,18 @@
 
 - #### 1. Bảng admin
 
-| #   | Tên | Kiểu dữ liệu | khóa | Chú Thích                                                                         |
-|-----| --- | --- | --- |-----------------------------------------------------------------------------------|
-| 1   | id_admin | int | Khóa chính | dữ liệu tự động tăng                                                              |
-| 2   | name_admin | varchar(35) | không | ghi tên của admin                                                                 |
-| 3   | email_admin | varchar(150) | không | kiểu unique                                                                       |
-| 4   | phone_number_admin | varchar(15) | không | kiểu unique                                                                       |
-| 5   | address_admin | varchar(200) | không | ghi địa chỉ của admin                                                             |
-| 6   | image | varchar(150) | không | ghi tên ảnh, mặc định là null                                                     |
-| 7   | status_admin | int | không | ghi trạng thái admin <br> với 0 là chờ xác nhận, 1 đã xác nhận và -1 là đang chặn |
-| 8   | lever | int | không | ghi lever admin <br> với 0 là nhân viên và 1 là quản lý                           |
-| 9   | password | varchar(150) | không | là mật khẩu đăng nhập                                                             |
+| #   | Tên                | Kiểu dữ liệu | khóa | Chú Thích                                                                                                                   |
+|-----|--------------------| --- | --- |-----------------------------------------------------------------------------------------------------------------------------|
+| 1   | id_admin           | int | Khóa chính | dữ liệu tự động tăng                                                                                                        |
+| 2   | name_admin         | varchar(35) | không | ghi tên của admin                                                                                                           |
+| 3   | email_admin        | varchar(150) | không | kiểu unique                                                                                                                 |
+| 4   | phone_number_admin | varchar(15) | không | kiểu unique                                                                                                                 |
+| 5   | address_admin      | varchar(200) | không | ghi địa chỉ của admin                                                                                                       |
+| 6   | image              | varchar(150) | không | ghi tên ảnh, mặc định là null                                                                                               |
+| 7   | status_admin       | int | không | ghi trạng thái admin <br> với 0 là chờ xác nhận, 1 đã xác nhận và -1 là đang chặn                                           |
+| 8   | lever              | int | không | ghi lever admin <br> với 0 là nhân viên và 1 là quản lý                                                                     |
+| 9   | password           | varchar(150) | không | là mật khẩu đăng nhập                                                                                                       |
+| 10  | token_admin           | text | không | là token đảm bảo chỉ có 1 thiết bị đăng nhập,<br> có thể vô hiệu đăng nhập từ admin pro, <br> hoặc dùng để lấy lại mật khẩu |
 
 - #### 2. Bảng user
 

@@ -17,14 +17,17 @@ WHERE (`email_admin` = '$email') and (`password` = '$password')";
 $admin = mysqli_query($connection,$sqlCheck);
 $admin = mysqli_fetch_array($admin);
 
-mysqli_close($connection);
-
 if (isset($admin['id_admin'])){
     if($admin['status_admin'] == 1){
         $_SESSION['user'] = $admin['name_admin'];
         $_SESSION['id'] = $admin['id_admin'];
         $_SESSION['lever'] = $admin['lever'];
         $_SESSION['image'] = $admin['image'];
+        $bytes = random_bytes(20);
+        $token = bin2hex($bytes);
+        $sql = "UPDATE `admin` SET `token_admin` = '$token' WHERE `id_admin` = '{$admin['id_admin']}'";
+        mysqli_query($connection, $sql);
+        $_SESSION['token']=$token;
     }elseif($admin['status_admin'] == -1){
         $_SESSION['alert'] = "Tài khoản của bạn đang bị cấm";
     }else{
