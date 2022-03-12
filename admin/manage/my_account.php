@@ -46,18 +46,18 @@
     }
 
     #user-in4 {
-        width: 70%;
+        width: 470px;
     }
 
-    label {
+    #user-in4 label {
         margin-left: 30px;
         margin-right: 10px;
         display: inline-block;
         width: 106px;
     }
 
-    input {
-        width: 70%;
+    #user-in4 input {
+        width: 310px;
         outline: none;
         border: none;
         height: 30px;
@@ -65,7 +65,7 @@
         margin-bottom: 6px;
     }
 
-    #btn {
+    #btn,.btn {
         /* transform: translateY(7px); */
         margin-left: 30px;
         padding: 7px 20px;
@@ -81,20 +81,49 @@
     #btn:hover {
         background-color: #004080;
     }
-    .btn-danger{
-        background-color: #ff6666;
+    .btn{
+        margin-top: 20px;
+        background-color: #0066cc;
+        margin-left: 0px;
     }
     #my-password{
         /* transform: translateY(-170px); */
-        /* margin-left: 50px; */
-        width: 490px;
+        width: 330px;
         height: 200px;
         display: inline-block;
-        /* display: none; */
+        display: none;
+    }
+    #change-danger{
+        margin-top: 0px;
+        margin-left: 30px;
+        background-color:#004080
+    }
+    .input-in4{
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #004080;
+        width: 180px;
+        height: 30px;
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+    #my-password label {
+        margin-right: 10px;
+        display: inline-block;
+        width: 135px;
+    }
+    .hidden-lable{
+        display: none;
     }
 </style>
 
 <body>
+    <input type="hidden" id="value-response" value="<?php
+                                    if (isset($_SESSION['alert']) ) {
+                                        echo $_SESSION['alert'];
+                                        unset($_SESSION['alert']);
+                                    }
+                                    ?>">
     <?php
     require "../default/option.php"
     ?>
@@ -128,14 +157,6 @@
 
 
                                 <form id="user-in4" method="post" action="./processing/employee_edit.php" enctype="multipart/form-data">
-                                    <?php
-                                    if (empty($_SESSION['alert']) == false) {
-
-                                        echo $_SESSION['alert'];
-                                        unset($_SESSION['alert']);
-                                        echo "<br>";
-                                    }
-                                    ?>
                                     <label for="name">Tên: </label>
                                     <input type="text" id="name" name="name_admin" value="<?php echo $admin['name_admin'] ?>" readonly>
                                     <br>
@@ -148,6 +169,10 @@
                                     <label for="address">Địa chỉ: </label>
                                     <input type="text" id="address" name="address_admin" value="<?php echo $admin['address_admin'] ?>" readonly>
                                     <br>
+                                    <div class="hidden-lable">
+                                        <label for="phone_number">password</label>
+                                        <input style="border-bottom: 1px solid #004080;" type="password" id="password" name="password" readonly required>
+                                    </div>
                                     <input type='hidden' id='img' name='image'>
                                     <br>
                                     <button id="btn" type="button" onclick="edit()">Sửa</button>
@@ -157,13 +182,13 @@
                                     <h3 style="display: inline">Đổi mật khẩu</h3>
                                     <br><br>
                                     <label for="">Mật khẩu cũ:</label>
-                                    <input id="old-password" class="input-in4 input-replace" type="password" name="password">
+                                    <input id="old-password" class="input-in4" type="password" name="password">
                                     <br>
                                     <label for="">Mật khẩu mới</label>
-                                    <input id="new-password" class="input-in4 input-replace" type="password" name="new_password">
+                                    <input id="new-password" class="input-in4" type="password" name="new_password">
                                     <br>
                                     <label for="">Nhập lại mật khẩu:</label>
-                                    <input id="confirm-password" class="input-in4 input-replace" type="password" name="new_password">
+                                    <input id="confirm-password" class="input-in4" type="password" name="new_password">
                                     <br>
                                     <button class="btn btn-danger">Lưu mật khẩu mới</button>
                                 </form>

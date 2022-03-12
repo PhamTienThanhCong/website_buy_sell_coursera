@@ -48,3 +48,51 @@ function showVideo(link,typeLink,number){
       document.getElementById(idLink).innerHTML = `<iframe width="330" height="190" src="`+fullLink+`" title="YouTube video player" frameborder="0" allowfullscreen></iframe>`
   }
 }
+
+$(document).ready(function () {
+  toastr.options = {
+    "closeButton": false,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": true,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }
+  $(".btn-update").click(function(){
+    var id_lesson_update = this.value
+    var deleteThis = $(this).parent().parent();
+    $.ajax({
+      type: "POST",
+      url: "./processing/accept_change.php",
+      data: {id_lesson_update},
+      dataType: "html",
+      success: function (response) {
+        toastr["success"]("Cập nhập bài học thành công", "Thành công");
+        deleteThis.remove();
+      }
+    });
+  })
+  $(".btn-delete").click(function(){
+    var id_lesson_update = this.value
+    var deleteThis = $(this).parent().parent();
+    $.ajax({
+      type: "GET",
+      url: "./processing/course_update_delete_lesson.php",
+      data: {id_lesson_update},
+      dataType: "html",
+      success: function (response) {
+        toastr["success"]("Xóa bài học thành công", "Thành công");
+        deleteThis.remove();
+      }
+    });
+  })
+});
