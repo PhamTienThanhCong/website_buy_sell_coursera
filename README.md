@@ -8,6 +8,7 @@
 - Người hướng dẫn: Nguyễn Nam Long
 - Người thực hiện:
   - Phạm Tiến Thành Công
+  - Phạm Bá Thắng
 
 - Chạy thử tại [đây]
 - [Phiên bản nâng cấp]
